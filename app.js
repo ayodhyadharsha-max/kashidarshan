@@ -351,23 +351,33 @@ document.addEventListener('DOMContentLoaded', () => {
   if (devoteeCarousel) {
     let slideInterval;
     const slideDelay = 3000; // 3 seconds
-    const cardWidth = 300; // approximate width of card + gap
+
+    const getCardWidth = () => {
+      const firstCard = devoteeCarousel.firstElementChild;
+      if (!firstCard) return 162;
+      const style = window.getComputedStyle(devoteeCarousel);
+      const gap = parseInt(style.gap) || 12;
+      return firstCard.getBoundingClientRect().width + gap;
+    };
 
     const nextSlide = () => {
       // If user is dragging, skip auto-slide
       if (devoteeCarousel.style.cursor === 'grabbing') return;
 
       const maxScrollLeft = devoteeCarousel.scrollWidth - devoteeCarousel.clientWidth;
-      let targetScroll = devoteeCarousel.scrollLeft + cardWidth;
+      const step = getCardWidth();
 
-      if (targetScroll >= maxScrollLeft + 15) {
-        // Reset to start if reached the end
+      // If we are already at or close to the end, reset to the start
+      if (devoteeCarousel.scrollLeft >= maxScrollLeft - 10) {
         devoteeCarousel.scrollTo({
           left: 0,
           behavior: 'smooth'
         });
       } else {
-        // Slide to next card
+        let targetScroll = devoteeCarousel.scrollLeft + step;
+        if (targetScroll > maxScrollLeft) {
+          targetScroll = maxScrollLeft;
+        }
         devoteeCarousel.scrollTo({
           left: targetScroll,
           behavior: 'smooth'
