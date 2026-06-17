@@ -25,3 +25,17 @@ header.scrolled nav {
   background-color: #FF6B00 !important;
   color: #ffffff !important;
 }
+.devotee-batch-card {
+  flex-shrink: 0 !important;
+  width: 260px !important;
+  height: 175px !important;
+  position: relative !important;
+  overflow: hidden !important;
+  border-radius: 1rem !important;
+}
+@media (min-width: 640px) {
+  .devotee-batch-card {
+    width: 320px !important;
+    height: 215px !important;
+  }
+}
