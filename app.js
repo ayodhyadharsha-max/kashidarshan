@@ -9,43 +9,46 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('header');
   const scrollThreshold = 50;
 
-  const handleScroll = () => {
-    if (window.scrollY > scrollThreshold) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
-    }
-  };
+  if (header) {
+    const handleScroll = () => {
+      if (window.scrollY > scrollThreshold) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    };
 
-  window.addEventListener('scroll', handleScroll, { passive: true });
-  // Trigger immediately in case page loads scrolled down
-  handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Trigger immediately in case page loads scrolled down
+    handleScroll();
+  }
 
-  // 2. Mobile Menu Toggle
+  // 2. Mobile Menu Toggle (Safe Guarded)
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
-  const mobileLinks = mobileNavOverlay.querySelectorAll('a');
+  const mobileLinks = mobileNavOverlay ? mobileNavOverlay.querySelectorAll('a') : [];
 
-  const toggleMobileMenu = () => {
-    const isOpen = mobileNavOverlay.classList.toggle('open');
-    mobileMenuBtn.innerHTML = isOpen 
-      ? '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"></line><line x1="6" x2="18" y1="6" y2="18"></line></svg>'
-      : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>';
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-  };
+  if (mobileMenuBtn && mobileNavOverlay) {
+    const toggleMobileMenu = () => {
+      const isOpen = mobileNavOverlay.classList.toggle('open');
+      mobileMenuBtn.innerHTML = isOpen 
+        ? '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"></line><line x1="6" x2="18" y1="6" y2="18"></line></svg>'
+        : '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>';
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    };
 
-  mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    mobileMenuBtn.addEventListener('click', toggleMobileMenu);
 
-  mobileLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      if (mobileNavOverlay.classList.contains('open')) {
-        toggleMobileMenu();
-      }
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if (mobileNavOverlay.classList.contains('open')) {
+          toggleMobileMenu();
+        }
+      });
     });
-  });
+  }
 
   // 3. Accordion Exclusive Open (For Detailed Itineraries and FAQs)
-  // Ensure that when an itinerary details block opens, others in that group close.
   const itineraries = document.querySelectorAll('#itinerary-accordions details');
   itineraries.forEach(detail => {
     detail.addEventListener('toggle', (e) => {
@@ -72,36 +75,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 4. Testimonials Drag / Swipe scroll logic
+  // 4. Testimonials Drag / Swipe scroll logic (Safe Guarded)
   const carousel = document.querySelector('.reviews-carousel-container');
-  let isDown = false;
-  let startX;
-  let scrollLeft;
+  if (carousel) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
 
-  carousel.addEventListener('mousedown', (e) => {
-    isDown = true;
-    carousel.style.cursor = 'grabbing';
-    startX = e.pageX - carousel.offsetLeft;
-    scrollLeft = carousel.scrollLeft;
-  });
+    carousel.addEventListener('mousedown', (e) => {
+      isDown = true;
+      carousel.style.cursor = 'grabbing';
+      startX = e.pageX - carousel.offsetLeft;
+      scrollLeft = carousel.scrollLeft;
+    });
 
-  carousel.addEventListener('mouseleave', () => {
-    isDown = false;
-    carousel.style.cursor = 'grab';
-  });
+    carousel.addEventListener('mouseleave', () => {
+      isDown = false;
+      carousel.style.cursor = 'grab';
+    });
 
-  carousel.addEventListener('mouseup', () => {
-    isDown = false;
-    carousel.style.cursor = 'grab';
-  });
+    carousel.addEventListener('mouseup', () => {
+      isDown = false;
+      carousel.style.cursor = 'grab';
+    });
 
-  carousel.addEventListener('mousemove', (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - carousel.offsetLeft;
-    const walk = (x - startX) * 2; // Speed multiplier
-    carousel.scrollLeft = scrollLeft - walk;
-  });
+    carousel.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - carousel.offsetLeft;
+      const walk = (x - startX) * 2; // Speed multiplier
+      carousel.scrollLeft = scrollLeft - walk;
+    });
+  }
 
   // 5. Booking Lead Capture Form & WhatsApp Redirection
   const bookingForm = document.getElementById('lead-booking-form');
