@@ -116,6 +116,23 @@ document.addEventListener('DOMContentLoaded', () => {
     dateInput.min = today;
   }
 
+  // Handle flexible date checkbox
+  const flexibleDateCheckbox = document.getElementById('flexible-date-checkbox');
+  if (flexibleDateCheckbox && dateInput) {
+    flexibleDateCheckbox.addEventListener('change', () => {
+      if (flexibleDateCheckbox.checked) {
+        dateInput.value = '';
+        dateInput.disabled = true;
+        dateInput.required = false;
+        dateInput.style.opacity = '0.5';
+      } else {
+        dateInput.disabled = false;
+        dateInput.required = true;
+        dateInput.style.opacity = '1';
+      }
+    });
+  }
+
   // Pre-fill package selection if user clicks booking button in cards
   window.selectPackage = (packageName) => {
     const packageSelect = document.getElementById('package-select');
@@ -137,6 +154,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const fullNameEl = document.getElementById('full-name');
       const phoneNumberEl = document.getElementById('phone-number');
       const travelDateEl = document.getElementById('travel-date');
+      const flexibleDateCheckboxEl = document.getElementById('flexible-date-checkbox');
       const selectedPackageEl = document.getElementById('package-select');
       const emailEl = document.getElementById('email-address');
       const notesEl = document.getElementById('notes');
@@ -144,12 +162,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const fullName = fullNameEl ? fullNameEl.value.trim() : '';
       const phoneNumber = phoneNumberEl ? phoneNumberEl.value.trim() : '';
       const travelDate = travelDateEl ? travelDateEl.value : '';
+      const isFlexibleDate = flexibleDateCheckboxEl ? flexibleDateCheckboxEl.checked : false;
       const selectedPackage = selectedPackageEl ? selectedPackageEl.value : '';
       const email = emailEl ? emailEl.value.trim() : '';
       const notes = notesEl ? notesEl.value.trim() : '';
 
       // Simple Validation
-      if (!fullName || !phoneNumber || !travelDate || !selectedPackage) {
+      if (!fullName || !phoneNumber || (!isFlexibleDate && !travelDate) || !selectedPackage) {
         alert('कृपया सभी आवश्यक फ़ील्ड भरें ताकि हम आपकी यात्रा की व्यवस्था कर सकें।');
         return;
       }
@@ -160,13 +179,18 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // Generate WhatsApp message template
-      const formattedDate = new Date(travelDate).toLocaleDateString('en-IN', {
-        day: 'numeric',
-        month: 'long',
-        year: 'numeric'
-      });
+      let formattedDate = '';
+      if (isFlexibleDate) {
+        formattedDate = 'Flexible / Decide Later';
+      } else {
+        formattedDate = new Date(travelDate).toLocaleDateString('en-IN', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric'
+        });
+      }
 
-      let whatsappMessage = `नमस्ते काशी दर्शन टीम! \n\nमैं अपनी पवित्र यात्रा की बुकिंग के लिए पूछताछ करना चाहता हूँ। विवरण नीचे दिया गया है:\n\n🚩 नाम: ${fullName}\n📞 संपर्क नंबर: ${phoneNumber}\n📦 टूर पैकेज: ${selectedPackage}\n📅 यात्रा की तिथि: ${formattedDate}`;
+      let whatsappMessage = `नमस्ते काशी दर्शन टीम! 🙏\n\nमैं ₹999 की टोकन राशि के साथ टूर पैकेज का मूल्य लॉक करना चाहता हूँ। विवरण नीचे दिया गया है:\n\n🚩 नाम: ${fullName}\n📞 संपर्क नंबर: ${phoneNumber}\n📦 टूर पैकेज: ${selectedPackage}\n📅 यात्रा की तिथि: ${formattedDate}`;
 
       if (email) {
         whatsappMessage += `\n📧 ईमेल: ${email}`;
@@ -175,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
         whatsappMessage += `\n📝 विशेष अनुरोध: ${notes}`;
       }
 
-      whatsappMessage += `\n\nकृपया मुझे इस यात्रा का विवरण और अंतिम बजट (Quote) जल्द से जल्द साझा करें। धन्यवाद!`;
+      whatsappMessage += `\n\nकृपया मुझे बुकिंग टोकन राशि भेजने के लिए क्यूआर कोड / खाता विवरण साझा करें। धन्यवाद!`;
 
       // Encode message text
       const encodedText = encodeURIComponent(whatsappMessage);
