@@ -17,3 +17,11 @@ header.scrolled {
 header.scrolled nav {
   height: 4rem !important;
 }
+.btn-dark-pill {
+  background-color: #1A0E07 !important;
+  color: #ffffff !important;
+}
+.btn-dark-pill:hover {
+  background-color: #FF6B00 !important;
+  color: #ffffff !important;
+}
