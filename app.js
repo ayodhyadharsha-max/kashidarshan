@@ -346,51 +346,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Auto-slide logic for Devotee Batches carousel (card by card)
+  // Auto-slide logic for Devotee Batches carousel (Smooth Continuous Scroll / Marquee)
   const devoteeCarousel = document.getElementById('devotee-batches-carousel');
   if (devoteeCarousel) {
-    let slideInterval;
-    const slideDelay = 3000; // 3 seconds
+    let marqueeInterval;
+    const scrollSpeed = 0.8; // Speed of scroll (pixels per tick)
+    const tickInterval = 25; // Interval between ticks in milliseconds (~40 fps)
 
-    const getCardWidth = () => {
-      const firstCard = devoteeCarousel.firstElementChild;
-      if (!firstCard) return 162;
-      const style = window.getComputedStyle(devoteeCarousel);
-      const gap = parseInt(style.gap) || 12;
-      return firstCard.getBoundingClientRect().width + gap;
-    };
-
-    const nextSlide = () => {
-      // If user is dragging, skip auto-slide
+    const stepScroll = () => {
+      // If user is actively dragging, skip auto-slide
       if (devoteeCarousel.style.cursor === 'grabbing') return;
 
       const maxScrollLeft = devoteeCarousel.scrollWidth - devoteeCarousel.clientWidth;
-      const step = getCardWidth();
+      
+      // Increment scroll position
+      devoteeCarousel.scrollLeft += scrollSpeed;
 
-      // If we are already at or close to the end, reset to the start
-      if (devoteeCarousel.scrollLeft >= maxScrollLeft - 10) {
-        devoteeCarousel.scrollTo({
-          left: 0,
-          behavior: 'smooth'
-        });
-      } else {
-        let targetScroll = devoteeCarousel.scrollLeft + step;
-        if (targetScroll > maxScrollLeft) {
-          targetScroll = maxScrollLeft;
-        }
-        devoteeCarousel.scrollTo({
-          left: targetScroll,
-          behavior: 'smooth'
-        });
+      // If we reach the end, reset back to start smoothly
+      if (devoteeCarousel.scrollLeft >= maxScrollLeft - 1) {
+        devoteeCarousel.scrollLeft = 0;
       }
     };
 
     const startAutoSlide = () => {
-      slideInterval = setInterval(nextSlide, slideDelay);
+      marqueeInterval = setInterval(stepScroll, tickInterval);
     };
 
     const stopAutoSlide = () => {
-      clearInterval(slideInterval);
+      clearInterval(marqueeInterval);
     };
 
     startAutoSlide();

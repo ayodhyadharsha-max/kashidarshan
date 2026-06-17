@@ -27,15 +27,20 @@ header.scrolled nav {
 }
 .devotee-batch-card {
   flex-shrink: 0 !important;
-  width: 260px !important;
-  height: 175px !important;
+  width: 210px !important;
+  height: 140px !important;
   position: relative !important;
   overflow: hidden !important;
-  border-radius: 1rem !important;
+  border-radius: 0.75rem !important;
 }
 @media (min-width: 640px) {
   .devotee-batch-card {
-    width: 320px !important;
-    height: 215px !important;
+    width: 240px !important;
+    height: 160px !important;
   }
+}
+.devotee-batch-card img,
+#gallery img {
+  object-fit: cover !important;
+  object-position: center top !important; /* Prevents heads from being cut off */
 }
