@@ -402,4 +402,32 @@ document.addEventListener('DOMContentLoaded', () => {
     devoteeCarousel.addEventListener('touchend', startAutoSlide, { passive: true });
   }
 
+  // 7. Gallery "View More" toggle logic
+  const viewMoreBtn = document.getElementById('btn-gallery-view-more');
+  const hiddenGalleryItems = document.querySelectorAll('.gallery-item-hidden');
+  if (viewMoreBtn) {
+    viewMoreBtn.addEventListener('click', () => {
+      const isExpanded = viewMoreBtn.classList.contains('expanded');
+      
+      hiddenGalleryItems.forEach(item => {
+        if (isExpanded) {
+          item.classList.add('hidden');
+        } else {
+          item.classList.remove('hidden');
+        }
+      });
+      
+      if (isExpanded) {
+        viewMoreBtn.classList.remove('expanded');
+        viewMoreBtn.querySelector('span').textContent = 'View More Photos';
+        viewMoreBtn.querySelector('svg').classList.remove('rotate-180');
+        document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+      } else {
+        viewMoreBtn.classList.add('expanded');
+        viewMoreBtn.querySelector('span').textContent = 'View Less';
+        viewMoreBtn.querySelector('svg').classList.add('rotate-180');
+      }
+    });
+  }
+
 });
