@@ -748,28 +748,22 @@
                     </div>
                   </div>
                   <div>
-                    <label class="block text-white/60 text-[11px] font-semibold tracking-[0.14em] uppercase mb-2.5">
-                      Booking Mode / बुकिंग का प्रकार
+                    <label class="block text-white/60 text-[11px] font-semibold tracking-[0.14em] uppercase mb-2">
+                      Select Booking Type & Timeline / बुकिंग का प्रकार
                       <span class="text-saffron-400 ml-0.5">
                         *
                       </span>
                     </label>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                    <div class="flex p-1 rounded-xl bg-black/25 border border-white/10 gap-1 mb-4 select-none">
                       <!-- Option 1: Direct Confirm (25% Advance) -->
-                      <label class="relative flex items-start p-3.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all cursor-pointer group">
-                        <input type="radio" name="booking-mode" value="Direct Confirm (25% Advance)" checked class="mt-1 text-saffron-500 focus:ring-saffron-500/30">
-                        <div class="ml-3">
-                          <span class="block text-[13px] font-semibold text-white">Confirm Booking Now</span>
-                          <span class="block text-[10px] text-white/40 mt-0.5">Pay 25% Advance to secure hotels & slot. Best for travel this month.</span>
-                        </div>
+                      <label class="flex-1 py-3 text-center rounded-lg font-bold text-[12px] sm:text-[13px] tracking-wider uppercase transition-all duration-300 cursor-pointer flex items-center justify-center select-none" id="booking-mode-direct-label">
+                        <input type="radio" name="booking-mode" value="Direct Confirm (25% Advance)" checked class="hidden">
+                        <span>Direct Confirm (25% Adv)</span>
                       </label>
                       <!-- Option 2: Price Lock (₹1,999) -->
-                      <label class="relative flex items-start p-3.5 rounded-xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all cursor-pointer group">
-                        <input type="radio" name="booking-mode" value="Lock Price (₹1,999 Token)" class="mt-1 text-saffron-500 focus:ring-saffron-500/30">
-                        <div class="ml-3">
-                          <span class="block text-[13px] font-semibold text-gold-400">Lock Package Price</span>
-                          <span class="block text-[10px] text-white/40 mt-0.5">Pay ₹1,999 token to lock today's special rate. Finalize dates later.</span>
-                        </div>
+                      <label class="flex-1 py-3 text-center rounded-lg font-bold text-[12px] sm:text-[13px] tracking-wider uppercase transition-all duration-300 cursor-pointer flex items-center justify-center select-none text-white/40 hover:text-white/70" id="booking-mode-lock-label">
+                        <input type="radio" name="booking-mode" value="Lock Price (₹1,999 Token)" class="hidden">
+                        <span>Flexi-Price Lock (₹1,999)</span>
                       </label>
                     </div>
                   </div>
@@ -1000,6 +994,150 @@
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent Devotee Batches Gallery (Horizontal Scroll) -->
+      <section class="py-16 bg-sacred-light relative overflow-hidden border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div>
+              <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gold-400/10 text-gold-600 text-[11px] font-bold tracking-wider uppercase mb-3 border border-gold-500/10">
+                <span>✨</span> LIVE YATRA MOMENTS
+              </div>
+              <h2 class="font-playfair font-bold text-3xl sm:text-4xl text-divine-dark leading-tight">
+                Our Recent Devotee Batches
+              </h2>
+            </div>
+            <p class="text-gray-500 text-[13px] sm:text-sm max-w-md md:text-right leading-relaxed">
+              Real families, senior citizens, and groups enjoying their journeys. Click any photo to see it full-size.
+            </p>
+          </div>
+          
+          <!-- Horizontal scrollable container -->
+          <div class="reviews-carousel-container flex gap-5 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide select-none cursor-grab" style="scrollbar-width: none;">
+            
+            <!-- Card 1 -->
+            <div class="flex-shrink-0 w-[280px] sm:w-[320px] relative overflow-hidden rounded-2xl group border border-white/20 shadow-md snap-start" style="aspect-ratio: 4/3;">
+              <img src="images/pilgrims/pilgrim1.jpg" alt="Devotees at Triveni Sangam Prayagraj" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent flex items-end p-4">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                    PRAYAGRAJ
+                  </span>
+                  <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                    📍 Triveni Sangam
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="flex-shrink-0 w-[280px] sm:w-[320px] relative overflow-hidden rounded-2xl group border border-white/20 shadow-md snap-start" style="aspect-ratio: 4/3;">
+              <img src="images/pilgrims/pilgrim2.jpg" alt="Devotees arrival at Lal Bahadur Shastri Airport" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent flex items-end p-4">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                    VARANASI
+                  </span>
+                  <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                    📍 Lal Bahadur Airport
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="flex-shrink-0 w-[280px] sm:w-[320px] relative overflow-hidden rounded-2xl group border border-white/20 shadow-md snap-start" style="aspect-ratio: 4/3;">
+              <img src="images/pilgrims/pilgrim3.jpg" alt="Devotees watching Ganga Aarti" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent flex items-end p-4">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                    GANGA AARTI
+                  </span>
+                  <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                    📍 Dashashwamedh Ghat
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="flex-shrink-0 w-[280px] sm:w-[320px] relative overflow-hidden rounded-2xl group border border-white/20 shadow-md snap-start" style="aspect-ratio: 4/3;">
+              <img src="images/pilgrims/pilgrim4.jpg" alt="Devotees during Assi Ghat Sunrise" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent flex items-end p-4">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                    ASSI GHAT
+                  </span>
+                  <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                    📍 Assi Ghat Sunrise
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 5 -->
+            <div class="flex-shrink-0 w-[280px] sm:w-[320px] relative overflow-hidden rounded-2xl group border border-white/20 shadow-md snap-start" style="aspect-ratio: 4/3;">
+              <img src="images/pilgrims/pilgrim5.jpg" alt="Devotees at Shri Kashi Vishwanath Corridor" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent flex items-end p-4">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                    KASHI TEMPLE
+                  </span>
+                  <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                    📍 Vishwanath Corridor
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 6 -->
+            <div class="flex-shrink-0 w-[280px] sm:w-[320px] relative overflow-hidden rounded-2xl group border border-white/20 shadow-md snap-start" style="aspect-ratio: 4/3;">
+              <img src="images/pilgrims/pilgrim7.jpg" alt="Devotees traveling in AC Bus" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent flex items-end p-4">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                    LUXURY COACH
+                  </span>
+                  <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                    📍 AC Group Travel
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 7 -->
+            <div class="flex-shrink-0 w-[280px] sm:w-[320px] relative overflow-hidden rounded-2xl group border border-white/20 shadow-md snap-start" style="aspect-ratio: 4/3;">
+              <img src="images/pilgrims/pilgrim10.jpg" alt="Devotees dining pure meals" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent flex items-end p-4">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                    PURE MEALS
+                  </span>
+                  <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                    📍 Sattvic Dining
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card 8 -->
+            <div class="flex-shrink-0 w-[280px] sm:w-[320px] relative overflow-hidden rounded-2xl group border border-white/20 shadow-md snap-start" style="aspect-ratio: 4/3;">
+              <img src="images/pilgrims/pilgrim12.jpg" alt="Devotees at Varanasi railway station" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-black/10 to-transparent flex items-end p-4">
+                <div class="flex items-center gap-2 flex-wrap">
+                  <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                    RAILWAY STATION
+                  </span>
+                  <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                    📍 Varanasi Junction
+                  </span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>

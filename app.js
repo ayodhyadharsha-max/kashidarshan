@@ -75,9 +75,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // 4. Testimonials Drag / Swipe scroll logic (Safe Guarded)
-  const carousel = document.querySelector('.reviews-carousel-container');
-  if (carousel) {
+  // 4. Carousels Drag / Swipe scroll logic (Safe Guarded for Testimonials & Batches)
+  const carousels = document.querySelectorAll('.reviews-carousel-container');
+  carousels.forEach(carousel => {
     let isDown = false;
     let startX;
     let scrollLeft;
@@ -99,6 +99,8 @@ document.addEventListener('DOMContentLoaded', () => {
       carousel.style.cursor = 'grab';
     });
 
+    carousel.style.cursor = 'grab';
+
     carousel.addEventListener('mousemove', (e) => {
       if (!isDown) return;
       e.preventDefault();
@@ -106,7 +108,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const walk = (x - startX) * 2; // Speed multiplier
       carousel.scrollLeft = scrollLeft - walk;
     });
-  }
+  });
 
   // 5. Booking Lead Capture Form & WhatsApp Redirection
   const bookingForm = document.getElementById('lead-booking-form');
@@ -138,20 +140,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Handle booking mode toggle
+  // Handle booking mode toggle (Segmented Tabs style)
   const bookingModeRadios = document.querySelectorAll('input[name="booking-mode"]');
   const submitBtn = document.getElementById('submit-btn');
-  if (bookingModeRadios && submitBtn) {
+  const directLabel = document.getElementById('booking-mode-direct-label');
+  const lockLabel = document.getElementById('booking-mode-lock-label');
+
+  if (bookingModeRadios && submitBtn && directLabel && lockLabel) {
     const updateBookingModeStyles = () => {
       bookingModeRadios.forEach(radio => {
-        const parentLabel = radio.closest('label');
-        if (parentLabel) {
+        if (radio.value === 'Direct Confirm (25% Advance)') {
           if (radio.checked) {
-            parentLabel.classList.remove('border-white/10', 'bg-white/5');
-            parentLabel.classList.add('border-saffron-500/50', 'bg-white/10');
+            directLabel.style.background = '#FF6B00';
+            directLabel.style.color = '#FFFFFF';
+            directLabel.classList.remove('text-white/40', 'hover:text-white/70');
+            directLabel.classList.add('shadow-[0_4px_12px_rgba(255,107,0,0.3)]');
           } else {
-            parentLabel.classList.remove('border-saffron-500/50', 'bg-white/10');
-            parentLabel.classList.add('border-white/10', 'bg-white/5');
+            directLabel.style.background = 'transparent';
+            directLabel.style.color = 'rgba(255,255,255,0.4)';
+            directLabel.classList.add('text-white/40', 'hover:text-white/70');
+            directLabel.classList.remove('shadow-[0_4px_12px_rgba(255,107,0,0.3)]');
+          }
+        } else if (radio.value === 'Lock Price (₹1,999 Token)') {
+          if (radio.checked) {
+            lockLabel.style.background = '#FF6B00';
+            lockLabel.style.color = '#FFFFFF';
+            lockLabel.classList.remove('text-white/40', 'hover:text-white/70');
+            lockLabel.classList.add('shadow-[0_4px_12px_rgba(255,107,0,0.3)]');
+          } else {
+            lockLabel.style.background = 'transparent';
+            lockLabel.style.color = 'rgba(255,255,255,0.4)';
+            lockLabel.classList.add('text-white/40', 'hover:text-white/70');
+            lockLabel.classList.remove('shadow-[0_4px_12px_rgba(255,107,0,0.3)]');
           }
         }
       });
