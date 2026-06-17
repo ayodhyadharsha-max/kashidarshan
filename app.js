@@ -419,12 +419,12 @@ document.addEventListener('DOMContentLoaded', () => {
       
       if (isExpanded) {
         viewMoreBtn.classList.remove('expanded');
-        viewMoreBtn.querySelector('span').textContent = 'View More Photos';
+        viewMoreBtn.querySelector('span').textContent = 'VIEW ALL YATRA MEMORIES (21+)';
         viewMoreBtn.querySelector('svg').classList.remove('rotate-180');
         document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
       } else {
         viewMoreBtn.classList.add('expanded');
-        viewMoreBtn.querySelector('span').textContent = 'View Less';
+        viewMoreBtn.querySelector('span').textContent = 'VIEW LESS';
         viewMoreBtn.querySelector('svg').classList.add('rotate-180');
       }
     });
