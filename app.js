@@ -346,4 +346,50 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Auto-slide logic for Devotee Batches carousel (card by card)
+  const devoteeCarousel = document.getElementById('devotee-batches-carousel');
+  if (devoteeCarousel) {
+    let slideInterval;
+    const slideDelay = 3000; // 3 seconds
+    const cardWidth = 300; // approximate width of card + gap
+
+    const nextSlide = () => {
+      // If user is dragging, skip auto-slide
+      if (devoteeCarousel.style.cursor === 'grabbing') return;
+
+      const maxScrollLeft = devoteeCarousel.scrollWidth - devoteeCarousel.clientWidth;
+      let targetScroll = devoteeCarousel.scrollLeft + cardWidth;
+
+      if (targetScroll >= maxScrollLeft + 15) {
+        // Reset to start if reached the end
+        devoteeCarousel.scrollTo({
+          left: 0,
+          behavior: 'smooth'
+        });
+      } else {
+        // Slide to next card
+        devoteeCarousel.scrollTo({
+          left: targetScroll,
+          behavior: 'smooth'
+        });
+      }
+    };
+
+    const startAutoSlide = () => {
+      slideInterval = setInterval(nextSlide, slideDelay);
+    };
+
+    const stopAutoSlide = () => {
+      clearInterval(slideInterval);
+    };
+
+    startAutoSlide();
+
+    // Pause auto-play on hover or touch interactions
+    devoteeCarousel.addEventListener('mouseenter', stopAutoSlide);
+    devoteeCarousel.addEventListener('mouseleave', startAutoSlide);
+    devoteeCarousel.addEventListener('touchstart', stopAutoSlide, { passive: true });
+    devoteeCarousel.addEventListener('touchend', startAutoSlide, { passive: true });
+  }
+
 });
