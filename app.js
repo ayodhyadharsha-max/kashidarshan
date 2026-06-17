@@ -138,6 +138,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Handle booking mode toggle
+  const bookingModeRadios = document.querySelectorAll('input[name="booking-mode"]');
+  const submitBtn = document.getElementById('submit-btn');
+  if (bookingModeRadios && submitBtn) {
+    const updateBookingModeStyles = () => {
+      bookingModeRadios.forEach(radio => {
+        const parentLabel = radio.closest('label');
+        if (parentLabel) {
+          if (radio.checked) {
+            parentLabel.classList.remove('border-white/10', 'bg-white/5');
+            parentLabel.classList.add('border-saffron-500/50', 'bg-white/10');
+          } else {
+            parentLabel.classList.remove('border-saffron-500/50', 'bg-white/10');
+            parentLabel.classList.add('border-white/10', 'bg-white/5');
+          }
+        }
+      });
+    };
+
+    bookingModeRadios.forEach(radio => {
+      radio.addEventListener('change', () => {
+        if (radio.checked) {
+          if (radio.value === 'Direct Confirm (25% Advance)') {
+            submitBtn.textContent = 'Confirm Booking (25% Advance)';
+          } else {
+            submitBtn.textContent = 'Lock Package Price at ₹1,999';
+          }
+          updateBookingModeStyles();
+        }
+      });
+    });
+
+    // Run once at start to set the initial checked styling
+    updateBookingModeStyles();
+  }
+
   // Pre-fill package selection if user clicks booking button in cards
   window.selectPackage = (packageName) => {
     const packageSelect = document.getElementById('package-select');
@@ -172,6 +208,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const email = emailEl ? emailEl.value.trim() : '';
       const notes = notesEl ? notesEl.value.trim() : '';
 
+      // Check booking mode
+      const selectedBookingModeEl = document.querySelector('input[name="booking-mode"]:checked');
+      const bookingMode = selectedBookingModeEl ? selectedBookingModeEl.value : 'Direct Confirm (25% Advance)';
+
       // Simple Validation
       if (!fullName || !phoneNumber || (!isFlexibleDate && !travelDate) || !selectedPackage) {
         alert('कृपया सभी आवश्यक फ़ील्ड भरें ताकि हम आपकी यात्रा की व्यवस्था कर सकें।');
@@ -195,7 +235,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      let whatsappMessage = `नमस्ते काशी दर्शन टीम! 🙏\n\nमैं ₹1,999 की टोकन राशि के साथ टूर पैकेज का मूल्य लॉक करना चाहता हूँ। विवरण नीचे दिया गया है:\n\n🚩 नाम: ${fullName}\n📞 संपर्क नंबर: ${phoneNumber}\n📦 टूर पैकेज: ${selectedPackage}\n📅 यात्रा की तिथि: ${formattedDate}`;
+      let whatsappMessage = '';
+      if (bookingMode === 'Direct Confirm (25% Advance)') {
+        whatsappMessage = `नमस्ते काशी दर्शन टीम! 🙏\n\nमैं 25% एडवांस भुगतान के साथ अपनी टूर बुकिंग पक्की (Confirm) करना चाहता हूँ। विवरण नीचे दिया गया है:\n\n🚩 नाम: ${fullName}\n📞 संपर्क नंबर: ${phoneNumber}\n📦 टूर पैकेज: ${selectedPackage}\n📅 यात्रा की तिथि: ${formattedDate}`;
+      } else {
+        whatsappMessage = `नमस्ते काशी दर्शन टीम! 🙏\n\nमैं ₹1,999 की टोकन राशि के साथ टूर पैकेज का मूल्य लॉक करना चाहता हूँ। विवरण नीचे दिया गया है:\n\n🚩 नाम: ${fullName}\n📞 संपर्क नंबर: ${phoneNumber}\n📦 टूर पैकेज: ${selectedPackage}\n📅 यात्रा की तिथि: ${formattedDate}`;
+      }
 
       if (email) {
         whatsappMessage += `\n📧 ईमेल: ${email}`;
@@ -204,7 +249,11 @@ document.addEventListener('DOMContentLoaded', () => {
         whatsappMessage += `\n📝 विशेष अनुरोध: ${notes}`;
       }
 
-      whatsappMessage += `\n\nकृपया मुझे बुकिंग टोकन राशि भेजने के लिए क्यूआर कोड / खाता विवरण साझा करें। धन्यवाद!`;
+      if (bookingMode === 'Direct Confirm (25% Advance)') {
+        whatsappMessage += `\n\nकृपया मुझे बुकिंग कंफर्म करने और 25% एडवांस जमा करने के लिए क्यूआर कोड / खाता विवरण साझा करें। धन्यवाद!`;
+      } else {
+        whatsappMessage += `\n\nकृपया मुझे बुकिंग टोकन राशि भेजने के लिए क्यूआर कोड / खाता विवरण साझा करें। धन्यवाद!`;
+      }
 
       // Encode message text
       const encodedText = encodeURIComponent(whatsappMessage);
@@ -215,6 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
         fullName,
         phoneNumber,
         travelDate,
+        bookingMode,
         selectedPackage,
         email,
         notes,
