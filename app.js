@@ -190,7 +190,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
       }
 
-      let whatsappMessage = `नमस्ते काशी दर्शन टीम! 🙏\n\nमैं ₹999 की टोकन राशि के साथ टूर पैकेज का मूल्य लॉक करना चाहता हूँ। विवरण नीचे दिया गया है:\n\n🚩 नाम: ${fullName}\n📞 संपर्क नंबर: ${phoneNumber}\n📦 टूर पैकेज: ${selectedPackage}\n📅 यात्रा की तिथि: ${formattedDate}`;
+      let whatsappMessage = `नमस्ते काशी दर्शन टीम! 🙏\n\nमैं ₹1,999 की टोकन राशि के साथ टूर पैकेज का मूल्य लॉक करना चाहता हूँ। विवरण नीचे दिया गया है:\n\n🚩 नाम: ${fullName}\n📞 संपर्क नंबर: ${phoneNumber}\n📦 टूर पैकेज: ${selectedPackage}\n📅 यात्रा की तिथि: ${formattedDate}`;
 
       if (email) {
         whatsappMessage += `\n📧 ईमेल: ${email}`;
