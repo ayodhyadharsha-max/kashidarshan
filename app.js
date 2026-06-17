@@ -346,44 +346,8 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Auto-slide logic for Devotee Batches carousel (Smooth Continuous Scroll / Marquee)
-  const devoteeCarousel = document.getElementById('devotee-batches-carousel');
-  if (devoteeCarousel) {
-    let marqueeInterval;
-    const scrollSpeed = 0.8; // Speed of scroll (pixels per tick)
-    const tickInterval = 25; // Interval between ticks in milliseconds (~40 fps)
+  // Auto-slide logic for Devotee Batches has been migrated to CSS marquee animation in style.css
 
-    const stepScroll = () => {
-      // If user is actively dragging, skip auto-slide
-      if (devoteeCarousel.style.cursor === 'grabbing') return;
-
-      const maxScrollLeft = devoteeCarousel.scrollWidth - devoteeCarousel.clientWidth;
-      
-      // Increment scroll position
-      devoteeCarousel.scrollLeft += scrollSpeed;
-
-      // If we reach the end, reset back to start smoothly
-      if (devoteeCarousel.scrollLeft >= maxScrollLeft - 1) {
-        devoteeCarousel.scrollLeft = 0;
-      }
-    };
-
-    const startAutoSlide = () => {
-      marqueeInterval = setInterval(stepScroll, tickInterval);
-    };
-
-    const stopAutoSlide = () => {
-      clearInterval(marqueeInterval);
-    };
-
-    startAutoSlide();
-
-    // Pause auto-play on hover or touch interactions
-    devoteeCarousel.addEventListener('mouseenter', stopAutoSlide);
-    devoteeCarousel.addEventListener('mouseleave', startAutoSlide);
-    devoteeCarousel.addEventListener('touchstart', stopAutoSlide, { passive: true });
-    devoteeCarousel.addEventListener('touchend', startAutoSlide, { passive: true });
-  }
 
   // 7. Gallery "View More" toggle logic
   const viewMoreBtn = document.getElementById('btn-gallery-view-more');

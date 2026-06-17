@@ -1015,129 +1015,260 @@
             </p>
           </div>
           
-          <!-- Horizontal scrollable container -->
-          <div id="devotee-batches-carousel" class="reviews-carousel-container flex gap-4 sm:gap-5 overflow-x-auto pb-4 scrollbar-hide select-none cursor-grab" style="scrollbar-width: none;">
+          <!-- Horizontal scrollable container (CSS Marquee wrapper) -->
+          <div id="devotee-batches-carousel" class="w-full overflow-hidden relative py-4 select-none">
+            <!-- Fade overlay left -->
+            <div class="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#fffaf5] to-transparent z-10 pointer-events-none"></div>
+            <!-- Fade overlay right -->
+            <div class="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#fffaf5] to-transparent z-10 pointer-events-none"></div>
             
-            <!-- Card 1 -->
-            <div class="devotee-batch-card group border border-white/20 shadow-md">
-              <img src="/images/pilgrims/pilgrim1.jpg" alt="Devotees at Triveni Sangam Prayagraj" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
-                <div class="flex items-center justify-between w-full">
-                  <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
-                    SANGAM
-                  </span>
-                  <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
-                    📍 Prayagraj
-                  </span>
+            <div class="w-full flex">
+              <!-- First marquee list -->
+              <div class="animate-marquee flex gap-4 pr-4">
+                <!-- Card 1 -->
+                <div class="devotee-batch-card group border border-white/20 shadow-md">
+                  <img src="/images/pilgrims/pilgrim1.jpg" alt="Devotees at Triveni Sangam Prayagraj" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
+                    <div class="flex items-center justify-between w-full">
+                      <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                        SANGAM
+                      </span>
+                      <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                        📍 Prayagraj
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="devotee-batch-card group border border-white/20 shadow-md">
+                  <img src="/images/pilgrims/pilgrim5.jpg" alt="Devotees at Shri Kashi Vishwanath Corridor" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
+                    <div class="flex items-center justify-between w-full">
+                      <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                        GANGA BOAT RIDE
+                      </span>
+                      <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                        📍 Varanasi
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="devotee-batch-card group border border-white/20 shadow-md">
+                  <img src="/images/pilgrims/pilgrim7.jpg" alt="Devotees traveling in Tempo Traveller" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
+                    <div class="flex items-center justify-between w-full">
+                      <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                        TEMPO TRAVELLER
+                      </span>
+                      <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                        📍 Ayodhya Dham
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="devotee-batch-card group border border-white/20 shadow-md">
+                  <img src="/images/pilgrims/pilgrim2.jpg" alt="Devotees at Ganga Ghats" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
+                    <div class="flex items-center justify-between w-full">
+                      <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                        GANGA GHATS
+                      </span>
+                      <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                        📍 Varanasi
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="devotee-batch-card group border border-white/20 shadow-md">
+                  <img src="/images/pilgrims/pilgrim10.jpg" alt="Devotees arrival at Varanasi Airport" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
+                    <div class="flex items-center justify-between w-full">
+                      <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                        ARRIVAL
+                      </span>
+                      <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                        📍 Varanasi Airport
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="devotee-batch-card group border border-white/20 shadow-md">
+                  <img src="/images/pilgrims/pilgrim12.jpg" alt="Devotees at Temple Gate" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
+                    <div class="flex items-center justify-between w-full">
+                      <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                        TEMPLE GATE
+                      </span>
+                      <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                        📍 Ayodhya Dham
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="devotee-batch-card group border border-white/20 shadow-md">
+                  <img src="/images/pilgrims/pilgrim3.jpg" alt="Devotees watching Ganga Aarti" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
+                    <div class="flex items-center justify-between w-full">
+                      <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                        GANGA AARTI
+                      </span>
+                      <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                        📍 Dashashwamedh Ghat
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="devotee-batch-card group border border-white/20 shadow-md">
+                  <img src="/images/pilgrims/pilgrim4.jpg" alt="Devotees during Assi Ghat Sunrise" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
+                    <div class="flex items-center justify-between w-full">
+                      <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                        ASSI GHAT
+                      </span>
+                      <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                        📍 Assi Ghat Sunrise
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Second marquee list (duplicated for seamless scroll) -->
+              <div class="animate-marquee flex gap-4 pr-4" aria-hidden="true">
+                <!-- Card 1 -->
+                <div class="devotee-batch-card group border border-white/20 shadow-md">
+                  <img src="/images/pilgrims/pilgrim1.jpg" alt="Devotees at Triveni Sangam Prayagraj" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
+                    <div class="flex items-center justify-between w-full">
+                      <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                        SANGAM
+                      </span>
+                      <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                        📍 Prayagraj
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="devotee-batch-card group border border-white/20 shadow-md">
+                  <img src="/images/pilgrims/pilgrim5.jpg" alt="Devotees at Shri Kashi Vishwanath Corridor" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
+                    <div class="flex items-center justify-between w-full">
+                      <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                        GANGA BOAT RIDE
+                      </span>
+                      <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                        📍 Varanasi
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="devotee-batch-card group border border-white/20 shadow-md">
+                  <img src="/images/pilgrims/pilgrim7.jpg" alt="Devotees traveling in Tempo Traveller" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
+                    <div class="flex items-center justify-between w-full">
+                      <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                        TEMPO TRAVELLER
+                      </span>
+                      <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                        📍 Ayodhya Dham
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="devotee-batch-card group border border-white/20 shadow-md">
+                  <img src="/images/pilgrims/pilgrim2.jpg" alt="Devotees at Ganga Ghats" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
+                    <div class="flex items-center justify-between w-full">
+                      <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                        GANGA GHATS
+                      </span>
+                      <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                        📍 Varanasi
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="devotee-batch-card group border border-white/20 shadow-md">
+                  <img src="/images/pilgrims/pilgrim10.jpg" alt="Devotees arrival at Varanasi Airport" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
+                    <div class="flex items-center justify-between w-full">
+                      <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                        ARRIVAL
+                      </span>
+                      <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                        📍 Varanasi Airport
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="devotee-batch-card group border border-white/20 shadow-md">
+                  <img src="/images/pilgrims/pilgrim12.jpg" alt="Devotees at Temple Gate" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
+                    <div class="flex items-center justify-between w-full">
+                      <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                        TEMPLE GATE
+                      </span>
+                      <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                        📍 Ayodhya Dham
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 7 -->
+                <div class="devotee-batch-card group border border-white/20 shadow-md">
+                  <img src="/images/pilgrims/pilgrim3.jpg" alt="Devotees watching Ganga Aarti" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
+                    <div class="flex items-center justify-between w-full">
+                      <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                        GANGA AARTI
+                      </span>
+                      <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                        📍 Dashashwamedh Ghat
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Card 8 -->
+                <div class="devotee-batch-card group border border-white/20 shadow-md">
+                  <img src="/images/pilgrims/pilgrim4.jpg" alt="Devotees during Assi Ghat Sunrise" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
+                    <div class="flex items-center justify-between w-full">
+                      <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
+                        ASSI GHAT
+                      </span>
+                      <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
+                        📍 Assi Ghat Sunrise
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
-
-            <!-- Card 2 -->
-            <div class="devotee-batch-card group border border-white/20 shadow-md">
-              <img src="/images/pilgrims/pilgrim5.jpg" alt="Devotees at Shri Kashi Vishwanath Corridor" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
-                <div class="flex items-center justify-between w-full">
-                  <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
-                    GANGA BOAT RIDE
-                  </span>
-                  <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
-                    📍 Varanasi
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="devotee-batch-card group border border-white/20 shadow-md">
-              <img src="/images/pilgrims/pilgrim7.jpg" alt="Devotees traveling in Tempo Traveller" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
-                <div class="flex items-center justify-between w-full">
-                  <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
-                    TEMPO TRAVELLER
-                  </span>
-                  <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
-                    📍 Ayodhya Dham
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 4 -->
-            <div class="devotee-batch-card group border border-white/20 shadow-md">
-              <img src="/images/pilgrims/pilgrim2.jpg" alt="Devotees at Ganga Ghats" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
-                <div class="flex items-center justify-between w-full">
-                  <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
-                    GANGA GHATS
-                  </span>
-                  <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
-                    📍 Varanasi
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 5 -->
-            <div class="devotee-batch-card group border border-white/20 shadow-md">
-              <img src="/images/pilgrims/pilgrim10.jpg" alt="Devotees arrival at Varanasi Airport" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
-                <div class="flex items-center justify-between w-full">
-                  <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
-                    ARRIVAL
-                  </span>
-                  <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
-                    📍 Varanasi Airport
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 6 -->
-            <div class="devotee-batch-card group border border-white/20 shadow-md">
-              <img src="/images/pilgrims/pilgrim12.jpg" alt="Devotees at Temple Gate" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
-                <div class="flex items-center justify-between w-full">
-                  <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
-                    TEMPLE GATE
-                  </span>
-                  <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
-                    📍 Ayodhya Dham
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 7 -->
-            <div class="devotee-batch-card group border border-white/20 shadow-md">
-              <img src="/images/pilgrims/pilgrim3.jpg" alt="Devotees watching Ganga Aarti" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
-                <div class="flex items-center justify-between w-full">
-                  <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
-                    GANGA AARTI
-                  </span>
-                  <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
-                    📍 Dashashwamedh Ghat
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card 8 -->
-            <div class="devotee-batch-card group border border-white/20 shadow-md">
-              <img src="/images/pilgrims/pilgrim4.jpg" alt="Devotees during Assi Ghat Sunrise" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 pointer-events-none" loading="lazy">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent flex items-end p-4">
-                <div class="flex items-center justify-between w-full">
-                  <span class="px-2.5 py-1 rounded-md text-[10px] font-extrabold uppercase tracking-wider bg-saffron-500 text-white shadow-sm">
-                    ASSI GHAT
-                  </span>
-                  <span class="text-white text-[12px] font-semibold drop-shadow-sm flex items-center gap-0.5">
-                    📍 Assi Ghat Sunrise
-                  </span>
-                </div>
-              </div>
-            </div>
-
           </div>
         </div>
       </section>

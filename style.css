@@ -42,5 +42,23 @@ header.scrolled nav {
 .devotee-batch-card img,
 #gallery img {
   object-fit: cover !important;
-  object-position: center top !important; /* Prevents heads from being cut off */
+  object-position: center center !important; /* Center positioning since images are pre-cropped */
+}
+
+/* Seamless CSS Infinite Marquee */
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+.animate-marquee {
+  display: flex !important;
+  width: max-content !important;
+  animation: marquee-scroll 45s linear infinite !important;
+}
+.animate-marquee:hover {
+  animation-play-state: paused !important;
 }
