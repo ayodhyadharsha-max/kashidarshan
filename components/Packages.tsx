@@ -90,7 +90,7 @@ const packages = [
     cities: ["Varanasi", "Prayagraj"],
     price: 30000,
     originalPrice: 38000,
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Viswanath_temple_Varanasi_02.jpg/960px-Viswanath_temple_Varanasi_02.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Allahabad%2C_Triveni_Sangam_03_%2825731951228%29.jpg/960px-Allahabad%2C_Triveni_Sangam_03_%2825731951228%29.jpg",
     popular: false,
     featured: false,
     ctaText: "Get Tour Details",
