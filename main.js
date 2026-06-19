@@ -305,27 +305,27 @@ document.addEventListener("DOMContentLoaded", () => {
       </head>
       <body>
         <h1>Kashi Dharshan - Holy Tour Itinerary</h1>
-        <div class="route">Ayodhya • Varanasi • Prayagraj • Vindhyachal • Chitrakoot</div>
+        <div class="route">Varanasi • Prayagraj • Vindhyachal • Chitrakoot • Ayodhya</div>
         
         <div class="stop">
-          <h3>1. Ayodhya (Sarayu Banks &amp; Ram Lalla citadel)</h3>
-          <p>VIP Darshan passes and Private Sarayu Aarti views coordinated seamlessly.</p>
-        </div>
-        <div class="stop">
-          <h3>2. Varanasi (Kashi Vishwanath Mandir &amp; Heritage Ghats)</h3>
+          <h3>1. Varanasi (Kashi Vishwanath Mandir &amp; Heritage Ghats)</h3>
           <p>Private bajra cruise and Vedic Rudrabhishek puja arrangements.</p>
         </div>
         <div class="stop">
-          <h3>3. Prayagraj (Sacred Triveni Sangam Confluence)</h3>
+          <h3>2. Prayagraj (Sacred Triveni Sangam Confluence)</h3>
           <p>Managed boat routes to the center confluence and luxury tent support.</p>
         </div>
         <div class="stop">
-          <h3>4. Vindhyachal (Hill Shrine of Goddess Vindhyavasini)</h3>
+          <h3>3. Vindhyachal (Hill Shrine of Goddess Vindhyavasini)</h3>
           <p>Fast-track Shakti Peeth passes and ropeway transit.</p>
         </div>
         <div class="stop">
-          <h3>5. Chitrakoot (Ram Ghat &amp; Forest hermits trail)</h3>
+          <h3>4. Chitrakoot (Ram Ghat &amp; Forest hermits trail)</h3>
           <p>Guided cave walks in Gupt Godavari and Mandakini riverside explorations.</p>
+        </div>
+        <div class="stop">
+          <h3>5. Ayodhya (Sarayu Banks &amp; Ram Lalla citadel)</h3>
+          <p>VIP Darshan passes and Private Sarayu Aarti views coordinated seamlessly.</p>
         </div>
         
         <p style="text-align: center; font-size: 0.8rem; margin-top: 50px; color: #705F51;">This document was printed in Sanctuary Mode. No search engines tracking records remain.</p>
