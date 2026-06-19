@@ -10,7 +10,7 @@ import {
 
 // ─── Constants ────────────────────────────────────────────────────────────────
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
-const WEB3FORMS_KEY      = "91c6129d-ac01-41e8-ae6a-3b04e733c34f";
+const WEB3FORMS_KEY      = "c79c0151-6af3-404d-9736-d65fe15d1e6b";
 const REDIRECT    = "/thank-you";
 
 const TOURS = [

@@ -34,7 +34,7 @@ const packages = [
   },
   {
     id: "kashi-ayodhya",
-    name: "Kashi Ayodhya",
+    name: "Kashi · Ayodhya",
     subtitle: "Our most booked Kashi tour with Ayodhya",
     duration: "3 Nights / 4 Days",
     cities: ["Varanasi", "Ayodhya"],
@@ -441,7 +441,7 @@ export default function Packages() {
             </span>
           </div>
           <h2 className="font-playfair font-bold text-4xl sm:text-5xl lg:text-[3.4rem] text-divine-dark mb-5 leading-tight">
-            Ayodhya Tour{" "}
+            Kashi Tour{" "}
             <span className="text-gradient-saffron">Packages 2025</span>
           </h2>
           <p className="text-gray-500 text-lg max-w-xl mx-auto leading-relaxed">
