@@ -141,7 +141,7 @@ const organizationSchema = {
           name: "Kashi Heritage & Lalit Ghat Tour",
           description: "2 Nights 3 Days Varanasi heritage tour covering Nepali wooden temple, local handlooms, and Ghat walks",
         },
-        price: "18000",
+        price: "24000",
         priceCurrency: "INR",
       },
     ],
