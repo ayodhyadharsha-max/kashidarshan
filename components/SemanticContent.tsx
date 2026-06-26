@@ -8,47 +8,47 @@ import { MapPin, Clock, Users, Calendar, Star, Check } from "lucide-react";
 
 const quickAnswers = [
   {
-    question: "Which Ayodhya tour package is best for a first-time pilgrim?",
+    question: "Which Kashi Varanasi tour package is best for a first-time pilgrim?",
     answer:
-      "If this is your first visit to Ayodhya, the Kashi Darshan Package (2 Nights / 3 Days, starting ₹22,000 for couple) covers everything essential — Kashi Vishwanath Temple darshan, Kaal Bhairav Temple, Annapurna Temple, and Ganga Ghats. You get a pre-arranged darshan pass, hotel near the temple, and a knowledgeable guide. No queuing, no logistics stress — just devotion.",
+      "If this is your first visit to Varanasi, the Kashi Darshan Package (2 Nights / 3 Days, starting ₹22,000 for couple) covers everything essential — Kashi Vishwanath Temple VIP darshan, Kaal Bhairav Temple, Annapurna Temple, and Ganga Ghats. You get a pre-arranged VIP darshan pass, hotel near the temple, and a knowledgeable guide. No queuing, no logistics stress — just devotion.",
     icon: Star,
     accent: "#D4AF37",
     tag: "Best for beginners",
   },
   {
-    question: "Can I do an Ayodhya same-day tour from Lucknow?",
+    question: "Can I do a Varanasi same-day tour?",
     answer:
-      "Yes. A same-day Ayodhya tour from Lucknow is very popular. Ayodhya is about 130 km from Lucknow — approximately 2.5 hours by road or 1.5 hours by train. In a single day you can comfortably cover Kashi Vishwanath Temple darshan, Kaal Bhairav Temple, Annapurna Temple, and the Ganga Ghats walk. We arrange the AC cab and guide. WhatsApp us your departure time and we will plan the route for you.",
+      "Yes. A same-day Varanasi sightseeing tour is very popular for those with limited time. In a single day, you can comfortably cover Kashi Vishwanath Temple VIP darshan, Kaal Bhairav Temple, Annapurna Temple, Sarnath Buddhist Stupa, and witness the grand Evening Ganga Aarti. We arrange a dedicated AC cab and local guide. WhatsApp us your arrival time and we will curate the perfect schedule for you.",
     icon: Clock,
     accent: "#FF6B00",
     tag: "Same-day tour",
   },
   {
-    question: "Which tour covers Ayodhya, Varanasi and Prayagraj together?",
+    question: "Which tour covers Varanasi, Prayagraj and Ayodhya together?",
     answer:
-      "Our Ayodhya–Prayagraj–Varanasi Tour Package (4 Nights / 5 Days, ₹40,000 for couple) is designed exactly for this. Day 1–2 in Ayodhya for Kashi Vishwanath Temple darshan, Day 3 in Prayagraj for Triveni Sangam, Day 4–5 in Varanasi for Kashi Vishwanath and Ganga Aarti. Everything is pre-arranged — hotels, AC transfers, darshan passes and a guide.",
+      "Our Kashi–Prayagraj–Ayodhya Tour Package (4 Nights / 5 Days, ₹40,000 for couple) is designed exactly for this. Spend Day 1–2 in Varanasi for Kashi Vishwanath VIP darshan and Ganga Aarti, Day 3 in Prayagraj for Triveni Sangam, and Day 4–5 in Ayodhya for Ram Mandir and Hanuman Garhi darshan. Everything is pre-arranged — hotels, AC transfers, darshan passes, and a guide.",
     icon: MapPin,
     accent: "#7C3AED",
     tag: "Triple circuit",
   },
   {
-    question: "Is the Ayodhya Varanasi package possible in 3 days?",
+    question: "Is the Kashi Ayodhya package possible in 3 days?",
     answer:
-      "Our Ayodhya Varanasi tour is a 3 Nights / 4 Days package — the most efficient way to cover both cities properly. Because we hold pre-arranged darshan passes, no time is wasted queuing at Kashi Vishwanath Temple. Day 2 you travel from Ayodhya to Varanasi and see the Kashi Vishwanath Corridor in the evening. Day 3 covers Sarnath and the world-famous Ganga Aarti. It is achievable and deeply fulfilling.",
+      "Our Kashi Ayodhya tour is a 3 Nights / 4 Days package — the most efficient way to cover both holy cities properly. Because we provide pre-arranged VIP darshan passes, no time is wasted in long queues. You can explore Hanuman Garhi and Ram Mandir in Ayodhya, and Kashi Vishwanath Temple, Sarnath, and the world-famous Ganga Aarti in Varanasi. It is highly active, achievable, and deeply fulfilling.",
     icon: Calendar,
     accent: "#34D399",
     tag: "Ayodhya + Varanasi",
   },
   {
-    question: "What makes a good Ayodhya travel package?",
+    question: "What makes a good Kashi Varanasi travel package?",
     answer:
-      "A good Ayodhya travel package must include five things: a confirmed Kashi Vishwanath Temple darshan pass (so you don't spend hours in queue), a hotel within 20 minutes of the temple, all transport pre-arranged in AC vehicles, a licensed guide who knows the temple history and timings, and responsive support during the trip. Our packages include all five — that is why over 50,000 pilgrims have trusted us since 2009.",
+      "A good Kashi Varanasi travel package must include five essential things: a confirmed Kashi Vishwanath Temple VIP darshan pass (so you don't spend hours in queues), a premium hotel within 10-15 minutes of the main temple ghats, all transfers in comfortable AC vehicles, a licensed local guide who knows the complex history and optimal darshan timings, and 24/7 support. Our packages include all five.",
     icon: Check,
     accent: "#60A5FA",
     tag: "What to look for",
   },
   {
-    question: "Which Ayodhya package is best for large families and groups?",
+    question: "Which Kashi package is best for large families and groups?",
     answer:
       "Our Custom Group Tour option is designed for families and groups of 8 or more. We arrange a dedicated AC tempo traveller or bus, block adjacent hotel rooms, arrange a group darshan slot at Kashi Vishwanath Temple, and assign a dedicated guide. Group bookings get priority scheduling and flexible meal arrangements. Rates are lower on a per-head basis for groups above 10 people.",
     icon: Users,
@@ -280,7 +280,7 @@ export default function SemanticContent() {
             <p className="text-gray-400 text-[12px]">
               * All prices are for a couple on double-sharing basis · inclusive of hotel, darshan pass, AC transport, meals (3N+ packages) and professional guide ·{" "}
               <span className="text-saffron-600 font-medium">
-                Same-day Ayodhya tour packages also available — WhatsApp us for details.
+                Same-day Varanasi sightseeing packages also available — WhatsApp us for details.
               </span>
             </p>
           </div>
@@ -296,15 +296,15 @@ export default function SemanticContent() {
           {[
             {
               heading: "About Kashi Pilgrimage",
-              body: "Ayodhya is the abode of Lord Shiva and one of the seven sacred cities of Hinduism. The newly consecrated Kashi Vishwanath Temple — Shri Ram Janmabhoomi Temple — is now among the grandest Hindu temples in India. A pilgrimage to Ayodhya is considered deeply auspicious, combining temple darshan, sacred river bathing, and ancient Ram Katha.",
+              body: "Varanasi, also known as Kashi, is the sacred abode of Lord Shiva and one of the oldest continuously inhabited cities in the world. The grand Kashi Vishwanath Temple housing the sacred Jyotirlinga is the heart of Kashi's spiritual life. A pilgrimage here is considered highly auspicious, offering liberation and peace.",
             },
             {
               heading: "Why Book a Guided Kashi Tour",
-              body: "Ayodhya's temple circuit — Kashi Vishwanath Temple, Kaal Bhairav Temple, Annapurna Temple, Nageshwarnath Temple, and Ganga Ghats — spans several kilometres and requires local knowledge to navigate. A guided Ayodhya tour package ensures you visit every site in the right order, at the right time, without missing the morning aarti or the significance behind each temple's story.",
+              body: "Kashi's temple circuit — including the Kashi Vishwanath Temple, Kaal Bhairav Temple, Annapurna Temple, and Sarnath Buddhist Stupa — spans several areas and is best explored with a local guide. A guided Kashi tour ensures you visit every sacred site in the proper ritual order without queue hassle.",
             },
             {
               heading: "Kashi as Part of a Larger Circuit",
-              body: "Many pilgrims combine Ayodhya with Varanasi (Kashi), Prayagraj (Triveni Sangam), and Chitrakoot — together forming the sacred Ramayana pilgrimage circuit of Uttar Pradesh. Our multi-city packages are designed to cover all four destinations with the right balance of travel time, rest, and darshan — so you return home spiritually fulfilled, not exhausted.",
+              body: "Many pilgrims choose to combine Varanasi with Prayagraj (Triveni Sangam), Ayodhya (Ram Mandir), and Bodhgaya (Buddhist circuit) to complete their spiritual journey across Uttar Pradesh and Bihar. Our multi-city packages are structured with optimal travel time to keep you relaxed and focused on devotion.",
             },
           ].map(({ heading, body }) => (
             <div

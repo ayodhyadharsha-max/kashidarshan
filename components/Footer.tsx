@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const WA_NUMBER    = "917408763401";
 const WA_MESSAGE   = encodeURIComponent(
-  "Jai Shri Ram 🙏 I want to book an Ayodhya tour package. Please share full details."
+  "Har Har Mahadev 🙏 I want to book a Kashi Varanasi tour package. Please share full details."
 );
 const EMAIL        = "kashidharshannn@gmail.com";
 const PHONE_DISPLAY = "+91 7408763401";
@@ -36,17 +36,17 @@ const socialLinks = [
 const footerLinks = {
   packages: [
     { label: "Kashi Darshan Package",   href: "#packages" },
-    { label: "Ayodhya Varanasi Package",  href: "#packages" },
-    { label: "Prayagraj Varanasi Circuit",href: "#packages" },
+    { label: "Kashi Ayodhya Package",   href: "#packages" },
+    { label: "Kashi Prayagraj Package", href: "#packages" },
     { label: "Custom Group Tours",        href: "#packages" },
     { label: "Senior Citizen Special",    href: "#packages" },
   ],
   destinations: [
-    { label: "Ram Mandir Darshan",  href: "#" },
-    { label: "Hanuman Garhi",       href: "#" },
-    { label: "Kanak Bhawan",        href: "#" },
-    { label: "Saryu River Ghat",    href: "#" },
-    { label: "Naimisharanya",       href: "#" },
+    { label: "Kashi Vishwanath Temple", href: "#" },
+    { label: "Dashashwamedh Ghat",      href: "#" },
+    { label: "Sarnath Buddhist Stupa",  href: "#" },
+    { label: "Kaal Bhairav Temple",     href: "#" },
+    { label: "Triveni Sangam",          href: "#" },
   ],
   company: [
     { label: "About Us",       href: "#" },
@@ -194,7 +194,7 @@ export default function Footer() {
             </div>
 
             <p className="text-white/40 text-sm leading-relaxed mb-6 max-w-sm">
-              India&apos;s most trusted Ayodhya pilgrimage specialists. Serving 50,000+ devotees
+              India&apos;s most trusted Kashi pilgrimage specialists. Serving 50,000+ devotees
               since 2009 with premium yatra experiences, VIP darshan arrangements, and
               unforgettable spiritual journeys.
             </p>
@@ -226,11 +226,11 @@ export default function Footer() {
                   <MapPin size={14} className="text-saffron-500" />
                 </div>
                 <span>
-                  Second Floor, Plot No 12,
+                  Near Kashi Vishwanath Temple,
                   <br />
-                  Transport Nagar, Ayodhya,
+                  Godowlia, Varanasi,
                   <br />
-                  Uttar Pradesh — 224001
+                  Uttar Pradesh — 221001
                 </span>
               </div>
             </div>
@@ -347,7 +347,7 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <p className="text-white/25 text-xs">
             © 2025 Kashi Dharshan. All rights reserved. |{" "}
-            <span className="text-saffron-600/50">Jai Shri Ram 🙏</span>
+            <span className="text-saffron-600/50">Har Har Mahadev 🙏</span>
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6 text-white/25 text-xs">
             <span>IATA Certified</span>

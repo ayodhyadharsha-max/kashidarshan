@@ -531,9 +531,160 @@ const itineraries: ItineraryItem[] = [
         ]
       }
     ]
+  },
+  {
+    id: "sarnath-buddhist-tour",
+    destination: "Varanasi & Sarnath",
+    duration: "2N / 3D",
+    package: "Sarnath Buddhist Tour",
+    days: [
+      {
+        title: "Day 1 — Arrival, Sarnath Buddhist Stupa & Museums",
+        activities: [
+          {
+            time: "Morning",
+            activity: "Arrive at Varanasi Airport/Railway Station. Warm welcome by our representative and transfer to hotel for check-in."
+          },
+          {
+            time: "Afternoon",
+            activity: "Explore Sarnath where Lord Buddha gave his first sermon. Visit Dhamekh Stupa, Chaukhandi Stupa, and the Archeological Museum containing the Lion Capital of Ashoka."
+          },
+          {
+            time: "Evening",
+            activity: "Visit the peaceful Mulagandha Kuti Vihar temple and attend the evening chanting. Return to Varanasi hotel for dinner."
+          }
+        ]
+      },
+      {
+        title: "Day 2 — Divine Kashi Darshan & Ganga Aarti",
+        activities: [
+          {
+            time: "Morning",
+            activity: "Early morning boat ride to witness Sunrise Subah-e-Banaras. Kashi Vishwanath VIP Darshan, Kaal Bhairav Temple, and Annapurna Mandir darshan."
+          },
+          {
+            time: "Afternoon",
+            activity: "Visit the New Vishwanath Temple (BHU), Sankat Mochan Temple, and Durga Kund Temple."
+          },
+          {
+            time: "Evening",
+            activity: "Enjoy private boat ride to watch the spectacular Evening Ganga Aarti at Dashashwamedh Ghat from the river."
+          }
+        ]
+      },
+      {
+        title: "Day 3 — Local Handloom Walk & Departure",
+        activities: [
+          {
+            time: "Morning",
+            activity: "Guided walk through Varanasi's ancient streets. Observe traditional weavers making the famous Banarasi silk sarees."
+          },
+          {
+            time: "Afternoon",
+            activity: "Check-out from hotel. Final souvenirs shopping and tasting local Banarasi snacks. Transfer to Varanasi Airport / Railway Station."
+          },
+          {
+            time: "Evening",
+            activity: "Departure with peaceful spiritual memories of Kashi and Sarnath. Har Har Mahadev! 🙏"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    id: "buddhist-circuit-tour",
+    destination: "Varanasi, Sarnath & Bodhgaya",
+    duration: "4N / 5D",
+    package: "Buddhist Circuit Tour",
+    days: [
+      {
+        title: "Day 1 — Arrival in Varanasi & Sarnath Sightseeing",
+        activities: [
+          {
+            time: "Morning",
+            activity: "Arrive at Varanasi Airport / Railway Station. Transfer to hotel for check-in and enjoy welcome drinks."
+          },
+          {
+            time: "Afternoon",
+            activity: "Drive to Sarnath to visit the sacred Dhamekh Stupa, Ashoka Pillar, and the Archeological Museum."
+          },
+          {
+            time: "Evening",
+            activity: "Attend the serene sunset prayers at the Sri Lankan Buddhist Temple. Return to Varanasi for overnight stay."
+          }
+        ]
+      },
+      {
+        title: "Day 2 — Kashi Vishwanath Darshan & Ganga Aarti",
+        activities: [
+          {
+            time: "Morning",
+            activity: "VIP Darshan of Kashi Vishwanath temple, followed by Kaal Bhairav Temple. Morning boat ride at Ganga Ghats."
+          },
+          {
+            time: "Afternoon",
+            activity: "Varanasi sightseeing: BHU Temple, Sankat Mochan, and shopping for spiritual artifacts."
+          },
+          {
+            time: "Evening",
+            activity: "Witness the magnificent Evening Ganga Aarti from a private boat. Overnight stay in Varanasi."
+          }
+        ]
+      },
+      {
+        title: "Day 3 — Varanasi to Bodhgaya & Mahabodhi Temple",
+        activities: [
+          {
+            time: "Morning",
+            activity: "Check-out and embark on a scenic drive to Bodhgaya (approx 250 km, 5 hours) in a comfortable AC car."
+          },
+          {
+            time: "Afternoon",
+            activity: "Arrive in Bodhgaya, check-in at hotel. Visit the iconic Mahabodhi Temple — the seat of Buddha's enlightenment."
+          },
+          {
+            time: "Evening",
+            activity: "Meditation near the sacred Bodhi Tree. Visit the Giant Buddha Statue (80 ft). Dinner at hotel."
+          }
+        ]
+      },
+      {
+        title: "Day 4 — International Monasteries & Sujata Stupa",
+        activities: [
+          {
+            time: "Morning",
+            activity: "Visit the Thai Monastery, Japanese Monastery, Bhutanese Monastery, and Tibetan Temple, experiencing diverse Buddhist architecture."
+          },
+          {
+            time: "Afternoon",
+            activity: "Visit Sujata Kuti (where Sujata offered milk-rice to Buddha) and the Niranjana River bank."
+          },
+          {
+            time: "Evening",
+            activity: "Free time for shopping of handmade Tibetan crafts. Relaxing evening and dinner at Bodhgaya hotel."
+          }
+        ]
+      },
+      {
+        title: "Day 5 — Departure from Gaya / Varanasi",
+        activities: [
+          {
+            time: "Morning",
+            activity: "Check-out after breakfast. Transfer to Gaya Airport or drive back to Varanasi Airport/Railway Station for onward journey."
+          },
+          {
+            time: "Afternoon",
+            activity: "Transfer assistance at the airport/station for your departure flight/train."
+          },
+          {
+            time: "Evening",
+            activity: "Depart with profound inner peace and blessings of the Buddha Circuit. Namo Buddhaya! 🙏"
+          }
+        ]
+      }
+    ]
   }
 ];
-
 const timeIcons = {
   Morning: Sun,
   Afternoon: Sunset,
