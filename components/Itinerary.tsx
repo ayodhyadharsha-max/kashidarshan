@@ -683,6 +683,65 @@ const itineraries: ItineraryItem[] = [
         ]
       }
     ]
+  },
+  {
+    id: "kashi-heritage-tour",
+    destination: "Kashi Heritage",
+    duration: "2N / 3D",
+    package: "Kashi Heritage & Lalit Ghat Tour",
+    days: [
+      {
+        title: "Day 1 — Arrival, Local Handloom & Craft Tour",
+        activities: [
+          {
+            time: "Morning",
+            activity: "Arrive at Varanasi Airport/Railway Station. Pickup by private AC vehicle and transfer to hotel for check-in."
+          },
+          {
+            time: "Afternoon",
+            activity: "Guided walk through the traditional weavers' colony. Watch local artisans hand-weaving premium Banarasi silk sarees."
+          },
+          {
+            time: "Evening",
+            activity: "Explore the bustling historical markets of Chowk and Godowlia. Try famous local street food (chaat, lassi, kachori)."
+          }
+        ]
+      },
+      {
+        title: "Day 2 — Heritage Ghat Walk, Nepali Temple & Ganga Aarti",
+        activities: [
+          {
+            time: "Morning",
+            activity: "Sunrise Subah-e-Banaras private boat ride on the Ganga. Guided heritage walk exploring the history of major Ghats."
+          },
+          {
+            time: "Afternoon",
+            activity: "Exclusive visit to the historic wood-carved Nepali Temple (pagoda style) at Lalit Ghat. Pre-arranged Kashi Vishwanath VIP Darshan."
+          },
+          {
+            time: "Evening",
+            activity: "Private front-row boat seating to witness the spectacular Evening Ganga Aarti at Dashashwamedh Ghat."
+          }
+        ]
+      },
+      {
+        title: "Day 3 — BHU Temple Visit & Departure",
+        activities: [
+          {
+            time: "Morning",
+            activity: "Visit the massive Birla Vishwanath Temple (BHU), Sankat Mochan Hanuman Temple, and Durga Kund Temple."
+          },
+          {
+            time: "Afternoon",
+            activity: "Check-out from hotel. Last-minute shopping for brass items and wooden toys. Transfer to Airport/Railway Station."
+          },
+          {
+            time: "Evening",
+            activity: "Departure with divine blessings and a heart filled with Kashi's heritage. Har Har Mahadev! 🙏"
+          }
+        ]
+      }
+    ]
   }
 ];
 const timeIcons = {

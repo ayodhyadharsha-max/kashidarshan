@@ -114,6 +114,36 @@ const organizationSchema = {
         price: "40000",
         priceCurrency: "INR",
       },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Trip",
+          name: "Sarnath Buddhist Tour",
+          description: "2 Nights 3 Days tour focusing on Sarnath Buddhist Stupa, monasteries, Varanasi VIP darshan, and Ganga Aarti",
+        },
+        price: "24000",
+        priceCurrency: "INR",
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Trip",
+          name: "Buddhist Circuit Tour",
+          description: "4 Nights 5 Days pilgrimage covering Varanasi, Sarnath, and Mahabodhi Temple in Bodhgaya",
+        },
+        price: "45000",
+        priceCurrency: "INR",
+      },
+      {
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Trip",
+          name: "Kashi Heritage & Lalit Ghat Tour",
+          description: "2 Nights 3 Days Varanasi heritage tour covering Nepali wooden temple, local handlooms, and Ghat walks",
+        },
+        price: "18000",
+        priceCurrency: "INR",
+      },
     ],
   },
   priceRange: "₹₹",

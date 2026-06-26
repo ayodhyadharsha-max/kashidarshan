@@ -207,6 +207,31 @@ const packages = [
     ],
     note: "Covers Mahabodhi Temple, Sarnath Stupa & Ganga Aarti",
   },
+  {
+    id: "kashi-heritage-tour",
+    name: "Kashi Heritage & Lalit Ghat Tour",
+    subtitle: "Immerse in the historic alleys, wooden temples, and local craft hubs",
+    duration: "2 Nights / 3 Days",
+    cities: ["Varanasi"],
+    price: 18000,
+    originalPrice: 24000,
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Nepali_Temple%2C_Varanasi.jpg/960px-Nepali_Temple%2C_Varanasi.jpg",
+    popular: false,
+    featured: false,
+    ctaText: "Get Tour Details",
+    accent: "#E11D48",
+    features: [
+      "AC Private Car local transfers & sightseeing",
+      "Varanasi Airport / Railway Pickup & Drop",
+      "Guided heritage walk through lanes of Kashi",
+      "Exclusive visit to Nepali wooden temple at Lalit Ghat",
+      "Pre-arranged Kashi Vishwanath VIP Darshan Pass",
+      "Sunrise Subah-e-Banaras private boat ride",
+      "Traditional Banarasi Silk Weaving tour",
+      "3 Star Hotel Stay with Breakfast",
+    ],
+    note: "Highly recommended for culture & history enthusiasts",
+  },
 ];
 
 const coreInclusions = [
