@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { Phone, Users, Clock } from "lucide-react";
 
-const WA_NUMBER = "917408763401";
+const WA_NUMBER = "917011960307";
 const WA_MESSAGE = encodeURIComponent(
   "Har Har Mahadev! 🙏 I'm ready to plan my Kashi yatra. Please guide me to the best package."
 );
@@ -169,7 +169,7 @@ export default function FinalCTA() {
             Plan My Kashi Yatra
           </a>
           <a
-            href="tel:+917408763401"
+            href="tel:+917011960307"
             className="flex items-center gap-3 border-2 border-white/22 hover:border-white/50 text-white px-8 sm:px-10 py-4 sm:py-5 rounded-full font-semibold text-base sm:text-lg hover:bg-white/[0.07] transition-all duration-300 w-full sm:w-auto justify-center"
             data-cta="call"
             data-source="final-cta"

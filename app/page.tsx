@@ -33,7 +33,7 @@ const organizationSchema = {
   image: "https://yatra.kashidharshan.com/logo.png",
   description:
     "Kashi Dharshan is a specialist pilgrimage tour operator based in Varanasi, Uttar Pradesh. We offer complete Varanasi tour packages including Kashi Vishwanath VIP darshan pass, Ganga Aarti boat ride, 3-star and 4-star hotel stays, AC transport, and expert guides. Our circuits cover Varanasi, Prayagraj, Ayodhya, and Chitrakoot. Packages start at ₹22,000 for a couple. We have served over 50,000 pilgrims since 2009.",
-  telephone: "+917408763401",
+  telephone: "+917011960307",
   email: "kashidharshannn@gmail.com",
   address: {
     "@type": "PostalAddress",

@@ -5,7 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 import { faqData } from "@/lib/faqData";
 
-const WA_NUMBER = "917408763401";
+const WA_NUMBER = "917011960307";
 
 function FAQItem({ item, index }: { item: (typeof faqData)[0]; index: number }) {
   return (

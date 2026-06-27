@@ -5,7 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { CheckCircle2, Home, Phone, CalendarDays, Map, User, Loader2, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 
-const WA_NUMBER = "917408763401";
+const WA_NUMBER = "917011960307";
 
 function ThankYouDetails() {
   const searchParams = useSearchParams();

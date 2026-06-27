@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { ChevronDown, Sun, Sunset, Moon, MapPin, MessageCircle } from "lucide-react";
 
-const WA_NUMBER = "917408763401";
+const WA_NUMBER = "917011960307";
 
 type DayActivity = {
   time: "Morning" | "Afternoon" | "Evening";

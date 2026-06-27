@@ -5,12 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Mail, MapPin, MessageCircle, Instagram, Facebook, Youtube, ChevronDown, AlertCircle, CreditCard, RefreshCw, Ban, Clock } from "lucide-react";
 import Image from "next/image";
 
-const WA_NUMBER    = "917408763401";
+const WA_NUMBER    = "917011960307";
 const WA_MESSAGE   = encodeURIComponent(
   "Har Har Mahadev 🙏 I want to book a Kashi Varanasi tour package. Please share full details."
 );
 const EMAIL        = "kashidharshannn@gmail.com";
-const PHONE_DISPLAY = "+91 7408763401";
+const PHONE_DISPLAY = "+91 7011960307";
 
 const socialLinks = [
   {
@@ -202,7 +202,7 @@ export default function Footer() {
             {/* Contact */}
             <div className="space-y-3">
               <a
-                href="tel:+917408763401"
+                href="tel:+917011960307"
                 className="flex items-center gap-3 text-white/50 hover:text-white text-sm transition-colors group"
                 data-cta="call"
                 data-source="footer"

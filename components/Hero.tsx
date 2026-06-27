@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Phone, Star, ShieldCheck, Users, ChevronDown, CheckCircle2 } from "lucide-react";
 
-const WA_NUMBER = "917408763401";
+const WA_NUMBER = "917011960307";
 const WA_MESSAGE = encodeURIComponent(
   "Har Har Mahadev 🙏 I want to book a Kashi Varanasi tour package. Please share full details."
 );
@@ -265,7 +265,7 @@ export default function Hero() {
 
           {/* Secondary — Call */}
           <a
-            href="tel:+917408763401"
+            href="tel:+917011960307"
             className="flex items-center gap-2.5 border border-white/28 hover:border-white/55 text-white px-7 py-4 rounded-full font-medium text-[15px] sm:text-base backdrop-blur-sm hover:bg-white/[0.08] transition-all duration-300 w-full sm:w-auto justify-center"
             aria-label="Call now"
             data-cta="call"

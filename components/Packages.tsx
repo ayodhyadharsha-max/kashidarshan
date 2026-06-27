@@ -4,7 +4,7 @@ import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
 import { Check, MessageCircle, Clock, MapPin, Hotel, Car, UserCheck, Ticket, Sparkles } from "lucide-react";
 
-const WA_NUMBER = "917408763401";
+const WA_NUMBER = "917011960307";
 
 const packages = [
   {
