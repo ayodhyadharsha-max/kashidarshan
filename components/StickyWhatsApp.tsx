@@ -24,9 +24,9 @@ export default function StickyWhatsApp() {
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
-    const showTimer = setTimeout(() => setVisible(true), 3000);
-    const tooltipTimer = setTimeout(() => setShowTooltip(true), 5000);
-    const hideTooltip = setTimeout(() => setShowTooltip(false), 8000);
+    const showTimer = setTimeout(() => setVisible(true), 20000);
+    const tooltipTimer = setTimeout(() => setShowTooltip(true), 22000);
+    const hideTooltip = setTimeout(() => setShowTooltip(false), 27000);
 
     return () => {
       clearTimeout(showTimer);

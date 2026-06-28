@@ -55,7 +55,7 @@ export default function OfferPopup() {
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.9, opacity: 0, y: 30 }}
             transition={{ type: "spring", duration: 0.5, bounce: 0.2 }}
-            className="relative z-10 w-full max-w-lg overflow-hidden border border-saffron-500/20 bg-[#160800] rounded-3xl shadow-[0_24px_80px_rgba(0,0,0,0.8)]"
+            className="relative z-10 w-full max-w-md mx-3 sm:mx-auto overflow-hidden border border-saffron-500/20 bg-[#160800] rounded-2xl sm:rounded-3xl shadow-[0_24px_80px_rgba(0,0,0,0.8)]"
           >
             {/* Top decorative gradient line */}
             <div className="h-[4px] w-full bg-gradient-to-r from-saffron-500 via-amber-400 to-saffron-600" />
@@ -73,40 +73,40 @@ export default function OfferPopup() {
             <div className="absolute -top-24 -left-24 w-48 h-48 bg-saffron-500/10 rounded-full blur-[80px]" />
             <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-amber-500/10 rounded-full blur-[80px]" />
 
-            <div className="p-6 sm:p-8 text-center relative z-10">
+            <div className="p-5 sm:p-8 text-center relative z-10">
               {/* Badges row */}
-              <div className="inline-flex items-center gap-1.5 bg-saffron-500/15 border border-saffron-500/35 rounded-full px-4 py-1.5 mb-5 text-[11px] font-bold text-saffron-400 uppercase tracking-widest">
+              <div className="inline-flex items-center gap-1.5 bg-saffron-500/15 border border-saffron-500/35 rounded-full px-3 py-1 mb-4 text-[10px] sm:text-[11px] font-bold text-saffron-400 uppercase tracking-widest">
                 <Flame size={12} className="animate-pulse" />
                 Limited Time Devotee Offer
               </div>
 
               {/* Title */}
-              <h2 className="font-playfair font-bold text-2xl sm:text-3xl text-white mb-2 leading-tight">
+              <h2 className="font-playfair font-bold text-xl sm:text-3xl text-white mb-2 leading-tight">
                 🚩 Flat ₹250 Discount!
               </h2>
-              <p className="text-white/70 text-xs sm:text-sm max-w-sm mx-auto leading-relaxed mb-6">
+              <p className="text-white/70 text-xs sm:text-sm max-w-xs sm:max-w-sm mx-auto leading-relaxed mb-5">
                 Avoid up to 45% seasonal hotel hikes. Lock today's lowest package rates for any future month at just ₹1,749 instead of ₹1,999!
               </p>
 
               {/* Ticket Graphic */}
-              <div className="relative border border-white/[0.08] bg-white/[0.03] rounded-2xl p-5 mb-6 max-w-sm mx-auto overflow-hidden">
+              <div className="relative border border-white/[0.08] bg-white/[0.03] rounded-xl sm:rounded-2xl p-4 sm:p-5 mb-5 max-w-xs sm:max-w-sm mx-auto overflow-hidden">
                 {/* Left/Right ticket notches */}
-                <div className="absolute top-1/2 -left-3 -translate-y-1/2 w-6 h-6 bg-[#160800] border-r border-white/[0.08] rounded-full" />
-                <div className="absolute top-1/2 -right-3 -translate-y-1/2 w-6 h-6 bg-[#160800] border-l border-white/[0.08] rounded-full" />
+                <div className="absolute top-1/2 -left-2.5 -translate-y-1/2 w-5 h-5 bg-[#160800] border-r border-white/[0.08] rounded-full" />
+                <div className="absolute top-1/2 -right-2.5 -translate-y-1/2 w-5 h-5 bg-[#160800] border-l border-white/[0.08] rounded-full" />
 
-                <div className="flex justify-between items-center px-4">
+                <div className="flex justify-between items-center px-2 sm:px-4">
                   <div className="text-left">
-                    <span className="text-white/40 text-[10px] uppercase font-bold block tracking-wider">Regular Lock Price</span>
-                    <span className="text-white/30 line-through text-lg font-bold">₹1,999</span>
+                    <span className="text-white/40 text-[8px] sm:text-[10px] uppercase font-bold block tracking-wider">Regular Lock Price</span>
+                    <span className="text-white/30 line-through text-sm sm:text-lg font-bold">₹1,999</span>
                   </div>
                   <div className="h-8 w-[1px] bg-white/[0.08] dashed" />
                   <div className="text-right">
-                    <span className="text-emerald-400 text-[10px] uppercase font-bold block tracking-wider">Your Price Today</span>
-                    <span className="text-emerald-400 text-2xl font-black block leading-none">₹1,749</span>
+                    <span className="text-emerald-400 text-[8px] sm:text-[10px] uppercase font-bold block tracking-wider">Your Price Today</span>
+                    <span className="text-emerald-400 text-xl sm:text-2xl font-black block leading-none">₹1,749</span>
                   </div>
                 </div>
 
-                <div className="mt-4 pt-3 border-t border-white/[0.06] flex items-center justify-center gap-1.5 text-[10px] text-emerald-400 font-semibold">
+                <div className="mt-3 pt-2.5 border-t border-white/[0.06] flex items-center justify-center gap-1 text-[9px] sm:text-[10px] text-emerald-400 font-semibold">
                   <TicketPercent size={12} />
                   <span>Coupon Applied: DEVOTEE250 (Flat ₹250 Off)</span>
                 </div>
@@ -115,7 +115,7 @@ export default function OfferPopup() {
               {/* CTA Button */}
               <button
                 onClick={handleClaim}
-                className="w-full bg-saffron-gradient text-white py-4 rounded-xl font-bold text-sm sm:text-base transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-[0_4px_25px_rgba(255,107,0,0.35)] cursor-pointer"
+                className="w-full bg-saffron-gradient text-white py-3.5 sm:py-4 rounded-xl font-bold text-sm sm:text-base transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-[0_4px_25px_rgba(255,107,0,0.35)] cursor-pointer"
               >
                 Claim Discount & Lock Price
               </button>
