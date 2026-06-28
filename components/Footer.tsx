@@ -226,11 +226,11 @@ export default function Footer() {
                   <MapPin size={14} className="text-saffron-500" />
                 </div>
                 <span>
-                  Near Kashi Vishwanath Temple,
+                  Second Floor, Plot No 12,
                   <br />
-                  Godowlia, Varanasi,
+                  Sigra Crossing, Varanasi,
                   <br />
-                  Uttar Pradesh — 221001
+                  Uttar Pradesh — 221002
                 </span>
               </div>
             </div>

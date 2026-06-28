@@ -37,10 +37,10 @@ const organizationSchema = {
   email: "kashidharshannn@gmail.com",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Near Kashi Vishwanath Temple",
+    streetAddress: "Second Floor, Plot No 12, Sigra Crossing",
     addressLocality: "Varanasi",
     addressRegion: "Uttar Pradesh",
-    postalCode: "221001",
+    postalCode: "221002",
     addressCountry: "IN",
   },
   geo: {
