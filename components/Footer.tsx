@@ -228,9 +228,9 @@ export default function Footer() {
                 <span>
                   Second Floor, Plot No 12,
                   <br />
-                  Sigra Crossing, Varanasi,
+                  Transport Nagar, Ayodhya,
                   <br />
-                  Uttar Pradesh — 221002
+                  Uttar Pradesh — 224001
                 </span>
               </div>
             </div>

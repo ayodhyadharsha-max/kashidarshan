@@ -37,10 +37,10 @@ const organizationSchema = {
   email: "kashidharshannn@gmail.com",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Second Floor, Plot No 12, Sigra Crossing",
-    addressLocality: "Varanasi",
+    streetAddress: "Second Floor, Plot No 12, Transport Nagar",
+    addressLocality: "Ayodhya",
     addressRegion: "Uttar Pradesh",
-    postalCode: "221002",
+    postalCode: "224001",
     addressCountry: "IN",
   },
   geo: {
