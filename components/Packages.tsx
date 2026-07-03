@@ -13,8 +13,8 @@ const packages = [
     subtitle: "Ideal for a short, focused pilgrimage to Varanasi",
     duration: "2 Nights / 3 Days",
     cities: ["Varanasi"],
-    price: 22000,
-    originalPrice: 28000,
+    price: 20000,
+    originalPrice: 26000,
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Evening_Ganga_Aarti_at_Dashashwamedh_Ghat.JPG/960px-Evening_Ganga_Aarti_at_Dashashwamedh_Ghat.JPG",
     popular: false,
     featured: false,
@@ -38,8 +38,8 @@ const packages = [
     subtitle: "Our most booked Kashi tour with Ayodhya",
     duration: "3 Nights / 4 Days",
     cities: ["Varanasi", "Ayodhya"],
-    price: 32000,
-    originalPrice: 42000,
+    price: 30000,
+    originalPrice: 40000,
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ram_Mandir%2C_Ayodhya.png/960px-Ram_Mandir%2C_Ayodhya.png",
     popular: true,
     featured: false,
@@ -63,8 +63,8 @@ const packages = [
     subtitle: "The complete tirthdham circuit",
     duration: "4 Nights / 5 Days",
     cities: ["Varanasi", "Prayagraj", "Ayodhya"],
-    price: 40000,
-    originalPrice: 52000,
+    price: 38000,
+    originalPrice: 50000,
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Triveni_Sangam.JPG/960px-Triveni_Sangam.JPG",
     popular: false,
     featured: true,
@@ -88,8 +88,8 @@ const packages = [
     subtitle: "Sacred confluence and heritage tour",
     duration: "3 Nights / 4 Days",
     cities: ["Varanasi", "Prayagraj"],
-    price: 30000,
-    originalPrice: 38000,
+    price: 28000,
+    originalPrice: 36000,
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Allahabad%2C_Triveni_Sangam_03_%2825731951228%29.jpg/960px-Allahabad%2C_Triveni_Sangam_03_%2825731951228%29.jpg",
     popular: false,
     featured: false,
@@ -113,8 +113,8 @@ const packages = [
     subtitle: "Tracing the sacred path of devotion",
     duration: "4 Nights / 5 Days",
     cities: ["Varanasi", "Ayodhya", "Chitrakoot"],
-    price: 40000,
-    originalPrice: 52000,
+    price: 38000,
+    originalPrice: 50000,
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Mandakini_River.jpg/960px-Mandakini_River.jpg",
     popular: false,
     featured: false,
@@ -138,8 +138,8 @@ const packages = [
     subtitle: "The ultimate holy pilgrimage",
     duration: "5 Nights / 6 Days",
     cities: ["Varanasi", "Prayagraj", "Ayodhya", "Chitrakoot"],
-    price: 50000,
-    originalPrice: 65000,
+    price: 48000,
+    originalPrice: 63000,
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Evening_Ganga_Aarti_at_Dashashwamedh_Ghat.JPG/960px-Evening_Ganga_Aarti_at_Dashashwamedh_Ghat.JPG",
     popular: false,
     featured: true,
@@ -163,8 +163,8 @@ const packages = [
     subtitle: "Explore the ancient site of Buddha's first sermon",
     duration: "2 Nights / 3 Days",
     cities: ["Varanasi", "Sarnath"],
-    price: 24000,
-    originalPrice: 32000,
+    price: 22000,
+    originalPrice: 30000,
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Dhamek_Stupa%2C_Sarnath.jpg/960px-Dhamek_Stupa%2C_Sarnath.jpg",
     popular: false,
     featured: false,
@@ -188,8 +188,8 @@ const packages = [
     subtitle: "Trace the footprints of Buddha in holy confluences",
     duration: "4 Nights / 5 Days",
     cities: ["Varanasi", "Sarnath", "Bodhgaya"],
-    price: 45000,
-    originalPrice: 58000,
+    price: 43000,
+    originalPrice: 56000,
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Mahabodhi_Temple.jpg/960px-Mahabodhi_Temple.jpg",
     popular: false,
     featured: false,
@@ -213,8 +213,8 @@ const packages = [
     subtitle: "Immerse in the historic alleys, wooden temples, and local craft hubs",
     duration: "2 Nights / 3 Days",
     cities: ["Varanasi"],
-    price: 24000,
-    originalPrice: 32000,
+    price: 22000,
+    originalPrice: 30000,
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Nepali_Temple%2C_Varanasi.jpg/960px-Nepali_Temple%2C_Varanasi.jpg",
     popular: false,
     featured: false,
@@ -366,21 +366,26 @@ function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; i
           </a>
 
           {/* Pricing */}
-          <div className="text-right">
-            <div className="flex items-baseline justify-end gap-1.5">
-              <span className={`text-[12px] line-through ${
+          <div className="text-right flex flex-col justify-end">
+            <div className="flex items-baseline justify-end gap-1">
+              <span className={`text-[11px] line-through mr-1 ${
                 isPopular ? "text-white/35" : "text-gray-400"
               }`}>
-                ₹{pkg.originalPrice.toLocaleString("en-IN")}
+                ₹{(pkg.originalPrice / 2).toLocaleString("en-IN")}
               </span>
-              <span className={`font-playfair font-bold text-2xl sm:text-[1.7rem] leading-none ${
+              <span className={`font-playfair font-bold text-xl sm:text-2xl leading-none ${
                 isPopular ? "text-gold-400" : "text-divine-dark"
               }`}>
-                ₹{pkg.price.toLocaleString("en-IN")}
+                ₹{(pkg.price / 2).toLocaleString("en-IN")}
+              </span>
+              <span className={`text-[10px] font-medium leading-none ${
+                isPopular ? "text-white/60" : "text-gray-500"
+              }`}>
+                / person
               </span>
             </div>
-            <p className={`text-[10px] mt-1 ${isPopular ? "text-white/30" : "text-gray-400"}`}>
-              Onwards / couple
+            <p className={`text-[9px] mt-1 font-medium ${isPopular ? "text-white/40" : "text-gray-400"}`}>
+              ₹{pkg.price.toLocaleString("en-IN")} for 2 adults
             </p>
           </div>
         </div>

@@ -10,7 +10,7 @@ const quickAnswers = [
   {
     question: "Which Kashi Varanasi tour package is best for a first-time pilgrim?",
     answer:
-      "If this is your first visit to Varanasi, the Kashi Darshan Package (2 Nights / 3 Days, starting ₹22,000 for couple) covers everything essential — Kashi Vishwanath Temple VIP darshan, Kaal Bhairav Temple, Annapurna Temple, and Ganga Ghats. You get a pre-arranged VIP darshan pass, hotel near the temple, and a knowledgeable guide. No queuing, no logistics stress — just devotion.",
+      "If this is your first visit to Varanasi, the Kashi Darshan Package (2 Nights / 3 Days, starting ₹10,000 / person, ₹20,000 total for couple) covers everything essential — Kashi Vishwanath Temple VIP darshan, Kaal Bhairav Temple, Annapurna Temple, and Ganga Ghats. You get a pre-arranged VIP darshan pass, hotel near the temple, and a knowledgeable guide. No queuing, no logistics stress — just devotion.",
     icon: Star,
     accent: "#D4AF37",
     tag: "Best for beginners",
@@ -26,7 +26,7 @@ const quickAnswers = [
   {
     question: "Which tour covers Varanasi, Prayagraj and Ayodhya together?",
     answer:
-      "Our Kashi–Prayagraj–Ayodhya Tour Package (4 Nights / 5 Days, ₹40,000 for couple) is designed exactly for this. Spend Day 1–2 in Varanasi for Kashi Vishwanath VIP darshan and Ganga Aarti, Day 3 in Prayagraj for Triveni Sangam, and Day 4–5 in Ayodhya for Ram Mandir and Hanuman Garhi darshan. Everything is pre-arranged — hotels, AC transfers, darshan passes, and a guide.",
+      "Our Kashi–Prayagraj–Ayodhya Tour Package (4 Nights / 5 Days, starting ₹19,000 / person, ₹38,000 total for couple) is designed exactly for this. Spend Day 1–2 in Varanasi for Kashi Vishwanath VIP darshan and Ganga Aarti, Day 3 in Prayagraj for Triveni Sangam, and Day 4–5 in Ayodhya for Ram Mandir and Hanuman Garhi darshan. Everything is pre-arranged — hotels, AC transfers, darshan passes, and a guide.",
     icon: MapPin,
     accent: "#7C3AED",
     tag: "Triple circuit",
@@ -61,32 +61,33 @@ const packageMatrix = [
   {
     name: "Kashi Darshan",
     duration: "2N / 3D",
-    price: "₹22,000",
+    price: 20000,
     best: "First-time pilgrims, short trips",
     includes: ["Kashi Vishwanath Temple darshan", "Kaal Bhairav Temple", "Annapurna Temple", "Ganga Ghats"],
   },
   {
     name: "Kashi – Ayodhya",
     duration: "3N / 4D",
-    price: "₹32,000",
+    price: 30000,
     best: "Most popular circuit",
     includes: ["Kashi Vishwanath Temple", "Kashi Vishwanath", "Ganga Aarti", "Sarnath"],
   },
   {
     name: "Kashi – Prayagraj – Ayodhya",
     duration: "4N / 5D",
-    price: "₹40,000",
+    price: 38000,
     best: "Three holy cities in one journey",
     includes: ["Kashi Vishwanath Temple", "Triveni Sangam", "Kashi Vishwanath", "Ganga Aarti"],
   },
   {
     name: "Full Ramayana Circuit",
     duration: "5N / 6D",
-    price: "₹50,000",
+    price: 48000,
     best: "Ultimate pilgrimage experience",
     includes: ["Ayodhya", "Prayagraj", "Varanasi", "Chitrakoot"],
   },
 ];
+
 
 // ─── Components ────────────────────────────────────────────────────────────────
 
@@ -251,8 +252,17 @@ export default function SemanticContent() {
                       <span className="text-gray-500 text-[13px] font-medium">{pkg.duration}</span>
                     </td>
                     <td className="px-6 py-5">
-                      <span className="font-playfair font-bold text-divine-dark text-[17px]">{pkg.price}</span>
-                      <span className="text-gray-300 text-[11px] ml-1">/couple</span>
+                      <div className="flex flex-col">
+                        <div className="flex items-baseline">
+                          <span className="font-playfair font-bold text-divine-dark text-[16px]">
+                            ₹{(pkg.price / 2).toLocaleString("en-IN")}
+                          </span>
+                          <span className="text-gray-400 text-[10px] ml-1">/person</span>
+                        </div>
+                        <span className="text-gray-400 text-[10px] mt-0.5 whitespace-nowrap">
+                          (₹{pkg.price.toLocaleString("en-IN")} for couple)
+                        </span>
+                      </div>
                     </td>
                     <td className="px-6 py-5">
                       <span className="text-saffron-600 text-[13px]">{pkg.best}</span>

@@ -27,7 +27,7 @@ export const faqData = [
   {
     question: "Which Varanasi tour package includes Prayagraj and Ayodhya?",
     answer:
-      "Our Kashi Prayagraj Ayodhya Package (4 Nights / 5 Days, starting ₹40,000 for couple) covers all three sacred cities in one journey — Kashi Vishwanath darshan in Varanasi, Triveni Sangam at Prayagraj, and Ram Mandir darshan in Ayodhya. For travellers who also want to visit Chitrakoot, our Sacred Ganga Circuit (5 Nights / 6 Days) covers all four destinations. Both packages include 3★/4★ hotels, AC transfers, darshan passes, and an expert guide.",
+      "Our Kashi Prayagraj Ayodhya Package (4 Nights / 5 Days, starting ₹19,000 / person, ₹38,000 total for couple) covers all three sacred cities in one journey — Kashi Vishwanath darshan in Varanasi, Triveni Sangam at Prayagraj, and Ram Mandir darshan in Ayodhya. For travellers who also want to visit Chitrakoot, our Sacred Ganga Circuit (5 Nights / 6 Days) covers all four destinations. Both packages include 3★/4★ hotels, AC transfers, darshan passes, and an expert guide.",
   },
   {
     question: "Can I do Varanasi and Ayodhya in 3 days?",
@@ -57,12 +57,12 @@ export const faqData = [
   {
     question: "What is the starting price of Varanasi tour packages with hotel?",
     answer:
-      "Varanasi tour packages with hotel start at ₹22,000 for couple for the 2 Nights / 3 Days Kashi Darshan Package, which includes 3-star hotel stay, Kashi Vishwanath VIP darshan pass, Ganga Aarti boat ride, AC transport, airport/station pickup and drop, and a guide. The 3 Nights / 4 Days Kashi Ayodhya package starts at ₹32,000 for couple, and the premium Sacred Ganga Circuit (5 Nights / 6 Days) starts at ₹50,000 for couple.",
+      "Varanasi tour packages with hotel start at ₹10,000 / person (₹20,000 total for couple) for the 2 Nights / 3 Days Kashi Darshan Package, which includes 3-star hotel stay, Kashi Vishwanath VIP darshan pass, Ganga Aarti boat ride, AC transport, airport/station pickup and drop, and a guide. The 3 Nights / 4 Days Kashi Ayodhya package starts at ₹15,000 / person (₹30,000 total for couple), and the premium Sacred Ganga Circuit (5 Nights / 6 Days) starts at ₹24,000 / person (₹48,000 total for couple).",
   },
   {
     question: "Which is the most popular Varanasi tour package?",
     answer:
-      "The Kashi Ayodhya Tour Package (3 Nights / 4 Days, ₹32,000 for couple) is our most-booked package. It combines Kashi Vishwanath Temple in Varanasi with the newly consecrated Ram Mandir in Ayodhya, covering the two most visited pilgrimage cities in Uttar Pradesh in one seamless journey. It consistently receives 5-star reviews.",
+      "The Kashi Ayodhya Tour Package (3 Nights / 4 Days, ₹15,000 / person, ₹30,000 total for couple) is our most-booked package. It combines Kashi Vishwanath Temple in Varanasi with the newly consecrated Ram Mandir in Ayodhya, covering the two most visited pilgrimage cities in Uttar Pradesh in one seamless journey. It consistently receives 5-star reviews.",
   },
   {
     question: "What is the best time to visit Varanasi for a pilgrimage?",

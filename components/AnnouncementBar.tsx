@@ -1,7 +1,7 @@
 "use client";
 
 const announcements = [
-  "✨ New Kashi Ayodhya couple packages available from ₹32,000",
+  "✨ New Kashi Ayodhya packages available from ₹15,000 / person",
   "🙏 Kashi Vishwanath VIP darshan pre-arranged — skip the queue",
   "⭐ 4.9★ on Google · 2,847 verified reviews",
   "🏨 3★ & 4★ hotels pre-confirmed near Kashi Vishwanath Temple",

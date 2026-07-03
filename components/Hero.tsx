@@ -216,13 +216,20 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.88 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.55, delay: 1.0 }}
-          className="inline-flex items-center gap-2 mt-5 mb-8 bg-white/8 border border-white/18 backdrop-blur-md rounded-full px-5 py-2.5"
+          className="inline-flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2.5 mt-5 mb-8 bg-white/8 border border-white/18 backdrop-blur-md rounded-2xl px-5 py-3 text-center sm:text-left"
         >
-          <span className="text-white/60 text-sm">Starting at</span>
-          <span className="text-white/40 line-through text-xs sm:text-sm">₹28,000</span>
-          <span className="text-saffron-400 font-playfair font-bold text-2xl leading-none">₹22,000</span>
-          <span className="text-white/40 text-sm">/ couple</span>
-          <span className="hidden sm:inline text-white/25 text-sm">·&nbsp; All inclusive</span>
+          <div className="flex items-center justify-center gap-2">
+            <span className="text-white/60 text-sm">Starting at</span>
+            <span className="text-white/40 line-through text-xs sm:text-sm">₹13,000</span>
+            <span className="text-saffron-400 font-playfair font-bold text-2xl leading-none">₹10,000</span>
+            <span className="text-white/60 text-sm">/ person</span>
+          </div>
+          <span className="hidden sm:inline text-white/25 text-sm">·</span>
+          <div className="flex items-center justify-center gap-1.5 text-xs text-white/50">
+            <span>₹20,000 total for couple</span>
+            <span className="hidden sm:inline text-white/25">·</span>
+            <span className="hidden sm:inline text-white/60">All inclusive</span>
+          </div>
         </motion.div>
 
         {/* Inclusions row */}

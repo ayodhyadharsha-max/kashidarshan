@@ -32,7 +32,7 @@ const organizationSchema = {
   logo: "https://yatra.kashidharshan.com/logo.png",
   image: "https://yatra.kashidharshan.com/logo.png",
   description:
-    "Kashi Dharshan is a specialist pilgrimage tour operator based in Varanasi, Uttar Pradesh. We offer complete Varanasi tour packages including Kashi Vishwanath VIP darshan pass, Ganga Aarti boat ride, 3-star and 4-star hotel stays, AC transport, and expert guides. Our circuits cover Varanasi, Prayagraj, Ayodhya, and Chitrakoot. Packages start at ₹22,000 for a couple. We have served over 50,000 pilgrims since 2009.",
+    "Kashi Dharshan is a specialist pilgrimage tour operator based in Varanasi, Uttar Pradesh. We offer complete Varanasi tour packages including Kashi Vishwanath VIP darshan pass, Ganga Aarti boat ride, 3-star and 4-star hotel stays, AC transport, and expert guides. Our circuits cover Varanasi, Prayagraj, Ayodhya, and Chitrakoot. Packages start at ₹10,000 / person (₹20,000 total for couple). We have served over 50,000 pilgrims since 2009.",
   telephone: "+917011960307",
   email: "kashidharshannn@gmail.com",
   address: {
@@ -91,7 +91,7 @@ const organizationSchema = {
           description: "2 Nights 3 Days Kashi tour with Kashi Vishwanath VIP darshan, Ganga Aarti boat ride, hotel and transport",
           tripOrigin: { "@type": "TouristAttraction", name: "Varanasi" },
         },
-        price: "22000",
+        price: "20000",
         priceCurrency: "INR",
       },
       {
@@ -101,7 +101,7 @@ const organizationSchema = {
           name: "Kashi Ayodhya Tour Package",
           description: "3 Nights 4 Days Varanasi and Ayodhya tour package with Kashi Vishwanath VIP darshan, Ganga Aarti, and Ram Mandir darshan",
         },
-        price: "32000",
+        price: "30000",
         priceCurrency: "INR",
       },
       {
@@ -111,7 +111,7 @@ const organizationSchema = {
           name: "Kashi Prayagraj Ayodhya Tour Package",
           description: "4 Nights 5 Days complete tirthdham circuit covering Varanasi, Prayagraj and Ayodhya",
         },
-        price: "40000",
+        price: "38000",
         priceCurrency: "INR",
       },
       {
@@ -121,7 +121,7 @@ const organizationSchema = {
           name: "Sarnath Buddhist Tour",
           description: "2 Nights 3 Days tour focusing on Sarnath Buddhist Stupa, monasteries, Varanasi VIP darshan, and Ganga Aarti",
         },
-        price: "24000",
+        price: "22000",
         priceCurrency: "INR",
       },
       {
@@ -131,7 +131,7 @@ const organizationSchema = {
           name: "Buddhist Circuit Tour",
           description: "4 Nights 5 Days pilgrimage covering Varanasi, Sarnath, and Mahabodhi Temple in Bodhgaya",
         },
-        price: "45000",
+        price: "43000",
         priceCurrency: "INR",
       },
       {
@@ -141,7 +141,7 @@ const organizationSchema = {
           name: "Kashi Heritage & Lalit Ghat Tour",
           description: "2 Nights 3 Days Varanasi heritage tour covering Nepali wooden temple, local handlooms, and Ghat walks",
         },
-        price: "24000",
+        price: "22000",
         priceCurrency: "INR",
       },
     ],
@@ -299,7 +299,7 @@ const tourSchema = {
         },
         offers: {
           "@type": "Offer",
-          price: "22000",
+          price: "20000",
           priceCurrency: "INR",
           priceValidUntil: "2027-12-31",
           url: "https://yatra.kashidharshan.com/#get-quote",
@@ -338,7 +338,7 @@ const tourSchema = {
         },
         offers: {
           "@type": "Offer",
-          price: "32000",
+          price: "30000",
           priceCurrency: "INR",
           priceValidUntil: "2027-12-31",
           url: "https://yatra.kashidharshan.com/#get-quote",
@@ -377,7 +377,7 @@ const tourSchema = {
         },
         offers: {
           "@type": "Offer",
-          price: "40000",
+          price: "38000",
           priceCurrency: "INR",
           priceValidUntil: "2027-12-31",
           url: "https://yatra.kashidharshan.com/#get-quote",
@@ -416,7 +416,7 @@ const tourSchema = {
         },
         offers: {
           "@type": "Offer",
-          price: "30000",
+          price: "28000",
           priceCurrency: "INR",
           priceValidUntil: "2027-12-31",
           url: "https://yatra.kashidharshan.com/#get-quote",
@@ -455,7 +455,7 @@ const tourSchema = {
         },
         offers: {
           "@type": "Offer",
-          price: "40000",
+          price: "38000",
           priceCurrency: "INR",
           priceValidUntil: "2027-12-31",
           url: "https://yatra.kashidharshan.com/#get-quote",
@@ -494,7 +494,7 @@ const tourSchema = {
         },
         offers: {
           "@type": "Offer",
-          price: "50000",
+          price: "48000",
           priceCurrency: "INR",
           priceValidUntil: "2027-12-31",
           url: "https://yatra.kashidharshan.com/#get-quote",
