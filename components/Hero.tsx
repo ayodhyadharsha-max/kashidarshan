@@ -220,13 +220,13 @@ export default function Hero() {
         >
           <div className="flex items-center justify-center gap-2">
             <span className="text-white/60 text-sm">Starting at</span>
-            <span className="text-white/40 line-through text-xs sm:text-sm">₹13,000</span>
-            <span className="text-saffron-400 font-playfair font-bold text-2xl leading-none">₹10,000</span>
+            <span className="text-white/40 line-through text-xs sm:text-sm">₹10,999</span>
+            <span className="text-saffron-400 font-playfair font-bold text-2xl leading-none">₹7,999</span>
             <span className="text-white/60 text-sm">/ person</span>
           </div>
           <span className="hidden sm:inline text-white/25 text-sm">·</span>
           <div className="flex items-center justify-center gap-1.5 text-xs text-white/50">
-            <span>₹20,000 total for couple</span>
+            <span>₹15,998 total for couple</span>
             <span className="hidden sm:inline text-white/25">·</span>
             <span className="hidden sm:inline text-white/60">All inclusive</span>
           </div>

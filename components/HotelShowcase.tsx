@@ -39,7 +39,7 @@ const hotels = [
       "Laundry service available",
     ],
     usedIn: ["Kashi Darshan Package", "Kashi Prayagraj Package"],
-    priceNote: "Included in packages starting ₹10,000 / person (₹20,000 for couple)",
+    priceNote: "Included in packages starting ₹7,999 / person (₹15,998 for couple)",
   },
   {
     id: "premium",
@@ -73,7 +73,7 @@ const hotels = [
       "Airport / station pickup arranged",
     ],
     usedIn: ["Kashi Ayodhya Package", "Kashi Prayagraj Ayodhya Package"],
-    priceNote: "Included in packages starting ₹15,000 / person (₹30,000 for couple)",
+    priceNote: "Included in packages starting ₹12,999 / person (₹25,998 for couple)",
     dark: true,
   },
   {
@@ -107,7 +107,7 @@ const hotels = [
       "Exclusive darshan slot coordination",
     ],
     usedIn: ["Full Circuit Package (5N/6D)"],
-    priceNote: "Included in packages starting ₹24,000 / person (₹48,000 for couple)",
+    priceNote: "Included in packages starting ₹18,499 / person (₹36,998 for couple)",
   },
 ];
 
