@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react";
 import { motion, useInView } from "framer-motion";
-import { Check, MessageCircle, Clock, MapPin, Hotel, Car, UserCheck, Ticket, Sparkles } from "lucide-react";
+import { Check, MessageCircle, Clock, MapPin, Hotel, Car, UserCheck, Ticket, Sparkles, Compass, Headphones } from "lucide-react";
 
 const WA_NUMBER = "917011960307";
 
@@ -207,8 +207,8 @@ const packages = [
 const coreInclusions = [
   { icon: Car,      label: "AC Transfer" },
   { icon: Hotel,    label: "Best Hotels" },
-  { icon: Ticket,   label: "Darshan Pass" },
-  { icon: UserCheck,label: "Expert Guide" },
+  { icon: Compass,  label: "Sightseeing" },
+  { icon: Headphones,label: "24/7 Support" },
 ];
 
 function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; index: number; tokenAmount: number }) {
