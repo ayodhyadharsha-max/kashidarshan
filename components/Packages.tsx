@@ -423,33 +423,51 @@ function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; i
           </ul>
         </div>
 
-        {/* CTA */}
-        <a
-          href="#get-quote"
-          onClick={() => {
-            const event = new CustomEvent("select-tour", {
-              detail: { tourId: pkg.id, mode: "confirm" }
-            });
-            window.dispatchEvent(event);
-          }}
-          className={`wa-shimmer flex items-center justify-center gap-2.5 w-full py-3.5 rounded-2xl text-white font-bold text-[14px] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] ${
-            isPopular
-              ? "bg-gold-gradient text-divine-dark hover:brightness-105"
-              : "hover:brightness-110"
-          }`}
-          style={
-            isPopular
-              ? {}
-              : { backgroundColor: pkg.accent }
-          }
-          data-cta="scroll-quote"
-          data-source="packages"
-          data-package={pkg.id}
-        >
-          {pkg.ctaText}
-        </a>
+        {/* CTA Buttons */}
+        <div className="flex gap-2.5 mt-2">
+          {/* WhatsApp CTA */}
+          <a
+            href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(
+              `Har Har Mahadev! 🙏 I'm interested in the "${pkg.name}" tour package (₹${Math.round(pkg.price / 2).toLocaleString("en-IN")} / person, ₹${pkg.price.toLocaleString("en-IN")} total). Please share details.`
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="wa-shimmer flex items-center justify-center gap-2 w-14 h-12 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] shadow-sm flex-shrink-0"
+            aria-label="Enquire on WhatsApp"
+            data-cta="whatsapp"
+            data-source="packages"
+          >
+            <MessageCircle size={20} />
+          </a>
 
-        <p className={`text-center text-[11px] mt-2.5 ${
+          {/* Book / Get Quote CTA */}
+          <a
+            href="#get-quote"
+            onClick={() => {
+              const event = new CustomEvent("select-tour", {
+                detail: { tourId: pkg.id, mode: "confirm" }
+              });
+              window.dispatchEvent(event);
+            }}
+            className={`flex-1 flex items-center justify-center gap-2.5 h-12 rounded-xl text-white font-bold text-[14px] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] ${
+              isPopular
+                ? "bg-gold-gradient text-divine-dark hover:brightness-105"
+                : "hover:brightness-110"
+            }`}
+            style={
+              isPopular
+                ? {}
+                : { backgroundColor: pkg.accent }
+            }
+            data-cta="scroll-quote"
+            data-source="packages"
+            data-package={pkg.id}
+          >
+            {pkg.ctaText}
+          </a>
+        </div>
+
+        <p className={`text-center text-[11px] mt-3 ${
           isPopular ? "text-white/30" : "text-gray-300"
         }`}>
           Confirm with 25% Advance &nbsp;·&nbsp; Or Lock Rates with ₹{tokenAmount.toLocaleString("en-IN")}
