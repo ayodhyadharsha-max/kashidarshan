@@ -2,14 +2,11 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, MessageCircle, Phone, FileText } from "lucide-react";
+import { X, Phone } from "lucide-react";
 
 const WA_NUMBER = "917011960307";
 const WA_MESSAGE = encodeURIComponent(
   "Har Har Mahadev 🙏 I want to book a Kashi Varanasi tour package. Please share full details."
-);
-const WA_ITINERARY = encodeURIComponent(
-  "Har Har Mahadev 🙏 Please share the full itinerary and pricing for your Kashi Varanasi tour packages."
 );
 
 const WhatsAppIcon = () => (
@@ -37,7 +34,7 @@ export default function StickyWhatsApp() {
 
   return (
     <>
-      {/* ── Desktop floating button ── */}
+      {/* ── Desktop floating buttons ── */}
       <AnimatePresence>
         {visible && (
           <motion.div
@@ -55,7 +52,7 @@ export default function StickyWhatsApp() {
                   animate={{ opacity: 1, y: 0, scale: 1 }}
                   exit={{ opacity: 0, y: 10, scale: 0.9 }}
                   transition={{ duration: 0.3 }}
-                  className="relative bg-white rounded-2xl shadow-xl border border-gray-100 p-4 max-w-[230px]"
+                  className="relative bg-white rounded-2xl shadow-xl border border-gray-100 p-4 max-w-[230px] mb-1 text-left"
                 >
                   <button
                     onClick={() => setShowTooltip(false)}
@@ -76,42 +73,58 @@ export default function StickyWhatsApp() {
                       </div>
                     </div>
                   </div>
-                  <p className="text-gray-600 text-xs leading-relaxed">
-                    Har Har Mahadev! 🙏 Planning a Kashi yatra? Get a free custom tour quote within your budget. Enquire now!
+                  <p className="text-gray-600 text-xs leading-relaxed font-sans">
+                    Har Har Mahadev! 🙏 Planning a Kashi yatra? Get a free custom tour quote or call us directly.
                   </p>
                   <div className="absolute bottom-[-8px] right-6 w-4 h-4 bg-white border-r border-b border-gray-100 rotate-45" />
                 </motion.div>
               )}
             </AnimatePresence>
 
+            {/* Call button */}
+            <div className="relative group">
+              <span className="absolute right-16 top-1/2 -translate-y-1/2 bg-divine-dark text-white text-xs font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap shadow-md font-sans">
+                Call Rahul (Expert)
+              </span>
+              <a
+                href="tel:+917011960307"
+                aria-label="Call Expert"
+                className="flex items-center justify-center w-14 h-14 bg-saffron-600 hover:bg-saffron-700 text-white rounded-full shadow-[0_8px_30px_rgba(255,107,0,0.3)] hover:shadow-[0_8px_40px_rgba(255,107,0,0.5)] transition-all duration-300 hover:scale-105 active:scale-95"
+                data-cta="call"
+                data-source="sticky-desktop"
+              >
+                <Phone size={22} />
+              </a>
+            </div>
+
             {/* Main WhatsApp button with pulse rings */}
-            <div className="relative">
+            <div className="relative group">
               <span className="wa-pulse-ring absolute inset-0 rounded-full" />
               <span
                 className="wa-pulse-ring absolute inset-0 rounded-full"
                 style={{ animationDelay: "0.75s" }}
               />
+              <span className="absolute right-16 top-1/2 -translate-y-1/2 bg-emerald-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap shadow-md font-sans">
+                WhatsApp Chat
+              </span>
               <a
-                href="#get-quote"
+                href={`https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 onMouseEnter={() => setShowTooltip(true)}
-                aria-label="Book Your Tour"
-                className="relative flex items-center gap-3 bg-saffron-600 hover:bg-saffron-700 text-white rounded-full shadow-[0_8px_30px_rgba(255,107,0,0.4)] hover:shadow-[0_8px_40px_rgba(255,107,0,0.6)] transition-all duration-300 hover:scale-105 active:scale-95"
-                data-cta="scroll-quote"
+                aria-label="Chat on WhatsApp"
+                className="flex items-center justify-center w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full shadow-[0_8px_30px_rgba(16,185,129,0.3)] hover:shadow-[0_8px_40px_rgba(16,185,129,0.5)] transition-all duration-300 hover:scale-105 active:scale-95"
+                data-cta="whatsapp"
                 data-source="sticky-desktop"
               >
-                <div className="w-14 h-14 flex items-center justify-center">
-                  <FileText size={22} />
-                </div>
-                <span className="pr-5 font-bold text-sm whitespace-nowrap">
-                  Book Your Tour
-                </span>
+                <WhatsAppIcon />
               </a>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* ── Mobile sticky bottom bar — 3 buttons ── */}
+      {/* ── Mobile sticky bottom bar — 2 buttons ── */}
       <AnimatePresence>
         {visible && !dismissed && (
           <motion.div
@@ -143,25 +156,27 @@ export default function StickyWhatsApp() {
               {/* Call */}
               <a
                 href="tel:+917011960307"
-                className="flex items-center justify-center gap-2 py-3 rounded-xl border-2 border-divine-dark text-divine-dark font-bold text-sm active:scale-95 transition-transform"
+                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-saffron-600 text-white font-bold text-sm active:scale-95 transition-transform"
                 aria-label="Call now"
                 data-cta="call"
                 data-source="sticky-mobile"
               >
                 <Phone size={16} />
-                <span>Call Now</span>
+                <span>Call Us</span>
               </a>
 
-              {/* Get Quote */}
+              {/* WhatsApp */}
               <a
-                href="#get-quote"
-                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-saffron-600 text-white font-bold text-sm active:scale-95 transition-transform shadow-md"
-                aria-label="Get Free Quote"
-                data-cta="scroll-quote"
+                href={`https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-600 text-white font-bold text-sm active:scale-95 transition-transform shadow-md"
+                aria-label="Chat on WhatsApp"
+                data-cta="whatsapp"
                 data-source="sticky-mobile"
               >
-                <FileText size={16} />
-                <span>Enquire Now</span>
+                <WhatsAppIcon />
+                <span>WhatsApp Us</span>
               </a>
             </div>
           </motion.div>
