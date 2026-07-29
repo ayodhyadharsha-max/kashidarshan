@@ -21,12 +21,11 @@ export default function StickyWhatsApp() {
   const [dismissed, setDismissed] = useState(false);
 
   useEffect(() => {
-    const showTimer = setTimeout(() => setVisible(true), 1000);
-    const tooltipTimer = setTimeout(() => setShowTooltip(true), 3000);
+    setVisible(true);
+    const tooltipTimer = setTimeout(() => setShowTooltip(true), 2000);
     const hideTooltip = setTimeout(() => setShowTooltip(false), 8000);
 
     return () => {
-      clearTimeout(showTimer);
       clearTimeout(tooltipTimer);
       clearTimeout(hideTooltip);
     };
@@ -42,7 +41,7 @@ export default function StickyWhatsApp() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="fixed bottom-8 right-6 z-50 hidden sm:flex flex-col items-end gap-3"
+            className="fixed bottom-8 right-6 z-[9999] hidden md:flex flex-col items-end gap-3"
           >
             {/* Chat bubble tooltip */}
             <AnimatePresence>
@@ -132,7 +131,7 @@ export default function StickyWhatsApp() {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 100, opacity: 0 }}
             transition={{ type: "spring", stiffness: 300, damping: 35 }}
-            className="fixed bottom-0 left-0 right-0 z-50 sm:hidden"
+            className="fixed bottom-0 left-0 right-0 z-[9999] md:hidden"
           >
             {/* Top mini info bar */}
             <div className="bg-divine-dark flex items-center justify-between px-4 py-2 border-b border-white/10">
