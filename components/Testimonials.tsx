@@ -167,7 +167,7 @@ export default function Testimonials() {
                   ))}
                 </div>
               </div>
-              <div className="text-gray-400 text-[11px] mt-0.5">2,847 Google Reviews</div>
+              <div className="text-gray-400 text-[11px] mt-0.5">312 Google Reviews</div>
             </div>
           </motion.div>
         </motion.div>

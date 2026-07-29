@@ -621,7 +621,7 @@ function LeadForm({ tokenAmount, setTokenAmount }: { tokenAmount: number; setTok
 
 // ─── Section ─────────────────────────────────────────────────────────────────
 const proofPoints = [
-  { icon: Star,         text: "4.9★ on Google",      sub: "2,847 verified reviews" },
+  { icon: Star,         text: "4.9★ on Google",      sub: "312 verified reviews" },
   { icon: Users,        text: "50,000+ pilgrims",     sub: "Trusted since 2009" },
   { icon: ShieldCheck,  text: "Zero hidden charges",  sub: "Price you see is what you pay" },
   { icon: BadgeCheck,   text: "Darshan guaranteed",   sub: "Pre-arranged VIP slot" },

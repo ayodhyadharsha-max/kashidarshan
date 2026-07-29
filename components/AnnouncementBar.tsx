@@ -2,8 +2,8 @@
 
 const announcements = [
   "✨ New Kashi Ayodhya packages available from ₹12,999 / person",
-  "🙏 Kashi Vishwanath VIP darshan pre-arranged — skip the queue",
-  "⭐ 4.9★ on Google · 2,847 verified reviews",
+  "✈️ Flight, Train & Bus bookings arranged by us from any city in India",
+  "⭐ 4.9★ on Google · 312 verified reviews",
   "🏨 3★ & 4★ hotels pre-confirmed near Kashi Vishwanath Temple",
   "✅ IATA Certified · Ministry of Tourism Approved",
   "🚗 Airport pickup & drop included in all packages",

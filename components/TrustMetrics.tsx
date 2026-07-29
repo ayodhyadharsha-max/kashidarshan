@@ -20,7 +20,7 @@ const metrics = [
     end: 4.9,
     suffix: "★",
     label: "Google Rating",
-    sub: "2,847 verified reviews",
+    sub: "312 verified reviews",
     color: "#D4AF37",
     bg: "rgba(212,175,55,0.08)",
     border: "rgba(212,175,55,0.2)",
