@@ -95,30 +95,6 @@ export default function StickyWhatsApp() {
                 <Phone size={22} />
               </a>
             </div>
-
-            {/* Main WhatsApp button with pulse rings */}
-            <div className="relative group">
-              <span className="wa-pulse-ring absolute inset-0 rounded-full" />
-              <span
-                className="wa-pulse-ring absolute inset-0 rounded-full"
-                style={{ animationDelay: "0.75s" }}
-              />
-              <span className="absolute right-16 top-1/2 -translate-y-1/2 bg-emerald-600 text-white text-xs font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none whitespace-nowrap shadow-md font-sans">
-                WhatsApp Chat
-              </span>
-              <a
-                href={`https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                onMouseEnter={() => setShowTooltip(true)}
-                aria-label="Chat on WhatsApp"
-                className="flex items-center justify-center w-14 h-14 bg-emerald-500 hover:bg-emerald-600 text-white rounded-full shadow-[0_8px_30px_rgba(16,185,129,0.3)] hover:shadow-[0_8px_40px_rgba(16,185,129,0.5)] transition-all duration-300 hover:scale-105 active:scale-95"
-                data-cta="whatsapp"
-                data-source="sticky-desktop"
-              >
-                <WhatsAppIcon />
-              </a>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -164,18 +140,15 @@ export default function StickyWhatsApp() {
                 <span>Call Us</span>
               </a>
 
-              {/* WhatsApp */}
+              {/* Enquire Now */}
               <a
-                href={`https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-emerald-600 text-white font-bold text-sm active:scale-95 transition-transform shadow-md"
-                aria-label="Chat on WhatsApp"
-                data-cta="whatsapp"
+                href="#get-quote"
+                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-divine-dark text-white font-bold text-sm active:scale-95 transition-transform shadow-md"
+                aria-label="Enquire Now"
+                data-cta="scroll-quote"
                 data-source="sticky-mobile"
               >
-                <WhatsAppIcon />
-                <span>WhatsApp Us</span>
+                <span>Enquire Now</span>
               </a>
             </div>
           </motion.div>
