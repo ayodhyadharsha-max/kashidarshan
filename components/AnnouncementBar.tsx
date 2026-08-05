@@ -1,10 +1,11 @@
 "use client";
 
 const announcements = [
-  "✨ New Kashi Ayodhya packages available from ₹12,999 / person",
+  "🛡️ Govt. Registered & GST Approved — GSTIN: 09CJPPJ6346G1ZR",
+  "✨ New Ayodhya Varanasi packages available starting ₹12,999/person",
   "✈️ Flight, Train & Bus bookings arranged by us from any city in India",
   "⭐ 4.9★ on Google · 312 verified reviews",
-  "🏨 3★ & 4★ hotels pre-confirmed near Kashi Vishwanath Temple",
+  "🏨 Best hotels pre-confirmed near Ram Mandir",
   "✅ IATA Certified · Ministry of Tourism Approved",
   "🚗 Airport pickup & drop included in all packages",
   "📿 Special Akhand Puja arrangements on request",

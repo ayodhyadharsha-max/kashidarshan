@@ -204,10 +204,11 @@ body {
   transition: left 0.55s ease;
 }
 
-/* ── Ornament line ── */
 .ornament-line {
   display: flex;
   align-items: center;
+  justify-content: center;
+  width: 100%;
   gap: 1rem;
 }
 

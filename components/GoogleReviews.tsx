@@ -12,7 +12,7 @@ const GOOGLE_RATING  = 4.9;
 const TOTAL_REVIEWS  = 312;
 const BUSINESS_NAME  = "Kashi Darshan — Tours & Travels";
 const GOOGLE_MAPS_URL =
-  "https://www.google.com/search?q=Kashi+Darshan+-+Tours+%26+Travels&kgmid=/g/11w290cc1v";
+  "https://share.google/XZ04u3ddZGvW7pVfO";
 
 const reviews = [
   {
@@ -204,7 +204,7 @@ export default function GoogleReviews() {
           transition={{ duration: 0.7 }}
           className="text-center mb-12"
         >
-          <div className="ornament-line max-w-[260px] mx-auto mb-5">
+          <div className="ornament-line max-w-xl mx-auto mb-5">
             <span className="text-gold-600 text-[11px] tracking-[0.32em] uppercase font-semibold whitespace-nowrap px-4">
               Rated Highly By Pilgrims
             </span>

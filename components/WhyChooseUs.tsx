@@ -16,17 +16,17 @@ import {
 const usps = [
   {
     icon: Star,
-    title: "Darshan Without the Wait",
+    title: "Spiritual Peace of Mind",
     description:
-      "Our ground team holds pre-arranged darshan slots — you walk in while others wait hours in queue. No stress, no crowds.",
+      "We handle hotel bookings and private transfers so you can focus entirely on temple darshans and prayer.",
     iconColor: "#D4AF37",
     iconBg: "rgba(212,175,55,0.12)",
   },
   {
     icon: BookOpen,
-    title: "Certified Expert Guides",
+    title: "Experienced Drivers",
     description:
-      "Vedic-trained guides with 10+ years of pilgrimage experience bring every temple story to life with depth and devotion.",
+      "Our friendly yatra drivers act as helpers throughout the journey, ensuring a safe, smooth, and pleasant tour.",
     iconColor: "#FF8C00",
     iconBg: "rgba(255,140,0,0.12)",
   },
@@ -42,7 +42,7 @@ const usps = [
     icon: Banknote,
     title: "Zero Hidden Charges",
     description:
-      "The price you see is exactly what you pay. Hotel, meals, transfers, guide, darshan pass — all included. Period.",
+      "The price you see is exactly what you pay. Hotel, meals, AC vehicle transfers — all included. Period.",
     iconColor: "#60A5FA",
     iconBg: "rgba(96,165,250,0.12)",
   },
@@ -129,7 +129,7 @@ export default function WhyChooseUs() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16 sm:mb-20"
         >
-          <div className="ornament-line max-w-[220px] mx-auto mb-5">
+          <div className="ornament-line max-w-xl mx-auto mb-5">
             <span className="text-gold-400 text-[11px] tracking-[0.32em] uppercase font-semibold whitespace-nowrap px-4">
               Why 50,000+ Families Choose Us
             </span>

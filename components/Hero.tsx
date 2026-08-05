@@ -161,6 +161,18 @@ export default function Hero() {
         className="relative z-20 text-center px-5 sm:px-8 max-w-5xl mx-auto pt-32 pb-24"
         style={{ opacity: fade }}
       >
+        {/* Government Registration Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-medium tracking-wide mb-6 shadow-[0_0_15px_rgba(16,185,129,0.08)]"
+        >
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span>Govt. Registered Agency (GSTIN: 09CJPPJ6346G1ZR)</span>
+        </motion.div>
+
+
         {/* Label */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -221,12 +233,12 @@ export default function Hero() {
           <div className="flex items-center justify-center gap-2">
             <span className="text-white/60 text-sm">Starting at</span>
             <span className="text-white/40 line-through text-xs sm:text-sm">₹10,999</span>
-            <span className="text-saffron-400 font-playfair font-bold text-2xl leading-none">₹7,999</span>
+            <span className="text-saffron-400 font-playfair font-bold text-2xl leading-none">₹7,499</span>
             <span className="text-white/60 text-sm">/ person</span>
           </div>
           <span className="hidden sm:inline text-white/25 text-sm">·</span>
           <div className="flex items-center justify-center gap-1.5 text-xs text-white/50">
-            <span>₹15,998 total for couple</span>
+            <span>₹14,998 total for couple</span>
             <span className="hidden sm:inline text-white/25">·</span>
             <span className="hidden sm:inline text-white/60">All inclusive</span>
           </div>

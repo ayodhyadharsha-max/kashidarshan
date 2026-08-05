@@ -14,20 +14,20 @@ const WEB3FORMS_KEY      = "c79c0151-6af3-404d-9736-d65fe15d1e6b";
 const REDIRECT    = "/thank-you";
 
 const TOURS = [
-  "Kashi Darshan",
-  "Kashi Ayodhya",
-  "Kashi Prayagraj Ayodhya",
-  "Kashi Prayagraj",
-  "Kashi Ayodhya Chitrakoot",
-  "Sacred Ganga Circuit",
+  "Ayodhya Darshan (2N/3D)",
+  "Ayodhya Varanasi (3N/4D)",
+  "Ayodhya Prayagraj Varanasi (4N/5D)",
+  "Lucknow Ayodhya (3N/4D)",
+  "Ayodhya Varanasi Chitrakoot (4N/5D)",
+  "Full Ramayana Circuit (5N/6D)",
   "Custom Trip",
 ];
 
 const inclusions = [
-  "Kashi Vishwanath VIP darshan pre-arranged",
-  "3★ / 4★ hotel stay included",
-  "AC transport from day one",
-  "Expert guide throughout yatra",
+  "Best hotel stays pre-confirmed",
+  "Private AC transfers from day one",
+  "Covers major sightseeing",
+  "24/7 yatra customer support",
 ];
 
 const MONTHS = [
@@ -603,14 +603,14 @@ function LeadForm({ tokenAmount, setTokenAmount }: { tokenAmount: number; setTok
       </p>
 
       {/* Micro-trust strip */}
-      <div className="flex items-center justify-center gap-4 pt-1">
+      <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-1">
         {[
           bookingType === "confirm" ? "25% Advance Payment" : "Price Lock Guarantee",
           bookingType === "confirm" ? "Exact Dates Confirmed" : "Flexible Dates",
-          "100% secure tirth yatra",
+          "Govt. Registered Agency",
         ].map(t => (
-          <span key={t} className="text-white/70 text-[11px] whitespace-nowrap flex items-center gap-1">
-            <CheckCircle2 size={10} className="text-emerald-400/80" />
+          <span key={t} className="text-white/70 text-[11px] flex items-center gap-1">
+            <CheckCircle2 size={10} className="text-emerald-400/80 flex-shrink-0" />
             {t}
           </span>
         ))}
@@ -618,13 +618,12 @@ function LeadForm({ tokenAmount, setTokenAmount }: { tokenAmount: number; setTok
     </form>
   );
 }
-
 // ─── Section ─────────────────────────────────────────────────────────────────
 const proofPoints = [
   { icon: Star,         text: "4.9★ on Google",      sub: "312 verified reviews" },
   { icon: Users,        text: "50,000+ pilgrims",     sub: "Trusted since 2009" },
   { icon: ShieldCheck,  text: "Zero hidden charges",  sub: "Price you see is what you pay" },
-  { icon: BadgeCheck,   text: "Darshan guaranteed",   sub: "Pre-arranged VIP slot" },
+  { icon: BadgeCheck,   text: "Govt. Registered Agency", sub: "GSTIN: 09CJPPJ6346G1ZR" },
 ];
 
 export default function LeadCapture() {

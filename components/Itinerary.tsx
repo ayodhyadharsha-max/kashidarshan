@@ -881,7 +881,7 @@ export default function Itinerary() {
           transition={{ duration: 0.7 }}
           className="text-center mb-12"
         >
-          <div className="ornament-line max-w-xs mx-auto mb-4">
+          <div className="ornament-line max-w-xl mx-auto mb-4">
             <span className="text-gold-600 text-xs tracking-[0.3em] uppercase font-medium whitespace-nowrap px-4">
               Day-by-Day Travel Plan
             </span>

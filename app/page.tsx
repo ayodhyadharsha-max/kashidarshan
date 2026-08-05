@@ -11,6 +11,7 @@ import Itinerary from "@/components/Itinerary";
 import HotelShowcase from "@/components/HotelShowcase";
 import LuxuryPartnersStrip from "@/components/LuxuryPartnersStrip";
 import Testimonials from "@/components/Testimonials";
+import VideoTestimonial from "@/components/VideoTestimonial";
 import Gallery from "@/components/Gallery";
 import GoogleReviews from "@/components/GoogleReviews";
 import SemanticContent from "@/components/SemanticContent";
@@ -32,7 +33,7 @@ const organizationSchema = {
   logo: "https://yatra.kashidharshan.com/logo.png",
   image: "https://yatra.kashidharshan.com/logo.png",
   description:
-    "Kashi Dharshan is a specialist pilgrimage tour operator based in Varanasi, Uttar Pradesh. We offer complete Varanasi tour packages including Kashi Vishwanath VIP darshan pass, Ganga Aarti boat ride, 3-star and 4-star hotel stays, AC transport, and expert guides. Our circuits cover Varanasi, Prayagraj, Ayodhya, and Chitrakoot. Packages start at ₹10,000 / person (₹20,000 total for couple). We have served over 50,000 pilgrims since 2009.",
+    "Kashi Dharshan is a specialist pilgrimage tour operator based in Ayodhya, Uttar Pradesh. We offer complete yatra packages including best hotel stays, private AC cab transfers, and temple sightseeing. Our circuits cover Ayodhya, Varanasi, Prayagraj, and Chitrakoot. Packages start at ₹7,499 / person (₹14,998 total for couple). We have served over 50,000 pilgrims since 2009.",
   telephone: "+917011960307",
   email: "kashidharshannn@gmail.com",
   address: {
@@ -69,79 +70,79 @@ const organizationSchema = {
       author: { "@type": "Person", name: "Ramesh Gupta" },
       reviewRating: { "@type": "Rating", ratingValue: "5" },
       reviewBody:
-        "Kashi Vishwanath VIP darshan was arranged perfectly — no queue, calm atmosphere. Evening Ganga Aarti boat view was spectacular. Highly recommend.",
+        "Ram Mandir darshan was arranged perfectly. Best hotel stay and AC transport made our trip very comfortable. Highly recommend.",
     },
     {
       "@type": "Review",
       author: { "@type": "Person", name: "Sunita Sharma" },
       reviewRating: { "@type": "Rating", ratingValue: "5" },
       reviewBody:
-        "Travelled as a family of 8 including elderly parents. The team made special arrangements — wheelchair access, priority Ganga Aarti boat seating, ground floor rooms. Highly satisfied.",
+        "Travelled as a family of 8 including elderly parents. The team made special arrangements — wheelchair access, priority yatra transfers, ground floor rooms. Highly satisfied.",
     },
   ],
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Kashi Varanasi Tour Packages",
+    name: "Ayodhya Varanasi Tour Packages",
     itemListElement: [
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Trip",
-          name: "Kashi Darshan Package",
-          description: "2 Nights 3 Days Kashi tour with Kashi Vishwanath VIP darshan, Ganga Aarti boat ride, hotel and transport",
-          tripOrigin: { "@type": "TouristAttraction", name: "Varanasi" },
+          name: "Ayodhya Darshan Package",
+          description: "2 Nights 3 Days Ayodhya tour package with best hotel stay, AC transport, and sightseeing",
+          tripOrigin: { "@type": "TouristAttraction", name: "Ayodhya" },
         },
-        price: "20000",
+        price: "14998",
         priceCurrency: "INR",
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Trip",
-          name: "Kashi Ayodhya Tour Package",
-          description: "3 Nights 4 Days Varanasi and Ayodhya tour package with Kashi Vishwanath VIP darshan, Ganga Aarti, and Ram Mandir darshan",
+          name: "Ayodhya Varanasi Tour Package",
+          description: "3 Nights 4 Days Ayodhya and Varanasi tour package with best hotel stays, AC transfers, and sightseeing support",
         },
-        price: "30000",
+        price: "25998",
         priceCurrency: "INR",
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Trip",
-          name: "Kashi Prayagraj Ayodhya Tour Package",
-          description: "4 Nights 5 Days complete tirthdham circuit covering Varanasi, Prayagraj and Ayodhya",
+          name: "Ayodhya Prayagraj Varanasi Tour Package",
+          description: "4 Nights 5 Days yatra circuit covering Ayodhya, Prayagraj and Varanasi with AC transfers",
         },
-        price: "38000",
+        price: "31998",
         priceCurrency: "INR",
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Trip",
-          name: "Sarnath Buddhist Tour",
-          description: "2 Nights 3 Days tour focusing on Sarnath Buddhist Stupa, monasteries, Varanasi VIP darshan, and Ganga Aarti",
+          name: "Lucknow Ayodhya Tour Package",
+          description: "3 Nights 4 Days yatra covering Lucknow and Ayodhya with best hotels and AC cab transfers",
         },
-        price: "22000",
+        price: "29998",
         priceCurrency: "INR",
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Trip",
-          name: "Buddhist Circuit Tour",
-          description: "4 Nights 5 Days pilgrimage covering Varanasi, Sarnath, and Mahabodhi Temple in Bodhgaya",
+          name: "Ayodhya Varanasi Chitrakoot Package",
+          description: "4 Nights 5 Days yatra tracing Lord Ram's journey covering Ayodhya, Varanasi, and Chitrakoot",
         },
-        price: "43000",
+        price: "33998",
         priceCurrency: "INR",
       },
       {
         "@type": "Offer",
         itemOffered: {
           "@type": "Trip",
-          name: "Kashi Heritage & Lalit Ghat Tour",
-          description: "2 Nights 3 Days Varanasi heritage tour covering Nepali wooden temple, local handlooms, and Ghat walks",
+          name: "Full Ramayana Circuit",
+          description: "5 Nights 6 Days complete pilgrimage circuit covering Ayodhya, Prayagraj, Varanasi, and Chitrakoot",
         },
-        price: "22000",
+        price: "36998",
         priceCurrency: "INR",
       },
     ],
@@ -210,16 +211,16 @@ const destinationSchema = {
 const bookingHowToSchema = {
   "@context": "https://schema.org",
   "@type": "HowTo",
-  name: "How to Book a Kashi Varanasi Tour Package",
+  name: "How to Book an Ayodhya Varanasi Tour Package",
   description:
-    "Follow these steps to book a complete Kashi Varanasi pilgrimage package with Kashi Vishwanath VIP darshan, hotel and transport in under 15 minutes.",
+    "Follow these steps to book a complete Ayodhya Varanasi pilgrimage package with hotel and transport in under 15 minutes.",
   totalTime: "PT15M",
   step: [
     {
       "@type": "HowToStep",
       position: "1",
       name: "Share your travel details",
-      text: "WhatsApp us your preferred travel dates, number of travellers, and the tour you are interested in. Our team responds within 2 minutes.",
+      text: "Submit a quote request with your preferred travel dates, number of travellers, and the tour package you are interested in.",
     },
     {
       "@type": "HowToStep",
@@ -230,20 +231,20 @@ const bookingHowToSchema = {
     {
       "@type": "HowToStep",
       position: "3",
-      name: "Confirm with 20% advance",
-      text: "Pay 20% of the package amount to confirm your booking and secure your VIP darshan pass and hotel rooms.",
+      name: "Confirm with advance deposit",
+      text: "Pay the booking deposit to confirm your yatra booking and secure your hotel rooms.",
     },
     {
       "@type": "HowToStep",
       position: "4",
-      name: "Receive booking confirmation and guide contact",
-      text: "You receive a written confirmation with hotel details, pickup timings, and your guide's contact number.",
+      name: "Receive booking confirmation",
+      text: "You receive a written confirmation with hotel details, vehicle details, and pickup timings.",
     },
     {
       "@type": "HowToStep",
       position: "5",
       name: "Travel and pay balance on arrival",
-      text: "Arrive at the airport or railway station. Our representative receives you. Pay the remaining balance on the first day of the tour.",
+      text: "Arrive at the starting point airport or railway station. Our team receives you. Pay the remaining balance on the first day of the tour.",
     },
   ],
 };
@@ -264,22 +265,22 @@ const faqSchema = {
 const tourSchema = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "Kashi Varanasi Tour Packages",
+  name: "Ayodhya Varanasi Tour Packages",
   description:
-    "Premium Kashi Varanasi pilgrimage packages with Kashi Vishwanath VIP darshan, hotel and transport included",
+    "Premium Ayodhya Varanasi pilgrimage packages with best hotels and AC transport included",
   itemListElement: [
     {
       "@type": "ListItem",
       position: 1,
       item: {
         "@type": "Product",
-        name: "Kashi Darshan Package — 2 Nights / 3 Days",
+        name: "Ayodhya Darshan Package — 2 Nights / 3 Days",
         description:
-          "Varanasi tour package with Kashi Vishwanath VIP darshan, 3★/4★ hotel, airport pickup & drop, and local guide.",
+          "Ayodhya tour package with best hotel stay, private AC vehicle, airport pickup & drop.",
         image: [
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Evening_Ganga_Aarti_at_Dashashwamedh_Ghat.JPG/960px-Evening_Ganga_Aarti_at_Dashashwamedh_Ghat.JPG"
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ram_Mandir%2C_Ayodhya.png/960px-Ram_Mandir%2C_Ayodhya.png"
         ],
-        sku: "kashi-darshan-2n3d",
+        sku: "ayodhya-darshan-2n3d",
         brand: {
           "@type": "Brand",
           name: "Kashi Dharshan"
@@ -295,11 +296,11 @@ const tourSchema = {
           "@type": "Review",
           author: { "@type": "Person", name: "Ramesh Gupta" },
           reviewRating: { "@type": "Rating", ratingValue: "5" },
-          reviewBody: "Kashi Vishwanath VIP darshan was arranged perfectly — no queue, calm atmosphere. Hotels were clean. Highly recommend.",
+          reviewBody: "Ram Mandir darshan was arranged perfectly. Hotels were clean. Highly recommend.",
         },
         offers: {
           "@type": "Offer",
-          price: "20000",
+          price: "14998",
           priceCurrency: "INR",
           priceValidUntil: "2027-12-31",
           url: "https://yatra.kashidharshan.com/#get-quote",
@@ -312,13 +313,13 @@ const tourSchema = {
       position: 2,
       item: {
         "@type": "Product",
-        name: "Kashi Ayodhya Tour Package — 3 Nights / 4 Days",
+        name: "Ayodhya Varanasi Tour Package — 3 Nights / 4 Days",
         description:
-          "Varanasi and Ayodhya tour package with Kashi Vishwanath VIP darshan, Ram Mandir visit, 3★/4★ hotels and AC transfers.",
+          "Varanasi and Ayodhya tour package with best hotels, private AC vehicle transfers, and sightseeing.",
         image: [
           "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ram_Mandir%2C_Ayodhya.png/960px-Ram_Mandir%2C_Ayodhya.png"
         ],
-        sku: "kashi-ayodhya-3n4d",
+        sku: "ayodhya-varanasi-3n4d",
         brand: {
           "@type": "Brand",
           name: "Kashi Dharshan"
@@ -334,11 +335,11 @@ const tourSchema = {
           "@type": "Review",
           author: { "@type": "Person", name: "Sunita Sharma" },
           reviewRating: { "@type": "Rating", ratingValue: "5" },
-          reviewBody: "Combine Kashi and Ayodhya was great. Beautiful evening Ganga Aarti and smooth Ram Lalla darshan.",
+          reviewBody: "Combine Varanasi and Ayodhya was great. Beautiful evening Ganga Aarti and smooth Ram Lalla darshan.",
         },
         offers: {
           "@type": "Offer",
-          price: "30000",
+          price: "25998",
           priceCurrency: "INR",
           priceValidUntil: "2027-12-31",
           url: "https://yatra.kashidharshan.com/#get-quote",
@@ -351,13 +352,13 @@ const tourSchema = {
       position: 3,
       item: {
         "@type": "Product",
-        name: "Kashi Prayagraj Ayodhya Package — 4 Nights / 5 Days",
+        name: "Ayodhya Prayagraj Varanasi Package — 4 Nights / 5 Days",
         description:
-          "Complete tirthdham circuit covering Varanasi, Prayagraj and Ayodhya with darshan pass, hotels and guide.",
+          "Complete yatra circuit covering Ayodhya, Prayagraj and Varanasi with best hotel stay and AC transport.",
         image: [
           "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Triveni_Sangam.JPG/960px-Triveni_Sangam.JPG"
         ],
-        sku: "kashi-prayagraj-ayodhya-4n5d",
+        sku: "ayodhya-prayagraj-varanasi-4n5d",
         brand: {
           "@type": "Brand",
           name: "Kashi Dharshan"
@@ -373,11 +374,11 @@ const tourSchema = {
           "@type": "Review",
           author: { "@type": "Person", name: "Anil Saxena" },
           reviewRating: { "@type": "Rating", ratingValue: "5" },
-          reviewBody: "Amazing triple circuit tour. The Triveni Sangam boat ride in Prayagraj and Ram Mandir in Ayodhya were highlights.",
+          reviewBody: "Amazing tirthdham tour. The Triveni Sangam boat ride in Prayagraj and Ram Mandir in Ayodhya were highlights.",
         },
         offers: {
           "@type": "Offer",
-          price: "38000",
+          price: "31998",
           priceCurrency: "INR",
           priceValidUntil: "2027-12-31",
           url: "https://yatra.kashidharshan.com/#get-quote",
@@ -390,13 +391,13 @@ const tourSchema = {
       position: 4,
       item: {
         "@type": "Product",
-        name: "Kashi Prayagraj Tour Package — 3 Nights / 4 Days",
+        name: "Lucknow Ayodhya Tour Package — 3 Nights / 4 Days",
         description:
-          "Confluence and heritage tour covering Varanasi and Prayagraj with Kashi Vishwanath darshan and Triveni Sangam boat ride.",
+          "Pilgrimage tour covering Lucknow and Ayodhya with best hotel stays and AC vehicle transfers.",
         image: [
           "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Viswanath_temple_Varanasi_02.jpg/960px-Viswanath_temple_Varanasi_02.jpg"
         ],
-        sku: "kashi-prayagraj-3n4d",
+        sku: "lucknow-ayodhya-3n4d",
         brand: {
           "@type": "Brand",
           name: "Kashi Dharshan"
@@ -412,11 +413,11 @@ const tourSchema = {
           "@type": "Review",
           author: { "@type": "Person", name: "Preeti Mishra" },
           reviewRating: { "@type": "Rating", ratingValue: "5" },
-          reviewBody: "Excellent coordination. Prayagraj Sangam boat ride and Kashi Vishwanath VIP darshan was very smooth.",
+          reviewBody: "Excellent coordination. Ayodhya Ram Mandir and local sightseeing transfers were very smooth.",
         },
         offers: {
           "@type": "Offer",
-          price: "28000",
+          price: "29998",
           priceCurrency: "INR",
           priceValidUntil: "2027-12-31",
           url: "https://yatra.kashidharshan.com/#get-quote",
@@ -429,13 +430,13 @@ const tourSchema = {
       position: 5,
       item: {
         "@type": "Product",
-        name: "Kashi Ayodhya Chitrakoot Package — 4 Nights / 5 Days",
+        name: "Ayodhya Varanasi Chitrakoot Package — 4 Nights / 5 Days",
         description:
-          "Pilgrimage circuit tracing Lord Ram's journey and Shiva devotion covering Varanasi, Ayodhya, and Chitrakoot.",
+          "Pilgrimage circuit tracing Lord Ram's journey covering Ayodhya, Varanasi, and Chitrakoot.",
         image: [
           "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Mandakini_River.jpg/960px-Mandakini_River.jpg"
         ],
-        sku: "kashi-ayodhya-chitrakoot-4n5d",
+        sku: "ayodhya-varanasi-chitrakoot-4n5d",
         brand: {
           "@type": "Brand",
           name: "Kashi Dharshan"
@@ -451,11 +452,11 @@ const tourSchema = {
           "@type": "Review",
           author: { "@type": "Person", name: "Deepak Rawat" },
           reviewRating: { "@type": "Rating", ratingValue: "5" },
-          reviewBody: "Chitrakoot Mandakini river and Kashi Vishwanath darshan made this a deeply holy experience.",
+          reviewBody: "Chitrakoot Mandakini river and Ayodhya darshan made this a deeply holy experience.",
         },
         offers: {
           "@type": "Offer",
-          price: "38000",
+          price: "33998",
           priceCurrency: "INR",
           priceValidUntil: "2027-12-31",
           url: "https://yatra.kashidharshan.com/#get-quote",
@@ -468,13 +469,13 @@ const tourSchema = {
       position: 6,
       item: {
         "@type": "Product",
-        name: "Sacred Ganga Circuit — 5 Nights / 6 Days",
+        name: "Full Ramayana Circuit — 5 Nights / 6 Days",
         description:
-          "The ultimate holy pilgrimage covering Varanasi, Prayagraj, Ayodhya and Chitrakoot with premium hotels and guided darshan.",
+          "The ultimate holy pilgrimage covering Ayodhya, Prayagraj, Varanasi and Chitrakoot with best hotel stay and AC transport.",
         image: [
           "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Evening_Ganga_Aarti_at_Dashashwamedh_Ghat.JPG/960px-Evening_Ganga_Aarti_at_Dashashwamedh_Ghat.JPG"
         ],
-        sku: "full-kashi-circuit-5n6d",
+        sku: "full-ramayana-circuit-5n6d",
         brand: {
           "@type": "Brand",
           name: "Kashi Dharshan"
@@ -490,11 +491,11 @@ const tourSchema = {
           "@type": "Review",
           author: { "@type": "Person", name: "Vijay Kumar" },
           reviewRating: { "@type": "Rating", ratingValue: "5" },
-          reviewBody: "The complete 6-day circuit is perfect. Premium hotels, dedicated AC SUV transfers, and guides who explained everything.",
+          reviewBody: "The complete 6-day circuit is perfect. Premium hotels and dedicated AC SUV transfers.",
         },
         offers: {
           "@type": "Offer",
-          price: "48000",
+          price: "36998",
           priceCurrency: "INR",
           priceValidUntil: "2027-12-31",
           url: "https://yatra.kashidharshan.com/#get-quote",
@@ -576,6 +577,9 @@ export default function Home() {
 
         {/* 9. Testimonials — social proof carousel */}
         <Testimonials />
+
+        {/* 9a. Video Testimonials */}
+        <VideoTestimonial />
 
         {/* 9b. Gallery — real pilgrim memories to build devotee trust */}
         <Gallery />

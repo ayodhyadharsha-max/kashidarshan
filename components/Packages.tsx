@@ -8,54 +8,57 @@ const WA_NUMBER = "917011960307";
 
 const packages = [
   {
-    id: "kashi-darshan",
-    name: "Kashi Darshan",
-    subtitle: "Ideal for a short, focused pilgrimage to Varanasi",
+    id: "ayodhya-darshan",
+    name: "Ayodhya Darshan",
+    subtitle: "Ideal for a short, focused pilgrimage to Ayodhya",
     duration: "2 Nights / 3 Days",
-    cities: ["Varanasi"],
-    price: 15998,
-    originalPrice: 21998,
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Evening_Ganga_Aarti_at_Dashashwamedh_Ghat.JPG/960px-Evening_Ganga_Aarti_at_Dashashwamedh_Ghat.JPG",
+    cities: ["Ayodhya"],
+    price: 14998,
+    originalPrice: 20998,
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ram_Mandir%2C_Ayodhya.png/960px-Ram_Mandir%2C_Ayodhya.png",
     popular: false,
     featured: false,
     ctaText: "Get Tour Details",
     accent: "#FF6B00",
     features: [
-      "AC Car Sightseeing Transfers",
+      "Best Hotel Stay",
       "Airport / Railway Pickup & Drop",
-      "Kaal Bhairav & Annapurna Temple",
-      "Ganga Aarti Private Boat Ride",
-      "24/7 WhatsApp Support",
+      "Covers Sightseeing & Temple Visits",
+      "Hanuman Garhi & Kanak Bhawan",
+      "Driver will guide you during the yatra",
+      "24/7 Support",
     ],
     note: "Ideal for a short divine weekend escape",
   },
   {
-    id: "kashi-ayodhya",
-    name: "Kashi · Ayodhya",
+    id: "ayodhya-varanasi",
+    name: "Ayodhya · Varanasi",
     subtitle: "Our most booked Kashi tour with Ayodhya",
     duration: "3 Nights / 4 Days",
-    cities: ["Varanasi", "Ayodhya"],
+    cities: ["Ayodhya", "Varanasi"],
     price: 25998,
     originalPrice: 35998,
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ram_Mandir%2C_Ayodhya.png/960px-Ram_Mandir%2C_Ayodhya.png",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Evening_Ganga_Aarti_at_Dashashwamedh_Ghat.JPG/960px-Evening_Ganga_Aarti_at_Dashashwamedh_Ghat.JPG",
     popular: true,
     featured: false,
     ctaText: "Get Full Itinerary",
     accent: "#D4AF37",
     features: [
-      "Intercity AC Car Transfers",
-      "Airport / Railway Pickup & Drop",
-      "Ganga Aarti at Dashashwamedh Ghat",
-      "Hanuman Garhi & Kanak Bhawan",
+      "Best Hotel Stay",
+      "Intercity AC Cab Transfers",
+      "Covers Sightseeing & Temple Visits",
+      "Ganga Aarti Private Boat Ride",
+      "Driver will guide you during the yatra",
+      "24/7 Support",
     ],
     note: "8 of 12 seats booked this week",
   },
   {
-    id: "kashi-prayagraj-ayodhya",
-    name: "Kashi · Prayagraj · Ayodhya",
+    id: "ayodhya-prayagraj-varanasi",
+    name: "Ayodhya · Prayagraj · Varanasi",
     subtitle: "The complete tirthdham circuit",
     duration: "4 Nights / 5 Days",
-    cities: ["Varanasi", "Prayagraj", "Ayodhya"],
+    cities: ["Ayodhya", "Prayagraj", "Varanasi"],
     price: 31998,
     originalPrice: 43998,
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Triveni_Sangam.JPG/960px-Triveni_Sangam.JPG",
@@ -64,19 +67,21 @@ const packages = [
     ctaText: "Get Full Itinerary",
     accent: "#7C3AED",
     features: [
-      "Intercity AC Car Transfers",
-      "Airport / Railway Pickup & Drop",
+      "Best Hotel Stay",
+      "Intercity AC Cab Transfers",
+      "Covers Sightseeing & Temple Visits",
       "Triveni Sangam Prayagraj Visit",
-      "Ganga Aarti at Dashashwamedh Ghat",
+      "Driver will guide you during the yatra",
+      "24/7 Support",
     ],
     note: "Covers three of India's holiest cities",
   },
   {
-    id: "kashi-prayagraj",
-    name: "Kashi · Prayagraj",
+    id: "lucknow-ayodhya",
+    name: "Lucknow · Ayodhya",
     subtitle: "Sacred confluence and heritage tour",
     duration: "3 Nights / 4 Days",
-    cities: ["Varanasi", "Prayagraj"],
+    cities: ["Lucknow", "Ayodhya"],
     price: 29998,
     originalPrice: 39998,
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Allahabad%2C_Triveni_Sangam_03_%2825731951228%29.jpg/960px-Allahabad%2C_Triveni_Sangam_03_%2825731951228%29.jpg",
@@ -85,20 +90,21 @@ const packages = [
     ctaText: "Get Tour Details",
     accent: "#0891B2",
     features: [
-      "Intercity AC Car Transfers",
-      "Airport / Railway Pickup & Drop",
-      "Triveni Sangam Prayagraj Visit",
-      "Ganga Aarti & Boat Ride",
-      "24/7 WhatsApp Support",
+      "Best Hotel Stay",
+      "Lucknow to Ayodhya AC Cab Transfers",
+      "Covers Sightseeing & Temple Visits",
+      "Naimisharanya Pilgrimage (Optional)",
+      "Driver will guide you during the yatra",
+      "24/7 Support",
     ],
-    note: "Ancient ghats meet holy Triveni Sangam",
+    note: "Perfect for combining modern Lucknow with holy Ayodhya",
   },
   {
-    id: "kashi-ayodhya-chitrakoot",
-    name: "Kashi · Ayodhya · Chitrakoot",
+    id: "ayodhya-varanasi-chitrakoot",
+    name: "Ayodhya · Varanasi · Chitrakoot",
     subtitle: "Tracing the sacred path of devotion",
     duration: "4 Nights / 5 Days",
-    cities: ["Varanasi", "Ayodhya", "Chitrakoot"],
+    cities: ["Ayodhya", "Varanasi", "Chitrakoot"],
     price: 33998,
     originalPrice: 45998,
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Mandakini_River.jpg/960px-Mandakini_River.jpg",
@@ -107,19 +113,21 @@ const packages = [
     ctaText: "Talk To Tour Expert",
     accent: "#059669",
     features: [
-      "Intercity AC Car Transfers",
-      "Airport / Railway Pickup & Drop",
+      "Best Hotel Stay",
+      "Intercity AC Cab Transfers",
+      "Covers Sightseeing & Temple Visits",
       "Kamadgiri Parikrama Chitrakoot",
-      "Ramghat & Sati Anusuya Ashram",
+      "Driver will guide you during the yatra",
+      "24/7 Support",
     ],
     note: "Follow the sacred trails from Kashi to Chitrakoot",
   },
   {
-    id: "full-kashi-circuit",
-    name: "Sacred Ganga Circuit",
+    id: "full-ramayana-circuit",
+    name: "Full Ramayana Circuit",
     subtitle: "The ultimate holy pilgrimage",
     duration: "5 Nights / 6 Days",
-    cities: ["Varanasi", "Prayagraj", "Ayodhya", "Chitrakoot"],
+    cities: ["Ayodhya", "Prayagraj", "Varanasi", "Chitrakoot"],
     price: 36998,
     originalPrice: 49998,
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Evening_Ganga_Aarti_at_Dashashwamedh_Ghat.JPG/960px-Evening_Ganga_Aarti_at_Dashashwamedh_Ghat.JPG",
@@ -128,10 +136,12 @@ const packages = [
     ctaText: "Talk To Tour Expert",
     accent: "#8B0000",
     features: [
-      "Intercity AC Car Transfers",
-      "Airport / Railway Pickup & Drop",
-      "All 4 Sacred Destinations Covered",
-      "Triveni Sangam + Kamadgiri Parikrama",
+      "Best Hotel Stay",
+      "Intercity AC Cab Transfers",
+      "Covers Sightseeing & Temple Visits",
+      "All Holy Sites (Sangam & Kamadgiri)",
+      "Driver will guide you during the yatra",
+      "24/7 Support",
     ],
     note: "Most complete sacred tirth circuit — limited slots",
   },
@@ -149,11 +159,12 @@ const packages = [
     ctaText: "Get Tour Details",
     accent: "#D97706",
     features: [
+      "Best Hotel Stay",
       "AC Car local transfers & sightseeing",
       "Varanasi Airport / Railway Pickup & Drop",
-      "Dhamekh Stupa & Sarnath Museum Visit",
-      "Evening Ganga Aarti Private Boat Ride",
-      "Kaal Bhairav & Annapurna Temple",
+      "Covers Sightseeing & Temple Visits",
+      "Driver will guide you during the yatra",
+      "24/7 Support",
     ],
     note: "Perfect for exploring Buddhist heritage & Sarnath",
   },
@@ -171,11 +182,12 @@ const packages = [
     ctaText: "Get Full Itinerary",
     accent: "#4F46E5",
     features: [
+      "Best Hotel Stay",
       "Intercity AC Car transfers (Varanasi - Bodhgaya)",
       "Varanasi Airport / Railway Pickup & Drop",
-      "Mahabodhi Temple VIP Darshan",
-      "Dhamekh Stupa & Sarnath Sightseeing",
-      "Evening Ganga Aarti Boat Ride",
+      "Covers Sightseeing & Temple Visits",
+      "Driver will guide you during the yatra",
+      "24/7 Support",
     ],
     note: "Covers Mahabodhi Temple, Sarnath Stupa & Ganga Aarti",
   },
@@ -193,12 +205,12 @@ const packages = [
     ctaText: "Get Tour Details",
     accent: "#E11D48",
     features: [
+      "Best Hotel Stay",
       "AC Private Car local transfers & sightseeing",
       "Varanasi Airport / Railway Pickup & Drop",
-      "Guided heritage walk through lanes of Kashi",
-      "Exclusive visit to Nepali wooden temple at Lalit Ghat",
-      "Sunrise Subah-e-Banaras private boat ride",
-      "Traditional Banarasi Silk Weaving tour",
+      "Covers Sightseeing & Temple Visits",
+      "Driver will guide you during the yatra",
+      "24/7 Support",
     ],
     note: "Highly recommended for culture & history enthusiasts",
   },
@@ -206,9 +218,9 @@ const packages = [
 
 const coreInclusions = [
   { icon: Car,      label: "AC Transfer" },
-  { icon: Hotel,    label: "Best Hotels" },
-  { icon: Compass,  label: "Sightseeing" },
-  { icon: Headphones,label: "24/7 Support" },
+  { icon: Hotel,    label: "Best Hotel" },
+  { icon: MapPin,   label: "Sightseeing" },
+  { icon: MessageCircle, label: "24/7 Support" },
 ];
 
 function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; index: number; tokenAmount: number }) {
@@ -355,7 +367,7 @@ function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; i
               </span>
             </div>
             <p className={`text-[9px] mt-1 font-medium ${isPopular ? "text-white/40" : "text-gray-400"}`}>
-              ₹{pkg.price.toLocaleString("en-IN")} for 2 adults
+              (₹{(pkg.price).toLocaleString("en-IN")} total for couple)
             </p>
           </div>
         </div>
@@ -403,9 +415,9 @@ function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; i
           </div>
           <ul className="space-y-2 text-[11px] leading-tight">
             <li className="flex items-start gap-2">
-              <span className="text-red-500 font-bold text-[10px] mt-[1.5px] flex-shrink-0">✕</span>
-              <span className={isPopular ? "text-white/60" : "text-gray-500"}>
-                Transport tickets (Bus, Train, Flight) are NOT included
+              <span className="flex-shrink-0">✈️</span>
+              <span className={`font-medium ${isPopular ? "text-white/80" : "text-gray-600"}`}>
+                Flight/Train/Bus: Self-book OR we arrange at actual cost
               </span>
             </li>
             <li className="flex items-start gap-2">
@@ -417,7 +429,7 @@ function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; i
             <li className="flex items-start gap-2">
               <span className="text-amber-500 font-bold text-[10px] mt-[1.5px] flex-shrink-0">⚠️</span>
               <span className={isPopular ? "text-white/60" : "text-gray-500"}>
-                Darshan pass is ONLY provided with complete package
+                Yatra services are provided only with complete package
               </span>
             </li>
           </ul>
@@ -485,17 +497,17 @@ export default function Packages() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16 sm:mb-20"
         >
-          <div className="ornament-line max-w-[200px] mx-auto mb-5">
+          <div className="ornament-line max-w-xl mx-auto mb-5">
             <span className="text-gold-600 text-[11px] tracking-[0.32em] uppercase font-semibold whitespace-nowrap px-4">
               Choose Your Journey
             </span>
           </div>
           <h2 className="font-playfair font-bold text-4xl sm:text-5xl lg:text-[3.4rem] text-divine-dark mb-5 leading-tight">
-            Kashi Tour{" "}
+            Ayodhya Tour{" "}
             <span className="text-gradient-saffron">Packages 2025</span>
           </h2>
           <p className="text-gray-500 text-lg max-w-xl mx-auto leading-relaxed">
-            Every detail pre-arranged — hotel, darshan pass, AC transport and expert guide — so you arrive and simply pray.
+            Every detail pre-arranged — hotel stays, private AC transport, and sightseeing — so you arrive and simply pray.
           </p>
           <div className="inline-flex items-center gap-2 mt-6 text-sm text-gray-500 bg-white border border-gray-100 shadow-sm rounded-full px-5 py-2.5">
             <MapPin size={13} className="text-saffron-500" />
@@ -522,10 +534,10 @@ export default function Packages() {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
             <div className="flex gap-3">
-              <div className="w-8 h-8 rounded-full bg-red-50 flex items-center justify-center flex-shrink-0 text-red-600 font-bold text-sm">✕</div>
+              <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center flex-shrink-0 text-blue-600 font-bold text-sm">✈️</div>
               <div>
-                <h4 className="font-semibold text-divine-dark text-[13px] mb-1">No Transport Tickets</h4>
-                <p className="text-gray-400 text-xs leading-relaxed">Any type of transportation tickets (like flights, train tickets, or interstate buses) are not included. Devotees must book their own travel, or we can assist at actual cost.</p>
+                <h4 className="font-semibold text-divine-dark text-[13px] mb-1">Flexible Transport Options</h4>
+                <p className="text-gray-400 text-xs leading-relaxed">Book your own flight, train, or bus to the yatra starting point, or ask our team to book them for you at actual cost during confirmation.</p>
               </div>
             </div>
             <div className="flex gap-3">
@@ -538,8 +550,8 @@ export default function Packages() {
             <div className="flex gap-3">
               <div className="w-8 h-8 rounded-full bg-amber-50 flex items-center justify-center flex-shrink-0 text-amber-600 font-bold text-sm">⚠️</div>
               <div>
-                <h4 className="font-semibold text-divine-dark text-[13px] mb-1">Darshan Pass Booking</h4>
-                <p className="text-gray-400 text-xs leading-relaxed">Ram Mandir darshan passes are arranged strictly as part of our complete tour packages. We do not provide or sell standalone passes without hotel/transport booking.</p>
+                <h4 className="font-semibold text-divine-dark text-[13px] mb-1">Complete Package Bookings</h4>
+                <p className="text-gray-400 text-xs leading-relaxed">Our premium tour services are arranged strictly as a complete package. We do not provide standalone hotel or transport bookings.</p>
               </div>
             </div>
           </div>

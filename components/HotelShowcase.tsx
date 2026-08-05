@@ -38,8 +38,8 @@ const hotels = [
       "Locker & safe facility",
       "Laundry service available",
     ],
-    usedIn: ["Kashi Darshan Package", "Kashi Prayagraj Package"],
-    priceNote: "Included in packages starting ₹7,999 / person (₹15,998 for couple)",
+    usedIn: ["Ayodhya Darshan Package", "Lucknow Ayodhya Package"],
+    priceNote: "Included in packages starting ₹7,499 / person (₹14,998 for couple)",
   },
   {
     id: "premium",
@@ -72,7 +72,7 @@ const hotels = [
       "Fitness centre & spa",
       "Airport / station pickup arranged",
     ],
-    usedIn: ["Kashi Ayodhya Package", "Kashi Prayagraj Ayodhya Package"],
+    usedIn: ["Ayodhya Varanasi Package", "Ayodhya Prayagraj Varanasi Package"],
     priceNote: "Included in packages starting ₹12,999 / person (₹25,998 for couple)",
     dark: true,
   },
@@ -104,9 +104,9 @@ const hotels = [
       "Customised spiritual decor",
       "Chef-curated sattvic menu",
       "Personal puja arrangement",
-      "Exclusive darshan slot coordination",
+      "Exclusive yatra slot coordination",
     ],
-    usedIn: ["Full Circuit Package (5N/6D)"],
+    usedIn: ["Full Ramayana Circuit (5N/6D)"],
     priceNote: "Included in packages starting ₹18,499 / person (₹36,998 for couple)",
   },
 ];
@@ -125,7 +125,7 @@ export default function HotelShowcase() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <div className="ornament-line max-w-xs mx-auto mb-4">
+          <div className="ornament-line max-w-xl mx-auto mb-4">
             <span className="text-gold-600 text-xs tracking-[0.3em] uppercase font-medium whitespace-nowrap px-4">
               Where You'll Rest & Recharge
             </span>

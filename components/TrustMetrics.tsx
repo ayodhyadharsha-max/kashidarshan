@@ -94,7 +94,7 @@ export default function TrustMetrics() {
           transition={{ duration: 0.65 }}
           className="text-center mb-12 sm:mb-14"
         >
-          <div className="ornament-line max-w-[200px] mx-auto mb-4">
+          <div className="ornament-line max-w-xl mx-auto mb-4">
             <span className="text-gold-600 text-[11px] tracking-[0.32em] uppercase font-semibold whitespace-nowrap px-4">
               Trusted Across India
             </span>

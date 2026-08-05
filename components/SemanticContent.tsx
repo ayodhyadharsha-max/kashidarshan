@@ -8,9 +8,9 @@ import { MapPin, Clock, Users, Calendar, Star, Check } from "lucide-react";
 
 const quickAnswers = [
   {
-    question: "Which Kashi Varanasi tour package is best for a first-time pilgrim?",
+    question: "Which Ayodhya Varanasi tour package is best for a first-time pilgrim?",
     answer:
-      "If this is your first visit to Varanasi, the Kashi Darshan Package (2 Nights / 3 Days, starting ₹7,999 / person, ₹15,998 total for couple) covers everything essential — Kashi Vishwanath Temple VIP darshan, Kaal Bhairav Temple, Annapurna Temple, and Ganga Ghats. You get a pre-arranged VIP darshan pass, hotel near the temple, and a knowledgeable guide. No queuing, no logistics stress — just devotion.",
+      "If this is your first visit, the Ayodhya Darshan Package (2 Nights / 3 Days, starting ₹7,499 / person, ₹14,998 total for couple) covers everything essential — Ram Mandir, Hanuman Garhi, and Kanak Bhawan. Best hotel stay and AC cab transfers are included. No logistics stress — just devotion.",
     icon: Star,
     accent: "#D4AF37",
     tag: "Best for beginners",
@@ -18,7 +18,7 @@ const quickAnswers = [
   {
     question: "Can I do a Varanasi same-day tour?",
     answer:
-      "Yes. A same-day Varanasi sightseeing tour is very popular for those with limited time. In a single day, you can comfortably cover Kashi Vishwanath Temple VIP darshan, Kaal Bhairav Temple, Annapurna Temple, Sarnath Buddhist Stupa, and witness the grand Evening Ganga Aarti. We arrange a dedicated AC cab and local guide. WhatsApp us your arrival time and we will curate the perfect schedule for you.",
+      "Yes. A same-day Varanasi sightseeing tour is very popular for those with limited time. In a single day, you can comfortably cover Kashi Vishwanath Temple, Kaal Bhairav, Annapurna Temple, Sarnath Buddhist Stupa, and witness the grand Evening Ganga Aarti. We arrange a dedicated private AC cab for your family.",
     icon: Clock,
     accent: "#FF6B00",
     tag: "Same-day tour",
@@ -26,31 +26,31 @@ const quickAnswers = [
   {
     question: "Which tour covers Varanasi, Prayagraj and Ayodhya together?",
     answer:
-      "Our Kashi–Prayagraj–Ayodhya Tour Package (4 Nights / 5 Days, starting ₹15,999 / person, ₹31,998 total for couple) is designed exactly for this. Spend Day 1–2 in Varanasi for Kashi Vishwanath VIP darshan and Ganga Aarti, Day 3 in Prayagraj for Triveni Sangam, and Day 4–5 in Ayodhya for Ram Mandir and Hanuman Garhi darshan. Everything is pre-arranged — hotels, AC transfers, darshan passes, and a guide.",
+      "Our Ayodhya–Prayagraj–Varanasi Tour Package (4 Nights / 5 Days, starting ₹15,999 / person, ₹31,998 total for couple) is designed exactly for this. Spend Day 1–2 in Ayodhya for Ram Mandir and Hanuman Garhi, Day 3 in Prayagraj for Triveni Sangam, and Day 4–5 in Varanasi for Ganga Aarti and temple visits. Everything is pre-arranged — best hotel stays, private AC transport, and sightseeing.",
     icon: MapPin,
     accent: "#7C3AED",
     tag: "Triple circuit",
   },
   {
-    question: "Is the Kashi Ayodhya package possible in 3 days?",
+    question: "Is the Ayodhya Varanasi package possible in 3 days?",
     answer:
-      "Our Kashi Ayodhya tour is a 3 Nights / 4 Days package — the most efficient way to cover both holy cities properly. Because we provide pre-arranged VIP darshan passes, no time is wasted in long queues. You can explore Hanuman Garhi and Ram Mandir in Ayodhya, and Kashi Vishwanath Temple, Sarnath, and the world-famous Ganga Aarti in Varanasi. It is highly active, achievable, and deeply fulfilling.",
+      "Our Ayodhya Varanasi tour is a 3 Nights / 4 Days package — the most efficient way to cover both holy cities properly. You can explore Hanuman Garhi and Ram Mandir in Ayodhya, and Kashi Vishwanath Temple, Sarnath, and the world-famous Ganga Aarti in Varanasi. It is highly active, achievable, and deeply fulfilling.",
     icon: Calendar,
     accent: "#34D399",
     tag: "Ayodhya + Varanasi",
   },
   {
-    question: "What makes a good Kashi Varanasi travel package?",
+    question: "What makes a good Ayodhya Varanasi travel package?",
     answer:
-      "A good Kashi Varanasi travel package must include five essential things: a confirmed Kashi Vishwanath Temple VIP darshan pass (so you don't spend hours in queues), a premium hotel within 10-15 minutes of the main temple ghats, all transfers in comfortable AC vehicles, a licensed local guide who knows the complex history and optimal darshan timings, and 24/7 support. Our packages include all five.",
+      "A good Ayodhya Varanasi travel package must include essential things: a best hotel stay close to the main temples, all transfers in comfortable private AC cabs, a yatra driver who will guide you, and 24/7 support. Our packages include all of these.",
     icon: Check,
     accent: "#60A5FA",
     tag: "What to look for",
   },
   {
-    question: "Which Kashi package is best for large families and groups?",
+    question: "Which Ayodhya package is best for large families and groups?",
     answer:
-      "Our Custom Group Tour option is designed for families and groups of 8 or more. We arrange a dedicated AC tempo traveller or bus, block adjacent hotel rooms, arrange a group darshan slot at Kashi Vishwanath Temple, and assign a dedicated guide. Group bookings get priority scheduling and flexible meal arrangements. Rates are lower on a per-head basis for groups above 10 people.",
+      "Our Custom Group Tour option is designed for families and groups of 8 or more. We arrange a dedicated AC tempo traveller or bus, block adjacent hotel rooms, and manage all sightseeing transfers. Group bookings get priority scheduling and flexible meal arrangements. Rates are lower on a per-head basis for groups above 10 people.",
     icon: Users,
     accent: "#FB923C",
     tag: "Family & groups",
@@ -59,25 +59,25 @@ const quickAnswers = [
 
 const packageMatrix = [
   {
-    name: "Kashi Darshan",
+    name: "Ayodhya Darshan",
     duration: "2N / 3D",
-    price: 15998,
+    price: 14998,
     best: "First-time pilgrims, short trips",
-    includes: ["Kashi Vishwanath Temple darshan", "Kaal Bhairav Temple", "Annapurna Temple", "Ganga Ghats"],
+    includes: ["Ram Mandir", "Hanuman Garhi", "Kanak Bhawan", "Saryu Aarti"],
   },
   {
-    name: "Kashi – Ayodhya",
+    name: "Ayodhya – Varanasi",
     duration: "3N / 4D",
     price: 25998,
     best: "Most popular circuit",
-    includes: ["Kashi Vishwanath Temple", "Kashi Vishwanath", "Ganga Aarti", "Sarnath"],
+    includes: ["Ram Mandir", "Kashi Vishwanath Temple", "Ganga Aarti", "Sarnath"],
   },
   {
-    name: "Kashi – Prayagraj – Ayodhya",
+    name: "Ayodhya – Prayagraj – Varanasi",
     duration: "4N / 5D",
     price: 31998,
     best: "Three holy cities in one journey",
-    includes: ["Kashi Vishwanath Temple", "Triveni Sangam", "Kashi Vishwanath", "Ganga Aarti"],
+    includes: ["Ram Mandir", "Triveni Sangam", "Kashi Vishwanath", "Ganga Aarti"],
   },
   {
     name: "Full Ramayana Circuit",
@@ -155,7 +155,7 @@ export default function SemanticContent() {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <div className="ornament-line max-w-[240px] mx-auto mb-5">
+          <div className="ornament-line max-w-xl mx-auto mb-5">
             <span className="text-gold-600 text-[11px] tracking-[0.32em] uppercase font-semibold whitespace-nowrap px-4">
               Your Questions Answered
             </span>
@@ -187,10 +187,10 @@ export default function SemanticContent() {
           {/* Table header */}
           <div className="px-6 sm:px-8 py-6 border-b border-gray-50">
             <h2 className="font-playfair font-bold text-divine-dark text-2xl sm:text-3xl">
-              Varanasi Kashi Tour Package Comparison
+              Ayodhya Varanasi Tour Package Comparison
             </h2>
             <p className="text-gray-400 text-sm mt-1">
-              All packages include hotel, darshan pass, AC transport, and expert guide.
+              All packages include best hotel stays, private AC transport, and sightseeing.
             </p>
           </div>
 
@@ -291,9 +291,9 @@ export default function SemanticContent() {
           {/* Footer note */}
           <div className="px-6 sm:px-8 py-5 bg-gray-50/50 border-t border-gray-50">
             <p className="text-gray-400 text-[12px]">
-              * All prices are for a couple on double-sharing basis · inclusive of hotel, darshan pass, AC transport, meals (3N+ packages) and professional guide ·{" "}
+              * All prices are for a couple on double-sharing basis · inclusive of best hotel stay, private AC transport, and meals (3N+ packages) ·{" "}
               <span className="text-saffron-600 font-medium">
-                Same-day Varanasi sightseeing packages also available — WhatsApp us for details.
+                Same-day Varanasi sightseeing packages also available.
               </span>
             </p>
           </div>
