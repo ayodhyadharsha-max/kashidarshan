@@ -24,7 +24,7 @@ type ItineraryItem = {
   days: Day[];
 };
 
-const itineraries: ItineraryItem[] = [
+export const itineraries: ItineraryItem[] = [
   {
     id: "kashi-darshan",
     destination: "Varanasi",

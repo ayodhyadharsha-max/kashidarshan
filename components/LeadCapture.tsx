@@ -219,9 +219,9 @@ function fmtDate(d: Date) {
 }
 
 // ─── Form Component ───────────────────────────────────────────────────────────
-function LeadForm({ tokenAmount, setTokenAmount }: { tokenAmount: number; setTokenAmount: React.Dispatch<React.SetStateAction<number>> }) {
+function LeadForm({ defaultTour, tokenAmount, setTokenAmount }: { defaultTour?: string; tokenAmount: number; setTokenAmount: React.Dispatch<React.SetStateAction<number>> }) {
   const [fields, setFields] = useState({
-    name: "", phone: "", tour: "", email: "", request: "", packageType: "",
+    name: "", phone: "", tour: defaultTour || "", email: "", request: "", packageType: "",
   });
   const [date,    setDate]    = useState<Date | undefined>(undefined);
   const [calOpen, setCalOpen] = useState(false);
@@ -230,6 +230,13 @@ function LeadForm({ tokenAmount, setTokenAmount }: { tokenAmount: number; setTok
   const [bookingType, setBookingType] = useState<"confirm" | "lock">("confirm");
   const [flexMonth, setFlexMonth] = useState("");
   const calRef = useRef<HTMLDivElement>(null);
+
+  // Sync defaultTour if it changes
+  useEffect(() => {
+    if (defaultTour) {
+      setFields(f => ({ ...f, tour: defaultTour }));
+    }
+  }, [defaultTour]);
 
   // Auto-select package on select-tour event & handle discount
   useEffect(() => {
@@ -243,13 +250,16 @@ function LeadForm({ tokenAmount, setTokenAmount }: { tokenAmount: number; setTok
       const tourId = typeof detail === "string" ? detail : detail?.tourId;
       const mode = typeof detail === "object" ? detail?.mode : undefined;
 
-            const tourMapping: Record<string, string> = {
-        "kashi-darshan": "Kashi Darshan",
-        "kashi-ayodhya": "Kashi Ayodhya",
-        "kashi-prayagraj-ayodhya": "Kashi Prayagraj Ayodhya",
-        "kashi-prayagraj": "Kashi Prayagraj",
-        "kashi-ayodhya-chitrakoot": "Kashi Ayodhya Chitrakoot",
-        "full-kashi-circuit": "Sacred Ganga Circuit",
+      const tourMapping: Record<string, string> = {
+        "ayodhya-darshan": "Ayodhya Darshan (2N/3D)",
+        "ayodhya-varanasi": "Ayodhya Varanasi (3N/4D)",
+        "ayodhya-prayagraj-varanasi": "Ayodhya Prayagraj Varanasi (4N/5D)",
+        "lucknow-ayodhya": "Lucknow Ayodhya (3N/4D)",
+        "ayodhya-varanasi-chitrakoot": "Ayodhya Varanasi Chitrakoot (4N/5D)",
+        "full-ramayana-circuit": "Full Ramayana Circuit (5N/6D)",
+        "sarnath-buddhist-tour": "Custom Trip",
+        "buddhist-circuit-tour": "Custom Trip",
+        "kashi-heritage-tour": "Custom Trip",
       };
       const tourName = tourMapping[tourId];
       if (tourName) {
@@ -626,7 +636,7 @@ const proofPoints = [
   { icon: BadgeCheck,   text: "Govt. Registered Agency", sub: "GSTIN: 09CJPPJ6346G1ZR" },
 ];
 
-export default function LeadCapture() {
+export default function LeadCapture({ defaultTour }: { defaultTour?: string }) {
   const ref    = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-60px" });
   const [tokenAmount, setTokenAmount] = useState(1999);
@@ -792,7 +802,7 @@ export default function LeadCapture() {
                 </div>
               </div>
 
-              <LeadForm tokenAmount={tokenAmount} setTokenAmount={setTokenAmount} />
+              <LeadForm defaultTour={defaultTour} tokenAmount={tokenAmount} setTokenAmount={setTokenAmount} />
             </div>
           </motion.div>
         </div>

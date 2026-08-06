@@ -1,12 +1,13 @@
 "use client";
 
 import { useRef, useState, useEffect } from "react";
+import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { Check, MessageCircle, Clock, MapPin, Hotel, Car, UserCheck, Ticket, Sparkles, Compass, Headphones } from "lucide-react";
 
 const WA_NUMBER = "917011960307";
 
-const packages = [
+export const packages = [
   {
     id: "ayodhya-darshan",
     name: "Ayodhya Darshan",
@@ -216,7 +217,7 @@ const packages = [
   },
 ];
 
-const coreInclusions = [
+export const coreInclusions = [
   { icon: Car,      label: "AC Transfer" },
   { icon: Hotel,    label: "Best Hotel" },
   { icon: MapPin,   label: "Sightseeing" },
@@ -265,7 +266,7 @@ function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; i
       )}
 
       {/* Package Image */}
-      <div className="relative h-48 w-full overflow-hidden bg-gray-100 flex-shrink-0">
+      <Link href={`/packages/${pkg.id}`} className="relative h-48 w-full overflow-hidden bg-gray-100 flex-shrink-0 block">
         <img
           src={pkg.image}
           alt={pkg.name}
@@ -273,7 +274,7 @@ function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; i
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-      </div>
+      </Link>
 
       <div className="flex flex-col flex-1 p-6 sm:p-7">
         {/* Duration + cities */}
@@ -296,7 +297,9 @@ function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; i
         <h3 className={`font-playfair font-bold text-xl sm:text-2xl leading-snug mb-1 ${
           isPopular ? "text-white" : "text-divine-dark"
         }`}>
-          {pkg.name}
+          <Link href={`/packages/${pkg.id}`} className="hover:text-saffron-500 transition-colors">
+            {pkg.name}
+          </Link>
         </h3>
         <p className={`text-sm mb-5 ${isPopular ? "text-gold-300" : "text-gray-400"}`}>
           {pkg.subtitle}
@@ -436,14 +439,8 @@ function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; i
         </div>
 
         {/* CTA */}
-        <a
-          href="#get-quote"
-          onClick={() => {
-            const event = new CustomEvent("select-tour", {
-              detail: { tourId: pkg.id, mode: "confirm" }
-            });
-            window.dispatchEvent(event);
-          }}
+        <Link
+          href={`/packages/${pkg.id}`}
           className={`flex items-center justify-center gap-2.5 w-full py-3.5 rounded-2xl text-white font-bold text-[14px] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] ${
             isPopular
               ? "bg-gold-gradient text-divine-dark hover:brightness-105"
@@ -454,12 +451,12 @@ function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; i
               ? {}
               : { backgroundColor: pkg.accent }
           }
-          data-cta="scroll-quote"
+          data-cta="view-details"
           data-source="packages"
           data-package={pkg.id}
         >
           {pkg.ctaText}
-        </a>
+        </Link>
 
         <p className={`text-center text-[11px] mt-3 ${
           isPopular ? "text-white/30" : "text-gray-300"

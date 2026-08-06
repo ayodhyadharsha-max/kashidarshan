@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Menu, X, MessageCircle } from "lucide-react";
 import Image from "next/image";
@@ -21,6 +22,8 @@ const navLinks = [
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
   const [scrolled,  setScrolled]  = useState(false);
   const [menuOpen,  setMenuOpen]  = useState(false);
 
@@ -45,7 +48,7 @@ export default function Navbar() {
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2.5 group flex-shrink-0" aria-label="Kashi Dharshan">
+          <a href={isHome ? "#" : "/"} className="flex items-center gap-2.5 group flex-shrink-0" aria-label="Kashi Dharshan">
             <div className="relative flex-shrink-0 w-[44px] h-[44px] md:w-[56px] md:h-[56px]">
               <Image
                 src="/logo.png"
@@ -71,7 +74,7 @@ export default function Navbar() {
             {navLinks.map(link => (
               <a
                 key={link.label}
-                href={link.href}
+                href={isHome ? link.href : `/${link.href}`}
                 className={`text-[13px] font-medium tracking-wide hover:text-saffron-600 transition-colors duration-200 ${
                   scrolled ? "text-divine-dark/75" : "text-white/80"
                 }`}
@@ -96,7 +99,7 @@ export default function Navbar() {
               <span className="hidden lg:inline">{PHONE}</span>
             </a>
             <a
-              href="#get-quote"
+              href={isHome ? "#get-quote" : "/#get-quote"}
               className="flex items-center justify-center bg-saffron-600 hover:bg-saffron-700 text-white px-5 py-2.5 rounded-full text-[13px] font-semibold transition-all duration-250 hover:shadow-saffron-glow hover:scale-[1.04] active:scale-[0.97]"
               data-cta="scroll-quote"
               data-source="navbar"
@@ -134,7 +137,7 @@ export default function Navbar() {
               {navLinks.map((link, i) => (
                 <motion.a
                   key={link.label}
-                  href={link.href}
+                  href={isHome ? link.href : `/${link.href}`}
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.04 }}
@@ -155,7 +158,7 @@ export default function Navbar() {
                   {PHONE}
                 </a>
                 <a
-                  href="#get-quote"
+                  href={isHome ? "#get-quote" : "/#get-quote"}
                   onClick={() => setMenuOpen(false)}
                   className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-saffron-600 text-white font-semibold text-[14px] hover:bg-saffron-700 transition-colors"
                   data-cta="scroll-quote"
