@@ -77,6 +77,45 @@ const customItineraries: Record<string, { title: string; activities: { time: str
       ]
     }
   ],
+  "prayagraj-same-day": [
+    {
+      title: "Day 1 — Triveni Sangam Holy Dip & Prayagraj Sightseeing",
+      activities: [
+        { time: "08:00 AM", activity: "Morning pickup from Prayagraj Airport / Railway Station. Meet & greet and start the tour." },
+        { time: "09:30 AM", activity: "Head to Triveni Sangam (confluence of Ganga, Yamuna, & invisible Saraswati) for a holy dip with private boat ride." },
+        { time: "12:30 PM", activity: "Visit the historical Bade Hanuman Ji Temple (Lete Hanuman Mandir) and the Akshaya Vat tree." },
+        { time: "02:00 PM", activity: "Traditional North Indian lunch. Visit Anand Bhawan (historic Nehru family ancestral home) and Swaraj Bhawan." },
+        { time: "04:30 PM", activity: "Visit Alopi Devi Mandir and explore local Prayagraj craft markets." },
+        { time: "06:30 PM", activity: "Transfer to Prayagraj Airport / Railway Station for departure flight/train." }
+      ]
+    }
+  ],
+  "varanasi-ayodhya-2n3d": [
+    {
+      title: "Day 1 — Varanasi Arrival & Ganga Aarti",
+      activities: [
+        { time: "Morning", activity: "Arrive at Varanasi Airport / Railway Station. Transfer to hotel and check-in." },
+        { time: "Afternoon", activity: "Visit Kashi Vishwanath VIP Darshan, Kal Bhairav temple, and Annapurna Mandir." },
+        { time: "Evening", activity: "Experience the spectacular Ganga Aarti from a pre-booked private boat. Overnight stay in Varanasi." }
+      ]
+    },
+    {
+      title: "Day 2 — Travel to Ayodhya & Saryu Aarti",
+      activities: [
+        { time: "Morning", activity: "Breakfast at hotel, check-out and drive to Ayodhya in private AC Cab." },
+        { time: "Afternoon", activity: "Arrive in Ayodhya, check-in at hotel. Visit Hanuman Garhi and Kanak Bhawan." },
+        { time: "Evening", activity: "Attend Saryu River evening Aarti at Ram Ki Paidi. Overnight stay in Ayodhya." }
+      ]
+    },
+    {
+      title: "Day 3 — Ram Mandir VIP Darshan & Departure",
+      activities: [
+        { time: "Morning", activity: "Morning visit to the magnificent new Ram Mandir for VIP Ram Lalla darshan. Visit Dashrath Mahal." },
+        { time: "Afternoon", activity: "Check-out from hotel. Final souvenir shopping for Ram Mandir models and local handicrafts." },
+        { time: "Evening", activity: "Transfer to Ayodhya Airport / Railway Station for departure flight/train. Jai Shri Ram!" }
+      ]
+    }
+  ],
   "ayodhya-darshan": [
     {
       title: "Day 1 — Arrival in Ayodhya & Saryu Aarti",

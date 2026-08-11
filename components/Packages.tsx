@@ -40,7 +40,7 @@ export const packages = [
     price: 7999,
     originalPrice: 10999,
     image: "/gallery/gallery-2.jpg",
-    popular: false,
+    popular: true,
     featured: false,
     ctaText: "Get Tour Details",
     accent: "#D4AF37",
@@ -99,6 +99,52 @@ export const packages = [
       "24/7 Yatra Assistance",
     ],
     note: "₹4,999 / person (₹9,998 for couple)",
+  },
+  {
+    id: "varanasi-ayodhya-2n3d",
+    name: "Varanasi Ayodhya Yatra (2N/3D)",
+    subtitle: "Fast-track yatra for Ram Mandir & Kashi Vishwanath",
+    duration: "2 Nights / 3 Days",
+    cities: ["Varanasi", "Ayodhya"],
+    price: 13998,
+    originalPrice: 18998,
+    image: "/gallery/gallery-6.jpg",
+    popular: true,
+    featured: false,
+    ctaText: "Get Tour Details",
+    accent: "#D4AF37",
+    features: [
+      "2 Nights Comfortable Hotel Stay",
+      "Intercity Private AC Cab transfers",
+      "VIP Kashi Vishwanath Darshan assistance",
+      "VIP Ram Mandir Darshan assistance",
+      "Driver will guide you during the yatra",
+      "24/7 Yatra Customer Support",
+    ],
+    note: "₹6,999 / person (₹13,998 couple)",
+  },
+  {
+    id: "prayagraj-same-day",
+    name: "Prayagraj Same Day Tour",
+    subtitle: "Triveni Sangam holy bath and heritage temples day trip",
+    duration: "Same Day Tour",
+    cities: ["Prayagraj"],
+    price: 6999,
+    originalPrice: 9999,
+    image: "/gallery/gallery-5.jpg",
+    popular: false,
+    featured: false,
+    ctaText: "Get Tour Details",
+    accent: "#4F46E5",
+    features: [
+      "Private AC Cab for entire tour",
+      "Dedicated Driver cum Guide",
+      "Triveni Sangam boat ride assistance",
+      "Visit Anand Bhawan & Bade Hanuman Ji",
+      "All toll, parking & driver charges included",
+      "Package price valid for up to 3 persons",
+    ],
+    note: "Perfect for Triveni Sangam holy bath",
   },
   {
     id: "ayodhya-darshan",
@@ -201,7 +247,7 @@ export const packages = [
     price: 33998,
     originalPrice: 45998,
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/Mandakini_River.jpg/960px-Mandakini_River.jpg",
-    popular: false,
+    popular: true,
     featured: false,
     ctaText: "Talk To Tour Expert",
     accent: "#059669",
@@ -270,7 +316,7 @@ export const packages = [
     price: 43000,
     originalPrice: 56000,
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Mahabodhi_Temple.jpg/960px-Mahabodhi_Temple.jpg",
-    popular: false,
+    popular: true,
     featured: false,
     ctaText: "Get Full Itinerary",
     accent: "#4F46E5",
@@ -431,37 +477,37 @@ function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; i
               });
               window.dispatchEvent(event);
             }}
-            className={`flex items-center gap-1 px-3 py-2 rounded-xl text-[12px] font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer shadow-sm ${
+            className={`flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-[11px] sm:text-xs font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer shadow-sm whitespace-nowrap flex-shrink-0 ${
               isPopular
                 ? "bg-gradient-to-r from-saffron-500/25 to-amber-500/25 text-amber-200 border border-saffron-500/40 hover:from-saffron-500/35 hover:to-amber-500/35"
                 : "bg-gradient-to-r from-amber-50 to-amber-100/60 text-amber-900 border border-amber-200/80 hover:from-amber-100 hover:to-amber-200/50"
             }`}
           >
-            <span className="text-[11px]">🔒</span>
+            <span className="text-[10px] sm:text-xs">🔒</span>
             <span>Lock Price at ₹{tokenAmount.toLocaleString("en-IN")}</span>
-            <span className="text-[9px] opacity-70">❯</span>
+            <span className="text-[8px] sm:text-[9px] opacity-70">❯</span>
           </a>
 
           {/* Pricing */}
-          <div className="text-right flex flex-col justify-end">
-            <div className="flex items-baseline justify-end gap-1">
-              <span className={`text-[11px] line-through mr-1 ${
+          <div className="text-right flex flex-col justify-end flex-shrink-0">
+            <div className="flex items-baseline justify-end gap-1 flex-wrap">
+              <span className={`text-[10px] sm:text-[11px] line-through mr-1 ${
                 isPopular ? "text-white/35" : "text-gray-400"
               }`}>
                 ₹{(pkg.originalPrice / 2).toLocaleString("en-IN")}
               </span>
-              <span className={`font-playfair font-bold text-xl sm:text-2xl leading-none ${
+              <span className={`font-playfair font-bold text-lg sm:text-2xl leading-none ${
                 isPopular ? "text-gold-400" : "text-divine-dark"
               }`}>
                 ₹{(pkg.price / 2).toLocaleString("en-IN")}
               </span>
-              <span className={`text-[10px] font-medium leading-none ${
+              <span className={`text-[9px] sm:text-[10px] font-medium leading-none ${
                 isPopular ? "text-white/60" : "text-gray-500"
               }`}>
                 / person
               </span>
             </div>
-            <p className={`text-[9px] mt-1 font-medium ${isPopular ? "text-white/40" : "text-gray-400"}`}>
+            <p className={`text-[8px] sm:text-[9px] mt-1 font-medium ${isPopular ? "text-white/40" : "text-gray-400"}`}>
               (₹{(pkg.price).toLocaleString("en-IN")} total for couple)
             </p>
           </div>
