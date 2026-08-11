@@ -6,9 +6,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Menu, X, MessageCircle } from "lucide-react";
 import Image from "next/image";
 
-const WA_NUMBER   = "917011960307";
-const PHONE       = "+91 7011960307";
-const PHONE_TEL   = "tel:+917011960307";
+const WA_NUMBER   = "919235222399";
+const PHONE       = "+91 9235222399";
+const PHONE_TEL   = "tel:+919235222399";
 const WA_MESSAGE  = encodeURIComponent(
   "Har Har Mahadev 🙏 I want to book a Kashi Varanasi tour package. Please share full details."
 );

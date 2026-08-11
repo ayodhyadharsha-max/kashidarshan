@@ -13,7 +13,7 @@ export default function OfferPopup() {
       if (!hasClosed) {
         const timer = setTimeout(() => {
           setIsOpen(true);
-        }, 20000);
+        }, 8000);
         return () => clearTimeout(timer);
       }
     }

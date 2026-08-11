@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { Check, MessageCircle, Wifi, Utensils, Car, Wind, Shield, Coffee } from "lucide-react";
 
-const WA_NUMBER = "917011960307";
+const WA_NUMBER = "919235222399";
 
 const hotels = [
   {

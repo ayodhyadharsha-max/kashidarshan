@@ -5,7 +5,7 @@ import { motion, AnimatePresence, useInView } from "framer-motion";
 import {
   User, Phone, CalendarDays, Mail, MessageSquare, ChevronDown,
   ChevronLeft, ChevronRight, CheckCircle2, Loader2, AlertCircle,
-  Star, Users, ShieldCheck, BadgeCheck,
+  Star, Users, ShieldCheck, BadgeCheck, MessageCircle,
 } from "lucide-react";
 
 // ─── Constants ────────────────────────────────────────────────────────────────
@@ -235,7 +235,10 @@ function LeadForm({ defaultTour, tokenAmount, setTokenAmount }: { defaultTour?: 
   const [status,  setStatus]  = useState<"idle" | "submitting" | "error">("idle");
   const [bookingType, setBookingType] = useState<"confirm" | "lock">("confirm");
   const [flexMonth, setFlexMonth] = useState("");
+  const [step, setStep] = useState(1);
   const calRef = useRef<HTMLDivElement>(null);
+
+  const WA_NUMBER = "919235222399";
 
   // Sync defaultTour if it changes
   useEffect(() => {
@@ -282,6 +285,7 @@ function LeadForm({ defaultTour, tokenAmount, setTokenAmount }: { defaultTour?: 
       } else if (mode === "confirm") {
         setBookingType("confirm");
       }
+      setStep(1);
     };
 
     window.addEventListener("select-tour", handleSelectTour);
@@ -307,11 +311,8 @@ function LeadForm({ defaultTour, tokenAmount, setTokenAmount }: { defaultTour?: 
     return () => document.removeEventListener("mousedown", handler);
   }, [calOpen]);
 
-  const validate = () => {
+  const validateStep1 = () => {
     const e: Record<string, string> = {};
-    if (!fields.name.trim())  e.name  = "Please enter your name";
-    if (!fields.phone.trim()) e.phone = "Please enter your phone number";
-    if (!/^[6-9]\d{9}$/.test(fields.phone.replace(/\s/g, ""))) e.phone = "Enter a valid 10-digit Indian mobile number";
     if (!fields.tour)         e.tour  = "Please select a tour";
     if (!fields.packageType)  e.packageType = "Please select package class / budget preference";
     if (bookingType === "confirm" && !date) e.date  = "Please select your travel date";
@@ -320,9 +321,25 @@ function LeadForm({ defaultTour, tokenAmount, setTokenAmount }: { defaultTour?: 
     return Object.keys(e).length === 0;
   };
 
+  const validateStep2 = () => {
+    const e: Record<string, string> = {};
+    if (!fields.name.trim())  e.name  = "Please enter your name";
+    if (!fields.phone.trim()) e.phone = "Please enter your phone number";
+    if (!/^[6-9]\d{9}$/.test(fields.phone.replace(/\s/g, ""))) e.phone = "Enter a valid 10-digit Indian mobile number";
+    setErrors(e);
+    return Object.keys(e).length === 0;
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!validate()) return;
+    if (step === 1) {
+      if (validateStep1()) {
+        setStep(2);
+      }
+      return;
+    }
+
+    if (!validateStep2()) return;
     setStatus("submitting");
 
     const travelDateString = bookingType === "lock" ? `Flexible - ${flexMonth}` : (date ? fmtDate(date) : "");
@@ -382,242 +399,309 @@ function LeadForm({ defaultTour, tokenAmount, setTokenAmount }: { defaultTour?: 
   };
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="space-y-4">
-
-      {/* Row 1: Name + Phone */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <Field label="Full Name" required>
-          <div className="relative">
-            <User size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/25 pointer-events-none" />
-            <input
-              type="text"
-              value={fields.name}
-              onChange={set("name")}
-              placeholder="Your name"
-              className={`${inputClass} pl-10 ${errors.name ? "border-red-400/60 focus:border-red-400/70 focus:ring-red-400/15" : ""}`}
-              autoComplete="name"
-            />
-          </div>
-          {errors.name && <p className="text-red-400 text-[11px] mt-1.5">{errors.name}</p>}
-        </Field>
-
-        <Field label="Phone Number" required>
-          <div className="relative">
-            <Phone size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/25 pointer-events-none" />
-            <input
-              type="tel"
-              value={fields.phone}
-              onChange={set("phone")}
-              placeholder="+91 XXXXX XXXXX"
-              className={`${inputClass} pl-10 ${errors.phone ? "border-red-400/60 focus:border-red-400/70 focus:ring-red-400/15" : ""}`}
-              autoComplete="tel"
-              inputMode="numeric"
-            />
-          </div>
-          {errors.phone && <p className="text-red-400 text-[11px] mt-1.5">{errors.phone}</p>}
-        </Field>
+    <form onSubmit={handleSubmit} noValidate className="space-y-5">
+      {/* Progress indicators */}
+      <div className="flex items-center justify-between mb-2 text-[10px] sm:text-xs font-semibold uppercase tracking-wider text-white/40">
+        <span className={step === 1 ? "text-saffron-400 font-bold" : "text-white/30"}>Step 1: Plan Trip</span>
+        <div className={`h-0.5 flex-1 mx-4 transition-all duration-300 ${step === 2 ? "bg-saffron-500/50" : "bg-white/10"}`} />
+        <span className={step === 2 ? "text-saffron-400 font-bold" : "text-white/30"}>Step 2: Contact Details</span>
       </div>
 
-      {/* Row 2: Tour & Package Type */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <Field label="Spiritual Tour" required>
-          <div className="relative">
-            <select
-              value={fields.tour}
-              onChange={set("tour")}
-              className={`${inputClass} pr-10 ${errors.tour ? "border-red-400/60" : ""} cursor-pointer`}
-              style={{ background: "rgba(255,255,255,0.06)" }}
-            >
-              <option value="" disabled style={{ background: "#160800" }}>Select your tour</option>
-              {TOURS.map(t => (
-                <option key={t} value={t} style={{ background: "#160800" }}>{t}</option>
-              ))}
-            </select>
-            <ChevronDown size={15} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-white/30 pointer-events-none" />
+      {step === 1 && (
+        <motion.div
+          initial={{ opacity: 0, x: -10 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="space-y-4"
+        >
+          {/* Row 1: Tour & Package Type */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Field label="Spiritual Tour" required>
+              <div className="relative">
+                <select
+                  value={fields.tour}
+                  onChange={set("tour")}
+                  className={`${inputClass} pr-10 ${errors.tour ? "border-red-400/60" : ""} cursor-pointer`}
+                  style={{ background: "rgba(255,255,255,0.06)" }}
+                >
+                  <option value="" disabled style={{ background: "#160800" }}>Select your tour</option>
+                  {TOURS.map(t => (
+                    <option key={t} value={t} style={{ background: "#160800" }}>{t}</option>
+                  ))}
+                </select>
+                <ChevronDown size={15} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-white/30 pointer-events-none" />
+              </div>
+              {errors.tour && <p className="text-red-400 text-[11px] mt-1.5">{errors.tour}</p>}
+            </Field>
+
+            <Field label="Package Class & Budget" required>
+              <div className="relative">
+                <select
+                  value={fields.packageType}
+                  onChange={set("packageType")}
+                  className={`${inputClass} pr-10 ${errors.packageType ? "border-red-400/60" : ""} cursor-pointer`}
+                  style={{ background: "rgba(255,255,255,0.06)" }}
+                >
+                  <option value="" disabled style={{ background: "#160800" }}>Select category</option>
+                  <option value="Standard / Budget" style={{ background: "#160800" }}>Standard / Budget (Clean Hotels & AC Travel)</option>
+                  <option value="Deluxe" style={{ background: "#160800" }}>Deluxe (3★ Hotels, Dedicated AC Sedan)</option>
+                  <option value="Premium / Luxury" style={{ background: "#160800" }}>Premium / Luxury (4★/5★ Hotels, AC SUV & VIP Help)</option>
+                </select>
+                <ChevronDown size={15} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-white/30 pointer-events-none" />
+              </div>
+              {errors.packageType && <p className="text-red-400 text-[11px] mt-1.5">{errors.packageType}</p>}
+            </Field>
           </div>
-          {errors.tour && <p className="text-red-400 text-[11px] mt-1.5">{errors.tour}</p>}
-        </Field>
 
-        <Field label="Package Class & Budget" required>
-          <div className="relative">
-            <select
-              value={fields.packageType}
-              onChange={set("packageType")}
-              className={`${inputClass} pr-10 ${errors.packageType ? "border-red-400/60" : ""} cursor-pointer`}
-              style={{ background: "rgba(255,255,255,0.06)" }}
-            >
-              <option value="" disabled style={{ background: "#160800" }}>Select category</option>
-              <option value="Standard / Budget" style={{ background: "#160800" }}>Standard / Budget (Clean Hotels & AC Travel)</option>
-              <option value="Deluxe" style={{ background: "#160800" }}>Deluxe (3★ Hotels, Dedicated AC Sedan)</option>
-              <option value="Premium / Luxury" style={{ background: "#160800" }}>Premium / Luxury (4★/5★ Hotels, AC SUV & VIP Help)</option>
-            </select>
-            <ChevronDown size={15} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-white/30 pointer-events-none" />
-          </div>
-          {errors.packageType && <p className="text-red-400 text-[11px] mt-1.5">{errors.packageType}</p>}
-        </Field>
-      </div>
-
-      {/* Row 3: Booking Type & Date Selection */}
-      <div className="space-y-3">
-        <label className="block text-white/60 text-[11px] font-semibold tracking-[0.14em] uppercase">
-          Select Booking Type & Timeline
-        </label>
-        
-        {/* Tab Toggle */}
-        <div className="grid grid-cols-2 gap-2 bg-white/[0.04] p-1.5 rounded-xl border border-white/[0.08]">
-          <button
-            type="button"
-            onClick={() => {
-              setBookingType("confirm");
-              setFlexMonth("");
-              if (errors.flexMonth || errors.date) {
-                setErrors(er => { const n = { ...er }; delete n.date; delete n.flexMonth; return n; });
-              }
-            }}
-            className={`py-2.5 rounded-lg text-[11px] font-semibold uppercase tracking-wider transition-all duration-200 ${
-              bookingType === "confirm"
-                ? "bg-saffron-600 text-white shadow-[0_2px_8px_rgba(255,107,0,0.3)]"
-                : "text-white/50 hover:text-white hover:bg-white/5"
-            }`}
-          >
-            Direct Confirm (25% Adv)
-          </button>
-          <button
-            type="button"
-            onClick={() => {
-              setBookingType("lock");
-              setDate(undefined);
-              if (errors.flexMonth || errors.date) {
-                setErrors(er => { const n = { ...er }; delete n.date; delete n.flexMonth; return n; });
-              }
-            }}
-            className={`py-2.5 rounded-lg text-[11px] font-semibold uppercase tracking-wider transition-all duration-200 ${
-              bookingType === "lock"
-                ? "bg-saffron-600 text-white shadow-[0_2px_8px_rgba(255,107,0,0.3)]"
-                : "text-white/50 hover:text-white hover:bg-white/5"
-            }`}
-          >
-            Flexi-Price Lock (₹{tokenAmount})
-          </button>
-        </div>
-
-        {/* Date Input */}
-        <div>
-          {bookingType === "lock" ? (
-            <div className="relative">
-              <select
-                value={flexMonth}
-                onChange={(e) => {
-                  setFlexMonth(e.target.value);
-                  if (errors.flexMonth) setErrors(er => { const n = { ...er }; delete n.flexMonth; return n; });
-                }}
-                className={`${inputClass} pr-10 ${errors.flexMonth ? "border-red-400/60" : ""} cursor-pointer`}
-                style={{ background: "rgba(255,255,255,0.06)" }}
-              >
-                <option value="" disabled style={{ background: "#160800" }}>Select tentative travel month</option>
-                <option value="June 2026" style={{ background: "#160800" }}>June 2026</option>
-                <option value="July 2026" style={{ background: "#160800" }}>July 2026</option>
-                <option value="August 2026" style={{ background: "#160800" }}>August 2026</option>
-                <option value="September 2026" style={{ background: "#160800" }}>September 2026</option>
-                <option value="October 2026" style={{ background: "#160800" }}>October 2026 (Festive Season)</option>
-                <option value="November 2026" style={{ background: "#160800" }}>November 2026</option>
-                <option value="December 2026" style={{ background: "#160800" }}>December 2026</option>
-                <option value="Later / Undecided" style={{ background: "#160800" }}>Later / Undecided</option>
-              </select>
-              <ChevronDown size={15} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-white/30 pointer-events-none" />
-              {errors.flexMonth && <p className="text-red-400 text-[11px] mt-1.5">{errors.flexMonth}</p>}
-            </div>
-          ) : (
-            <div className="relative" ref={calRef}>
+          {/* Row 2: Booking Type & Date Selection */}
+          <div className="space-y-3">
+            <label className="block text-white/60 text-[11px] font-semibold tracking-[0.14em] uppercase">
+              Select Booking Type & Timeline
+            </label>
+            
+            {/* Tab Toggle */}
+            <div className="grid grid-cols-2 gap-2 bg-white/[0.04] p-1.5 rounded-xl border border-white/[0.08]">
               <button
                 type="button"
-                onClick={() => setCalOpen(o => !o)}
-                className={`${inputClass} flex items-center gap-3 text-left ${errors.date ? "border-red-400/60" : ""} ${calOpen ? "border-saffron-400/70 bg-white/[0.09] ring-2 ring-saffron-400/15" : ""}`}
+                onClick={() => {
+                  setBookingType("confirm");
+                  setFlexMonth("");
+                  if (errors.flexMonth || errors.date) {
+                    setErrors(er => { const n = { ...er }; delete n.date; delete n.flexMonth; return n; });
+                  }
+                }}
+                className={`py-2.5 rounded-lg text-[11px] font-semibold uppercase tracking-wider transition-all duration-200 ${
+                  bookingType === "confirm"
+                    ? "bg-saffron-600 text-white shadow-[0_2px_8px_rgba(255,107,0,0.3)]"
+                    : "text-white/50 hover:text-white hover:bg-white/5"
+                }`}
               >
-                <CalendarDays size={15} className={date ? "text-saffron-400" : "text-white/25"} />
-                <span className={date ? "text-white" : "text-white/25"}>
-                  {date ? fmtDate(date) : "Select travel date"}
-                </span>
+                Direct Confirm (25% Adv)
               </button>
-              <AnimatePresence>
-                {calOpen && (
-                  <Calendar
-                    selected={date}
-                    onSelect={d => { setDate(d); if (errors.date) setErrors(er => { const n = {...er}; delete n.date; return n; }); }}
-                    onClose={() => setCalOpen(false)}
-                  />
-                )}
-              </AnimatePresence>
-              {errors.date && <p className="text-red-400 text-[11px] mt-1.5">{errors.date}</p>}
+              <button
+                type="button"
+                onClick={() => {
+                  setBookingType("lock");
+                  setDate(undefined);
+                  if (errors.flexMonth || errors.date) {
+                    setErrors(er => { const n = { ...er }; delete n.date; delete n.flexMonth; return n; });
+                  }
+                }}
+                className={`py-2.5 rounded-lg text-[11px] font-semibold uppercase tracking-wider transition-all duration-200 ${
+                  bookingType === "lock"
+                    ? "bg-saffron-600 text-white shadow-[0_2px_8px_rgba(255,107,0,0.3)]"
+                    : "text-white/50 hover:text-white hover:bg-white/5"
+                }`}
+              >
+                Flexi-Price Lock (₹{tokenAmount})
+              </button>
             </div>
-          )}
-        </div>
-      </div>
 
-      {/* Row 4: Email */}
-      <Field label="Email Address">
-        <div className="relative">
-          <Mail size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/25 pointer-events-none" />
-          <input
-            type="email"
-            value={fields.email}
-            onChange={set("email")}
-            placeholder="your@email.com (optional)"
-            className={`${inputClass} pl-10`}
-            autoComplete="email"
-          />
-        </div>
-      </Field>
+            {/* Date Input */}
+            <div>
+              {bookingType === "lock" ? (
+                <div className="relative">
+                  <select
+                    value={flexMonth}
+                    onChange={(e) => {
+                      setFlexMonth(e.target.value);
+                      if (errors.flexMonth) setErrors(er => { const n = { ...er }; delete n.flexMonth; return n; });
+                    }}
+                    className={`${inputClass} pr-10 ${errors.flexMonth ? "border-red-400/60" : ""} cursor-pointer`}
+                    style={{ background: "rgba(255,255,255,0.06)" }}
+                  >
+                    <option value="" disabled style={{ background: "#160800" }}>Select tentative travel month</option>
+                    <option value="June 2026" style={{ background: "#160800" }}>June 2026</option>
+                    <option value="July 2026" style={{ background: "#160800" }}>July 2026</option>
+                    <option value="August 2026" style={{ background: "#160800" }}>August 2026</option>
+                    <option value="September 2026" style={{ background: "#160800" }}>September 2026</option>
+                    <option value="October 2026" style={{ background: "#160800" }}>October 2026 (Festive Season)</option>
+                    <option value="November 2026" style={{ background: "#160800" }}>November 2026</option>
+                    <option value="December 2026" style={{ background: "#160800" }}>December 2026</option>
+                    <option value="Later / Undecided" style={{ background: "#160800" }}>Later / Undecided</option>
+                  </select>
+                  <ChevronDown size={15} className="absolute right-3.5 top-1/2 -translate-y-1/2 text-white/30 pointer-events-none" />
+                  {errors.flexMonth && <p className="text-red-400 text-[11px] mt-1.5">{errors.flexMonth}</p>}
+                </div>
+              ) : (
+                <div className="relative" ref={calRef}>
+                  <button
+                    type="button"
+                    onClick={() => setCalOpen(o => !o)}
+                    className={`${inputClass} flex items-center gap-3 text-left ${errors.date ? "border-red-400/60" : ""} ${calOpen ? "border-saffron-400/70 bg-white/[0.09] ring-2 ring-saffron-400/15" : ""}`}
+                  >
+                    <CalendarDays size={15} className={date ? "text-saffron-400" : "text-white/25"} />
+                    <span className={date ? "text-white" : "text-white/25"}>
+                      {date ? fmtDate(date) : "Select travel date"}
+                    </span>
+                  </button>
+                  <AnimatePresence>
+                    {calOpen && (
+                      <Calendar
+                        selected={date}
+                        onSelect={d => { setDate(d); if (errors.date) setErrors(er => { const n = {...er}; delete n.date; return n; }); }}
+                        onClose={() => setCalOpen(false)}
+                      />
+                    )}
+                  </AnimatePresence>
+                  {errors.date && <p className="text-red-400 text-[11px] mt-1.5">{errors.date}</p>}
+                </div>
+              )}
+            </div>
+          </div>
 
-      {/* Row 5: Special Request */}
-      <Field label="Special Request">
-        <div className="relative">
-          <MessageSquare size={15} className="absolute left-3.5 top-4 text-white/25 pointer-events-none" />
-          <textarea
-            value={fields.request}
-            onChange={set("request")}
-            placeholder="Senior citizens, wheelchair, Jain food, extra nights... (optional)"
-            rows={3}
-            className={`${inputClass} pl-10 resize-none leading-relaxed`}
-          />
-        </div>
-      </Field>
+          {/* Continue button */}
+          <button
+            type="submit"
+            className="w-full py-4 rounded-2xl font-bold text-[14px] sm:text-[15px] text-white relative overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(255,107,0,0.4)] active:scale-[0.98]"
+            style={{
+              background: "linear-gradient(135deg, #FF6B00 0%, #FF8C00 50%, #D4AF37 100%)",
+              boxShadow: "0 4px 24px rgba(255,107,0,0.3)",
+            }}
+          >
+            Next: Contact Details ➜
+          </button>
 
-      {/* Error message */}
-      {status === "error" && (
-        <div className="flex items-center gap-2.5 bg-red-500/10 border border-red-400/20 rounded-xl px-4 py-3">
-          <AlertCircle size={15} className="text-red-400 flex-shrink-0" />
-          <p className="text-red-300 text-[13px]">
-            Something went wrong. Please try WhatsApp or call us directly.
-          </p>
-        </div>
+          {/* Quick WhatsApp option divider */}
+          <div className="relative flex py-2 items-center">
+            <div className="flex-grow border-t border-white/5"></div>
+            <span className="flex-shrink mx-3 text-white/20 text-[10px] font-bold uppercase tracking-wider">OR</span>
+            <div className="flex-grow border-t border-white/5"></div>
+          </div>
+
+          <a
+            href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(
+              `Jai Shri Ram! I want to enquire about Kashi Yatra packages.\n\n` +
+              `*Selected Tour*: ${fields.tour || "(Custom Selection)"}\n` +
+              `*Budget Preference*: ${fields.packageType || "Standard"}\n` +
+              `*Travel Period*: ${bookingType === "lock" ? `Flexible - ${flexMonth || "Not Decided"}` : (date ? fmtDate(date) : "Not Decided")}\n` +
+              `*Booking Option*: ${bookingType === "confirm" ? "Direct Confirmation (25% Advance)" : "Flexi-Date Price Lock"}`
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] font-bold text-white text-[14px] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+          >
+            <MessageCircle size={17} className="fill-white text-[#25D366]" />
+            <span>Plan Instantly on WhatsApp</span>
+          </a>
+        </motion.div>
       )}
 
-      {/* Submit */}
-      <button
-        type="submit"
-        disabled={status === "submitting"}
-        className="wa-shimmer w-full py-4 rounded-2xl font-bold text-[15px] text-white relative overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(255,107,0,0.4)] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
-        data-cta="form-submit"
-        data-source="lead-capture"
-        style={{
-          background: status === "submitting"
-            ? "rgba(255,107,0,0.6)"
-            : "linear-gradient(135deg, #FF6B00 0%, #FF8C00 50%, #D4AF37 100%)",
-          boxShadow: "0 4px 24px rgba(255,107,0,0.3)",
-        }}
-      >
-        {status === "submitting" ? (
-          <span className="flex items-center justify-center gap-2">
-            <Loader2 size={17} className="animate-spin" />
-            Sending your request…
-          </span>
-        ) : bookingType === "confirm" ? (
-          "Submit & Confirm Booking (25% Advance)"
-        ) : (
-          `Submit & Lock Today's Rates (₹${tokenAmount})`
-        )}
-      </button>
+      {step === 2 && (
+        <motion.div
+          initial={{ opacity: 0, x: 10 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="space-y-4"
+        >
+          {/* Row 1: Name + Phone */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Field label="Full Name" required>
+              <div className="relative">
+                <User size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/25 pointer-events-none" />
+                <input
+                  type="text"
+                  value={fields.name}
+                  onChange={set("name")}
+                  placeholder="Your name"
+                  className={`${inputClass} pl-10 ${errors.name ? "border-red-400/60 focus:border-red-400/70 focus:ring-red-400/15" : ""}`}
+                  autoComplete="name"
+                />
+              </div>
+              {errors.name && <p className="text-red-400 text-[11px] mt-1.5">{errors.name}</p>}
+            </Field>
+
+            <Field label="Phone Number" required>
+              <div className="relative">
+                <Phone size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/25 pointer-events-none" />
+                <input
+                  type="tel"
+                  value={fields.phone}
+                  onChange={set("phone")}
+                  placeholder="+91 XXXXX XXXXX"
+                  className={`${inputClass} pl-10 ${errors.phone ? "border-red-400/60 focus:border-red-400/70 focus:ring-red-400/15" : ""}`}
+                  autoComplete="tel"
+                  inputMode="numeric"
+                />
+              </div>
+              {errors.phone && <p className="text-red-400 text-[11px] mt-1.5">{errors.phone}</p>}
+            </Field>
+          </div>
+
+          {/* Row 2: Email */}
+          <Field label="Email Address">
+            <div className="relative">
+              <Mail size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-white/25 pointer-events-none" />
+              <input
+                type="email"
+                value={fields.email}
+                onChange={set("email")}
+                placeholder="your@email.com (optional)"
+                className={`${inputClass} pl-10`}
+                autoComplete="email"
+              />
+            </div>
+          </Field>
+
+          {/* Row 3: Special Request */}
+          <Field label="Special Request">
+            <div className="relative">
+              <MessageSquare size={15} className="absolute left-3.5 top-4 text-white/25 pointer-events-none" />
+              <textarea
+                value={fields.request}
+                onChange={set("request")}
+                placeholder="Senior citizens, wheelchair, Jain food, extra nights... (optional)"
+                rows={3}
+                className={`${inputClass} pl-10 resize-none leading-relaxed`}
+              />
+            </div>
+          </Field>
+
+          {/* Error message */}
+          {status === "error" && (
+            <div className="flex items-center gap-2.5 bg-red-500/10 border border-red-400/20 rounded-xl px-4 py-3">
+              <AlertCircle size={15} className="text-red-400 flex-shrink-0" />
+              <p className="text-red-300 text-[13px]">
+                Something went wrong. Please try WhatsApp or call us directly.
+              </p>
+            </div>
+          )}
+
+          {/* Buttons row */}
+          <div className="flex items-center gap-3">
+            <button
+              type="button"
+              onClick={() => setStep(1)}
+              className="px-4 py-4 rounded-2xl font-bold text-[14px] text-white/60 hover:text-white border border-white/10 hover:bg-white/5 transition-all duration-200"
+            >
+              ❮ Back
+            </button>
+            
+            <button
+              type="submit"
+              disabled={status === "submitting"}
+              className="wa-shimmer flex-1 py-4 rounded-2xl font-bold text-[14px] sm:text-[15px] text-white relative overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_32px_rgba(255,107,0,0.4)] active:scale-[0.98] disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
+              data-cta="form-submit"
+              data-source="lead-capture"
+              style={{
+                background: status === "submitting"
+                  ? "rgba(255,107,0,0.6)"
+                  : "linear-gradient(135deg, #FF6B00 0%, #FF8C00 50%, #D4AF37 100%)",
+                boxShadow: "0 4px 24px rgba(255,107,0,0.3)",
+              }}
+            >
+              {status === "submitting" ? (
+                <span className="flex items-center justify-center gap-2">
+                  <Loader2 size={17} className="animate-spin" />
+                  Sending...
+                </span>
+              ) : bookingType === "confirm" ? (
+                "Confirm & Submit"
+              ) : (
+                `Lock Rates & Submit (₹${tokenAmount})`
+              )}
+            </button>
+          </div>
+        </motion.div>
+      )}
 
       {/* Trust line */}
       <p className="text-center text-[13px] font-medium" style={{ color: "rgba(255,200,80,0.75)" }}>
