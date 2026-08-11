@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Star, ShieldCheck, Users, ChevronDown, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
 
-const WA_NUMBER = "919235222399";
+const WA_NUMBER = "917011960307";
 
 const particles = [
   { size: 3, top: "12%", left: "7%",  delay: 0,   dur: 7 },
@@ -235,7 +235,7 @@ export default function Hero() {
 
               {/* WhatsApp: Transparent Green-bordered */}
               <a
-                href={`https://wa.me/919235222399?text=${encodeURIComponent(
+                href={`https://wa.me/917011960307?text=${encodeURIComponent(
                   `Har Har Mahadev 🙏 I want to get the details and itinerary for "${currentSlide.name}" (${currentSlide.duration}) starting from ₹${currentSlide.price}/Person.`
                 )}`}
                 target="_blank"
@@ -248,7 +248,7 @@ export default function Hero() {
 
               {/* Call Now: White-bordered */}
               <a
-                href="tel:+919235222399"
+                href="tel:+917011960307"
                 className="flex items-center justify-center gap-2.5 border border-white/28 hover:border-white/55 text-white hover:bg-white/[0.08] px-7 py-4 rounded-full font-semibold text-[14px] uppercase tracking-wider backdrop-blur-sm transition-all duration-300 w-full sm:w-auto"
               >
                 <Phone size={15} />

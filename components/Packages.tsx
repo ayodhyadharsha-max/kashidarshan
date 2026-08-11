@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { Check, MessageCircle, Clock, MapPin, Hotel, Car, UserCheck, Ticket, Sparkles, Compass, Headphones } from "lucide-react";
 
-const WA_NUMBER = "919235222399";
+const WA_NUMBER = "917011960307";
 
 export const packages = [
   {

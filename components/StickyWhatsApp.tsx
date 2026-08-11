@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Phone } from "lucide-react";
 
-const WA_NUMBER = "919235222399";
+const WA_NUMBER = "917011960307";
 const WA_MESSAGE = encodeURIComponent(
   "Har Har Mahadev 🙏 I want to book a Kashi Varanasi tour package. Please share full details."
 );
@@ -86,7 +86,7 @@ export default function StickyWhatsApp() {
                 Call Rahul (Expert)
               </span>
               <a
-                href="tel:+919235222399"
+                href="tel:+917011960307"
                 aria-label="Call Expert"
                 className="flex items-center justify-center w-14 h-14 bg-saffron-600 hover:bg-saffron-700 text-white rounded-full shadow-[0_8px_30px_rgba(255,107,0,0.3)] hover:shadow-[0_8px_40px_rgba(255,107,0,0.5)] transition-all duration-300 hover:scale-105 active:scale-95"
                 data-cta="call"
@@ -130,7 +130,7 @@ export default function StickyWhatsApp() {
             <div className="bg-white border-t border-gray-100 shadow-2xl px-4 py-3 grid grid-cols-2 gap-3 safe-bottom">
               {/* Call */}
               <a
-                href="tel:+919235222399"
+                href="tel:+917011960307"
                 className="flex items-center justify-center gap-2 py-3 rounded-xl bg-saffron-600 text-white font-bold text-sm active:scale-95 transition-transform"
                 aria-label="Call now"
                 data-cta="call"

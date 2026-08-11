@@ -238,7 +238,7 @@ function LeadForm({ defaultTour, tokenAmount, setTokenAmount }: { defaultTour?: 
   const [step, setStep] = useState(1);
   const calRef = useRef<HTMLDivElement>(null);
 
-  const WA_NUMBER = "919235222399";
+  const WA_NUMBER = "917011960307";
 
   // Sync defaultTour if it changes
   useEffect(() => {

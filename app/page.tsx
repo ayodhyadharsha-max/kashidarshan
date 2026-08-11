@@ -34,7 +34,7 @@ const organizationSchema = {
   image: "https://yatra.kashidharshan.com/logo.png",
   description:
     "Kashi Dharshan is a specialist pilgrimage tour operator based in Ayodhya, Uttar Pradesh. We offer complete yatra packages including best hotel stays, private AC cab transfers, and temple sightseeing. Our circuits cover Ayodhya, Varanasi, Prayagraj, and Chitrakoot. Packages start at ₹7,499 / person (₹14,998 total for couple). We have served over 50,000 pilgrims since 2009.",
-  telephone: "+919235222399",
+  telephone: "+917011960307",
   email: "kashidharshannn@gmail.com",
   address: {
     "@type": "PostalAddress",
