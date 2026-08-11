@@ -1,13 +1,10 @@
 "use client";
 
-import { useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Phone, Star, ShieldCheck, Users, ChevronDown, CheckCircle2 } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Phone, Star, ShieldCheck, Users, ChevronDown, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
 
-const WA_NUMBER = "917011960307";
-const WA_MESSAGE = encodeURIComponent(
-  "Har Har Mahadev 🙏 I want to book a Kashi Varanasi tour package. Please share full details."
-);
+const WA_NUMBER = "919235222399";
 
 const particles = [
   { size: 3, top: "12%", left: "7%",  delay: 0,   dur: 7 },
@@ -20,25 +17,40 @@ const particles = [
   { size: 4, top: "48%", left: "91%", delay: 0.5, dur: 9 },
   { size: 3, top: "68%", left: "83%", delay: 1.8, dur: 7 },
   { size: 5, top: "83%", left: "73%", delay: 0.7, dur: 8.5 },
-  { size: 2, top: "18%", left: "48%", delay: 1.2, dur: 6 },
-  { size: 4, top: "43%", left: "43%", delay: 3,   dur: 10 },
-  { size: 3, top: "55%", left: "60%", delay: 1.6, dur: 7.2 },
-  { size: 5, top: "30%", left: "33%", delay: 2.2, dur: 8.8 },
 ];
 
-const inclusions = [
-  { label: "Best Hotel Stay" },
-  { label: "Private AC Cab" },
-  { label: "Covers Sightseeing" },
-  { label: "Driver cum Guide" },
-  { label: "Flight / Train Ticket Support" },
+const slides = [
+  {
+    id: "ayodhya-darshan",
+    name: "Kashi Darshan Package",
+    duration: "2 NIGHTS / 3 DAYS",
+    price: "7,499",
+    description: "Experience the spiritual essence of Kashi with VIP Vishwanath Darshan, Ganga Aarti, and local heritage tours.",
+    image: "/gallery/gallery-1.jpg",
+  },
+  {
+    id: "ayodhya-varanasi",
+    name: "Kashi Prayagraj Tour",
+    duration: "3 NIGHTS / 4 DAYS",
+    price: "12,999",
+    description: "A sacred journey combining the spiritual vibes of Varanasi with a holy bath at Prayagraj Triveni Sangam.",
+    image: "/gallery/gallery-2.jpg",
+  },
+  {
+    id: "ayodhya-prayagraj-varanasi",
+    name: "Kashi Ayodhya Varanasi Package",
+    duration: "4 NIGHTS / 5 DAYS",
+    price: "15,999",
+    description: "The complete divine circuit covering Kashi Vishwanath, Triveni Sangam, and Ayodhya Ram Mandir VIP Darshan.",
+    image: "/gallery/gallery-3.jpg",
+  }
 ];
 
 const trustBadges = [
-  { icon: Star,         label: "4.9★  Google Rated",  sub: "312 verified reviews" },
-  { icon: Users,        label: "50,000+ Pilgrims",     sub: "Trusted since 2009" },
-  { icon: ShieldCheck,  label: "Free Cancellation",    sub: "Full refund within 48h" },
-  { icon: CheckCircle2, label: "Flexi-Booking Options",  sub: "25% direct confirm OR ₹1,999 price lock" },
+  { icon: Star,         label: "GOOGLE RATED",      sub: "4.9/5 Star Rating" },
+  { icon: ShieldCheck,  label: "GST REGISTERED",    sub: "100% Secure Billing" },
+  { icon: Users,        label: "HAPPY TRAVELLERS",  sub: "12,000+ Journeys" },
+  { icon: CheckCircle2, label: "24X7 ASSISTANCE",   sub: "On-Trip Support" },
 ];
 
 const WhatsAppIcon = () => (
@@ -48,54 +60,74 @@ const WhatsAppIcon = () => (
 );
 
 export default function Hero() {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const bgY   = useTransform(scrollYProgress, [0, 1], ["0%",   "40%"]);
-  const fade  = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
-  const templeOpacity = useTransform(scrollYProgress, [0, 0.5], [0.15, 0]);
+  const [currentIdx, setCurrentIdx] = useState(0);
+
+  // Auto-play timing
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIdx((prev) => (prev + 1) % slides.length);
+    }, 6000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const handlePrev = () => {
+    setCurrentIdx((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIdx((prev) => (prev + 1) % slides.length);
+  };
+
+  const handleGetItinerary = (id: string) => {
+    const event = new CustomEvent("select-tour", {
+      detail: { tourId: id, mode: "confirm" }
+    });
+    window.dispatchEvent(event);
+    
+    const element = document.getElementById("get-quote");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const currentSlide = slides[currentIdx];
 
   return (
     <section
-      ref={ref}
-      className="relative min-h-[100svh] flex flex-col items-center justify-center overflow-hidden"
+      className="relative min-h-[100svh] flex flex-col justify-between overflow-hidden bg-[#100500]"
       id="home"
       data-section="hero"
     >
-      {/* ── Background Gradient ── */}
-      <motion.div className="absolute inset-0 z-0" style={{ y: bgY }}>
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(160deg, #080200 0%, #140600 15%, #240e00 30%, #3d1800 50%, #6b2400 72%, #a03a00 90%, #d45000 110%)",
-          }}
-        />
-        {/* Breathing radial glow */}
-        <div
-          className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[90vw] h-[65vh] pointer-events-none"
-          style={{
-            background: "radial-gradient(ellipse at center bottom, rgba(255,107,0,0.45) 0%, rgba(255,140,0,0.2) 40%, transparent 70%)",
-            filter: "blur(60px)",
-          }}
-        />
-        {/* Subtle top-left cool glow */}
-        <div
-          className="absolute top-0 left-0 w-[50vw] h-[50vh] pointer-events-none"
-          style={{
-            background: "radial-gradient(ellipse at top left, rgba(212,175,55,0.08) 0%, transparent 60%)",
-          }}
-        />
-        <div className="absolute inset-0 pattern-bg" />
-      </motion.div>
+      {/* ── Background Carousel with Zoom/Fade ── */}
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <AnimatePresence initial={false} mode="wait">
+          <motion.div
+            key={currentIdx}
+            initial={{ opacity: 0, scale: 1.06 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+            className="absolute inset-0"
+          >
+            <img
+              src={currentSlide.image}
+              alt={currentSlide.name}
+              className="w-full h-full object-cover brightness-[0.35]"
+            />
+            {/* Dark & Warm Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-[#100500]" />
+          </motion.div>
+        </AnimatePresence>
+      </div>
 
-      {/* ── Background OM symbol (very faint) ── */}
+      {/* ── Background OM symbol ── */}
       <div
         className="om-breathe absolute inset-0 z-0 flex items-center justify-center pointer-events-none select-none"
         aria-hidden="true"
       >
         <span
           className="font-playfair text-white select-none"
-          style={{ fontSize: "clamp(280px, 50vw, 640px)", lineHeight: 1, opacity: 0.042 }}
+          style={{ fontSize: "clamp(280px, 50vw, 640px)", lineHeight: 1, opacity: 0.03 }}
         >
           ॐ
         </span>
@@ -112,7 +144,7 @@ export default function Hero() {
             top: p.top,
             left: p.left,
             backgroundColor: "#FFD700",
-            opacity: 0.55,
+            opacity: 0.45,
             boxShadow: `0 0 ${p.size * 4}px ${p.size * 1.5}px rgba(255,215,0,0.35)`,
             "--duration": `${p.dur}s`,
             "--delay": `${p.delay}s`,
@@ -120,217 +152,158 @@ export default function Hero() {
         />
       ))}
 
-      {/* ── Temple Silhouette ── */}
-      <motion.div
-        className="absolute bottom-0 left-0 right-0 z-10 flex justify-center"
-        style={{ opacity: templeOpacity }}
-      >
-        <svg
-          viewBox="0 0 1400 480"
-          className="w-full max-w-6xl"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          {/* Main shikhar */}
-          <polygon points="700,16 768,195 632,195" fill="#D4AF37" opacity="0.55" />
-          <polygon points="700,16 790,215 610,215" fill="#D4AF37" opacity="0.38" />
-          {/* Platforms */}
-          <rect x="575" y="215" width="250" height="28" rx="3" fill="#D4AF37" opacity="0.45" />
-          <rect x="545" y="241" width="310" height="28" rx="3" fill="#D4AF37" opacity="0.35" />
-          <rect x="495" y="267" width="410" height="38" rx="3" fill="#D4AF37" opacity="0.28" />
-          <rect x="440" y="303" width="520" height="177" rx="4" fill="#D4AF37" opacity="0.18" />
-          {/* Side towers */}
-          <polygon points="558,116 590,234 526,234" fill="#D4AF37" opacity="0.32" />
-          <polygon points="842,116 874,234 810,234" fill="#D4AF37" opacity="0.32" />
-          {/* Pillars */}
-          {[482, 534, 586, 638, 690, 742, 794, 846, 898].map((x, idx) => (
-            <rect key={idx} x={x} y="303" width="13" height="177" fill="#D4AF37" opacity="0.13" />
-          ))}
-          {/* Finial */}
-          <circle cx="700" cy="16" r="9" fill="#FFD700" opacity="0.75" />
-          <circle cx="700" cy="16" r="4" fill="#fff"   opacity="0.9" />
-          {/* Wings */}
-          <rect x="190" y="370" width="250" height="110" rx="4" fill="#D4AF37" opacity="0.08" />
-          <rect x="960" y="370" width="250" height="110" rx="4" fill="#D4AF37" opacity="0.08" />
-        </svg>
-      </motion.div>
+      {/* Spacer to align content nicely with fixed navbar */}
+      <div className="h-28" />
 
-      {/* ── Main Content ── */}
-      <motion.div
-        className="relative z-20 text-center px-5 sm:px-8 max-w-5xl mx-auto pt-32 pb-24"
-        style={{ opacity: fade }}
-      >
+      {/* ── Main Content Slide Overlay ── */}
+      <div className="relative z-20 text-center px-4 sm:px-8 max-w-5xl mx-auto flex-1 flex flex-col justify-center py-10">
+        
         {/* Government Registration Badge */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-medium tracking-wide mb-6 shadow-[0_0_15px_rgba(16,185,129,0.08)]"
+          transition={{ duration: 0.6 }}
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-medium tracking-wide mb-6 shadow-[0_0_15px_rgba(16,185,129,0.08)] mx-auto"
         >
           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
           <span>Govt. Registered Agency (GSTIN: 09CJPPJ6346G1ZR)</span>
         </motion.div>
 
-
-        {/* Label */}
+        {/* ॐ Har Har Mahadev ॐ Label */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="flex items-center justify-center gap-3 mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="flex items-center justify-center gap-3 mb-6"
         >
-          <div className="h-px w-12 bg-gradient-to-r from-transparent to-gold-400/50" />
-          <span className="text-gold-400 text-[11px] font-semibold tracking-[0.4em] uppercase">
+          <div className="h-px w-10 bg-gradient-to-r from-transparent to-gold-400/40" />
+          <span className="text-gold-400 text-[10px] font-semibold tracking-[0.4em] uppercase">
             ॐ &nbsp; Har Har Mahadev &nbsp; ॐ
           </span>
-          <div className="h-px w-12 bg-gradient-to-l from-transparent to-gold-400/50" />
+          <div className="h-px w-10 bg-gradient-to-l from-transparent to-gold-400/40" />
         </motion.div>
 
-        {/* Headline */}
-        <h1 className="font-playfair font-bold leading-[1.08] tracking-tight mb-0 text-balance">
-          {/* Line 1 */}
-          <motion.span
-            initial={{ opacity: 0, y: 40, filter: "blur(12px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="block text-white text-[clamp(2.4rem,7vw,5.5rem)]"
+        {/* Dynamic Slide Content AnimatePresence */}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentIdx}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.55, ease: "easeOut" }}
+            className="flex flex-col items-center"
           >
-            Varanasi Kashi Tour Package
-          </motion.span>
-          {/* Line 2 — gradient */}
-          <motion.span
-            initial={{ opacity: 0, y: 40, filter: "blur(12px)" }}
-            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            transition={{ duration: 0.8, delay: 0.48, ease: [0.22, 1, 0.36, 1] }}
-            className="block text-gradient-gold text-[clamp(2.4rem,7vw,5.5rem)]"
-          >
-            With Hotel &amp; Darshan
-          </motion.span>
-        </h1>
-
-        {/* Emotional subheadline */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.78, ease: [0.22, 1, 0.36, 1] }}
-          className="text-white/70 text-base sm:text-lg lg:text-xl font-inter font-light mt-6 mb-2 max-w-2xl mx-auto leading-relaxed"
-        >
-          Best Hotels &nbsp;·&nbsp; Private AC Cabs &nbsp;·&nbsp; Flight/Train Booking Support
-          <br className="hidden sm:block" />
-          <span className="text-white/80 font-normal sm:mt-1 inline-block">
-            Just come with devotion — we handle all transport and stays.
-          </span>
-        </motion.p>
-
-        {/* Price anchor badge */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.88 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.55, delay: 1.0 }}
-          className="inline-flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2.5 mt-5 mb-8 bg-white/8 border border-white/18 backdrop-blur-md rounded-2xl px-5 py-3 text-center sm:text-left"
-        >
-          <div className="flex items-center justify-center gap-2">
-            <span className="text-white/60 text-sm">Starting at</span>
-            <span className="text-white/40 line-through text-xs sm:text-sm">₹10,999</span>
-            <span className="text-saffron-400 font-playfair font-bold text-2xl leading-none">₹7,499</span>
-            <span className="text-white/60 text-sm">/ person</span>
-          </div>
-          <span className="hidden sm:inline text-white/25 text-sm">·</span>
-          <div className="flex items-center justify-center gap-1.5 text-xs text-white/50">
-            <span>₹14,998 total for couple</span>
-            <span className="hidden sm:inline text-white/25">·</span>
-            <span className="hidden sm:inline text-white/60">All inclusive</span>
-          </div>
-        </motion.div>
-
-        {/* Inclusions row */}
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 1.12 }}
-          className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mb-10"
-        >
-          {inclusions.map((item, i) => (
-            <div
-              key={i}
-              className="flex items-center gap-1.5 bg-white/[0.07] border border-white/[0.13] backdrop-blur-sm rounded-full px-3.5 py-1.5"
-            >
-              <span className="text-gold-400 text-[10px] leading-none">✦</span>
-              <span className="text-white/80 text-xs sm:text-[13px] font-medium whitespace-nowrap">
-                {item.label}
-              </span>
+            {/* Varanasi Travelers style Badge Pill */}
+            <div className="inline-flex items-center gap-2.5 bg-saffron-500/15 border border-saffron-500/25 text-saffron-400 px-5 py-2.5 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-6">
+              <span>{currentSlide.duration}</span>
+              <span className="text-white/20">|</span>
+              <span className="text-white">Starting From ₹{currentSlide.price} / Person</span>
             </div>
-          ))}
-        </motion.div>
 
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 1.28, ease: [0.22, 1, 0.36, 1] }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 mb-12"
-        >
-          {/* Primary — Scroll to Form */}
-          <a
-            href="#get-quote"
-            className="wa-shimmer bg-saffron-gradient hover:brightness-105 text-white px-8 py-4 rounded-full font-bold text-[15px] sm:text-base transition-all duration-300 hover:scale-[1.04] active:scale-[0.97] w-full sm:w-auto justify-center text-center shadow-[0_4px_24px_rgba(255,107,0,0.3)]"
-            aria-label="Get Free Quote"
-            data-cta="scroll-quote"
-            data-source="hero"
-          >
-            <span>Get Free Tour Details</span>
-          </a>
+            {/* Bold Playfair Headline */}
+            <h1 className="font-playfair font-bold text-4xl sm:text-5xl lg:text-6xl text-white mb-4 leading-[1.1] tracking-tight text-balance">
+              {currentSlide.name}
+            </h1>
 
-          {/* Secondary — Call */}
-          <a
-            href="tel:+917011960307"
-            className="flex items-center gap-2.5 border border-white/28 hover:border-white/55 text-white px-7 py-4 rounded-full font-medium text-[15px] sm:text-base backdrop-blur-sm hover:bg-white/[0.08] transition-all duration-300 w-full sm:w-auto justify-center"
-            aria-label="Call now"
-            data-cta="call"
-            data-source="hero"
-          >
-            <Phone size={17} />
-            Call Now — Free
-          </a>
-        </motion.div>
+            {/* Light Text Description */}
+            <p className="text-white/70 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto mb-8 font-light leading-relaxed">
+              {currentSlide.description}
+            </p>
 
-        {/* Trust Badges row */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 1.52 }}
-          className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 sm:gap-x-8"
-        >
-          {trustBadges.map((badge, i) => (
-            <div key={i} className="flex items-center gap-2 text-white/70">
-              <div className="w-7 h-7 rounded-full bg-white/[0.09] border border-white/[0.16] flex items-center justify-center flex-shrink-0">
-                <badge.icon size={13} className="text-gold-400" />
-              </div>
-              <div className="text-left">
-                <div className="text-white/90 text-[11px] font-semibold leading-tight">{badge.label}</div>
-                <div className="text-white/40 text-[10px] leading-tight">{badge.sub}</div>
-              </div>
+            {/* Dynamic CTA Actions */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
+              
+              {/* Primary: Get Free Itinerary */}
+              <button
+                onClick={() => handleGetItinerary(currentSlide.id)}
+                className="wa-shimmer bg-saffron-gradient hover:brightness-105 text-white px-8 py-4 rounded-full font-bold text-[14px] sm:text-[15px] uppercase tracking-wider transition-all duration-300 hover:scale-[1.04] active:scale-[0.97] w-full sm:w-auto justify-center text-center shadow-[0_4px_24px_rgba(255,107,0,0.3)]"
+              >
+                Get Free Itinerary
+              </button>
+
+              {/* WhatsApp: Transparent Green-bordered */}
+              <a
+                href={`https://wa.me/919235222399?text=${encodeURIComponent(
+                  `Har Har Mahadev 🙏 I want to get the details and itinerary for "${currentSlide.name}" (${currentSlide.duration}) starting from ₹${currentSlide.price}/Person.`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 border border-emerald-500/50 hover:border-emerald-500 text-emerald-400 hover:bg-emerald-500/10 px-7 py-4 rounded-full font-semibold text-[14px] uppercase tracking-wider backdrop-blur-sm transition-all duration-300 w-full sm:w-auto"
+              >
+                <WhatsAppIcon />
+                WhatsApp
+              </a>
+
+              {/* Call Now: White-bordered */}
+              <a
+                href="tel:+919235222399"
+                className="flex items-center justify-center gap-2.5 border border-white/28 hover:border-white/55 text-white hover:bg-white/[0.08] px-7 py-4 rounded-full font-semibold text-[14px] uppercase tracking-wider backdrop-blur-sm transition-all duration-300 w-full sm:w-auto"
+              >
+                <Phone size={15} />
+                Call Now
+              </a>
+
             </div>
-          ))}
-        </motion.div>
-      </motion.div>
+          </motion.div>
+        </AnimatePresence>
 
-      {/* ── Scroll indicator ── */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 2.6, duration: 1 }}
-        className="absolute bottom-7 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1.5 text-white/40"
+      </div>
+
+      {/* ── Slide Arrows Navigation (Hidden on Mobile, Visible on Desktop) ── */}
+      <button
+        onClick={handlePrev}
+        className="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full border border-white/10 hover:border-white/25 bg-black/20 hover:bg-black/40 text-white items-center justify-center transition-all cursor-pointer"
+        aria-label="Previous Slide"
       >
-        <span className="text-[9px] tracking-[0.25em] uppercase font-medium">Explore</span>
-        <motion.div
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-        >
-          <ChevronDown size={16} />
-        </motion.div>
-      </motion.div>
+        <ChevronLeft size={22} />
+      </button>
+      <button
+        onClick={handleNext}
+        className="hidden md:flex absolute right-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full border border-white/10 hover:border-white/25 bg-black/20 hover:bg-black/40 text-white items-center justify-center transition-all cursor-pointer"
+        aria-label="Next Slide"
+      >
+        <ChevronRight size={22} />
+      </button>
+
+      {/* ── Pagination Indicator Dots & Trust Section Footer ── */}
+      <div className="relative z-20 w-full flex flex-col items-center">
+        
+        {/* Pagination indicator dots */}
+        <div className="flex items-center gap-2 mb-8">
+          {slides.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentIdx(idx)}
+              className={`w-2.5 h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
+                currentIdx === idx ? "bg-saffron-500 scale-125 w-6" : "bg-white/35 hover:bg-white/60"
+              }`}
+              aria-label={`Go to slide ${idx + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Full-width horizontal divider line */}
+        <div className="w-full h-px bg-white/10" />
+
+        {/* ── Hero Bottom Trust Badges Grid ── */}
+        <div className="w-full bg-[#100500]/60 backdrop-blur-md">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-6 sm:py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full text-center sm:text-left">
+            {trustBadges.map((badge, i) => (
+              <div key={i} className="flex flex-col sm:flex-row items-center gap-3 justify-center sm:justify-start text-white">
+                <div className="w-9 h-9 rounded-full bg-white/[0.08] border border-white/[0.15] flex items-center justify-center flex-shrink-0">
+                  <badge.icon size={15} className="text-gold-400" />
+                </div>
+                <div className="text-center sm:text-left">
+                  <div className="text-white text-[11px] font-bold tracking-wider uppercase leading-tight">{badge.label}</div>
+                  <div className="text-white/40 text-[10px] sm:text-[11px] font-medium leading-tight mt-0.5">{badge.sub}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
     </section>
   );
 }
