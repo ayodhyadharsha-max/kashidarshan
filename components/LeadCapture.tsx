@@ -560,29 +560,6 @@ function LeadForm({ defaultTour, tokenAmount, setTokenAmount }: { defaultTour?: 
           >
             Next: Contact Details ➜
           </button>
-
-          {/* Quick WhatsApp option divider */}
-          <div className="relative flex py-2 items-center">
-            <div className="flex-grow border-t border-white/5"></div>
-            <span className="flex-shrink mx-3 text-white/20 text-[10px] font-bold uppercase tracking-wider">OR</span>
-            <div className="flex-grow border-t border-white/5"></div>
-          </div>
-
-          <a
-            href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(
-              `Jai Shri Ram! I want to enquire about Kashi Yatra packages.\n\n` +
-              `*Selected Tour*: ${fields.tour || "(Custom Selection)"}\n` +
-              `*Budget Preference*: ${fields.packageType || "Standard"}\n` +
-              `*Travel Period*: ${bookingType === "lock" ? `Flexible - ${flexMonth || "Not Decided"}` : (date ? fmtDate(date) : "Not Decided")}\n` +
-              `*Booking Option*: ${bookingType === "confirm" ? "Direct Confirmation (25% Advance)" : "Flexi-Date Price Lock"}`
-            )}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 w-full py-3.5 rounded-2xl bg-[#25D366] hover:bg-[#20ba59] font-bold text-white text-[14px] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-          >
-            <MessageCircle size={17} className="fill-white text-[#25D366]" />
-            <span>Plan Instantly on WhatsApp</span>
-          </a>
         </motion.div>
       )}
 
