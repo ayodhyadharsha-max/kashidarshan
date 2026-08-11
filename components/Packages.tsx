@@ -332,7 +332,7 @@ function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; i
       initial={{ opacity: 0, y: 44 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.7, delay: (index % 3) * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className={`relative flex flex-col rounded-3xl overflow-hidden transition-all duration-500 ${
+      className={`relative flex flex-col w-full rounded-3xl overflow-hidden transition-all duration-500 ${
         isPopular
           ? "bg-divine-dark ring-2 ring-gold-500/80 shadow-gold-glow hover:shadow-[0_28px_80px_rgba(212,175,55,0.3)]"
           : "premium-card shine-effect"
@@ -605,9 +605,11 @@ export default function Packages() {
         </motion.div>
 
         {/* Cards grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-6">
+        <div className="flex flex-wrap justify-center gap-5 lg:gap-6">
           {packages.map((pkg, i) => (
-            <PackageCard key={pkg.id} pkg={pkg} index={i} tokenAmount={tokenAmount} />
+            <div key={pkg.id} className="w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-16px)] flex">
+              <PackageCard pkg={pkg} index={i} tokenAmount={tokenAmount} />
+            </div>
           ))}
         </div>
 
