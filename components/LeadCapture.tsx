@@ -14,6 +14,10 @@ const WEB3FORMS_KEY      = "c79c0151-6af3-404d-9736-d65fe15d1e6b";
 const REDIRECT    = "/thank-you";
 
 const TOURS = [
+  "Ayodhya Same Day Tour (For 3 Persons)",
+  "Varanasi Same Day Tour (For 3 Persons)",
+  "Ayodhya Yatra (1N/2D)",
+  "Varanasi Yatra (1N/2D)",
   "Ayodhya Darshan (2N/3D)",
   "Ayodhya Varanasi (3N/4D)",
   "Ayodhya Prayagraj Varanasi (4N/5D)",
@@ -251,6 +255,10 @@ function LeadForm({ defaultTour, tokenAmount, setTokenAmount }: { defaultTour?: 
       const mode = typeof detail === "object" ? detail?.mode : undefined;
 
       const tourMapping: Record<string, string> = {
+        "ayodhya-same-day": "Ayodhya Same Day Tour (For 3 Persons)",
+        "varanasi-same-day": "Varanasi Same Day Tour (For 3 Persons)",
+        "ayodhya-1n-2d": "Ayodhya Yatra (1N/2D)",
+        "varanasi-1n-2d": "Varanasi Yatra (1N/2D)",
         "ayodhya-darshan": "Ayodhya Darshan (2N/3D)",
         "ayodhya-varanasi": "Ayodhya Varanasi (3N/4D)",
         "ayodhya-prayagraj-varanasi": "Ayodhya Prayagraj Varanasi (4N/5D)",

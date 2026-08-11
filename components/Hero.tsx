@@ -21,27 +21,39 @@ const particles = [
 
 const slides = [
   {
-    id: "ayodhya-darshan",
-    name: "Kashi Darshan Package",
-    duration: "2 NIGHTS / 3 DAYS",
-    price: "7,499",
-    description: "Experience the spiritual essence of Kashi with VIP Vishwanath Darshan, Ganga Aarti, and local heritage tours.",
+    id: "ayodhya-same-day",
+    name: "Ayodhya Same Day Tour",
+    duration: "SAME DAY TOUR",
+    price: "5,999",
+    priceSuffix: " (For 3 Pax)",
+    description: "Complete Ayodhya day tour with private AC Cab and a dedicated Driver-cum-Guide. Perfect for visiting Ram Mandir and Hanuman Garhi.",
     image: "/gallery/gallery-1.jpg",
   },
   {
-    id: "ayodhya-varanasi",
-    name: "Kashi Prayagraj Tour",
-    duration: "3 NIGHTS / 4 DAYS",
-    price: "12,999",
-    description: "A sacred journey combining the spiritual vibes of Varanasi with a holy bath at Prayagraj Triveni Sangam.",
+    id: "varanasi-same-day",
+    name: "Varanasi Same Day Tour",
+    duration: "SAME DAY TOUR",
+    price: "7,999",
+    priceSuffix: " (For 3 Pax)",
+    description: "Varanasi local temples sightseeing with private AC Cab and dedicated Driver-cum-Guide. Includes Kashi Vishwanath and Ganga Aarti boat ride.",
     image: "/gallery/gallery-2.jpg",
   },
   {
-    id: "ayodhya-prayagraj-varanasi",
-    name: "Kashi Ayodhya Varanasi Package",
-    duration: "4 NIGHTS / 5 DAYS",
-    price: "15,999",
-    description: "The complete divine circuit covering Kashi Vishwanath, Triveni Sangam, and Ayodhya Ram Mandir VIP Darshan.",
+    id: "ayodhya-1n-2d",
+    name: "Ayodhya Yatra (1N/2D)",
+    duration: "1 NIGHT / 2 DAYS",
+    price: "4,999",
+    priceSuffix: " / Person",
+    description: "Blessed short pilgrimage package for Ram Mandir VIP Darshan, Saryu Aarti, and local temple visits with private AC transport.",
+    image: "/gallery/gallery-4.jpg",
+  },
+  {
+    id: "varanasi-1n-2d",
+    name: "Varanasi Yatra (1N/2D)",
+    duration: "1 NIGHT / 2 DAYS",
+    price: "4,999",
+    priceSuffix: " / Person",
+    description: "Seek the blessings of Lord Shiva at Kashi Vishwanath. Includes comfortable hotel stay, Ganga Aarti private boat ride, and AC transfers.",
     image: "/gallery/gallery-3.jpg",
   }
 ];
@@ -197,7 +209,7 @@ export default function Hero() {
             <div className="inline-flex items-center gap-2.5 bg-saffron-500/15 border border-saffron-500/25 text-saffron-400 px-5 py-2.5 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-6">
               <span>{currentSlide.duration}</span>
               <span className="text-white/20">|</span>
-              <span className="text-white">Starting From ₹{currentSlide.price} / Person</span>
+              <span className="text-white">Starting From ₹{currentSlide.price}{currentSlide.priceSuffix}</span>
             </div>
 
             {/* Bold Playfair Headline */}

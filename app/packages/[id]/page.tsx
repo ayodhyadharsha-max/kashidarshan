@@ -17,6 +17,66 @@ interface PageProps {
 }
 
 const customItineraries: Record<string, { title: string; activities: { time: string; activity: string }[] }[]> = {
+  "ayodhya-same-day": [
+    {
+      title: "Day 1 — Complete Ayodhya Day Sightseeing & Ram Mandir VIP Darshan",
+      activities: [
+        { time: "09:00 AM", activity: "Morning pickup from Ayodhya Airport / Railway Station (or Lucknow, optional). Drive to local hotel/lounge to freshen up." },
+        { time: "10:30 AM", activity: "VIP Ram Mandir Darshan with pre-arranged entry passes. Explore the majestic temple complex and corridors." },
+        { time: "01:30 PM", activity: "Traditional satvik lunch. Visit Hanuman Garhi and Kanak Bhawan temples with our guide." },
+        { time: "04:30 PM", activity: "Explore Ram Ki Paidi ghats, Dashrath Mahal, and take in the local heritage atmosphere." },
+        { time: "06:00 PM", activity: "Attend the divine Saryu River evening Aarti. Transfer back to your departure terminal. Jai Shri Ram!" }
+      ]
+    }
+  ],
+  "varanasi-same-day": [
+    {
+      title: "Day 1 — Complete Varanasi Temples & Ganga Aarti",
+      activities: [
+        { time: "08:30 AM", activity: "Morning pickup from Varanasi Airport / Railway Station. Freshen up and start the yatra." },
+        { time: "09:30 AM", activity: "VIP Kashi Vishwanath Temple Darshan. Visit adjacent Annapurna Mandir and Kaal Bhairav temple." },
+        { time: "01:00 PM", activity: "Traditional Banarasi satvik lunch. Visit Banaras Hindu University (BHU) Vishwanath temple." },
+        { time: "03:00 PM", activity: "Excursion to Sarnath Buddhist site - explore Dhamek Stupa, ancient ruins, and museum." },
+        { time: "05:30 PM", activity: "Experience the spectacular Ganga Aarti at Dashashwamedh Ghat from a pre-booked private boat. Departure drop at Airport/Station." }
+      ]
+    }
+  ],
+  "ayodhya-1n-2d": [
+    {
+      title: "Day 1 — Arrival in Ayodhya & Local Sightseeing",
+      activities: [
+        { time: "Morning", activity: "Arrive at Ayodhya Airport / Railway Station. Meet & greet, transfer to hotel and check-in." },
+        { time: "Afternoon", activity: "Visit Hanuman Garhi, Kanak Bhawan, Dashrath Mahal, and Sugreev Kila." },
+        { time: "Evening", activity: "Attend Saryu River evening Aarti at Ram Ki Paidi. Overnight stay in Ayodhya." }
+      ]
+    },
+    {
+      title: "Day 2 — Ram Mandir VIP Darshan & Departure",
+      activities: [
+        { time: "Morning", activity: "Morning visit to the magnificent new Ram Mandir for VIP Ram Lalla darshan. Visit Karsevakpuram." },
+        { time: "Afternoon", activity: "Check-out from hotel. Final souvenir shopping for Ram Mandir models and local handicrafts." },
+        { time: "Evening", activity: "Transfer to Ayodhya Airport / Railway Station for departure flight/train. Jai Shri Ram!" }
+      ]
+    }
+  ],
+  "varanasi-1n-2d": [
+    {
+      title: "Day 1 — Kashi Vishwanath VIP Darshan & Ganga Aarti",
+      activities: [
+        { time: "Morning", activity: "Arrive at Varanasi Airport / Railway Station. Transfer to hotel, check-in and freshen up." },
+        { time: "Afternoon", activity: "VIP Kashi Vishwanath Mandir Darshan, Annapurna Temple, and Kaal Bhairav Temple." },
+        { time: "Evening", activity: "Witness the magical evening Ganga Aarti from a private boat ride on the holy river. Night stay in Varanasi." }
+      ]
+    },
+    {
+      title: "Day 2 — Sarnath Excursion & Departure",
+      activities: [
+        { time: "Morning", activity: "Drive to Sarnath. Explore Dhamek Stupa, Buddhist monasteries, and Sarnath Museum." },
+        { time: "Afternoon", activity: "Check-out and enjoy a heritage walk. Souvenir shopping for Banarasi silk sarees and metal crafts." },
+        { time: "Evening", activity: "Transfer to Varanasi Airport / Railway Station for departure. Har Har Mahadev!" }
+      ]
+    }
+  ],
   "ayodhya-darshan": [
     {
       title: "Day 1 — Arrival in Ayodhya & Saryu Aarti",
