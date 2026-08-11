@@ -205,22 +205,30 @@ export default function Hero() {
             transition={{ duration: 0.55, ease: "easeOut" }}
             className="flex flex-col items-center"
           >
-            {/* Varanasi Travelers style Badge Pill */}
-            <div className="inline-flex items-center gap-2.5 bg-saffron-500/15 border border-saffron-500/25 text-saffron-400 px-5 py-2.5 rounded-full text-[11px] sm:text-xs font-bold uppercase tracking-wider mb-6">
-              <span>{currentSlide.duration}</span>
-              <span className="text-white/20">|</span>
-              <span className="text-white">Starting From ₹{currentSlide.price}{currentSlide.priceSuffix}</span>
-            </div>
-
             {/* Bold Playfair Headline */}
             <h1 className="font-playfair font-bold text-4xl sm:text-5xl lg:text-6xl text-white mb-4 leading-[1.1] tracking-tight text-balance">
               {currentSlide.name}
             </h1>
 
             {/* Light Text Description */}
-            <p className="text-white/70 text-sm sm:text-base lg:text-lg max-w-2xl mx-auto mb-8 font-light leading-relaxed">
+            <p className="text-white/70 text-sm sm:text-base lg:text-lg max-w-3xl mx-auto mb-6 font-light leading-relaxed">
               {currentSlide.description}
             </p>
+
+            {/* Varanasi Travelers style Badge Pill (Placed below description) */}
+            <div className="inline-flex items-center gap-2.5 bg-black/40 border border-white/10 text-white/80 px-5 py-2.5 rounded-full text-[11px] sm:text-xs font-semibold uppercase tracking-wider mb-8">
+              <span className="text-white/95 font-bold">{currentSlide.duration}</span>
+              <span className="text-white/20">|</span>
+              <span>
+                Starting From{" "}
+                <span className="text-gold-400 font-extrabold text-sm sm:text-base ml-0.5">
+                  ₹{currentSlide.price}
+                </span>{" "}
+                <span className="text-white/60 ml-0.5">
+                  {currentSlide.priceSuffix}
+                </span>
+              </span>
+            </div>
 
             {/* Dynamic CTA Actions */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
