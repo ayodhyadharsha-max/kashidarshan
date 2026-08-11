@@ -21,7 +21,7 @@ const hotels = [
     iconColor: "text-orange-600",
     pattern: "M4 4h4v4H4zm8 0h4v4h-4zm8 0h4v4h-4zM4 12h4v4H4zm8 0h4v4h-4zm8 0h4v4h-4zM4 20h4v4H4zm8 0h4v4h-4zm8 0h4v4h-4z",
     badgeColor: "bg-orange-100 text-orange-700",
-    image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=600&q=80",
+    image: "/hotels/comfort.jpg",
     amenities: [
       { icon: Wind, label: "AC Rooms" },
       { icon: Wifi, label: "Free Wi-Fi" },
@@ -55,7 +55,7 @@ const hotels = [
     iconColor: "text-gold-400",
     pattern: "M4 4h4v4H4zm8 0h4v4h-4zm8 0h4v4h-4zM4 12h4v4H4zm8 0h4v4h-4zm8 0h4v4h-4zM4 20h4v4H4zm8 0h4v4h-4zm8 0h4v4h-4z",
     badgeColor: "bg-gold-400/20 text-gold-300",
-    image: "https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=600&q=80",
+    image: "/hotels/premium.jpg",
     amenities: [
       { icon: Wind, label: "Premium AC Rooms" },
       { icon: Wifi, label: "High-Speed Wi-Fi" },
@@ -89,7 +89,7 @@ const hotels = [
     iconBg: "bg-red-50",
     iconColor: "text-red-700",
     badgeColor: "bg-red-100 text-red-800",
-    image: "https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=600&q=80",
+    image: "/hotels/boutique.jpg",
     amenities: [
       { icon: Wind, label: "Heritage AC Rooms" },
       { icon: Wifi, label: "Premium Wi-Fi" },
