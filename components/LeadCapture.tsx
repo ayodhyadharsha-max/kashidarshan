@@ -14,6 +14,9 @@ const WEB3FORMS_KEY      = "c79c0151-6af3-404d-9736-d65fe15d1e6b";
 const REDIRECT    = "/thank-you";
 
 const TOURS = [
+  "Sawan Somvar Special Yatra (Same Day)",
+  "Kashi Sawan Kanwar Yatra (2N/3D)",
+  "Sawan Shiva & Ram Mandir Circuit (3N/4D)",
   "Ayodhya Same Day Tour (For 3 Persons)",
   "Varanasi Same Day Tour (For 3 Persons)",
   "Prayagraj Same Day Tour (For 3 Persons)",
@@ -260,6 +263,9 @@ function LeadForm({ defaultTour, tokenAmount, setTokenAmount }: { defaultTour?: 
       const mode = typeof detail === "object" ? detail?.mode : undefined;
 
       const tourMapping: Record<string, string> = {
+        "sawan-somvar-special": "Sawan Somvar Special Yatra (Same Day)",
+        "kashi-kanwar-yatra-2n3d": "Kashi Sawan Kanwar Yatra (2N/3D)",
+        "sawan-shiva-circuit-3n4d": "Sawan Shiva & Ram Mandir Circuit (3N/4D)",
         "ayodhya-same-day": "Ayodhya Same Day Tour (For 3 Persons)",
         "varanasi-same-day": "Varanasi Same Day Tour (For 3 Persons)",
         "prayagraj-same-day": "Prayagraj Same Day Tour (For 3 Persons)",

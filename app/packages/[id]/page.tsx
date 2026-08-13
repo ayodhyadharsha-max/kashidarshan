@@ -17,6 +17,80 @@ interface PageProps {
 }
 
 const customItineraries: Record<string, { title: string; activities: { time: string; activity: string }[] }[]> = {
+  "sawan-somvar-special": [
+    {
+      title: "Day 1 — Sawan Somvar Abhishek & Kashi VIP Darshan",
+      activities: [
+        { time: "07:30 AM", activity: "Early morning pickup from Varanasi Airport / Railway Station. Drive to local hotel/lounge to freshen up." },
+        { time: "09:00 AM", activity: "Collect holy Ganga water (Ganga Jal) at Dashashwamedh Ghat for Abhishek." },
+        { time: "10:30 AM", activity: "VIP Kashi Vishwanath Darshan with Sawan-dedicated priority pass. Perform jal-abhishek." },
+        { time: "01:30 PM", activity: "Traditional Satvik lunch. Visit Annapurna Mandir, Kaal Bhairav, and Mrityunjay Mahadev." },
+        { time: "04:30 PM", activity: "Visit Sawan devotional markets. Complimentary Kanwar/pilgrim kit for yatris." },
+        { time: "06:30 PM", activity: "Drop-off at Varanasi Airport / Railway Station for departure train/flight. Har Har Mahadev!" }
+      ]
+    }
+  ],
+  "kashi-kanwar-yatra-2n3d": [
+    {
+      title: "Day 1 — Kashi Sawan Arrival, Ganga water collection & Ganga Aarti",
+      activities: [
+        { time: "Morning", activity: "Arrive at Varanasi Airport / Railway Station. Transfer to hotel, check-in and freshen up." },
+        { time: "Afternoon", activity: "Head to the ghats for holy Ganga water collection. Visit Kaal Bhairav (Kotwal of Kashi) for permission." },
+        { time: "Evening", activity: "Watch the spectacular Ganga Aarti from a pre-booked private boat. Overnight stay in Varanasi." }
+      ]
+    },
+    {
+      title: "Day 2 — VIP Kashi Vishwanath Sawan Abhishek & Mrityunjay Mahadev",
+      activities: [
+        { time: "08:00 AM", activity: "Head for VIP Kashi Vishwanath Sawan Darshan. Complete puja and abhishek." },
+        { time: "Afternoon", activity: "Lunch and visit BHU Vishwanath temple, Durga Kund, and Sankat Mochan Mandir." },
+        { time: "Evening", activity: "Visit Mrityunjay Mahadev temple (renowned for healing powers). Evening free for shopping Banarasi silk or local crafts. Night stay in Varanasi." }
+      ]
+    },
+    {
+      title: "Day 3 — Sarnath Buddhist Site & Departure",
+      activities: [
+        { time: "Morning", activity: "Breakfast at hotel. Visit the peaceful Sarnath archaeological site (where Buddha gave his first sermon)." },
+        { time: "Afternoon", activity: "Check-out from hotel. Final souvenir shopping for religious souvenirs." },
+        { time: "Evening", activity: "Transfer to Varanasi Airport / Railway Station for departure. Har Har Mahadev!" }
+      ]
+    }
+  ],
+  "sawan-shiva-circuit-3n4d": [
+    {
+      title: "Day 1 — Varanasi Arrival & Evening Ganga Aarti",
+      activities: [
+        { time: "Morning", activity: "Arrive at Varanasi Airport / Railway Station. Transfer to hotel and check-in." },
+        { time: "Afternoon", activity: "Visit Kaal Bhairav and local temples. Enjoy a heritage walk of Kashi's ghats." },
+        { time: "Evening", activity: "Private boat ride on Ganga to witness the evening Ganga Aarti. Overnight stay in Varanasi." }
+      ]
+    },
+    {
+      title: "Day 2 — Sawan Kashi Vishwanath VIP Darshan & travel to Prayagraj",
+      activities: [
+        { time: "08:00 AM", activity: "Seek blessings at Kashi Vishwanath Temple with VIP Sawan access assistance." },
+        { time: "11:30 AM", activity: "Drive to Prayagraj in private AC Cab. Check-in at hotel." },
+        { time: "Afternoon", activity: "Visit Triveni Sangam for a holy dip, Bade Hanuman Ji temple, and Alopi Devi Shaktipeeth." },
+        { time: "Evening", activity: "Dinner and overnight stay in Prayagraj." }
+      ]
+    },
+    {
+      title: "Day 3 — Travel to Ayodhya & Ram Ki Paidi Saryu Aarti",
+      activities: [
+        { time: "Morning", activity: "Drive from Prayagraj to Ayodhya in private AC Cab. Check-in at hotel." },
+        { time: "Afternoon", activity: "Visit Hanuman Garhi and Kanak Bhawan temples." },
+        { time: "Evening", activity: "Attend Saryu River evening Aarti at Ram Ki Paidi. Overnight stay in Ayodhya." }
+      ]
+    },
+    {
+      title: "Day 4 — Ram Mandir VIP Darshan & Departure",
+      activities: [
+        { time: "Morning", activity: "Morning visit to the magnificent new Ram Mandir for VIP Ram Lalla darshan. Visit Dashrath Mahal." },
+        { time: "Afternoon", activity: "Check-out from hotel. Final souvenir shopping." },
+        { time: "Evening", activity: "Transfer to Ayodhya Airport / Railway Station for departure flight/train. Jai Shri Ram!" }
+      ]
+    }
+  ],
   "ayodhya-same-day": [
     {
       title: "Day 1 — Complete Ayodhya Day Sightseeing & Ram Mandir VIP Darshan",

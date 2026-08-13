@@ -21,6 +21,15 @@ const particles = [
 
 const slides = [
   {
+    id: "sawan-somvar-special",
+    name: "Sawan Somvar Special Yatra",
+    duration: "SAME DAY TOUR",
+    price: "7,999",
+    priceSuffix: " (For 3 Pax)",
+    description: "Auspicious Kashi Sawan Monday pilgrimage with Ganga Jal Abhishek collection, VIP Vishwanath temple access assistance, and private AC Cab.",
+    image: "/gallery/gallery-7.jpg",
+  },
+  {
     id: "ayodhya-same-day",
     name: "Ayodhya Same Day Tour",
     duration: "SAME DAY TOUR",
