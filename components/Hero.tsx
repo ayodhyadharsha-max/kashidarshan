@@ -27,7 +27,7 @@ const slides = [
     price: "7,999",
     priceSuffix: " (For 3 Pax)",
     description: "Auspicious Kashi Sawan Monday pilgrimage with Ganga Jal Abhishek collection, VIP Vishwanath temple access assistance, and private AC Cab.",
-    image: "/gallery/gallery-7.jpg",
+    image: "https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: "ayodhya-same-day",
