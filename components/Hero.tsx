@@ -36,7 +36,7 @@ const slides = [
     price: "5,999",
     priceSuffix: " (For 3 Pax)",
     description: "Complete Ayodhya day tour with private AC Cab and a dedicated Driver-cum-Guide. Perfect for visiting Ram Mandir and Hanuman Garhi.",
-    image: "/gallery/gallery-1.jpg",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Ram_Mandir%2C_Ayodhya.png/960px-Ram_Mandir%2C_Ayodhya.png",
   },
   {
     id: "varanasi-same-day",
@@ -45,7 +45,7 @@ const slides = [
     price: "7,999",
     priceSuffix: " (For 3 Pax)",
     description: "Varanasi local temples sightseeing with private AC Cab and dedicated Driver-cum-Guide. Includes Kashi Vishwanath and Ganga Aarti boat ride.",
-    image: "/gallery/gallery-2.jpg",
+    image: "https://images.unsplash.com/photo-1596700427267-33a5937a0980?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: "ayodhya-1n-2d",
@@ -54,7 +54,7 @@ const slides = [
     price: "4,999",
     priceSuffix: " / Person",
     description: "Blessed short pilgrimage package for Ram Mandir VIP Darshan, Saryu Aarti, and local temple visits with private AC transport.",
-    image: "/gallery/gallery-4.jpg",
+    image: "https://images.unsplash.com/photo-1707297298647-7cc75bc579b1?auto=format&fit=crop&w=1200&q=80",
   },
   {
     id: "varanasi-1n-2d",
@@ -63,7 +63,7 @@ const slides = [
     price: "4,999",
     priceSuffix: " / Person",
     description: "Seek the blessings of Lord Shiva at Kashi Vishwanath. Includes comfortable hotel stay, Ganga Aarti private boat ride, and AC transfers.",
-    image: "/gallery/gallery-3.jpg",
+    image: "https://images.unsplash.com/photo-1561361513-2d000a50f0db?auto=format&fit=crop&w=1200&q=80",
   }
 ];
 
