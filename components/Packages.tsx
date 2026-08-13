@@ -473,17 +473,17 @@ function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; i
       )}
 
       {/* Package Image */}
-      <Link href={`/packages/${pkg.id}`} className="relative h-48 w-full overflow-hidden bg-gray-100 flex-shrink-0 block">
+      <Link href={`/packages/${pkg.id}`} className="relative h-56 w-full overflow-hidden bg-gray-100 flex-shrink-0 block">
         <img
           src={pkg.image}
           alt={pkg.name}
-          className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+          className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
           loading="lazy"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
       </Link>
 
-      <div className="flex flex-col flex-1 p-6 sm:p-7">
+      <div className="flex flex-col flex-1 p-5 sm:p-6">
         {/* Duration + cities */}
         <div className="flex flex-wrap items-center gap-2 mb-4">
           <span className={`inline-flex items-center gap-1.5 text-[11px] font-semibold px-3 py-1.5 rounded-full ${
@@ -534,7 +534,7 @@ function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; i
         </div>
 
         {/* Price & Lock Section */}
-        <div className={`mb-6 flex items-center justify-between gap-3 border-t border-b py-4 ${
+        <div className={`mb-6 flex flex-wrap items-center justify-between gap-2.5 border-t border-b py-4 ${
           isPopular ? "border-white/10" : "border-gray-100"
         }`}>
           {/* Lock Price Pill */}
@@ -546,7 +546,7 @@ function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; i
               });
               window.dispatchEvent(event);
             }}
-            className={`flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-[11px] sm:text-xs font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer shadow-sm whitespace-nowrap flex-shrink-0 ${
+            className={`flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-[11px] sm:text-xs font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer shadow-sm whitespace-nowrap ${
               isPopular
                 ? "bg-gradient-to-r from-saffron-500/25 to-amber-500/25 text-amber-200 border border-saffron-500/40 hover:from-saffron-500/35 hover:to-amber-500/35"
                 : "bg-gradient-to-r from-amber-50 to-amber-100/60 text-amber-900 border border-amber-200/80 hover:from-amber-100 hover:to-amber-200/50"
@@ -558,27 +558,49 @@ function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; i
           </a>
 
           {/* Pricing */}
-          <div className="text-right flex flex-col justify-end flex-shrink-0">
-            <div className="flex items-baseline justify-end gap-1 flex-wrap">
-              <span className={`text-[10px] sm:text-[11px] line-through mr-1 ${
-                isPopular ? "text-white/35" : "text-gray-400"
-              }`}>
-                ₹{(pkg.originalPrice / 2).toLocaleString("en-IN")}
-              </span>
-              <span className={`font-playfair font-bold text-lg sm:text-2xl leading-none ${
-                isPopular ? "text-gold-400" : "text-divine-dark"
-              }`}>
-                ₹{(pkg.price / 2).toLocaleString("en-IN")}
-              </span>
-              <span className={`text-[9px] sm:text-[10px] font-medium leading-none ${
-                isPopular ? "text-white/60" : "text-gray-500"
-              }`}>
-                / person
-              </span>
-            </div>
-            <p className={`text-[8px] sm:text-[9px] mt-1 font-medium ${isPopular ? "text-white/40" : "text-gray-400"}`}>
-              (₹{(pkg.price).toLocaleString("en-IN")} total for couple)
-            </p>
+          <div className="text-right flex flex-col justify-end">
+            {pkg.duration === "Same Day Tour" ? (
+              <>
+                <div className="flex items-baseline justify-end gap-1 flex-wrap">
+                  <span className={`text-[10px] sm:text-[11px] line-through mr-0.5 ${
+                    isPopular ? "text-white/35" : "text-gray-400"
+                  }`}>
+                    ₹{pkg.originalPrice.toLocaleString("en-IN")}
+                  </span>
+                  <span className={`font-playfair font-bold text-lg sm:text-2xl leading-none ${
+                    isPopular ? "text-gold-400" : "text-divine-dark"
+                  }`}>
+                    ₹{pkg.price.toLocaleString("en-IN")}
+                  </span>
+                </div>
+                <p className={`text-[8px] sm:text-[9px] mt-1 font-semibold ${isPopular ? "text-white/50" : "text-gray-500"}`}>
+                  (For 3 Pax total)
+                </p>
+              </>
+            ) : (
+              <>
+                <div className="flex items-baseline justify-end gap-1 flex-wrap">
+                  <span className={`text-[10px] sm:text-[11px] line-through mr-0.5 ${
+                    isPopular ? "text-white/35" : "text-gray-400"
+                  }`}>
+                    ₹{(pkg.originalPrice / 2).toLocaleString("en-IN")}
+                  </span>
+                  <span className={`font-playfair font-bold text-lg sm:text-2xl leading-none ${
+                    isPopular ? "text-gold-400" : "text-divine-dark"
+                  }`}>
+                    ₹{(pkg.price / 2).toLocaleString("en-IN")}
+                  </span>
+                  <span className={`text-[9px] sm:text-[10px] font-medium leading-none ${
+                    isPopular ? "text-white/60" : "text-gray-500"
+                  }`}>
+                    /person
+                  </span>
+                </div>
+                <p className={`text-[8px] sm:text-[9px] mt-1 font-medium ${isPopular ? "text-white/40" : "text-gray-400"}`}>
+                  (₹{pkg.price.toLocaleString("en-IN")} total for couple)
+                </p>
+              </>
+            )}
           </div>
         </div>
 
