@@ -95,10 +95,10 @@ export default function Gallery() {
           </p>
         </div>
 
-        {/* Masonry-style/Premium Responsive Grid */}
+        {/* 4 photos per line across all screen sizes so initial 8 photos fit into exactly 2 rows */}
         <motion.div 
           layout="position"
-          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5"
+          className="grid grid-cols-4 gap-2 sm:gap-4 md:gap-5"
         >
           <AnimatePresence mode="popLayout">
             {visibleItems.map((item, index) => (
@@ -110,7 +110,7 @@ export default function Gallery() {
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 onClick={() => setActivePhotoIndex(index)}
-                className="group relative cursor-pointer overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 aspect-[4/3] flex items-center justify-center"
+                className="group relative cursor-pointer overflow-hidden rounded-lg sm:rounded-2xl border border-gray-100 bg-white shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all duration-300 aspect-[4/3] flex items-center justify-center"
               >
                 <img
                   src={item.src}
@@ -120,16 +120,16 @@ export default function Gallery() {
                 />
 
                 {/* Glassmorphism details footer */}
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-4 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
-                  <div className="flex justify-between items-center gap-2 mb-1">
-                    <span className="bg-saffron-600 text-white text-[10px] font-semibold px-2 py-0.5 rounded-full uppercase tracking-wider">
+                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-1 sm:p-3.5 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300">
+                  <div className="flex justify-between items-center gap-1 mb-0.5 sm:mb-1">
+                    <span className="bg-saffron-600 text-white text-[7px] sm:text-[10px] font-semibold px-1 py-0.5 sm:px-2 sm:py-0.5 rounded-full uppercase tracking-wider">
                       {item.tag}
                     </span>
-                    <span className="text-gold-300 text-[10px] font-medium uppercase tracking-wider">
+                    <span className="text-gold-300 text-[7px] sm:text-[10px] font-medium uppercase tracking-wider hidden xs:inline">
                       📍 {item.location}
                     </span>
                   </div>
-                  <p className="text-white/90 text-xs line-clamp-1 italic">
+                  <p className="text-white/90 text-xs line-clamp-1 italic hidden sm:block">
                     &ldquo;{item.caption}&rdquo;
                   </p>
                 </div>

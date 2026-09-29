@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Star, ShieldCheck, Users, ChevronDown, CheckCircle2, ChevronLeft, ChevronRight } from "lucide-react";
 
-const WA_NUMBER = "917011960307";
+import { siteConfig } from "@/data/siteConfig";
 
 const particles = [
   { size: 3, top: "12%", left: "7%",  delay: 0,   dur: 7 },
@@ -40,7 +40,7 @@ const slides = [
   },
   {
     id: "varanasi-same-day",
-    name: "Varanasi Same Day Tour",
+    name: "Varanasi Ganga Aarti Special Yatra",
     duration: "SAME DAY TOUR",
     price: "7,999",
     priceSuffix: " (For 3 Pax)",
@@ -49,7 +49,7 @@ const slides = [
   },
   {
     id: "ayodhya-1n-2d",
-    name: "Ayodhya Yatra (1N/2D)",
+    name: "Ayodhya Yatra",
     duration: "1 NIGHT / 2 DAYS",
     price: "4,999",
     priceSuffix: " / Person",
@@ -58,7 +58,7 @@ const slides = [
   },
   {
     id: "varanasi-1n-2d",
-    name: "Varanasi Yatra (1N/2D)",
+    name: "Varanasi Yatra",
     duration: "1 NIGHT / 2 DAYS",
     price: "4,999",
     priceSuffix: " / Person",
@@ -252,7 +252,7 @@ export default function Hero() {
 
               {/* WhatsApp: Transparent Green-bordered */}
               <a
-                href={`https://wa.me/917011960307?text=${encodeURIComponent(
+                href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
                   `Har Har Mahadev 🙏 I want to get the details and itinerary for "${currentSlide.name}" (${currentSlide.duration}) starting from ₹${currentSlide.price}/Person.`
                 )}`}
                 target="_blank"
@@ -265,11 +265,14 @@ export default function Hero() {
 
               {/* Call Now: White-bordered */}
               <a
-                href="tel:+917011960307"
-                className="flex items-center justify-center gap-2.5 border border-white/28 hover:border-white/55 text-white hover:bg-white/[0.08] px-7 py-4 rounded-full font-semibold text-[14px] uppercase tracking-wider backdrop-blur-sm transition-all duration-300 w-full sm:w-auto"
+                href={siteConfig.phoneHref}
+                className="flex items-center justify-center gap-2.5 border border-gold-400/40 hover:border-gold-400 text-gold-300 hover:bg-gold-500/10 px-7 py-4 rounded-full font-semibold text-[14px] uppercase tracking-wider backdrop-blur-sm transition-all duration-300 w-full sm:w-auto shadow-sm"
+                aria-label="Call Kashi Darshan"
+                data-cta="call"
+                data-source="hero"
               >
-                <Phone size={15} />
-                Call Now
+                <Phone size={15} className="animate-pulse text-gold-400" />
+                <span>Call {siteConfig.phone}</span>
               </a>
 
             </div>

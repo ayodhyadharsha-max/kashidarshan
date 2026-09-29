@@ -33,7 +33,7 @@ export const packages = [
   },
   {
     id: "kashi-kanwar-yatra-2n3d",
-    name: "Kashi Sawan Kanwar Yatra (2N/3D)",
+    name: "Kashi Sawan Kanwar Yatra",
     subtitle: "Complete Sawan pilgrimage with premium hotel & VIP access",
     duration: "2 Nights / 3 Days",
     cities: ["Varanasi"],
@@ -56,7 +56,7 @@ export const packages = [
   },
   {
     id: "sawan-shiva-circuit-3n4d",
-    name: "Sawan Shiva & Ram Mandir Circuit (3N/4D)",
+    name: "Sawan Shiva & Ram Mandir Circuit",
     subtitle: "Seek blessings at Varanasi, Prayagraj & Ayodhya this Sawan",
     duration: "3 Nights / 4 Days",
     cities: ["Varanasi", "Prayagraj", "Ayodhya"],
@@ -102,7 +102,7 @@ export const packages = [
   },
   {
     id: "varanasi-same-day",
-    name: "Varanasi Same Day Tour",
+    name: "Varanasi Ganga Aarti Special Yatra",
     subtitle: "Complete day trip with private AC cab & driver cum guide",
     duration: "Same Day Tour",
     cities: ["Varanasi"],
@@ -125,7 +125,7 @@ export const packages = [
   },
   {
     id: "ayodhya-1n-2d",
-    name: "Ayodhya Yatra (1N/2D)",
+    name: "Ayodhya Yatra",
     subtitle: "Ideal for a short weekend getaway to Ayodhya",
     duration: "1 Night / 2 Days",
     cities: ["Ayodhya"],
@@ -148,7 +148,7 @@ export const packages = [
   },
   {
     id: "varanasi-1n-2d",
-    name: "Varanasi Yatra (1N/2D)",
+    name: "Varanasi Yatra",
     subtitle: "Short devotional getaway to holy Kashi",
     duration: "1 Night / 2 Days",
     cities: ["Varanasi"],
@@ -171,7 +171,7 @@ export const packages = [
   },
   {
     id: "varanasi-ayodhya-2n3d",
-    name: "Varanasi Ayodhya Yatra (2N/3D)",
+    name: "Varanasi Ayodhya Yatra",
     subtitle: "Fast-track yatra for Ram Mandir & Kashi Vishwanath",
     duration: "2 Nights / 3 Days",
     cities: ["Varanasi", "Ayodhya"],
@@ -217,7 +217,7 @@ export const packages = [
   },
   {
     id: "ayodhya-darshan",
-    name: "Ayodhya Darshan",
+    name: "Ayodhya Ram Mandir Yatra",
     subtitle: "Ideal for a short, focused pilgrimage to Ayodhya",
     duration: "2 Nights / 3 Days",
     cities: ["Ayodhya"],
@@ -240,8 +240,8 @@ export const packages = [
   },
   {
     id: "ayodhya-varanasi",
-    name: "Ayodhya · Varanasi",
-    subtitle: "Our most booked Kashi tour with Ayodhya",
+    name: "Dev Diwali Special Kashi Yatra",
+    subtitle: "Dev Deepawali 84 Ghats Illumination & Kashi Vishwanath Darshan",
     duration: "3 Nights / 4 Days",
     cities: ["Ayodhya", "Varanasi"],
     price: 25998,
@@ -473,7 +473,7 @@ function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; i
       )}
 
       {/* Package Image */}
-      <Link href={`/packages/${pkg.id}`} className="relative h-56 w-full overflow-hidden bg-gray-100 flex-shrink-0 block">
+      <Link href={`/packages/${pkg.id}`} className="relative h-28 sm:h-52 w-full overflow-hidden bg-gray-100 flex-shrink-0 block">
         <img
           src={pkg.image}
           alt={pkg.name}
@@ -483,32 +483,32 @@ function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; i
         <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
       </Link>
 
-      <div className="flex flex-col flex-1 p-5 sm:p-6">
+      <div className="flex flex-col flex-1 p-2.5 sm:p-5">
         {/* Duration + cities */}
-        <div className="flex flex-wrap items-center gap-2 mb-4">
-          <span className={`inline-flex items-center gap-1.5 text-[11px] font-semibold px-3 py-1.5 rounded-full ${
+        <div className="flex flex-wrap items-center gap-1 sm:gap-2 mb-2 sm:mb-4">
+          <span className={`inline-flex items-center gap-1 text-[9px] sm:text-[11px] font-semibold px-1.5 py-0.5 sm:px-3 sm:py-1.5 rounded-full ${
             isPopular ? "bg-white/10 text-gold-300 border border-gold-500/25" : "bg-gray-50 border border-gray-100 text-gray-500"
           }`}>
-            <Clock size={11} />
+            <Clock size={10} />
             {pkg.duration}
           </span>
-          <span className={`inline-flex items-center gap-1.5 text-[11px] px-3 py-1.5 rounded-full ${
+          <span className={`inline-flex items-center gap-1 text-[9px] sm:text-[11px] px-1.5 py-0.5 sm:px-3 sm:py-1.5 rounded-full ${
             isPopular ? "bg-white/8 text-white/55 border border-white/12" : "bg-gray-50 border border-gray-100 text-gray-400"
           }`}>
-            <MapPin size={11} />
+            <MapPin size={10} />
             {pkg.cities.join(" · ")}
           </span>
         </div>
 
         {/* Name */}
-        <h3 className={`font-playfair font-bold text-xl sm:text-2xl leading-snug mb-1 ${
+        <h3 className={`font-playfair font-bold text-xs sm:text-2xl leading-snug mb-1 ${
           isPopular ? "text-white" : "text-divine-dark"
         }`}>
           <Link href={`/packages/${pkg.id}`} className="hover:text-saffron-500 transition-colors">
             {pkg.name}
           </Link>
         </h3>
-        <p className={`text-sm mb-5 ${isPopular ? "text-gold-300" : "text-gray-400"}`}>
+        <p className={`text-[10px] sm:text-sm line-clamp-2 mb-3 sm:mb-5 ${isPopular ? "text-gold-300" : "text-gray-400"}`}>
           {pkg.subtitle}
         </p>
 
@@ -741,12 +741,10 @@ export default function Packages() {
           </div>
         </motion.div>
 
-        {/* Cards grid */}
-        <div className="flex flex-wrap justify-center gap-5 lg:gap-6">
+        {/* Cards grid — 2 columns on mobile, 3 columns on desktop */}
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6">
           {packages.map((pkg, i) => (
-            <div key={pkg.id} className="w-full sm:w-[calc(50%-10px)] lg:w-[calc(33.333%-16px)] flex">
-              <PackageCard pkg={pkg} index={i} tokenAmount={tokenAmount} />
-            </div>
+            <PackageCard key={pkg.id} pkg={pkg} index={i} tokenAmount={tokenAmount} />
           ))}
         </div>
 

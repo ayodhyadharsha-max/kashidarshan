@@ -139,20 +139,20 @@ export default function HotelShowcase() {
           </p>
         </motion.div>
 
-        {/* Hotel Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-7">
+        {/* Hotel Cards Grid — 3 hotel cards in 1 single row across all screen sizes */}
+        <div className="grid grid-cols-3 gap-2 sm:gap-6">
           {hotels.map((hotel, i) => (
             <motion.div
               key={hotel.id}
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.65, delay: i * 0.12, ease: [0.22, 1, 0.36, 1] }}
-              className={`rounded-3xl overflow-hidden border ${hotel.borderColor} shadow-sm hover:shadow-lg transition-shadow duration-500 flex flex-col ${
+              className={`rounded-2xl sm:rounded-3xl overflow-hidden border ${hotel.borderColor} shadow-sm hover:shadow-lg transition-shadow duration-500 flex flex-col ${
                 hotel.dark ? "bg-divine-dark text-white" : "bg-white"
               }`}
             >
               {/* Visual Header — High-Quality Hotel Image */}
-              <div className="relative h-56 w-full overflow-hidden flex-shrink-0">
+              <div className="relative h-24 sm:h-56 w-full overflow-hidden flex-shrink-0">
                 <img
                   src={hotel.image}
                   alt={hotel.label}
@@ -162,9 +162,9 @@ export default function HotelShowcase() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/10" />
 
                 {/* Tier badge */}
-                <div className="absolute top-4 left-4 z-10">
+                <div className="absolute top-2 left-2 sm:top-4 sm:left-4 z-10">
                   <span
-                    className={`text-xs font-bold px-3 py-1.5 rounded-full backdrop-blur-sm ${hotel.badgeColor}`}
+                    className={`text-[8px] sm:text-xs font-bold px-1.5 py-0.5 sm:px-3 sm:py-1.5 rounded-full backdrop-blur-sm ${hotel.badgeColor}`}
                   >
                     ⭐ {hotel.tier}
                   </span>
@@ -172,23 +172,23 @@ export default function HotelShowcase() {
               </div>
 
               {/* Content */}
-              <div className="flex flex-col flex-1 p-6 sm:p-7">
+              <div className="flex flex-col flex-1 p-2 sm:p-6">
                 <h3
-                  className={`font-playfair font-bold text-2xl mb-1 ${
+                  className={`font-playfair font-bold text-[10px] sm:text-2xl mb-0.5 sm:mb-1 line-clamp-1 ${
                     hotel.dark ? "text-white" : "text-divine-dark"
                   }`}
                 >
                   {hotel.label}
                 </h3>
                 <p
-                  className={`text-sm font-medium mb-3 ${
+                  className={`text-[8px] sm:text-sm font-medium mb-1.5 sm:mb-3 line-clamp-1 ${
                     hotel.dark ? "text-gold-400" : "text-saffron-600"
                   }`}
                 >
                   {hotel.tagline}
                 </p>
                 <p
-                  className={`text-sm leading-relaxed mb-6 ${
+                  className={`text-[9px] sm:text-sm leading-relaxed mb-3 sm:mb-6 line-clamp-2 sm:line-clamp-none ${
                     hotel.dark ? "text-white/60" : "text-gray-500"
                   }`}
                 >
@@ -196,20 +196,20 @@ export default function HotelShowcase() {
                 </p>
 
                 {/* Amenity Icons */}
-                <div className="grid grid-cols-3 gap-3 mb-6">
-                  {hotel.amenities.map(({ icon: Icon, label }) => (
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-3 mb-3 sm:mb-6">
+                  {hotel.amenities.slice(0, 4).map(({ icon: Icon, label }) => (
                     <div
                       key={label}
-                      className={`flex flex-col items-center gap-1.5 p-2.5 rounded-xl text-center ${
+                      className={`flex flex-col items-center gap-1 p-1 sm:p-2.5 rounded-lg sm:rounded-xl text-center ${
                         hotel.dark ? "bg-white/5" : "bg-gray-50"
                       }`}
                     >
                       <Icon
-                        size={16}
+                        size={12}
                         className={hotel.dark ? "text-gold-400" : hotel.iconColor}
                       />
                       <span
-                        className={`text-[10px] font-medium leading-tight ${
+                        className={`text-[7px] sm:text-[10px] font-medium leading-tight line-clamp-1 ${
                           hotel.dark ? "text-white/60" : "text-gray-500"
                         }`}
                       >
@@ -220,17 +220,17 @@ export default function HotelShowcase() {
                 </div>
 
                 {/* Features Checklist */}
-                <ul className="space-y-2 mb-6 flex-1">
+                <ul className="space-y-1 sm:space-y-2 mb-3 sm:mb-6 flex-1 hidden sm:block">
                   {hotel.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2.5">
+                    <li key={f} className="flex items-start gap-2">
                       <div
-                        className="flex-shrink-0 w-4 h-4 rounded-full flex items-center justify-center mt-0.5"
+                        className="flex-shrink-0 w-3.5 h-3.5 rounded-full flex items-center justify-center mt-0.5"
                         style={{ backgroundColor: `${hotel.accentColor}20` }}
                       >
-                        <Check size={10} style={{ color: hotel.accentColor }} strokeWidth={3} />
+                        <Check size={8} style={{ color: hotel.accentColor }} strokeWidth={3} />
                       </div>
                       <span
-                        className={`text-sm ${hotel.dark ? "text-white/70" : "text-gray-600"}`}
+                        className={`text-xs ${hotel.dark ? "text-white/70" : "text-gray-600"}`}
                       >
                         {f}
                       </span>
@@ -240,7 +240,7 @@ export default function HotelShowcase() {
 
                 {/* Packages using this hotel */}
                 <div
-                  className={`mb-5 px-4 py-3 rounded-xl text-xs ${
+                  className={`mb-2 sm:mb-5 px-2 py-1.5 sm:px-4 sm:py-3 rounded-lg sm:rounded-xl text-[8px] sm:text-xs line-clamp-1 ${
                     hotel.dark
                       ? "bg-white/5 text-white/50"
                       : "bg-gray-50 text-gray-500 border border-gray-100"
@@ -253,7 +253,7 @@ export default function HotelShowcase() {
                 {/* Price note + CTA */}
                 <div>
                   <p
-                    className={`text-xs mb-3 font-medium ${
+                    className={`text-[8px] sm:text-xs mb-2 sm:mb-3 font-medium line-clamp-1 ${
                       hotel.dark ? "text-gold-400/70" : "text-saffron-600"
                     }`}
                   >
@@ -261,13 +261,13 @@ export default function HotelShowcase() {
                   </p>
                   <a
                     href="#get-quote"
-                    className={`flex items-center justify-center gap-2 w-full py-3 rounded-xl font-bold text-sm transition-all hover:scale-[1.02] active:scale-[0.98] ${
+                    className={`flex items-center justify-center gap-1 w-full py-1.5 sm:py-3 rounded-lg sm:rounded-xl font-bold text-[9px] sm:text-sm transition-all hover:scale-[1.02] active:scale-[0.98] ${
                       hotel.dark
                         ? "bg-gold-gradient text-divine-dark"
                         : "bg-saffron-600 hover:bg-saffron-700 text-white"
                     }`}
                   >
-                    Enquire About This Hotel
+                    Enquire Now
                   </a>
                 </div>
               </div>

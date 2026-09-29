@@ -6,12 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Menu, X, MessageCircle } from "lucide-react";
 import Image from "next/image";
 
-const WA_NUMBER   = "917011960307";
-const PHONE       = "+91 7011960307";
-const PHONE_TEL   = "tel:+917011960307";
-const WA_MESSAGE  = encodeURIComponent(
-  "Har Har Mahadev 🙏 I want to book a Kashi Varanasi tour package. Please share full details."
-);
+import { siteConfig } from "@/data/siteConfig";
 
 const navLinks = [
   { label: "Packages",   href: "#packages" },
@@ -48,11 +43,11 @@ export default function Navbar() {
         <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
 
           {/* Logo */}
-          <a href={isHome ? "#" : "/"} className="flex items-center gap-2.5 group flex-shrink-0" aria-label="Kashi Dharshan">
+          <a href={isHome ? "#" : "/"} className="flex items-center gap-2.5 group flex-shrink-0" aria-label={siteConfig.name}>
             <div className="relative flex-shrink-0 w-[44px] h-[44px] md:w-[56px] md:h-[56px]">
               <Image
                 src="/logo.png"
-                alt="Kashi Dharshan"
+                alt={siteConfig.name}
                 fill
                 sizes="(max-width: 768px) 44px, 56px"
                 className="object-contain drop-shadow-sm"
@@ -61,7 +56,7 @@ export default function Navbar() {
             </div>
             <div className={`transition-colors duration-300 ${scrolled || menuOpen ? "text-divine-dark" : "text-white"}`}>
               <div className="font-playfair font-bold text-[15px] leading-tight tracking-wide">
-                Kashi Dharshan
+                {siteConfig.name}
               </div>
               <div className={`text-[9px] tracking-[0.24em] uppercase font-semibold ${scrolled || menuOpen ? "text-saffron-600" : "text-gold-300"}`}>
                 Premium Pilgrimage
@@ -87,16 +82,18 @@ export default function Navbar() {
           {/* Desktop CTAs */}
           <div className="hidden md:flex items-center gap-3">
             <a
-              href={PHONE_TEL}
-              className={`flex items-center gap-1.5 text-[13px] font-medium transition-colors ${
-                scrolled ? "text-divine-dark/70 hover:text-saffron-600" : "text-white/70 hover:text-white"
+              href={siteConfig.phoneHref}
+              className={`flex items-center gap-2 px-3.5 py-1.5 rounded-full border text-[13px] font-semibold transition-all shadow-sm ${
+                scrolled
+                  ? "border-saffron-500/30 text-saffron-700 bg-saffron-50/80 hover:bg-saffron-100"
+                  : "border-white/30 text-white bg-white/10 hover:bg-white/20"
               }`}
-              aria-label="Call us"
+              aria-label="Call Kashi Darshan"
               data-cta="call"
               data-source="navbar"
             >
-              <Phone size={14} />
-              <span className="hidden lg:inline">{PHONE}</span>
+              <Phone size={14} className="animate-pulse text-saffron-500" />
+              <span>{siteConfig.phone}</span>
             </a>
             <a
               href={isHome ? "#get-quote" : "/#get-quote"}
@@ -149,13 +146,13 @@ export default function Navbar() {
               ))}
               <div className="pt-3 pb-1 space-y-2 border-t border-gray-50 mt-2">
                 <a
-                  href={PHONE_TEL}
-                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border border-gray-100 text-divine-dark font-medium text-[14px] hover:bg-gray-50 transition-colors"
+                  href={siteConfig.phoneHref}
+                  className="flex items-center justify-center gap-2 w-full py-3 rounded-xl border border-saffron-500/30 bg-saffron-50/50 text-saffron-700 font-semibold text-[14px] hover:bg-saffron-100 transition-colors shadow-sm"
                   data-cta="call"
                   data-source="navbar-mobile"
                 >
-                  <Phone size={15} />
-                  {PHONE}
+                  <Phone size={15} className="animate-pulse text-saffron-600" />
+                  Call {siteConfig.phone}
                 </a>
                 <a
                   href={isHome ? "#get-quote" : "/#get-quote"}

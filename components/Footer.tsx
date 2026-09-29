@@ -5,24 +5,26 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Phone, Mail, MapPin, MessageCircle, Instagram, Facebook, Youtube, ChevronDown, AlertCircle, CreditCard, RefreshCw, Ban, Clock } from "lucide-react";
 import Image from "next/image";
 
-const WA_NUMBER    = "917011960307";
+import { siteConfig } from "@/data/siteConfig";
+
+const WA_NUMBER    = siteConfig.whatsapp;
 const WA_MESSAGE   = encodeURIComponent(
   "Har Har Mahadev 🙏 I want to book a Kashi Varanasi tour package. Please share full details."
 );
-const EMAIL        = "kashidharshannn@gmail.com";
-const PHONE_DISPLAY = "+91 7011960307";
+const EMAIL        = siteConfig.email;
+const PHONE_DISPLAY = siteConfig.phone;
 
 const socialLinks = [
   {
     Icon: Instagram,
     label: "Instagram",
-    href: "https://www.instagram.com/ayodhyadharshan/",
+    href: siteConfig.socialLinks[0] || "https://www.instagram.com/kashidharshannn/",
     hoverColor: "hover:bg-[#E1306C]/20 hover:border-[#E1306C]/40 hover:text-[#E1306C]",
   },
   {
     Icon: Facebook,
     label: "Facebook",
-    href: "https://www.facebook.com/Ayodhhyadharsha/",
+    href: siteConfig.socialLinks[1] || "https://www.facebook.com/Kashidharshannn/",
     hoverColor: "hover:bg-[#1877F2]/20 hover:border-[#1877F2]/40 hover:text-[#1877F2]",
   },
   {
@@ -36,8 +38,8 @@ const socialLinks = [
 const footerLinks = {
   packages: [
     { label: "Kashi Darshan Package",   href: "#packages" },
-    { label: "Kashi Ayodhya Package",   href: "#packages" },
-    { label: "Kashi Prayagraj Package", href: "#packages" },
+    { label: "Dev Diwali Special Yatra", href: "#packages" },
+    { label: "Varanasi Ganga Aarti Special", href: "#packages" },
     { label: "Custom Group Tours",        href: "#packages" },
     { label: "Senior Citizen Special",    href: "#packages" },
   ],
@@ -177,7 +179,7 @@ export default function Footer() {
               <div className="relative flex-shrink-0 w-[72px] h-[72px]">
                 <Image
                   src="/logo.png"
-                  alt="Kashi Dharshan"
+                  alt={siteConfig.name}
                   fill
                   sizes="72px"
                   className="object-contain"
@@ -185,7 +187,7 @@ export default function Footer() {
               </div>
               <div>
                 <div className="font-playfair font-bold text-white text-xl leading-tight tracking-wide">
-                  Kashi Dharshan
+                  {siteConfig.name}
                 </div>
                 <div className="text-saffron-500 text-[10px] tracking-[0.24em] uppercase mt-0.5">
                   Premium Pilgrimage Specialists
@@ -202,7 +204,7 @@ export default function Footer() {
             {/* Contact */}
             <div className="space-y-3">
               <a
-                href="tel:+917011960307"
+                href={siteConfig.phoneHref}
                 className="flex items-center gap-3 text-white/50 hover:text-white text-sm transition-colors group"
                 data-cta="call"
                 data-source="footer"
@@ -226,11 +228,11 @@ export default function Footer() {
                   <MapPin size={14} className="text-saffron-500" />
                 </div>
                 <span>
-                  Second Floor, Plot No 12,
+                  {siteConfig.address.street},
                   <br />
-                  Transport Nagar, Ayodhya,
+                  {siteConfig.address.city}, {siteConfig.address.state} — {siteConfig.address.pincode}
                   <br />
-                  Uttar Pradesh — 224001
+                  <span className="text-xs text-white/30">GSTIN: {siteConfig.gstin}</span>
                 </span>
               </div>
             </div>

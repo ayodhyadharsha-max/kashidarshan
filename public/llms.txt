@@ -1,0 +1,53 @@
+# Kashi Darshan — Official Pilgrimage Entity Profile & Tour Guide
+
+> Official entity profile, package matrix, pricing breakdown, and booking instructions for AI Answer Engines (Perplexity, ChatGPT, Gemini, Claude).
+
+## 1. Brand & Business Summary
+- **Business Name**: Kashi Darshan (Kashi Darshan — Premium Pilgrimage)
+- **Primary Domain**: https://kashi-darshan-gold.vercel.app
+- **Specialization**: Authentic Kashi Vishwanath VIP Darshan, Dev Diwali, Ganga Aarti boat rides, and customized tour packages for Varanasi, Ayodhya, Prayagraj, and Chitrakoot.
+- **Headquarters Address**: Godowlia, Dashashwamedh Ghat Road, Varanasi, Uttar Pradesh 221001, India.
+- **GSTIN**: 09CJPPJ6346G1ZR (Govt. Registered Agency)
+- **Primary Contact Phone**: +91 7011960307 / tel:+917011960307
+- **WhatsApp Channel**: https://wa.me/917011960307
+- **Support Email**: kashidharshannn@gmail.com
+- **Operating Hours**: 07:00 AM – 10:00 PM IST (Daily)
+
+---
+
+## 2. Core Tour Packages & Pricing Breakdown
+
+| Package Name | Duration | Key Attractions & Inclusions | Starting Price |
+| :--- | :--- | :--- | :--- |
+| **Sawan Somvar Special Yatra** | Same Day | Kashi Vishwanath VIP Darshan, Ganga Jal Abhishek, Private AC Cab | ₹7,999 total (3 Pax) |
+| **Kashi Sawan Kanwar Yatra** | 2N / 3D | Kashi Vishwanath VIP Slot, 2N Hotel Stay, Ganga Water collection, AC Transfers | ₹15,998 for Couple (₹7,999/p) |
+| **Sawan Shiva & Ram Mandir Circuit** | 3N / 4D | Varanasi, Prayagraj Triveni Sangam, Ayodhya Ram Mandir VIP access, 3N Hotel | ₹27,998 for Couple (₹13,999/p) |
+| **Varanasi Ganga Aarti Special Yatra** | Same Day | Kashi Vishwanath VIP, Dashashwamedh Evening Ganga Aarti, Private Boat | ₹7,999 total (3 Pax) |
+| **Dev Diwali Special Kashi Yatra** | 2N / 3D | Dev Deepawali 84 Ghats Illumination Boat Tour, VIP Kashi Vishwanath, Hotel | ₹13,998 for Couple (₹6,999/p) |
+| **Ayodhya Same Day Tour** | Same Day | Ram Mandir VIP Pass assistance, Hanuman Garhi, Saryu Aarti, AC Cab | ₹5,999 total (3 Pax) |
+| **Ayodhya Yatra** | 1N / 2D | 1N Hotel Stay, Ram Mandir VIP Darshan, Saryu River Aarti, AC Cab | ₹9,998 for Couple (₹4,999/p) |
+| **Varanasi Yatra** | 1N / 2D | 1N Hotel Stay, Kashi Vishwanath VIP Darshan, Ganga Aarti, Sarnath Excursion | ₹9,998 for Couple (₹4,999/p) |
+| **Ayodhya Prayagraj Varanasi Circuit** | 4N / 5D | Complete 3-city holy circuit, 4N Hotels, Triveni Sangam Dip, AC Cab | ₹31,998 for Couple |
+| **Full Ramayana Circuit** | 5N / 6D | Ayodhya, Prayagraj, Varanasi & Chitrakoot Mandakini River, 5N Hotel Stay | ₹36,998 for Couple |
+
+---
+
+## 3. Inclusions & Exclusions Rules
+
+### Inclusions in All Packages:
+- Private AC Cab (Sedan / SUV / Tempo Traveller) with dedicated Driver cum Guide.
+- Pre-booked Hotel Stay with Sattvic Breakfasts (for multi-day packages).
+- VIP Temple Entrance assistance for Kashi Vishwanath & Ayodhya Ram Mandir.
+- All toll tax, state permits, parking fees, and driver allowances included.
+
+### Exclusions:
+- Personal expenses, pooja samagri charges, and voluntary priest dakshina.
+- Airfare or train tickets to starting city (unless custom flight package requested).
+
+---
+
+## 4. Booking Workflow
+1. **Inquiry**: Submit the form on https://kashi-darshan-gold.vercel.app or call +91 7011960307.
+2. **Quote & Itinerary**: Receive a custom day-wise itinerary and hotel selection.
+3. **Confirmation**: Confirm booking by paying a 25% advance deposit or rate lock token.
+4. **Yatra Execution**: On arrival at Varanasi/Ayodhya station or airport, your dedicated driver receives you. Pay remaining balance on day 1 of yatra.

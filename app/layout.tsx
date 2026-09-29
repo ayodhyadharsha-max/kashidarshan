@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { siteConfig } from "@/data/siteConfig";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -17,81 +18,52 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Ayodhya Varanasi Tour Package with Hotel & Sightseeing | Prayagraj Circuits | Starting ₹7,499 / Person (₹14,998 Couple)",
-  description:
-    "Looking for the best Ayodhya Varanasi tour package? We include Ram Mandir visits, Ganga Aarti boat ride, best hotel stays, airport/railway pickup, private AC transport — starting at ₹7,499 / person (₹14,998 for Couple). Choose from Ayodhya Varanasi, Ayodhya Prayagraj Varanasi, or the Full Ramayana Circuit. Trusted by 50,000+ pilgrims. Book your custom yatra package today.",
+  title: `${siteConfig.name} — ${siteConfig.tagline}`,
+  description: siteConfig.defaultMetaDescription,
   keywords: [
-    "Varanasi tour packages",
     "Kashi Darshan tour package",
+    "Varanasi tour packages",
+    "Kashi Vishwanath VIP Darshan",
+    "Dev Diwali Varanasi package",
+    "Varanasi Ganga Aarti boat ride",
     "Varanasi tour with Ayodhya",
     "Kashi Prayagraj Varanasi Ayodhya package",
     "Varanasi temple tour",
     "Varanasi travel package",
     "Varanasi Prayagraj tour package",
     "Kashi darshan tour",
-    "Varanasi tour package 3 days",
     "Varanasi tour package with hotel",
     "Varanasi trip package with transport",
     "Varanasi same day tour",
     "Varanasi one day tour package",
     "Kashi Vishwanath temple darshan package",
     "Varanasi pilgrimage tour",
-    "Kashi tour package 2025",
-    "spiritual tour packages India",
     "family pilgrimage tour Varanasi",
     "kashi tour package",
     "kashi vishwanath tour package",
     "varanasi darshan package",
-    "varanasi holiday package",
     "ayodhya varanasi tour package",
     "kashi ayodhya tour",
-    "varanasi ayodhya package",
     "ayodhya prayagraj varanasi tour package",
-    "kashi prayagraj ayodhya tour",
-    "prayagraj ayodhya varanasi package",
-    "varanasi prayagraj ayodhya package",
-    "kashi vishwanath darshan package",
-    "varanasi sightseeing package",
-    "ayodhya prayagraj varanasi package",
-    "best varanasi tour package",
-    "varanasi tour package for family",
-    "varanasi tour package from delhi",
-    "varanasi tour package from mumbai",
-    "sarnath buddhist tour",
-    "varanasi sarnath tour package",
-    "varanasi local sightseeing package",
-    "varanasi buddhist tour",
-    "buddhist pilgrimage tour",
-    "buddha circuit tour",
-    "sarnath tour package",
-    "varanasi sarnath tour",
-    "sarnath day tour",
-    "varanasi sarnath sightseeing",
-    "buddha circuit tour package",
-    "varanasi bodhgaya sarnath tour",
-    "kashi sarnath tour package",
-    "sarnath sightseeing tour",
   ].join(", "),
-  applicationName: "Kashi Dharshan",
-  authors: [{ name: "Kashi Dharshan" }],
-  creator: "Kashi Dharshan",
-  publisher: "Kashi Dharshan",
+  applicationName: siteConfig.name,
+  authors: [{ name: siteConfig.name }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
   category: "Travel & Tourism",
   classification: "Pilgrimage Tours",
   formatDetection: { telephone: true, email: true, address: true },
   openGraph: {
-    title: "Ayodhya Varanasi Tour Package with Hotel & Sightseeing — Starting ₹7,499 / Person (₹14,998 Couple)",
-    description:
-      "Complete Ayodhya Varanasi pilgrimage packages: hotel stay, AC transport, Ganga Aarti, and yatra support. Ayodhya Prayagraj, Varanasi circuits & same-day tours. 50,000+ pilgrims served since 2009.",
+    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    description: siteConfig.defaultMetaDescription,
     type: "website",
     locale: "en_IN",
-    siteName: "Kashi Dharshan",
+    siteName: siteConfig.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ayodhya Varanasi Tour Package with Hotel & Sightseeing — Starting ₹7,499 / Person (₹14,998 Couple)",
-    description:
-      "Ayodhya Ram Mandir + Ganga Aarti + hotel stay + AC transport + yatra support. Ayodhya–Varanasi, Prayagraj circuits. Request your custom quote online.",
+    title: `${siteConfig.name} — ${siteConfig.tagline}`,
+    description: siteConfig.defaultMetaDescription,
   },
   robots: {
     index: true,
@@ -105,7 +77,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://yatra.kashidharshan.com",
+    canonical: siteConfig.domain,
   },
   icons: {
     icon: [

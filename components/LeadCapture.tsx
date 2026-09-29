@@ -8,27 +8,30 @@ import {
   Star, Users, ShieldCheck, BadgeCheck, MessageCircle,
 } from "lucide-react";
 
+import { siteConfig } from "@/data/siteConfig";
+
 // ─── Constants ────────────────────────────────────────────────────────────────
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 const WEB3FORMS_KEY      = "c79c0151-6af3-404d-9736-d65fe15d1e6b";
 const REDIRECT    = "/thank-you";
 
 const TOURS = [
-  "Sawan Somvar Special Yatra (Same Day)",
-  "Kashi Sawan Kanwar Yatra (2N/3D)",
-  "Sawan Shiva & Ram Mandir Circuit (3N/4D)",
-  "Ayodhya Same Day Tour (For 3 Persons)",
-  "Varanasi Same Day Tour (For 3 Persons)",
-  "Prayagraj Same Day Tour (For 3 Persons)",
-  "Ayodhya Yatra (1N/2D)",
-  "Varanasi Yatra (1N/2D)",
-  "Varanasi Ayodhya Yatra (2N/3D)",
-  "Ayodhya Darshan (2N/3D)",
-  "Ayodhya Varanasi (3N/4D)",
-  "Ayodhya Prayagraj Varanasi (4N/5D)",
-  "Lucknow Ayodhya (3N/4D)",
-  "Ayodhya Varanasi Chitrakoot (4N/5D)",
-  "Full Ramayana Circuit (5N/6D)",
+  "Sawan Somvar Special Yatra",
+  "Kashi Sawan Kanwar Yatra",
+  "Sawan Shiva & Ram Mandir Circuit",
+  "Varanasi Ganga Aarti Special Yatra",
+  "Dev Diwali Special Kashi Yatra",
+  "Kashi Vishwanath Yatra",
+  "Kashi Ayodhya Yatra",
+  "Kashi Ayodhya Prayagraj Yatra",
+  "Ayodhya Same Day Tour",
+  "Varanasi Same Day Tour",
+  "Prayagraj Same Day Tour",
+  "Ayodhya Ram Mandir Yatra",
+  "Ayodhya Darshan Yatra",
+  "Lucknow Ayodhya Yatra",
+  "Ayodhya Varanasi Chitrakoot Yatra",
+  "Full Ramayana Pilgrimage Circuit",
   "Custom Trip",
 ];
 
@@ -241,7 +244,7 @@ function LeadForm({ defaultTour, tokenAmount, setTokenAmount }: { defaultTour?: 
   const [step, setStep] = useState(1);
   const calRef = useRef<HTMLDivElement>(null);
 
-  const WA_NUMBER = "917011960307";
+  const WA_NUMBER = siteConfig.whatsapp;
 
   // Sync defaultTour if it changes
   useEffect(() => {
@@ -263,21 +266,21 @@ function LeadForm({ defaultTour, tokenAmount, setTokenAmount }: { defaultTour?: 
       const mode = typeof detail === "object" ? detail?.mode : undefined;
 
       const tourMapping: Record<string, string> = {
-        "sawan-somvar-special": "Sawan Somvar Special Yatra (Same Day)",
-        "kashi-kanwar-yatra-2n3d": "Kashi Sawan Kanwar Yatra (2N/3D)",
-        "sawan-shiva-circuit-3n4d": "Sawan Shiva & Ram Mandir Circuit (3N/4D)",
-        "ayodhya-same-day": "Ayodhya Same Day Tour (For 3 Persons)",
-        "varanasi-same-day": "Varanasi Same Day Tour (For 3 Persons)",
-        "prayagraj-same-day": "Prayagraj Same Day Tour (For 3 Persons)",
-        "ayodhya-1n-2d": "Ayodhya Yatra (1N/2D)",
-        "varanasi-1n-2d": "Varanasi Yatra (1N/2D)",
-        "varanasi-ayodhya-2n3d": "Varanasi Ayodhya Yatra (2N/3D)",
-        "ayodhya-darshan": "Ayodhya Darshan (2N/3D)",
-        "ayodhya-varanasi": "Ayodhya Varanasi (3N/4D)",
-        "ayodhya-prayagraj-varanasi": "Ayodhya Prayagraj Varanasi (4N/5D)",
-        "lucknow-ayodhya": "Lucknow Ayodhya (3N/4D)",
-        "ayodhya-varanasi-chitrakoot": "Ayodhya Varanasi Chitrakoot (4N/5D)",
-        "full-ramayana-circuit": "Full Ramayana Circuit (5N/6D)",
+        "sawan-somvar-special": "Sawan Somvar Special Yatra",
+        "kashi-kanwar-yatra-2n3d": "Kashi Sawan Kanwar Yatra",
+        "sawan-shiva-circuit-3n4d": "Sawan Shiva & Ram Mandir Circuit",
+        "ayodhya-same-day": "Ayodhya Same Day Tour",
+        "varanasi-same-day": "Varanasi Ganga Aarti Special Yatra",
+        "prayagraj-same-day": "Prayagraj Same Day Tour",
+        "ayodhya-1n-2d": "Ayodhya Ram Mandir Yatra",
+        "varanasi-1n-2d": "Kashi Vishwanath Yatra",
+        "varanasi-ayodhya-2n3d": "Kashi Ayodhya Yatra",
+        "ayodhya-darshan": "Ayodhya Darshan Yatra",
+        "ayodhya-varanasi": "Dev Diwali Special Kashi Yatra",
+        "ayodhya-prayagraj-varanasi": "Kashi Ayodhya Prayagraj Yatra",
+        "lucknow-ayodhya": "Lucknow Ayodhya Yatra",
+        "ayodhya-varanasi-chitrakoot": "Ayodhya Varanasi Chitrakoot Yatra",
+        "full-ramayana-circuit": "Full Ramayana Pilgrimage Circuit",
         "sarnath-buddhist-tour": "Custom Trip",
         "buddhist-circuit-tour": "Custom Trip",
         "kashi-heritage-tour": "Custom Trip",
