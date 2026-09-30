@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import LeadCapture from "@/components/LeadCapture";
 import { packages, coreInclusions } from "@/components/Packages";
 import { itineraries } from "@/components/Itinerary";
+import { getProductSchema, getBreadcrumbSchema } from "@/data/siteConfig";
 
 interface PageProps {
   params: {
@@ -295,9 +296,17 @@ export default function PackageDetailPage({ params }: PageProps) {
   }
 
   const defaultTourSelect = `${pkg.name} (${pkg.duration.replace(" Nights / ", "N/").replace(" Days", "D")})`;
+  const productSchema = getProductSchema(pkg);
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Packages", url: "/#packages" },
+    { name: pkg.name, url: `/packages/${pkg.id}` },
+  ]);
 
   return (
     <div className="bg-cream min-h-screen text-divine-dark font-inter">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <AnnouncementBar />
       <Navbar />
 
