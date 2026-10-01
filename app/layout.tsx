@@ -18,7 +18,11 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} — ${siteConfig.tagline}`,
+  metadataBase: new URL(siteConfig.domain),
+  title: {
+    default: `${siteConfig.name} — ${siteConfig.tagline}`,
+    template: `%s | ${siteConfig.name}`,
+  },
   description: siteConfig.defaultMetaDescription,
   keywords: [
     "Kashi Darshan tour package",
@@ -56,14 +60,24 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.defaultMetaDescription,
+    url: siteConfig.domain,
     type: "website",
     locale: "en_IN",
     siteName: siteConfig.name,
+    images: [
+      {
+        url: "/logo.png",
+        width: 800,
+        height: 800,
+        alt: "Kashi Darshan Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} — ${siteConfig.tagline}`,
     description: siteConfig.defaultMetaDescription,
+    images: ["/logo.png"],
   },
   robots: {
     index: true,

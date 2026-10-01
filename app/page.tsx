@@ -26,6 +26,7 @@ import {
   getBookingHowToSchema,
   getFAQSchema,
   getBreadcrumbSchema,
+  getItemListSchema,
 } from "@/data/siteConfig";
 
 const organizationSchema = getOrganizationSchema();
@@ -36,12 +37,15 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: "Home", url: "/" },
   { name: "Kashi Varanasi Tour Packages", url: "/#packages" },
 ]);
+const itemListSchema = getItemListSchema();
 
 export default function Home() {
   return (
     <>
       {/* JSON-LD Schema Markup — TourOperator + LocalBusiness */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+      {/* ItemList Schema — All Tour Packages with Prices & Ratings */}
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }} />
       {/* FAQPage — 20 Q&As for AI Overview and voice search */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       {/* BreadcrumbList */}
