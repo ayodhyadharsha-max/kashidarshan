@@ -64,6 +64,30 @@ export function getOrganizationSchema() {
       { "@type": "City", name: "Chitrakoot" },
       { "@type": "Country", name: "India" },
     ],
+    knowsAbout: [
+      "Kashi Vishwanath Temple VIP Darshan",
+      "Dashashwamedh Ghat Ganga Aarti",
+      "Dev Diwali Varanasi Yatra",
+      "Ayodhya Ram Mandir Tour",
+      "Triveni Sangam Prayagraj",
+      "Sarnath Buddhist Pilgrimage",
+    ],
+    contactPoint: [
+      {
+        "@type": "ContactPoint",
+        telephone: siteConfig.rawPhone,
+        contactType: "customer service",
+        areaServed: "IN",
+        availableLanguage: ["Hindi", "English"],
+      },
+      {
+        "@type": "ContactPoint",
+        telephone: siteConfig.rawPhone,
+        contactType: "reservations",
+        areaServed: "IN",
+        availableLanguage: ["Hindi", "English"],
+      },
+    ],
     priceRange: "₹₹",
     currenciesAccepted: "INR",
     paymentAccepted: "Cash, UPI, Bank Transfer, Credit Card",
@@ -80,6 +104,23 @@ export function getOrganizationSchema() {
       reviewCount: "312",
       bestRating: "5",
       worstRating: "1",
+    },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Kashi Varanasi Pilgrimage Tour Packages",
+      itemListElement: tourPackagesData.map((pkg) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Trip",
+          name: pkg.name,
+          description: pkg.subtitle,
+          offers: {
+            "@type": "Offer",
+            price: pkg.price.toString(),
+            priceCurrency: "INR",
+          },
+        },
+      })),
     },
   };
 }
