@@ -83,21 +83,13 @@ const WhatsAppIcon = () => (
 export default function Hero() {
   const [currentIdx, setCurrentIdx] = useState(0);
 
-  // Auto-play timing
+  // Auto-play timing — 3.5s interval per spec
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIdx((prev) => (prev + 1) % slides.length);
-    }, 6000);
+    }, 3500);
     return () => clearInterval(timer);
   }, []);
-
-  const handlePrev = () => {
-    setCurrentIdx((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIdx((prev) => (prev + 1) % slides.length);
-  };
 
   const handleGetItinerary = (id: string) => {
     const event = new CustomEvent("select-tour", {
@@ -119,7 +111,7 @@ export default function Hero() {
       id="home"
       data-section="hero"
     >
-      {/* ── Background Carousel with Zoom/Fade ── */}
+      {/* ── Background Carousel with Zoom/Fade (70% opacity, 0.5px soft blur) ── */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <AnimatePresence initial={false} mode="wait">
           <motion.div
@@ -127,13 +119,13 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 1.06 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1.2, ease: "easeInOut" }}
+            transition={{ duration: 1.0, ease: "easeInOut" }}
             className="absolute inset-0"
           >
             <img
               src={currentSlide.image}
               alt={currentSlide.name}
-              className="w-full h-full object-cover brightness-[0.35]"
+              className="w-full h-full object-cover opacity-70 backdrop-blur-[0.5px] brightness-[0.5]"
             />
             {/* Dark & Warm Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/45 to-[#100500]" />
@@ -224,7 +216,7 @@ export default function Hero() {
               {currentSlide.description}
             </p>
 
-            {/* Varanasi Travelers style Badge Pill (Placed below description) */}
+            {/* Varanasi Travelers style Badge Pill */}
             <div className="inline-flex items-center gap-2.5 bg-black/40 border border-white/10 text-white/80 px-5 py-2.5 rounded-full text-[11px] sm:text-xs font-semibold uppercase tracking-wider mb-8">
               <span className="text-white/95 font-bold">{currentSlide.duration}</span>
               <span className="text-white/20">|</span>
@@ -239,7 +231,7 @@ export default function Hero() {
               </span>
             </div>
 
-            {/* Dynamic CTA Actions */}
+            {/* Dynamic CTA Actions (WhatsApp Removed — Direct Form & Call CTAs) */}
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 w-full sm:w-auto">
               
               {/* Primary: Get Free Itinerary */}
@@ -250,17 +242,12 @@ export default function Hero() {
                 Get Free Itinerary
               </button>
 
-              {/* WhatsApp: Transparent Green-bordered */}
+              {/* Secondary: Direct Quote Scroll */}
               <a
-                href={`https://wa.me/${siteConfig.whatsapp}?text=${encodeURIComponent(
-                  `Har Har Mahadev 🙏 I want to get the details and itinerary for "${currentSlide.name}" (${currentSlide.duration}) starting from ₹${currentSlide.price}/Person.`
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 border border-emerald-500/50 hover:border-emerald-500 text-emerald-400 hover:bg-emerald-500/10 px-7 py-4 rounded-full font-semibold text-[14px] uppercase tracking-wider backdrop-blur-sm transition-all duration-300 w-full sm:w-auto"
+                href="#get-quote"
+                className="flex items-center justify-center gap-2 border border-saffron-500/50 hover:border-saffron-500 text-saffron-400 hover:bg-saffron-500/10 px-7 py-4 rounded-full font-semibold text-[14px] uppercase tracking-wider backdrop-blur-sm transition-all duration-300 w-full sm:w-auto"
               >
-                <WhatsAppIcon />
-                WhatsApp
+                Enquire Now
               </a>
 
               {/* Call Now: White-bordered */}
@@ -280,22 +267,6 @@ export default function Hero() {
         </AnimatePresence>
 
       </div>
-
-      {/* ── Slide Arrows Navigation (Hidden on Mobile, Visible on Desktop) ── */}
-      <button
-        onClick={handlePrev}
-        className="hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full border border-white/10 hover:border-white/25 bg-black/20 hover:bg-black/40 text-white items-center justify-center transition-all cursor-pointer"
-        aria-label="Previous Slide"
-      >
-        <ChevronLeft size={22} />
-      </button>
-      <button
-        onClick={handleNext}
-        className="hidden md:flex absolute right-6 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full border border-white/10 hover:border-white/25 bg-black/20 hover:bg-black/40 text-white items-center justify-center transition-all cursor-pointer"
-        aria-label="Next Slide"
-      >
-        <ChevronRight size={22} />
-      </button>
 
       {/* ── Pagination Indicator Dots & Trust Section Footer ── */}
       <div className="relative z-20 w-full flex flex-col items-center">
@@ -317,17 +288,20 @@ export default function Hero() {
         {/* Full-width horizontal divider line */}
         <div className="w-full h-px bg-white/10" />
 
-        {/* ── Hero Bottom Trust Badges Grid ── */}
-        <div className="w-full bg-[#100500]/60 backdrop-blur-md">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-6 sm:py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full text-center sm:text-left">
+        {/* ── Hero Bottom Trust Badges Grid — Golden-bordered Dark Liquid Glass Cards ── */}
+        <div className="w-full bg-[#100500]/70 backdrop-blur-md">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 py-6 sm:py-8 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
             {trustBadges.map((badge, i) => (
-              <div key={i} className="flex flex-col sm:flex-row items-center gap-3 justify-center sm:justify-start text-white">
-                <div className="w-9 h-9 rounded-full bg-white/[0.08] border border-white/[0.15] flex items-center justify-center flex-shrink-0">
-                  <badge.icon size={15} className="text-gold-400" />
+              <div
+                key={i}
+                className="bg-[#141722]/90 border border-[#D4AF37]/30 rounded-2xl p-3.5 sm:p-4 shadow-lg flex flex-col sm:flex-row items-center gap-3 text-center sm:text-left transition-all duration-300 hover:border-[#D4AF37]/60"
+              >
+                <div className="w-10 h-10 rounded-xl bg-gold-500/10 border border-gold-500/20 flex items-center justify-center flex-shrink-0">
+                  <badge.icon size={18} className="text-gold-400" />
                 </div>
                 <div className="text-center sm:text-left">
                   <div className="text-white text-[11px] font-bold tracking-wider uppercase leading-tight">{badge.label}</div>
-                  <div className="text-white/40 text-[10px] sm:text-[11px] font-medium leading-tight mt-0.5">{badge.sub}</div>
+                  <div className="text-gold-300/60 text-[10px] sm:text-[11px] font-medium leading-tight mt-0.5">{badge.sub}</div>
                 </div>
               </div>
             ))}

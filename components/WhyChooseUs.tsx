@@ -24,17 +24,17 @@ const usps = [
   },
   {
     icon: BookOpen,
-    title: "Experienced Drivers",
+    title: "Experienced Yatra Drivers",
     description:
-      "Our friendly yatra drivers act as helpers throughout the journey, ensuring a safe, smooth, and pleasant tour.",
+      "Our friendly yatra drivers act as guides throughout the journey, ensuring safe and smooth temple visits.",
     iconColor: "#FF8C00",
     iconBg: "rgba(255,140,0,0.12)",
   },
   {
     icon: ShieldCheck,
-    title: "Hotels We'd Stay In Ourselves",
+    title: "Handpicked Pilgrim Hotels",
     description:
-      "Every hotel is personally inspected by us — proximity to Ram Mandir, cleanliness, vegetarian kitchen and pilgrim-friendly staff.",
+      "Every hotel is personally inspected — close to ghats & mandir, clean, with vegetarian dining.",
     iconColor: "#34D399",
     iconBg: "rgba(52,211,153,0.12)",
   },
@@ -42,7 +42,7 @@ const usps = [
     icon: Banknote,
     title: "Zero Hidden Charges",
     description:
-      "The price you see is exactly what you pay. Hotel, meals, AC vehicle transfers — all included. Period.",
+      "The price you see is exactly what you pay. Hotel, meals, transfers — all included transparently.",
     iconColor: "#60A5FA",
     iconBg: "rgba(96,165,250,0.12)",
   },
@@ -50,23 +50,15 @@ const usps = [
     icon: HeadphonesIcon,
     title: "24/7 On-Trip Support",
     description:
-      "Our WhatsApp line responds in under 2 minutes — before, during and after your yatra. You are never alone.",
+      "Instant response team before, during and after your yatra. You are never alone on your journey.",
     iconColor: "#A78BFA",
     iconBg: "rgba(167,139,250,0.12)",
-  },
-  {
-    icon: MapPin,
-    title: "15 Years of Local Insight",
-    description:
-      "We know the quietest darshan hour, the best prasad shop and the hidden ghats that tourists never find.",
-    iconColor: "#F87171",
-    iconBg: "rgba(248,113,113,0.12)",
   },
   {
     icon: Utensils,
     title: "Pure Sattvic Meals",
     description:
-      "100% vegetarian, hygienically prepared sattvic food throughout the tour — no onion, no garlic on request.",
+      "100% vegetarian, hygienically prepared sattvic food — onion-garlic free options available.",
     iconColor: "#FB923C",
     iconBg: "rgba(251,146,60,0.12)",
   },
@@ -74,7 +66,7 @@ const usps = [
     icon: Users,
     title: "Senior Citizen Specialist",
     description:
-      "Wheelchair assistance, priority entry, slower pace, ground-floor rooms, special dietary care — all arranged with love.",
+      "Wheelchair assistance, priority entry, ground-floor rooms, and gentle pace for elderly devotees.",
     iconColor: "#2DD4BF",
     iconBg: "rgba(45,212,180,0.12)",
   },
@@ -127,18 +119,17 @@ export default function WhyChooseUs() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16 sm:mb-20"
+          className="text-center mb-12 sm:mb-20"
         >
-          <div className="ornament-line max-w-xl mx-auto mb-5">
-            <span className="text-gold-400 text-[11px] tracking-[0.32em] uppercase font-semibold whitespace-nowrap px-4">
-              Why 50,000+ Families Choose Us
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#D4AF37]/10 border border-[#D4AF37]/30 mb-4">
+            <span className="text-[#D4AF37] text-[10px] sm:text-xs tracking-[0.25em] uppercase font-semibold">
+              THE DIVINE STANDARD
             </span>
           </div>
-          <h2 className="font-playfair font-bold text-4xl sm:text-5xl lg:text-[3.4rem] text-white mb-5 leading-tight">
-            The Difference You{" "}
-            <span className="text-gradient-gold">Feel on Day One</span>
+          <h2 className="font-playfair font-bold text-3xl sm:text-5xl lg:text-[3.4rem] text-white mb-4 leading-tight">
+            Why Pilgrims Choose <span className="text-gradient-gold">Divine Journeys</span>
           </h2>
-          <p className="text-white/70 text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-white/70 text-sm sm:text-lg max-w-xl mx-auto leading-relaxed">
             We don&apos;t sell tours. We craft stress-free pilgrimages that let you focus entirely on your devotion.
           </p>
         </motion.div>
@@ -148,15 +139,16 @@ export default function WhyChooseUs() {
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5"
         >
           {usps.map((usp, i) => (
             <motion.div
               key={i}
               variants={itemVariants}
               whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="relative group rounded-2xl p-6 border border-white/[0.07] hover:border-white/[0.15] transition-all duration-350 overflow-hidden"
-              style={{ background: "rgba(255,255,255,0.03)" }}
+              className={`relative group rounded-2xl p-4 sm:p-6 border border-white/[0.07] hover:border-white/[0.15] transition-all duration-350 overflow-hidden bg-[#141722]/90 backdrop-blur-md ${
+                i === 6 ? "col-span-2 lg:col-span-1 max-w-md mx-auto sm:max-w-none w-full" : ""
+              }`}
             >
               {/* Subtle hover glow */}
               <div
@@ -167,25 +159,25 @@ export default function WhyChooseUs() {
               />
 
               {/* Number */}
-              <div className="flex items-start justify-between mb-4">
+              <div className="flex items-start justify-between mb-3 sm:mb-4">
                 <div
-                  className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
+                  className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300"
                   style={{ backgroundColor: usp.iconBg }}
                 >
-                  <usp.icon size={20} style={{ color: usp.iconColor }} />
+                  <usp.icon className="w-4 h-4 sm:w-5 sm:h-5" style={{ color: usp.iconColor }} />
                 </div>
                 <span
-                  className="card-number text-[11px] font-bold tabular-nums"
+                  className="card-number text-[10px] sm:text-[11px] font-bold tabular-nums"
                   style={{ color: `${usp.iconColor}40` }}
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
               </div>
 
-              <h3 className="font-playfair font-semibold text-white text-[17px] mb-2 leading-snug group-hover:text-white transition-colors">
+              <h3 className="font-playfair font-semibold text-white text-sm sm:text-[17px] mb-1.5 sm:mb-2 leading-snug group-hover:text-white transition-colors">
                 {usp.title}
               </h3>
-              <p className="text-white/70 text-[13px] leading-relaxed group-hover:text-white/90 transition-colors">
+              <p className="text-white/70 text-xs sm:text-[13px] leading-relaxed group-hover:text-white/90 transition-colors">
                 {usp.description}
               </p>
             </motion.div>
@@ -197,21 +189,20 @@ export default function WhyChooseUs() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.65, delay: 0.55 }}
-          className="mt-10 rounded-2xl border border-emerald-500/20 p-6 sm:p-8 flex flex-col sm:flex-row items-center gap-6 text-center sm:text-left"
-          style={{ background: "rgba(52,211,153,0.05)" }}
+          className="mt-8 sm:mt-10 rounded-2xl border border-emerald-500/20 p-5 sm:p-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 text-center sm:text-left bg-[#141722]/90 backdrop-blur-md"
         >
-          <div className="flex-shrink-0 w-16 h-16 rounded-2xl bg-emerald-500/15 border border-emerald-500/25 flex items-center justify-center">
-            <ShieldCheck size={28} className="text-emerald-400" />
+          <div className="flex-shrink-0 w-12 h-12 sm:w-16 sm:h-16 rounded-2xl bg-emerald-500/15 border border-emerald-500/25 flex items-center justify-center">
+            <ShieldCheck className="w-6 h-6 sm:w-7 sm:h-7 text-emerald-400" />
           </div>
           <div className="flex-1">
-            <h3 className="font-playfair font-bold text-white text-xl mb-1.5">
+            <h3 className="font-playfair font-bold text-white text-lg sm:text-xl mb-1 sm:mb-1.5">
               Direct Confirmation or Flexi-Date Price Lock
             </h3>
-            <p className="text-white/70 text-sm leading-relaxed">
-              Planning your tirth yatra? For immediate travel this month, confirm your dates with a 25% advance. If you are planning for future months, lock today's special package rates using our ₹1,999 Flexi-Date token to protect yourself from seasonal tariff increases.
+            <p className="text-white/70 text-xs sm:text-sm leading-relaxed">
+              Planning your tirth yatra? Confirm your dates with a 25% advance for immediate travel, or lock package rates using our ₹1,999 Flexi-Date token.
             </p>
           </div>
-          <div className="flex-shrink-0 text-emerald-400 font-playfair font-bold text-2xl sm:text-3xl whitespace-nowrap">
+          <div className="flex-shrink-0 text-emerald-400 font-playfair font-bold text-xl sm:text-3xl whitespace-nowrap">
             Flexible Booking
           </div>
         </motion.div>

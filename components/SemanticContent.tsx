@@ -144,7 +144,7 @@ export default function SemanticContent() {
       ref={ref}
       id="kashi-tour-guide"
       aria-label="Kashi tour package guide and frequently asked questions"
-      className="py-20 sm:py-28 bg-sacred-cream"
+      className="hidden lg:block py-20 sm:py-28 bg-sacred-cream"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 

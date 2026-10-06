@@ -84,64 +84,62 @@ export default function TrustMetrics() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section ref={ref} className="py-20 sm:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={ref} className="py-16 sm:py-24 bg-[#0D0400] relative overflow-hidden">
+      {/* Background radial glow */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: "radial-gradient(ellipse at center, rgba(255,107,0,0.06) 0%, transparent 70%)",
+        }}
+      />
+
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.65 }}
-          className="text-center mb-12 sm:mb-14"
+          className="text-center mb-10 sm:mb-14"
         >
           <div className="ornament-line max-w-xl mx-auto mb-4">
-            <span className="text-gold-600 text-[11px] tracking-[0.32em] uppercase font-semibold whitespace-nowrap px-4">
+            <span className="text-gold-400 text-[11px] tracking-[0.32em] uppercase font-semibold whitespace-nowrap px-4">
               Trusted Across India
             </span>
           </div>
-          <h2 className="font-playfair font-bold text-3xl sm:text-4xl text-divine-dark">
+          <h2 className="font-playfair font-bold text-3xl sm:text-4xl text-white">
             Numbers That{" "}
-            <span className="text-gradient-saffron">Speak for Themselves</span>
+            <span className="text-gradient-gold">Speak for Themselves</span>
           </h2>
         </motion.div>
 
-        {/* Grid */}
+        {/* Grid — Dark Liquid Glass Cards */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate={inView ? "show" : "hidden"}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5"
+          className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-5"
         >
           {metrics.map((m, i) => (
             <motion.div
               key={i}
               variants={itemVariants}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="relative rounded-2xl p-6 sm:p-8 text-center shine-effect overflow-hidden"
-              style={{
-                background: m.bg,
-                border: `1px solid ${m.border}`,
-              }}
+              className="relative bg-[#141722]/90 border border-white/10 rounded-2xl p-4 sm:p-7 text-center shadow-xl overflow-hidden backdrop-blur-md hover:border-gold-500/40 transition-all"
             >
-              {/* Icon */}
-              <div
-                className="inline-flex items-center justify-center w-11 h-11 rounded-2xl mb-4"
-                style={{ background: m.bg, border: `1px solid ${m.border}` }}
-              >
-                <m.icon size={20} style={{ color: m.color }} />
+              {/* Gradient Orange Icon Box */}
+              <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 rounded-xl mb-3 bg-gradient-to-br from-saffron-500/20 to-amber-500/20 border border-saffron-500/30">
+                <m.icon size={20} className="text-gold-400" />
               </div>
 
               {/* Number */}
-              <div
-                className="font-playfair font-bold text-4xl sm:text-5xl leading-none mb-1.5"
-                style={{ color: m.color }}
-              >
+              <div className="font-playfair font-bold text-3xl sm:text-5xl leading-none mb-1 text-gold-400">
                 <CountUp end={m.end} isDecimal={m.isDecimal} inView={inView} />
-                <span className="text-2xl sm:text-3xl">{m.suffix}</span>
+                <span className="text-xl sm:text-3xl">{m.suffix}</span>
               </div>
 
-              <div className="font-semibold text-divine-dark text-sm sm:text-[15px] mb-1">{m.label}</div>
-              <div className="text-gray-400 text-[11px] sm:text-xs">{m.sub}</div>
+              <div className="font-semibold text-white text-xs sm:text-[15px] mb-1">{m.label}</div>
+              <div className="text-white/40 text-[10px] sm:text-xs">{m.sub}</div>
             </motion.div>
           ))}
         </motion.div>
@@ -151,12 +149,12 @@ export default function TrustMetrics() {
           initial={{ opacity: 0, y: 16 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.55 }}
-          className="mt-10 flex flex-wrap items-center justify-center gap-6 sm:gap-10"
+          className="mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-10"
         >
           {["IATA Certified", "Ministry of Tourism Approved", "UP Tourism Registered", "GST Verified"].map(cert => (
-            <div key={cert} className="flex items-center gap-2 text-gray-400">
-              <div className="w-5 h-5 rounded-full bg-emerald-50 border border-emerald-200 flex items-center justify-center flex-shrink-0">
-                <svg className="w-3 h-3 text-emerald-600" viewBox="0 0 12 12" fill="none">
+            <div key={cert} className="flex items-center gap-2 text-white/50">
+              <div className="w-4 h-4 rounded-full bg-emerald-500/20 border border-emerald-500/40 flex items-center justify-center flex-shrink-0">
+                <svg className="w-2.5 h-2.5 text-emerald-400" viewBox="0 0 12 12" fill="none">
                   <path d="M2.5 6l2.5 2.5 4.5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>

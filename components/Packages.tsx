@@ -700,6 +700,21 @@ export default function Packages() {
   const ref   = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
   const [tokenAmount, setTokenAmount] = useState(1999);
+  const [activeFilter, setActiveFilter] = useState("All");
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  const filterCategories = ["All", "Varanasi", "Prayagraj", "Ayodhya"];
+
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      const totalScroll = scrollWidth - clientWidth;
+      if (totalScroll > 0) {
+        setScrollProgress((scrollLeft / totalScroll) * 100);
+      }
+    }
+  };
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -712,6 +727,10 @@ export default function Packages() {
     }
   }, []);
 
+  const filteredPackages = activeFilter === "All"
+    ? packages
+    : packages.filter(p => p.cities.some(c => c.toLowerCase().includes(activeFilter.toLowerCase())));
+
   return (
     <section ref={ref} id="packages" className="py-24 sm:py-32 bg-sacred-cream" data-section="packages">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -721,31 +740,63 @@ export default function Packages() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16 sm:mb-20"
+          className="text-center mb-10 sm:mb-16"
         >
-          <div className="ornament-line max-w-xl mx-auto mb-5">
-            <span className="text-gold-600 text-[11px] tracking-[0.32em] uppercase font-semibold whitespace-nowrap px-4">
-              Choose Your Journey
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-saffron-100 border border-saffron-200 mb-4">
+            <span className="text-saffron-700 text-[10px] sm:text-xs tracking-[0.25em] uppercase font-bold">
+              ✨ SACRED EXPERIENCES
             </span>
           </div>
-          <h2 className="font-playfair font-bold text-4xl sm:text-5xl lg:text-[3.4rem] text-divine-dark mb-5 leading-tight">
-            Ayodhya Tour{" "}
-            <span className="text-gradient-saffron">Packages 2025</span>
+          <h2 className="font-playfair font-bold text-3xl sm:text-5xl lg:text-[3.4rem] text-divine-dark mb-4 leading-tight">
+            Varanasi & Kashi <span className="text-gradient-saffron">Tour Packages 2025</span>
           </h2>
-          <p className="text-gray-500 text-lg max-w-xl mx-auto leading-relaxed">
+          <p className="text-gray-500 text-sm sm:text-lg max-w-xl mx-auto leading-relaxed">
             Every detail pre-arranged — hotel stays, private AC transport, and sightseeing — so you arrive and simply pray.
           </p>
-          <div className="inline-flex items-center gap-2 mt-6 text-sm text-gray-500 bg-white border border-gray-100 shadow-sm rounded-full px-5 py-2.5">
+          <div className="inline-flex items-center gap-2 mt-4 sm:mt-6 text-xs sm:text-sm text-gray-500 bg-white border border-gray-100 shadow-sm rounded-full px-4 sm:px-5 py-2 sm:py-2.5">
             <MapPin size={13} className="text-saffron-500" />
             Departures from all major cities across India
           </div>
         </motion.div>
 
-        {/* Cards grid — 2 columns on mobile, 3 columns on desktop */}
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6">
-          {packages.map((pkg, i) => (
-            <PackageCard key={pkg.id} pkg={pkg} index={i} tokenAmount={tokenAmount} />
+        {/* Filter Pills */}
+        <div className="flex items-center justify-center gap-2 overflow-x-auto pb-2 mb-8 scrollbar-none">
+          {filterCategories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setActiveFilter(cat)}
+              className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 ${
+                activeFilter === cat
+                  ? "bg-saffron-600 text-white shadow-md scale-105"
+                  : "bg-white text-gray-600 border border-gray-200 hover:border-saffron-300"
+              }`}
+            >
+              {cat}
+            </button>
           ))}
+        </div>
+
+        {/* Cards grid / Mobile swipable carousel */}
+        <div
+          ref={scrollRef}
+          onScroll={handleScroll}
+          className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scrollbar-none lg:grid lg:grid-cols-3 lg:gap-6 lg:pb-0"
+        >
+          {filteredPackages.map((pkg, i) => (
+            <div key={pkg.id} className="snap-start flex-shrink-0 w-[85vw] max-w-[360px] lg:w-full lg:max-w-none">
+              <PackageCard pkg={pkg} index={i} tokenAmount={tokenAmount} />
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile Scroll Progress Indicator */}
+        <div className="block lg:hidden mt-4 max-w-[140px] mx-auto">
+          <div className="h-1.5 w-full bg-gray-200/80 rounded-full overflow-hidden">
+            <div
+              className="h-full bg-saffron-600 rounded-full transition-all duration-150"
+              style={{ width: `${Math.max(15, scrollProgress)}%` }}
+            />
+          </div>
         </div>
 
         {/* General Exclusions and Guidelines Disclaimer Block */}
@@ -753,9 +804,9 @@ export default function Packages() {
           initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.35, ease: [0.22, 1, 0.36, 1] }}
-          className="mt-16 bg-white border border-gray-100 rounded-3xl p-6 sm:p-8 max-w-4xl mx-auto shadow-sm"
+          className="mt-12 sm:mt-16 bg-white border border-gray-100 rounded-3xl p-6 sm:p-8 max-w-4xl mx-auto shadow-sm"
         >
-          <h3 className="font-playfair font-bold text-lg sm:text-xl text-divine-dark text-center mb-6 flex items-center justify-center gap-2">
+          <h3 className="font-playfair font-bold text-base sm:text-xl text-divine-dark text-center mb-6 flex items-center justify-center gap-2">
             📋 Booking Guidelines & Package Exclusions
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
@@ -783,28 +834,28 @@ export default function Packages() {
           </div>
         </motion.div>
 
-        {/* Early bird price lock warning card */}
+        {/* Early bird price lock warning card — Hidden on mobile per spec */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7, delay: 0.45 }}
-          className="mt-8 bg-amber-500/10 border border-amber-500/20 rounded-3xl p-5 sm:p-6 max-w-4xl mx-auto flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left"
+          className="hidden lg:flex mt-8 bg-amber-500/10 border border-amber-500/20 rounded-3xl p-5 sm:p-6 max-w-4xl mx-auto flex-col sm:flex-row items-center gap-4 text-center sm:text-left"
         >
           <span className="text-2xl">💡</span>
           <div>
-            <h4 className="font-semibold text-amber-200 text-sm mb-0.5">Early Bird Tip for Future Travels</h4>
-            <p className="text-gray-300 text-xs leading-relaxed">
+            <h4 className="font-semibold text-amber-900 text-sm mb-0.5">Early Bird Tip for Future Travels</h4>
+            <p className="text-gray-600 text-xs leading-relaxed">
               Traveling this month? Pay a 25% advance to confirm your dates immediately. Traveling in future months? Avoid seasonal price surges of up to 45% by securing a Flexi-Date Price Lock for just ₹{tokenAmount.toLocaleString("en-IN")} today. Finalize your exact dates later!
             </p>
           </div>
         </motion.div>
 
-        {/* Custom nudge */}
+        {/* Custom nudge — Hidden on mobile per spec */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.5 }}
-          className="mt-12 text-center"
+          className="hidden lg:block mt-12 text-center"
         >
           <p className="text-gray-400 text-sm">
             Need a custom group tour, senior citizen plan or a different itinerary?{" "}

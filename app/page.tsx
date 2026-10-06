@@ -2,14 +2,14 @@ import AnnouncementBar from "@/components/AnnouncementBar";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import LeadCapture from "@/components/LeadCapture";
-import TrustStrip from "@/components/TrustStrip";
-import YatraPhotoMarquee from "@/components/YatraPhotoMarquee";
-import TrustMetrics from "@/components/TrustMetrics";
 import Packages from "@/components/Packages";
+import TrustStrip from "@/components/TrustStrip";
+import TrustMetrics from "@/components/TrustMetrics";
+import YatraPhotoMarquee from "@/components/YatraPhotoMarquee";
+import LuxuryPartnersStrip from "@/components/LuxuryPartnersStrip";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Itinerary from "@/components/Itinerary";
 import HotelShowcase from "@/components/HotelShowcase";
-import LuxuryPartnersStrip from "@/components/LuxuryPartnersStrip";
 import Testimonials from "@/components/Testimonials";
 import VideoTestimonial from "@/components/VideoTestimonial";
 import Gallery from "@/components/Gallery";
@@ -18,7 +18,6 @@ import SemanticContent from "@/components/SemanticContent";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
-import StickyWhatsApp from "@/components/StickyWhatsApp";
 import { faqData } from "@/lib/faqData";
 import {
   getOrganizationSchema,
@@ -62,57 +61,50 @@ export default function Home() {
         {/* 1. Hero — above-the-fold conversion section */}
         <Hero />
 
-        {/* 2. Lead Capture — form immediately after hero for Google Ads conversion */}
+        {/* 2. Lead Capture — form immediately after hero */}
         <LeadCapture />
 
-        {/* 3. Trust Strip — immediate social proof */}
-        <TrustStrip />
-
-        {/* 3b. Yatra Photo Marquee — sliding track of real devotee group photos */}
-        <YatraPhotoMarquee />
-
-        {/* 3c. Trust Metrics — animated numbers */}
-        <TrustMetrics />
-
-        {/* 4. Luxury Partners Strip — luxury 5-star brand trust strip */}
-        <LuxuryPartnersStrip />
-
-        {/* 5. Packages — 6 destination packages */}
+        {/* 3. Packages — tour packages carousel & cards */}
         <Packages />
 
-        {/* 6. Why Choose Us — USP grid */}
+        {/* 4. 5 Key Trust Badges — positioned above Trust Metrics */}
+        <TrustStrip />
+
+        {/* 5. Trust Metrics — compact dark glass cards */}
+        <TrustMetrics />
+
+        {/* 6. Live Yatra Photo Marquee — sliding track of real devotee group photos */}
+        <YatraPhotoMarquee />
+
+        {/* 7. Luxury Partners Strip — luxury 5-star brand trust strip */}
+        <LuxuryPartnersStrip />
+
+        {/* 8. Why Choose Us — The Divine Standard USP grid */}
         <WhyChooseUs />
 
-        {/* 7. Itinerary — day-wise expandable plans */}
+        {/* 9. Day-by-Day Itinerary — day-wise expandable plans */}
         <Itinerary />
 
-        {/* 8. Hotel Showcase — trust signal for hotel searches */}
+        {/* 10. Handpicked Pilgrimage Hotels — stays showcase */}
         <HotelShowcase />
 
-        {/* 9. Testimonials — social proof carousel */}
+        {/* 11. Testimonials & Reviews */}
         <Testimonials />
-
-        {/* 9a. Video Testimonials */}
         <VideoTestimonial />
-
-        {/* 9b. Gallery — real pilgrim memories to build devotee trust */}
         <Gallery />
-
-        {/* 10. Google Reviews — verified third-party trust signal */}
         <GoogleReviews />
 
-        {/* 10. Semantic Content — conversational Q&A + package matrix for AI/voice SEO */}
+        {/* 12. Semantic Content — Q&A block (desktop) */}
         <SemanticContent />
 
-        {/* 11. FAQ — 20 Q&As for featured snippets and Google AI Overview */}
+        {/* 13. FAQ */}
         <FAQ />
 
-        {/* 12. Final CTA — conversion push */}
+        {/* 14. Final CTA — conversion push */}
         <FinalCTA />
       </main>
 
       <Footer />
-      <StickyWhatsApp />
     </>
   );
 }

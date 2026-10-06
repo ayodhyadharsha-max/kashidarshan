@@ -34,7 +34,7 @@ export default function Navbar() {
         className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
           scrolled || menuOpen
             ? "top-0 bg-white shadow-[0_4px_24px_rgba(0,0,0,0.08)] border-b border-gold-500/15"
-            : "top-10 bg-transparent"
+            : "top-[32px] sm:top-[38px] bg-transparent"
         }`}
         initial={{ y: -80 }}
         animate={{ y: 0 }}
@@ -127,7 +127,7 @@ export default function Navbar() {
             exit={{ opacity: 0, y: -16 }}
             transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
             className={`fixed left-4 right-4 z-40 md:hidden bg-white rounded-2xl shadow-2xl border border-gold-500/15 overflow-hidden transition-all duration-300 ${
-              scrolled || menuOpen ? "top-[4.5rem]" : "top-[7rem]"
+              scrolled || menuOpen ? "top-[4.5rem]" : "top-[calc(32px+4.5rem)] sm:top-[calc(38px+4.5rem)]"
             }`}
           >
             <div className="p-4 space-y-0.5">

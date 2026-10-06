@@ -771,7 +771,7 @@ export default function LeadCapture({ defaultTour }: { defaultTour?: string }) {
             initial={{ opacity: 0, x: -28 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-            className="lg:col-span-5 lg:pt-4"
+            className="hidden lg:block lg:col-span-5 lg:pt-4"
           >
             {/* Label */}
             <div className="flex items-center gap-3 mb-6">

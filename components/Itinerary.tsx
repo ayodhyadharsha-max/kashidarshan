@@ -900,13 +900,13 @@ export default function Itinerary() {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="flex flex-wrap gap-2 justify-center mb-8"
+          className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap sm:justify-center mb-8"
         >
           {itineraries.map((item, i) => (
             <button
               key={item.id}
               onClick={() => setActiveTab(i)}
-              className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 ${
+              className={`px-3 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs sm:text-sm font-semibold text-center transition-all duration-200 ${
                 activeTab === i
                   ? "bg-saffron-600 text-white shadow-md"
                   : "bg-gray-50 text-gray-600 border border-gray-100 hover:border-saffron-200 hover:text-saffron-600"

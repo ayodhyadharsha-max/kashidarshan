@@ -55,22 +55,22 @@ export default function YatraPhotoMarquee() {
   const doubleItems = [...marqueeItems, ...marqueeItems];
 
   return (
-    <section className="relative bg-[#fffaf5] py-10 overflow-hidden border-b border-gray-100">
+    <section className="relative bg-[#0D0400] py-10 overflow-hidden border-b border-white/5">
       
       {/* Decorative Warm Accent Gradient */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold-500/10 to-transparent" />
+      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gold-500/20 to-transparent" />
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div>
-            <span className="text-saffron-600 text-[10px] font-bold uppercase tracking-widest block mb-1">
+            <span className="text-gold-400 text-[10px] font-bold uppercase tracking-widest block mb-1">
               ✨ Live Yatra Moments
             </span>
-            <h3 className="font-playfair font-bold text-xl sm:text-2xl text-divine-dark">
+            <h3 className="font-playfair font-bold text-xl sm:text-2xl text-white">
               Our Recent Devotee Batches
             </h3>
           </div>
-          <p className="text-gray-400 text-xs sm:text-sm max-w-md sm:text-right leading-relaxed">
+          <p className="text-white/50 text-xs sm:text-sm max-w-md sm:text-right leading-relaxed">
             Real families, senior citizens, and groups enjoying their journeys. Click any photo to see it full-size.
           </p>
         </div>
@@ -80,8 +80,8 @@ export default function YatraPhotoMarquee() {
       <div className="relative w-full overflow-hidden select-none">
         
         {/* Left & Right overlay gradient to hide edges */}
-        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#fffaf5] to-transparent z-10 pointer-events-none" />
-        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#fffaf5] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-r from-[#0D0400] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-32 bg-gradient-to-l from-[#0D0400] to-transparent z-10 pointer-events-none" />
 
         <div className="w-full flex">
           <div className="animate-marquee flex gap-4 pr-4">
@@ -92,7 +92,7 @@ export default function YatraPhotoMarquee() {
                 <div
                   key={`${item.id}-${index}`}
                   onClick={() => setActivePhotoIndex(originalIndex)}
-                  className="relative w-[210px] h-[140px] sm:w-[240px] sm:h-[160px] rounded-xl overflow-hidden shadow-sm border border-gray-100/50 bg-white cursor-pointer group flex-shrink-0"
+                  className="relative w-[210px] h-[140px] sm:w-[240px] sm:h-[160px] rounded-xl overflow-hidden shadow-md border border-white/10 bg-[#141722]/80 backdrop-blur-sm hover:border-[#D4AF37]/60 transition-all duration-300 cursor-pointer group flex-shrink-0"
                 >
                   <img
                     src={item.src}
@@ -101,9 +101,9 @@ export default function YatraPhotoMarquee() {
                     loading="lazy"
                   />
                   {/* Subtle info bottom bar */}
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3 opacity-90 group-hover:opacity-100 transition-opacity">
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-3 opacity-90 group-hover:opacity-100 transition-opacity">
                     <div className="flex justify-between items-center gap-1.5">
-                      <span className="bg-saffron-600 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider">
+                      <span className="bg-saffron-600/90 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-full uppercase tracking-wider">
                         {item.tag}
                       </span>
                       <span className="text-gold-300 text-[9px] font-medium tracking-wider">

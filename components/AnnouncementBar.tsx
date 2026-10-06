@@ -16,10 +16,10 @@ export default function AnnouncementBar() {
   const text = announcements.join("    •    ");
 
   return (
-    <div className="bg-divine-dark border-b border-gold-500/15 overflow-hidden py-2.5 relative z-50">
+    <div className="fixed top-0 left-0 right-0 z-50 h-[32px] sm:h-[38px] bg-divine-dark border-b border-gold-500/15 overflow-hidden flex items-center">
       {/* Top gold line */}
       <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-gold-500/40 to-transparent" />
-      <div className="flex" aria-label="Announcements" aria-live="polite">
+      <div className="flex w-full" aria-label="Announcements" aria-live="polite">
         <div className="flex whitespace-nowrap animate-marquee" aria-hidden="true">
           <span className="text-gold-400/85 text-[11px] font-medium tracking-wide pr-20">{text}</span>
           <span className="text-gold-400/85 text-[11px] font-medium tracking-wide pr-20">{text}</span>

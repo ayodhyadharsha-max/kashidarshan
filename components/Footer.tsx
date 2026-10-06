@@ -37,11 +37,11 @@ const socialLinks = [
 
 const footerLinks = {
   packages: [
-    { label: "Kashi Darshan Package",   href: "#packages" },
-    { label: "Dev Diwali Special Yatra", href: "#packages" },
-    { label: "Varanasi Ganga Aarti Special", href: "#packages" },
-    { label: "Custom Group Tours",        href: "#packages" },
-    { label: "Senior Citizen Special",    href: "#packages" },
+    { label: "Kashi Darshan Package",       href: "#packages" },
+    { label: "Sawan Somvar Special",        href: "#packages" },
+    { label: "Dev Diwali Special",          href: "#packages" },
+    { label: "Varanasi Ganga Aarti Yatra",  href: "#packages" },
+    { label: "Sawan Shiva Circuit",         href: "#packages" },
   ],
   destinations: [
     { label: "Kashi Vishwanath Temple", href: "#" },
@@ -65,8 +65,7 @@ const policyItems = [
     color: "#D4AF37",
     points: [
       "Pay 20% as an advance to reserve your seat.",
-      "Remaining balance must be paid after check-in at hotel or on the first day of the trip.",
-      "Any flight bookings must be paid 100% in advance.",
+      "Remaining balance must be paid after check-in at hotel.",
     ],
   },
   {
@@ -75,7 +74,7 @@ const policyItems = [
     color: "#60A5FA",
     points: [
       "2.5% gateway charge applies for Indian credit cards.",
-      "4.5% gateway charge applies for international credit cards.",
+      "4.5% gateway charge applies for international cards.",
     ],
   },
   {
@@ -89,10 +88,8 @@ const policyItems = [
     title: "Cancellation Policy",
     color: "#F87171",
     points: [
-      "Booking amount is strictly non-refundable.",
-      "Applicable cancellation charges will be levied on cancellation.",
-      "Any cancellation request must be informed at least 7 days prior to arrival.",
-      "Cancellations made within 7 days of arrival: 100% of total tour cost will be charged.",
+      "Booking amount is non-refundable.",
+      "Inform at least 7 days prior to arrival.",
     ],
   },
 ];
@@ -101,7 +98,7 @@ function PolicyAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className="space-y-2">
+    <div className="grid grid-cols-2 lg:grid-cols-1 gap-2">
       {policyItems.map((item, i) => {
         const isOpen = openIndex === i;
         const Icon   = item.icon;
@@ -116,20 +113,20 @@ function PolicyAccordion() {
           >
             <button
               onClick={() => setOpenIndex(isOpen ? null : i)}
-              className="w-full flex items-center justify-between gap-3 px-4 py-3.5 text-left"
+              className="w-full flex items-center justify-between gap-1.5 p-2.5 sm:px-4 sm:py-3.5 text-left"
               aria-expanded={isOpen}
             >
-              <div className="flex items-center gap-2.5">
+              <div className="flex items-center gap-2">
                 <div
-                  className="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0"
+                  className="w-5 h-5 sm:w-6 sm:h-6 rounded-lg flex items-center justify-center flex-shrink-0"
                   style={{ backgroundColor: `${item.color}18` }}
                 >
                   <Icon size={12} style={{ color: item.color }} />
                 </div>
-                <span className="text-white/70 text-[13px] font-medium">{item.title}</span>
+                <span className="text-white/70 text-[10px] sm:text-[13px] font-medium leading-tight">{item.title}</span>
               </div>
               <ChevronDown
-                size={14}
+                size={12}
                 className={`text-white/30 transition-transform duration-300 flex-shrink-0 ${isOpen ? "rotate-180" : ""}`}
               />
             </button>
@@ -142,16 +139,16 @@ function PolicyAccordion() {
                   exit={{ height: 0, opacity: 0 }}
                   transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 >
-                  <div className="px-4 pb-4">
-                    <div className="h-px bg-white/[0.06] mb-3" />
-                    <ul className="space-y-2">
+                  <div className="p-2 sm:px-4 sm:pb-4">
+                    <div className="h-px bg-white/[0.06] mb-2" />
+                    <ul className="space-y-1.5">
                       {item.points.map((point, j) => (
-                        <li key={j} className="flex items-start gap-2">
+                        <li key={j} className="flex items-start gap-1.5">
                           <span
                             className="mt-[5px] w-1.5 h-1.5 rounded-full flex-shrink-0"
                             style={{ backgroundColor: item.color }}
                           />
-                          <span className="text-white/60 text-[12px] leading-relaxed">{point}</span>
+                          <span className="text-white/60 text-[10px] sm:text-[12px] leading-relaxed">{point}</span>
                         </li>
                       ))}
                     </ul>
@@ -170,23 +167,19 @@ export default function Footer() {
   return (
     <footer className="bg-[#0D0400] border-t border-white/5">
       {/* Main footer grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8">
 
           {/* Brand column — 4 cols */}
           <div className="lg:col-span-4">
-            <div className="flex items-center gap-4 mb-6">
-              <div className="relative flex-shrink-0 w-[72px] h-[72px]">
-                <Image
-                  src="/logo.png"
-                  alt={siteConfig.name}
-                  fill
-                  sizes="72px"
-                  className="object-contain"
-                />
-              </div>
+            <div className="flex items-center gap-3 mb-4 sm:mb-6">
+              <img
+                src="/logo.png"
+                alt={siteConfig.name}
+                className="w-14 h-14 object-contain flex-shrink-0"
+              />
               <div>
-                <div className="font-playfair font-bold text-white text-xl leading-tight tracking-wide">
+                <div className="font-playfair font-bold text-white text-lg sm:text-xl leading-tight tracking-wide">
                   {siteConfig.name}
                 </div>
                 <div className="text-saffron-500 text-[10px] tracking-[0.24em] uppercase mt-0.5">
@@ -195,7 +188,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <p className="text-white/40 text-sm leading-relaxed mb-6 max-w-sm">
+            <p className="text-white/40 text-xs sm:text-sm leading-relaxed mb-6 max-w-sm">
               India&apos;s most trusted Kashi pilgrimage specialists. Serving 50,000+ devotees
               since 2009 with premium yatra experiences, VIP darshan arrangements, and
               unforgettable spiritual journeys.
@@ -205,26 +198,26 @@ export default function Footer() {
             <div className="space-y-3">
               <a
                 href={siteConfig.phoneHref}
-                className="flex items-center gap-3 text-white/50 hover:text-white text-sm transition-colors group"
+                className="flex items-center gap-3 text-white/50 hover:text-white text-xs sm:text-sm transition-colors group"
                 data-cta="call"
                 data-source="footer"
               >
-                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-saffron-600/20 transition-colors flex-shrink-0">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-saffron-600/20 transition-colors flex-shrink-0">
                   <Phone size={14} className="text-saffron-500" />
                 </div>
                 {PHONE_DISPLAY}
               </a>
               <a
                 href={`mailto:${EMAIL}`}
-                className="flex items-center gap-3 text-white/50 hover:text-white text-sm transition-colors group"
+                className="flex items-center gap-3 text-white/50 hover:text-white text-xs sm:text-sm transition-colors group"
               >
-                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-saffron-600/20 transition-colors flex-shrink-0">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/5 flex items-center justify-center group-hover:bg-saffron-600/20 transition-colors flex-shrink-0">
                   <Mail size={14} className="text-saffron-500" />
                 </div>
                 {EMAIL}
               </a>
-              <div className="flex items-start gap-3 text-white/50 text-sm">
-                <div className="w-8 h-8 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 mt-0.5">
+              <div className="flex items-start gap-3 text-white/50 text-xs sm:text-sm">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-white/5 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <MapPin size={14} className="text-saffron-500" />
                 </div>
                 <span>
@@ -232,7 +225,7 @@ export default function Footer() {
                   <br />
                   {siteConfig.address.city}, {siteConfig.address.state} — {siteConfig.address.pincode}
                   <br />
-                  <span className="text-xs text-white/30">GSTIN: {siteConfig.gstin}</span>
+                  <span className="text-[10px] text-white/30">GSTIN: {siteConfig.gstin}</span>
                 </span>
               </div>
             </div>
@@ -240,7 +233,7 @@ export default function Footer() {
             {/* Quote CTA */}
             <a
               href="#get-quote"
-              className="inline-flex items-center justify-center gap-2 mt-6 bg-saffron-600 hover:bg-saffron-700 text-white px-6 py-3.5 rounded-xl text-sm font-semibold transition-all hover:scale-105 active:scale-95"
+              className="inline-flex items-center justify-center gap-2 mt-5 bg-saffron-600 hover:bg-saffron-700 text-white px-5 py-3 rounded-xl text-xs sm:text-sm font-semibold transition-all hover:scale-105 active:scale-95"
               data-cta="scroll-quote"
               data-source="footer"
             >
@@ -248,66 +241,72 @@ export default function Footer() {
             </a>
           </div>
 
-          {/* Quick Links — 2 cols */}
-          <div className="lg:col-span-2">
-            <h4 className="text-white font-semibold text-xs tracking-[0.2em] uppercase mb-5">
-              Our Packages
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.packages.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-white/40 hover:text-saffron-400 text-sm transition-colors leading-snug"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
+          {/* 3 Quick Link Columns in 1 Horizontal Row on Mobile */}
+          <div className="grid grid-cols-3 gap-2 lg:col-span-5">
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-white font-semibold text-[10px] sm:text-xs tracking-[0.18em] uppercase mb-3 sm:mb-5 leading-tight">
+                Our Packages
+              </h4>
+              <ul className="space-y-2">
+                {footerLinks.packages.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="text-white/40 hover:text-saffron-400 text-[11px] sm:text-sm transition-colors leading-tight block"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Temples */}
+            <div>
+              <h4 className="text-white font-semibold text-[10px] sm:text-xs tracking-[0.18em] uppercase mb-3 sm:mb-5 leading-tight">
+                Temples We Cover
+              </h4>
+              <ul className="space-y-2">
+                {footerLinks.destinations.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="text-white/40 hover:text-saffron-400 text-[11px] sm:text-sm transition-colors leading-tight block"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div>
+              <h4 className="text-white font-semibold text-[10px] sm:text-xs tracking-[0.18em] uppercase mb-3 sm:mb-5 leading-tight">
+                Company
+              </h4>
+              <ul className="space-y-2 mb-4">
+                {footerLinks.company.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="text-white/40 hover:text-saffron-400 text-[11px] sm:text-sm transition-colors leading-tight block"
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
-          {/* Temples — 2 cols */}
-          <div className="lg:col-span-2">
-            <h4 className="text-white font-semibold text-xs tracking-[0.2em] uppercase mb-5">
-              Temples We Cover
-            </h4>
-            <ul className="space-y-3">
-              {footerLinks.destinations.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-white/40 hover:text-saffron-400 text-sm transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company + Social — 2 cols */}
-          <div className="lg:col-span-2">
-            <h4 className="text-white font-semibold text-xs tracking-[0.2em] uppercase mb-5">
-              Company
-            </h4>
-            <ul className="space-y-3 mb-8">
-              {footerLinks.company.map((link) => (
-                <li key={link.label}>
-                  <a
-                    href={link.href}
-                    className="text-white/40 hover:text-saffron-400 text-sm transition-colors"
-                  >
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-
-            <h4 className="text-white font-semibold text-xs tracking-[0.2em] uppercase mb-4">
+          {/* Social + Policy — 3 cols */}
+          <div className="lg:col-span-3">
+            <h4 className="text-white font-semibold text-xs tracking-[0.2em] uppercase mb-3">
               Follow Us
             </h4>
-            <div className="flex gap-2.5">
+            <div className="flex gap-2 mb-6">
               {socialLinks.map(({ Icon, label, href, hoverColor }) => (
                 <a
                   key={label}
@@ -315,17 +314,14 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className={`w-9 h-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/40 transition-all duration-250 ${hoverColor}`}
+                  className={`w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/40 transition-all duration-250 ${hoverColor}`}
                 >
-                  <Icon size={16} />
+                  <Icon size={14} />
                 </a>
               ))}
             </div>
-          </div>
 
-          {/* Payment & Cancellation Policy — 2 cols */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 mb-5">
+            <div className="flex items-center gap-2 mb-3">
               <AlertCircle size={13} className="text-saffron-400 flex-shrink-0" />
               <h4 className="text-white font-semibold text-xs tracking-[0.2em] uppercase">
                 Booking Policy
@@ -333,6 +329,7 @@ export default function Footer() {
             </div>
             <PolicyAccordion />
           </div>
+
         </div>
       </div>
 
