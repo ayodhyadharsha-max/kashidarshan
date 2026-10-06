@@ -175,13 +175,14 @@ export default function HotelShowcase() {
         </div>
 
         {/* Hotel Cards Grid / Mobile swipable carousel */}
-        <div
-          ref={scrollRef}
-          onScroll={handleScroll}
-          className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scrollbar-none lg:grid lg:grid-cols-3 lg:gap-6 lg:pb-0"
-        >
-          {filteredHotels.map((hotel, i) => (
-            <div key={hotel.id} className="snap-start flex-shrink-0 w-[85vw] max-w-[360px] lg:w-full lg:max-w-none flex">
+        <div className="w-full max-w-full overflow-hidden">
+          <div
+            ref={scrollRef}
+            onScroll={handleScroll}
+            className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scrollbar-none lg:grid lg:grid-cols-3 lg:gap-6 lg:pb-0"
+          >
+            {filteredHotels.map((hotel, i) => (
+              <div key={hotel.id} className="snap-start flex-shrink-0 w-[85vw] max-w-[360px] lg:w-full lg:max-w-none flex">
               <motion.div
                 initial={{ opacity: 0, y: 40 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -313,6 +314,7 @@ export default function HotelShowcase() {
               </motion.div>
             </div>
           ))}
+        </div>
         </div>
 
         {/* Mobile Scroll Progress Indicator */}

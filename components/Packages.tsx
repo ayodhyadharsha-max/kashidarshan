@@ -674,16 +674,18 @@ export default function Packages() {
         </div>
 
         {/* Cards grid / Mobile swipable carousel */}
-        <div
-          ref={scrollRef}
-          onScroll={handleScroll}
-          className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scrollbar-none lg:grid lg:grid-cols-3 lg:gap-6 lg:pb-0"
-        >
-          {filteredPackages.map((pkg, i) => (
-            <div key={pkg.id} className="snap-start flex-shrink-0 w-[85vw] max-w-[360px] lg:w-full lg:max-w-none">
-              <PackageCard pkg={pkg} index={i} tokenAmount={tokenAmount} />
-            </div>
-          ))}
+        <div className="w-full max-w-full overflow-hidden">
+          <div
+            ref={scrollRef}
+            onScroll={handleScroll}
+            className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scrollbar-none lg:grid lg:grid-cols-3 lg:gap-6 lg:pb-0"
+          >
+            {filteredPackages.map((pkg, i) => (
+              <div key={pkg.id} className="snap-start flex-shrink-0 w-[85vw] max-w-[360px] lg:w-full lg:max-w-none">
+                <PackageCard pkg={pkg} index={i} tokenAmount={tokenAmount} />
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Mobile Scroll Progress Indicator */}
