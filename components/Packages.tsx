@@ -435,267 +435,164 @@ function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; i
   const cardRef = useRef<HTMLDivElement>(null);
   const inView  = useInView(cardRef, { once: true, margin: "-60px" });
 
-  const waMsg = encodeURIComponent(
-    `Har Har Mahadev! 🙏 I'm interested in the "${pkg.name}" tour package (₹${pkg.price.toLocaleString("en-IN")} for couple). Please share availability and full itinerary.`
-  );
-
-  const isPopular = pkg.popular;
+  const discountPercent = Math.round(((pkg.originalPrice - pkg.price) / pkg.originalPrice) * 100);
 
   return (
     <motion.div
       ref={cardRef}
-      initial={{ opacity: 0, y: 44 }}
+      initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.7, delay: (index % 3) * 0.1, ease: [0.22, 1, 0.36, 1] }}
-      className={`relative flex flex-col w-full rounded-3xl overflow-hidden transition-all duration-500 ${
-        isPopular
-          ? "bg-divine-dark ring-2 ring-gold-500/80 shadow-gold-glow hover:shadow-[0_28px_80px_rgba(212,175,55,0.3)]"
-          : "premium-card shine-effect"
-      }`}
+      transition={{ duration: 0.6, delay: (index % 3) * 0.08, ease: [0.22, 1, 0.36, 1] }}
+      className="relative flex flex-col w-full bg-white rounded-3xl overflow-hidden border border-gray-200/90 shadow-md hover:shadow-xl transition-all duration-300"
     >
-      {/* Popular banner */}
-      {isPopular && (
-        <div className="bg-gold-gradient text-divine-dark text-center py-2.5 text-[11px] font-bold tracking-[0.2em] uppercase flex items-center justify-center gap-2">
-          <Sparkles size={12} />
-          Most Popular — Best Value
-          <Sparkles size={12} />
-        </div>
-      )}
-
-      {/* Featured badge (non-popular) */}
-      {pkg.featured && !isPopular && (
-        <div
-          className="absolute top-4 right-4 z-10 text-[10px] font-bold px-2.5 py-1 rounded-full backdrop-blur-md"
-          style={{ backgroundColor: `${pkg.accent}25`, color: pkg.accent, border: `1px solid ${pkg.accent}40` }}
-        >
-          ✦ Best Value
-        </div>
-      )}
-
-      {/* Package Image */}
-      <Link href={`/packages/${pkg.id}`} className="relative h-28 sm:h-52 w-full overflow-hidden bg-gray-100 flex-shrink-0 block">
+      {/* Package Image & Top Overlay Badges */}
+      <Link href={`/packages/${pkg.id}`} className="relative h-44 sm:h-52 w-full overflow-hidden bg-gray-100 flex-shrink-0 block group">
         <img
           src={pkg.image}
           alt={pkg.name}
-          className="w-full h-full object-cover object-top transition-transform duration-500 hover:scale-105"
+          className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/20" />
+
+        {/* Top-Left Seller/Popular Badge */}
+        {pkg.popular ? (
+          <div className="absolute top-3 left-3 z-10 font-bold text-[10px] px-2.5 py-1 rounded-full bg-gradient-to-r from-red-600 via-orange-600 to-amber-600 text-white flex items-center gap-1 shadow-md uppercase tracking-wider">
+            🔥 BEST SELLER
+          </div>
+        ) : (
+          <div className="absolute top-3 left-3 z-10 font-bold text-[10px] px-2.5 py-1 rounded-full bg-gradient-to-r from-amber-500 to-yellow-500 text-divine-dark flex items-center gap-1 shadow-md uppercase tracking-wider">
+            ⭐ MOST POPULAR
+          </div>
+        )}
+
+        {/* Bottom-Right Duration Badge */}
+        <div className="absolute bottom-3 right-3 z-10 text-[10px] font-bold px-2.5 py-1 rounded-full bg-black/75 backdrop-blur-md text-white flex items-center gap-1 border border-white/15">
+          <Clock size={11} className="text-amber-400" />
+          <span>{pkg.duration}</span>
+        </div>
       </Link>
 
-      <div className="flex flex-col flex-1 p-2.5 sm:p-5">
-        {/* Duration + cities */}
-        <div className="flex flex-wrap items-center gap-1 sm:gap-2 mb-2 sm:mb-4">
-          <span className={`inline-flex items-center gap-1 text-[9px] sm:text-[11px] font-semibold px-1.5 py-0.5 sm:px-3 sm:py-1.5 rounded-full ${
-            isPopular ? "bg-white/10 text-gold-300 border border-gold-500/25" : "bg-gray-50 border border-gray-100 text-gray-500"
-          }`}>
-            <Clock size={10} />
-            {pkg.duration}
-          </span>
-          <span className={`inline-flex items-center gap-1 text-[9px] sm:text-[11px] px-1.5 py-0.5 sm:px-3 sm:py-1.5 rounded-full ${
-            isPopular ? "bg-white/8 text-white/55 border border-white/12" : "bg-gray-50 border border-gray-100 text-gray-400"
-          }`}>
-            <MapPin size={10} />
-            {pkg.cities.join(" · ")}
-          </span>
-        </div>
+      {/* Content Container */}
+      <div className="flex flex-col flex-1 p-4 sm:p-5">
 
-        {/* Name */}
-        <h3 className={`font-playfair font-bold text-xs sm:text-2xl leading-snug mb-1 ${
-          isPopular ? "text-white" : "text-divine-dark"
-        }`}>
-          <Link href={`/packages/${pkg.id}`} className="hover:text-saffron-500 transition-colors">
-            {pkg.name}
-          </Link>
-        </h3>
-        <p className={`text-[10px] sm:text-sm line-clamp-2 mb-3 sm:mb-5 ${isPopular ? "text-gold-300" : "text-gray-400"}`}>
-          {pkg.subtitle}
-        </p>
-
-        {/* Core inclusions icons */}
-        <div className={`flex items-center justify-between mb-5 pb-5 border-b ${
-          isPopular ? "border-white/10" : "border-gray-100"
-        }`}>
-          {coreInclusions.map(({ icon: Icon, label }) => (
-            <div key={label} className="flex flex-col items-center gap-1.5">
-              <div
-                className="w-9 h-9 rounded-xl flex items-center justify-center"
-                style={{ backgroundColor: isPopular ? "rgba(212,175,55,0.12)" : `${pkg.accent}12` }}
-              >
-                <Icon size={16} style={{ color: isPopular ? "#D4AF37" : pkg.accent }} />
-              </div>
-              <span className={`text-[9px] font-medium text-center leading-tight ${
-                isPopular ? "text-white/60" : "text-gray-400"
-              }`}>
-                {label}
-              </span>
-            </div>
+        {/* City Location Pills */}
+        <div className="flex flex-wrap items-center gap-1.5 mb-2.5">
+          {pkg.cities.map((c) => (
+            <span
+              key={c}
+              className="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wide px-2.5 py-0.5 rounded-full bg-[#FFF5EB] text-amber-900 border border-amber-200/60"
+            >
+              <MapPin size={9} className="text-orange-600" />
+              {c}
+            </span>
           ))}
         </div>
 
-        {/* Price & Lock Section */}
-        <div className={`mb-6 flex flex-wrap items-center justify-between gap-2.5 border-t border-b py-4 ${
-          isPopular ? "border-white/10" : "border-gray-100"
-        }`}>
-          {/* Lock Price Pill */}
-          <a
-            href="#get-quote"
-            onClick={() => {
-              const event = new CustomEvent("select-tour", {
-                detail: { tourId: pkg.id, mode: "lock" }
-              });
-              window.dispatchEvent(event);
-            }}
-            className={`flex items-center justify-center gap-1.5 px-3 py-2 rounded-xl text-[11px] sm:text-xs font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] cursor-pointer shadow-sm whitespace-nowrap ${
-              isPopular
-                ? "bg-gradient-to-r from-saffron-500/25 to-amber-500/25 text-amber-200 border border-saffron-500/40 hover:from-saffron-500/35 hover:to-amber-500/35"
-                : "bg-gradient-to-r from-amber-50 to-amber-100/60 text-amber-900 border border-amber-200/80 hover:from-amber-100 hover:to-amber-200/50"
-            }`}
-          >
-            <span className="text-[10px] sm:text-xs">🔒</span>
-            <span>Lock Price at ₹{tokenAmount.toLocaleString("en-IN")}</span>
-            <span className="text-[8px] sm:text-[9px] opacity-70">❯</span>
-          </a>
+        {/* Package Title */}
+        <h3 className="font-playfair font-bold text-lg sm:text-xl text-divine-dark leading-snug mb-1">
+          <Link href={`/packages/${pkg.id}`} className="hover:text-orange-600 transition-colors">
+            {pkg.name}
+          </Link>
+        </h3>
 
-          {/* Pricing */}
-          <div className="text-right flex flex-col justify-end">
-            {pkg.duration === "Same Day Tour" ? (
-              <>
-                <div className="flex items-baseline justify-end gap-1 flex-wrap">
-                  <span className={`text-[10px] sm:text-[11px] line-through mr-0.5 ${
-                    isPopular ? "text-white/35" : "text-gray-400"
-                  }`}>
-                    ₹{pkg.originalPrice.toLocaleString("en-IN")}
-                  </span>
-                  <span className={`font-playfair font-bold text-lg sm:text-2xl leading-none ${
-                    isPopular ? "text-gold-400" : "text-divine-dark"
-                  }`}>
-                    ₹{pkg.price.toLocaleString("en-IN")}
-                  </span>
-                </div>
-                <p className={`text-[8px] sm:text-[9px] mt-1 font-semibold ${isPopular ? "text-white/50" : "text-gray-500"}`}>
-                  (For 3 Pax total)
-                </p>
-              </>
-            ) : (
-              <>
-                <div className="flex items-baseline justify-end gap-1 flex-wrap">
-                  <span className={`text-[10px] sm:text-[11px] line-through mr-0.5 ${
-                    isPopular ? "text-white/35" : "text-gray-400"
-                  }`}>
-                    ₹{(pkg.originalPrice / 2).toLocaleString("en-IN")}
-                  </span>
-                  <span className={`font-playfair font-bold text-lg sm:text-2xl leading-none ${
-                    isPopular ? "text-gold-400" : "text-divine-dark"
-                  }`}>
-                    ₹{(pkg.price / 2).toLocaleString("en-IN")}
-                  </span>
-                  <span className={`text-[9px] sm:text-[10px] font-medium leading-none ${
-                    isPopular ? "text-white/60" : "text-gray-500"
-                  }`}>
-                    /person
-                  </span>
-                </div>
-                <p className={`text-[8px] sm:text-[9px] mt-1 font-medium ${isPopular ? "text-white/40" : "text-gray-400"}`}>
-                  (₹{pkg.price.toLocaleString("en-IN")} total for couple)
-                </p>
-              </>
-            )}
+        {/* Subtitle */}
+        <p className="text-xs text-gray-400 italic line-clamp-1 mb-3.5">
+          {pkg.subtitle}
+        </p>
+
+        {/* Core Inclusions Cream Box */}
+        <div className="bg-[#FFF9F2] border border-amber-200/60 rounded-2xl p-3 mb-3.5 grid grid-cols-2 gap-2 text-xs font-semibold text-gray-700">
+          <div className="flex items-center gap-2">
+            <Car size={14} className="text-orange-600 flex-shrink-0" />
+            <span>AC Transfer</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Hotel size={14} className="text-orange-600 flex-shrink-0" />
+            <span>Best Hotel</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <MapPin size={14} className="text-orange-600 flex-shrink-0" />
+            <span>Sightseeing</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Headphones size={14} className="text-orange-600 flex-shrink-0" />
+            <span>24×7 Support</span>
           </div>
         </div>
 
-        {/* Features */}
-        <ul className="space-y-2.5 flex-1 mb-5">
-          {pkg.features.map((f) => (
-            <li key={f} className="flex items-start gap-2.5">
-              <div
-                className="flex-shrink-0 w-[18px] h-[18px] rounded-full flex items-center justify-center mt-[1px]"
-                style={{
-                  backgroundColor: isPopular ? "rgba(212,175,55,0.15)" : `${pkg.accent}18`,
-                }}
-              >
-                <Check
-                  size={10}
-                  strokeWidth={3}
-                  style={{ color: isPopular ? "#D4AF37" : pkg.accent }}
-                />
-              </div>
-              <span className={`text-[13px] leading-snug ${
-                isPopular ? "text-white/80" : "text-gray-600"
-              }`}>
-                {f}
+        {/* Lock Price Pill */}
+        <a
+          href="#get-quote"
+          onClick={() => {
+            const event = new CustomEvent("select-tour", {
+              detail: { tourId: pkg.id, mode: "lock" }
+            });
+            window.dispatchEvent(event);
+          }}
+          className="w-full flex items-center justify-center gap-1 py-2 px-3 rounded-xl bg-[#FFFBF0] border border-dashed border-amber-300 text-[11px] font-bold text-amber-900 mb-3.5 hover:bg-amber-100 transition-colors cursor-pointer"
+        >
+          <span>🔒</span>
+          <span>LOCK PRICE FOR ₹{tokenAmount.toLocaleString("en-IN")}</span>
+        </a>
+
+        {/* Pricing Section */}
+        <div className="mb-3.5">
+          <div className="flex items-baseline gap-2 mb-0.5">
+            <span className="text-xs text-gray-400 line-through">
+              ₹{pkg.originalPrice.toLocaleString("en-IN")}
+            </span>
+            {discountPercent > 0 && (
+              <span className="bg-emerald-100 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-md">
+                SAVE {discountPercent}%
               </span>
+            )}
+          </div>
+          <div className="flex items-baseline gap-1">
+            <span className="font-playfair font-bold text-2xl text-divine-dark">
+              ₹{pkg.price.toLocaleString("en-IN")}
+            </span>
+            <span className="text-xs font-semibold text-gray-400 uppercase">
+              /PERSON
+            </span>
+          </div>
+          <p className="text-[9px] text-gray-400 mt-0.5 font-medium">
+            *Excluding GST (5%) & monument entries.
+          </p>
+        </div>
+
+        {/* Green Checkmarks List */}
+        <ul className="space-y-1.5 mb-5 flex-1">
+          {pkg.features.slice(0, 4).map((f) => (
+            <li key={f} className="flex items-center gap-2">
+              <div className="w-4 h-4 rounded-full bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                <Check size={10} className="text-emerald-600" strokeWidth={3} />
+              </div>
+              <span className="text-xs font-medium text-gray-700">{f}</span>
             </li>
           ))}
         </ul>
 
-        {/* Urgency note */}
-        {pkg.note && (
-          <div className={`mb-4 text-[12px] font-medium px-3.5 py-2.5 rounded-xl ${
-            isPopular
-              ? "bg-saffron-500/15 text-saffron-300 border border-saffron-500/20"
-              : "bg-amber-50 text-amber-700 border border-amber-100"
-          }`}>
-            🔔 {pkg.note}
-          </div>
-        )}
-
-        {/* Exclusions block inside card */}
-        <div className={`mb-6 pt-4 border-t ${isPopular ? "border-white/10" : "border-gray-100"}`}>
-          <div className={`text-[10px] font-bold uppercase tracking-wider mb-2.5 ${isPopular ? "text-gold-300" : "text-gray-400"}`}>
-            Exclusions & Important Notes:
-          </div>
-          <ul className="space-y-2 text-[11px] leading-tight">
-            <li className="flex items-start gap-2">
-              <span className="flex-shrink-0">✈️</span>
-              <span className={`font-medium ${isPopular ? "text-white/80" : "text-gray-600"}`}>
-                Flight/Train/Bus: Self-book OR we arrange at actual cost
-              </span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-red-500 font-bold text-[10px] mt-[1.5px] flex-shrink-0">✕</span>
-              <span className={isPopular ? "text-white/60" : "text-gray-500"}>
-                5% GST / Service Tax not included in package price
-              </span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-amber-500 font-bold text-[10px] mt-[1.5px] flex-shrink-0">⚠️</span>
-              <span className={isPopular ? "text-white/60" : "text-gray-500"}>
-                Yatra services are provided only with complete package
-              </span>
-            </li>
-          </ul>
-        </div>
-
-        {/* CTA */}
+        {/* Primary CTA */}
         <Link
           href={`/packages/${pkg.id}`}
-          className={`flex items-center justify-center gap-2.5 w-full py-3.5 rounded-2xl text-white font-bold text-[14px] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] ${
-            isPopular
-              ? "bg-gold-gradient text-divine-dark hover:brightness-105"
-              : "hover:brightness-110"
-          }`}
-          style={
-            isPopular
-              ? {}
-              : { backgroundColor: pkg.accent }
-          }
-          data-cta="view-details"
-          data-source="packages"
-          data-package={pkg.id}
+          className="w-full py-3.5 rounded-2xl font-bold text-white text-sm bg-gradient-to-r from-orange-600 via-amber-600 to-orange-500 shadow-md hover:shadow-lg text-center block hover:brightness-105 active:scale-[0.98] transition-all"
         >
-          {pkg.ctaText}
+          {pkg.ctaText || "Get Full Itinerary"}
         </Link>
 
-        <p className={`text-center text-[11px] mt-3 ${
-          isPopular ? "text-white/30" : "text-gray-300"
-        }`}>
-          Confirm with 25% Advance &nbsp;·&nbsp; Or Lock Rates with ₹{tokenAmount.toLocaleString("en-IN")}
-        </p>
+        {/* Secondary Link */}
+        <Link
+          href={`/packages/${pkg.id}`}
+          className="text-center text-xs font-semibold text-gray-500 hover:text-orange-600 mt-2.5 block transition-colors"
+        >
+          View Full Itinerary & Details
+        </Link>
       </div>
     </motion.div>
   );
 }
+
 export default function Packages() {
   const ref   = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
@@ -704,7 +601,7 @@ export default function Packages() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
 
-  const filterCategories = ["All", "Varanasi", "Prayagraj", "Ayodhya"];
+  const filterCategories = ["All", "Varanasi", "Ayodhya", "Prayagraj", "Ujjain", "Gaya"];
 
   const handleScroll = () => {
     if (scrollRef.current) {

@@ -18,6 +18,7 @@ import SemanticContent from "@/components/SemanticContent";
 import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
+import StickyWhatsApp from "@/components/StickyWhatsApp";
 import { faqData } from "@/lib/faqData";
 import {
   getOrganizationSchema,
@@ -105,6 +106,7 @@ export default function Home() {
       </main>
 
       <Footer />
+      <StickyWhatsApp />
     </>
   );
 }
