@@ -126,43 +126,29 @@ export default function StickyWhatsApp() {
               </button>
             </div>
 
-            {/* 3-Button Sticky Mobile Bar */}
-            <div className="bg-[#141722]/95 backdrop-blur-lg border-t border-white/10 shadow-2xl px-3 py-2.5 grid grid-cols-3 gap-2 safe-bottom">
-              {/* Call Now */}
+            {/* 2-Button Sticky Mobile Bar (No WhatsApp Button) */}
+            <div className="bg-[#141722]/95 backdrop-blur-lg border-t border-white/10 shadow-2xl px-4 py-3 grid grid-cols-2 gap-3 safe-bottom">
+              {/* Call Us */}
               <a
                 href="tel:+917011960307"
-                className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-[#1E293B] border border-white/10 text-white font-bold text-xs active:scale-95 transition-transform"
-                aria-label="Call Now"
+                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-[#1E293B] border border-white/10 text-white font-bold text-sm active:scale-95 transition-transform"
+                aria-label="Call Us"
                 data-cta="call"
                 data-source="sticky-mobile"
               >
-                <Phone size={14} className="text-amber-400" />
-                <span className="whitespace-nowrap">Call Now</span>
+                <Phone size={16} className="text-amber-400" />
+                <span className="whitespace-nowrap">Call Us</span>
               </a>
 
-              {/* WhatsApp */}
-              <a
-                href={`https://wa.me/${WA_NUMBER}?text=${WA_MESSAGE}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-[#25D366] text-white font-bold text-xs active:scale-95 transition-transform shadow-md"
-                aria-label="WhatsApp"
-                data-cta="whatsapp"
-                data-source="sticky-mobile"
-              >
-                <WhatsAppIcon />
-                <span className="whitespace-nowrap">WhatsApp</span>
-              </a>
-
-              {/* Get Quote */}
+              {/* Get Free Quote */}
               <a
                 href="#get-quote"
-                className="flex items-center justify-center gap-1.5 py-2.5 rounded-xl bg-gradient-to-r from-orange-600 via-amber-600 to-orange-500 text-white font-bold text-xs active:scale-95 transition-transform shadow-md"
-                aria-label="Get Quote"
+                className="flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r from-orange-600 via-amber-600 to-orange-500 text-white font-bold text-sm active:scale-95 transition-transform shadow-md"
+                aria-label="Get Free Quote"
                 data-cta="scroll-quote"
                 data-source="sticky-mobile"
               >
-                <span className="whitespace-nowrap">Get Quote</span>
+                <span className="whitespace-nowrap">Get Free Quote</span>
               </a>
             </div>
           </motion.div>
