@@ -36,7 +36,7 @@ const slides = [
     price: "7,999",
     priceSuffix: " (For 3 Pax)",
     description: "Varanasi local temples sightseeing with private AC Cab and dedicated Driver-cum-Guide. Includes Kashi Vishwanath and Ganga Aarti boat ride.",
-    image: "/destinations/kashi-vishwanath-gate.jpg",
+    image: "/destinations/kashi-vishwanath-golden-spire.png",
   },
   {
     id: "ayodhya-same-day",

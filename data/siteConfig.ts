@@ -266,7 +266,7 @@ export const tourPackagesData = [
     name: "Varanasi Ganga Aarti Special Yatra",
     subtitle: "Full day Kashi Vishwanath VIP Darshan, Sarnath & Boat Aarti",
     price: 7499,
-    image: "/destinations/kashi-vishwanath-gate.jpg",
+    image: "/destinations/kashi-vishwanath-golden-spire.png",
   },
   {
     id: "ayodhya-same-day",

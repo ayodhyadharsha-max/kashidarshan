@@ -16,7 +16,7 @@ export const packages = [
     cities: ["Varanasi"],
     price: 7999,
     originalPrice: 10999,
-    image: "/destinations/kashi-vishwanath-gate.jpg",
+    image: "/destinations/kashi-vishwanath-golden-spire.png",
     popular: true,
     featured: false,
     ctaText: "Get Tour Details",
