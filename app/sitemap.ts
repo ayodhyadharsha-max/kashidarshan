@@ -2,9 +2,6 @@ import { MetadataRoute } from "next";
 import { siteConfig } from "@/data/siteConfig";
 
 const packageIds = [
-  "sawan-somvar-special",
-  "kashi-kanwar-yatra-2n3d",
-  "sawan-shiva-circuit-3n4d",
   "ayodhya-same-day",
   "varanasi-same-day",
   "ayodhya-1n-2d",

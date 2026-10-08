@@ -38,10 +38,10 @@ const socialLinks = [
 const footerLinks = {
   packages: [
     { label: "Kashi Darshan Package",       href: "#packages" },
-    { label: "Sawan Somvar Special",        href: "#packages" },
+    { label: "Varanasi Ayodhya Yatra",      href: "#packages" },
     { label: "Dev Diwali Special",          href: "#packages" },
     { label: "Varanasi Ganga Aarti Yatra",  href: "#packages" },
-    { label: "Sawan Shiva Circuit",         href: "#packages" },
+    { label: "Full Ramayana Circuit",       href: "#packages" },
   ],
   destinations: [
     { label: "Kashi Vishwanath Temple", href: "#" },

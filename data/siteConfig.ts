@@ -262,46 +262,39 @@ export function getProductSchema(pkg: {
 
 export const tourPackagesData = [
   {
-    id: "sawan-somvar-special",
-    name: "Sawan Somvar Special Yatra",
-    subtitle: "Same day Kashi Vishwanath Jal Abhishek & VIP Darshan",
-    price: 7499,
-    image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    id: "kashi-kanwar-yatra-2n3d",
-    name: "Kashi Sawan Kanwar Yatra",
-    subtitle: "2N/3D Kashi Sawan Abhishek, Ganga Aarti & Sarnath",
-    price: 14998,
-    image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    id: "sawan-shiva-circuit-3n4d",
-    name: "Sawan Shiva & Ram Mandir Circuit",
-    subtitle: "3N/4D Kashi, Prayagraj Sangam & Ayodhya Ram Lalla Yatra",
-    price: 21998,
-    image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
     id: "varanasi-same-day",
     name: "Varanasi Ganga Aarti Special Yatra",
     subtitle: "Full day Kashi Vishwanath VIP Darshan, Sarnath & Boat Aarti",
     price: 7499,
-    image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=1200&auto=format&fit=crop",
+    image: "/destinations/ganga-aarti-varanasi.jpg",
+  },
+  {
+    id: "ayodhya-same-day",
+    name: "Ayodhya Same Day Tour",
+    subtitle: "Complete day trip with private AC cab & driver cum guide",
+    price: 5999,
+    image: "/destinations/ram-mandir-ayodhya.png",
+  },
+  {
+    id: "varanasi-ayodhya-2n3d",
+    name: "Varanasi Ayodhya Yatra",
+    subtitle: "Fast-track yatra for Ram Mandir & Kashi Vishwanath",
+    price: 13998,
+    image: "/destinations/ram-mandir-ayodhya.png",
   },
   {
     id: "ayodhya-varanasi",
     name: "Dev Diwali Special Kashi Yatra",
     subtitle: "3N/4D Kashi Dev Diwali Ghat Lighting, Boat Aarti & Ayodhya Yatra",
     price: 25998,
-    image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=1200&auto=format&fit=crop",
+    image: "/destinations/dev-diwali-varanasi.jpg",
   },
   {
     id: "ayodhya-prayagraj-varanasi",
     name: "Kashi Ayodhya Prayagraj Yatra",
     subtitle: "4N/5D Complete Tirth Yatra covering Kashi, Sangam & Ram Mandir",
     price: 31998,
-    image: "https://images.unsplash.com/photo-1561361513-2d000a50f0dc?q=80&w=1200&auto=format&fit=crop",
+    image: "/destinations/triveni-sangam-prayagraj.jpg",
   },
 ];
 

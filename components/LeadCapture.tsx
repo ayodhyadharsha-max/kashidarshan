@@ -16,9 +16,6 @@ const WEB3FORMS_KEY      = "c79c0151-6af3-404d-9736-d65fe15d1e6b";
 const REDIRECT    = "/thank-you";
 
 const TOURS = [
-  "Sawan Somvar Special Yatra",
-  "Kashi Sawan Kanwar Yatra",
-  "Sawan Shiva & Ram Mandir Circuit",
   "Varanasi Ganga Aarti Special Yatra",
   "Dev Diwali Special Kashi Yatra",
   "Kashi Vishwanath Yatra",
@@ -266,9 +263,6 @@ function LeadForm({ defaultTour, tokenAmount, setTokenAmount }: { defaultTour?: 
       const mode = typeof detail === "object" ? detail?.mode : undefined;
 
       const tourMapping: Record<string, string> = {
-        "sawan-somvar-special": "Sawan Somvar Special Yatra",
-        "kashi-kanwar-yatra-2n3d": "Kashi Sawan Kanwar Yatra",
-        "sawan-shiva-circuit-3n4d": "Sawan Shiva & Ram Mandir Circuit",
         "ayodhya-same-day": "Ayodhya Same Day Tour",
         "varanasi-same-day": "Varanasi Ganga Aarti Special Yatra",
         "prayagraj-same-day": "Prayagraj Same Day Tour",
