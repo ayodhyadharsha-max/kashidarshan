@@ -287,7 +287,7 @@ export const tourPackagesData = [
     name: "Dev Diwali Special Kashi Yatra",
     subtitle: "3N/4D Kashi Dev Diwali Ghat Lighting, Boat Aarti & Ayodhya Yatra",
     price: 25998,
-    image: "/destinations/dev-diwali-fireworks-cruise.jpg",
+    image: "/destinations/dev-diwali-aerial-ghats.jpg",
   },
   {
     id: "ayodhya-prayagraj-varanasi",

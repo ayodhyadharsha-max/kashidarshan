@@ -21,13 +21,22 @@ const particles = [
 
 const slides = [
   {
+    id: "ayodhya-varanasi",
+    name: "Dev Diwali Special Kashi Yatra",
+    duration: "3 NIGHTS / 4 DAYS",
+    price: "12,999",
+    priceSuffix: " / Person",
+    description: "Dev Deepawali 84 Ghats grand illumination, private boat Aarti, Kashi Vishwanath VIP Darshan & Ayodhya Ram Lalla Yatra.",
+    image: "/destinations/dev-diwali-aerial-ghats.jpg",
+  },
+  {
     id: "varanasi-same-day",
     name: "Varanasi Ganga Aarti Special Yatra",
     duration: "SAME DAY TOUR",
     price: "7,999",
     priceSuffix: " (For 3 Pax)",
     description: "Varanasi local temples sightseeing with private AC Cab and dedicated Driver-cum-Guide. Includes Kashi Vishwanath and Ganga Aarti boat ride.",
-    image: "/destinations/ganga-aarti-varanasi.jpg",
+    image: "/destinations/kashi-vishwanath-gate.jpg",
   },
   {
     id: "ayodhya-same-day",
@@ -39,22 +48,13 @@ const slides = [
     image: "/destinations/ram-mandir-ayodhya.png",
   },
   {
-    id: "varanasi-ayodhya-2n3d",
-    name: "Varanasi Ayodhya Yatra",
-    duration: "2 NIGHTS / 3 DAYS",
-    price: "6,999",
-    priceSuffix: " / Person",
-    description: "Fast-track joint yatra covering Kashi Vishwanath, Dashashwamedh Aarti, and Ayodhya Ram Lalla VIP Darshan.",
-    image: "/destinations/ram-mandir-ayodhya.png",
-  },
-  {
     id: "ayodhya-prayagraj-varanasi",
     name: "Ayodhya · Prayagraj · Varanasi",
     duration: "4 NIGHTS / 5 DAYS",
     price: "15,999",
     priceSuffix: " / Person",
     description: "The complete tirthdham circuit covering Triveni Sangam Prayagraj, Ayodhya Ram Mandir & Kashi Vishwanath Temple.",
-    image: "/destinations/triveni-sangam-prayagraj.jpg",
+    image: "/destinations/prayagraj-sangam-boat.jpg",
   }
 ];
 

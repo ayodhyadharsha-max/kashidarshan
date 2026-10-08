@@ -177,7 +177,7 @@ export const packages = [
     cities: ["Ayodhya", "Varanasi"],
     price: 25998,
     originalPrice: 35998,
-    image: "/destinations/dev-diwali-fireworks-cruise.jpg",
+    image: "/destinations/dev-diwali-aerial-ghats.jpg",
     popular: true,
     featured: false,
     ctaText: "Get Full Itinerary",
