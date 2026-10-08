@@ -223,7 +223,7 @@ export const packages = [
     cities: ["Lucknow", "Ayodhya"],
     price: 29998,
     originalPrice: 39998,
-    image: "/destinations/bada-imambara-lucknow.jpg",
+    image: "/destinations/ram-mandir-night-entrance.jpg",
     popular: false,
     featured: false,
     ctaText: "Get Tour Details",
