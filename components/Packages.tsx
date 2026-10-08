@@ -292,7 +292,7 @@ export const packages = [
     cities: ["Varanasi", "Sarnath"],
     price: 22000,
     originalPrice: 30000,
-    image: "/destinations/sarnath-thai-temple.jpg",
+    image: "/destinations/sarnath-thai-buddhist-temple.jpg",
     popular: false,
     featured: false,
     ctaText: "Get Tour Details",
