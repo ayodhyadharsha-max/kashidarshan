@@ -266,7 +266,7 @@ export const tourPackagesData = [
     name: "Varanasi Ganga Aarti Special Yatra",
     subtitle: "Full day Kashi Vishwanath VIP Darshan, Sarnath & Boat Aarti",
     price: 7499,
-    image: "/destinations/ganga-aarti-varanasi.jpg",
+    image: "/destinations/kashi-vishwanath-gate.jpg",
   },
   {
     id: "ayodhya-same-day",
@@ -280,21 +280,21 @@ export const tourPackagesData = [
     name: "Varanasi Ayodhya Yatra",
     subtitle: "Fast-track yatra for Ram Mandir & Kashi Vishwanath",
     price: 13998,
-    image: "/destinations/ram-mandir-ayodhya.png",
+    image: "/destinations/saryu-ghat-ayodhya.jpg",
   },
   {
     id: "ayodhya-varanasi",
     name: "Dev Diwali Special Kashi Yatra",
     subtitle: "3N/4D Kashi Dev Diwali Ghat Lighting, Boat Aarti & Ayodhya Yatra",
     price: 25998,
-    image: "/destinations/dev-diwali-varanasi.jpg",
+    image: "/destinations/dev-diwali-fireworks-cruise.jpg",
   },
   {
     id: "ayodhya-prayagraj-varanasi",
     name: "Kashi Ayodhya Prayagraj Yatra",
     subtitle: "4N/5D Complete Tirth Yatra covering Kashi, Sangam & Ram Mandir",
     price: 31998,
-    image: "/destinations/triveni-sangam-prayagraj.jpg",
+    image: "/destinations/prayagraj-sangam-boat.jpg",
   },
 ];
 
