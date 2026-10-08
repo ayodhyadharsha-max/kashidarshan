@@ -3,7 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
-import { Check, MessageCircle, Clock, MapPin, Hotel, Car, UserCheck, Ticket, Sparkles, Compass, Headphones } from "lucide-react";
+import { Check, MessageCircle, Clock, MapPin, Hotel, Car, UserCheck, Ticket, Sparkles, Compass, Headphones, ChevronLeft, ChevronRight } from "lucide-react";
 
 const WA_NUMBER = "917011960307";
 
@@ -62,7 +62,7 @@ export const packages = [
     cities: ["Ayodhya"],
     price: 9998,
     originalPrice: 13998,
-    image: "/gallery/ayodhya-1n-2d.jpg",
+    image: "/destinations/kanak-bhawan-ayodhya.jpg",
     popular: false,
     featured: false,
     ctaText: "Get Tour Details",
@@ -85,7 +85,7 @@ export const packages = [
     cities: ["Varanasi"],
     price: 9998,
     originalPrice: 13998,
-    image: "/destinations/nepali-temple-varanasi.jpg",
+    image: "/destinations/kashi-vishwanath-varanasi.jpg",
     popular: false,
     featured: false,
     ctaText: "Get Tour Details",
@@ -108,7 +108,7 @@ export const packages = [
     cities: ["Varanasi", "Ayodhya"],
     price: 13998,
     originalPrice: 18998,
-    image: "/destinations/ram-mandir-ayodhya.png",
+    image: "/destinations/saryu-ghat-ayodhya.jpg",
     popular: true,
     featured: false,
     ctaText: "Get Tour Details",
@@ -154,7 +154,7 @@ export const packages = [
     cities: ["Ayodhya"],
     price: 14998,
     originalPrice: 20998,
-    image: "/destinations/ram-mandir-ayodhya.png",
+    image: "/destinations/ram-ki-paidi-ayodhya.jpg",
     popular: false,
     featured: false,
     ctaText: "Get Tour Details",
@@ -200,7 +200,7 @@ export const packages = [
     cities: ["Ayodhya", "Prayagraj", "Varanasi"],
     price: 31998,
     originalPrice: 43998,
-    image: "/destinations/triveni-sangam-prayagraj.jpg",
+    image: "/destinations/prayagraj-sangam-boat.jpg",
     popular: false,
     featured: true,
     ctaText: "Get Full Itinerary",
@@ -269,7 +269,7 @@ export const packages = [
     cities: ["Ayodhya", "Prayagraj", "Varanasi", "Chitrakoot"],
     price: 36998,
     originalPrice: 49998,
-    image: "/destinations/ram-mandir-ayodhya.png",
+    image: "/destinations/varanasi-ghats-night.jpg",
     popular: false,
     featured: true,
     ctaText: "Talk To Tour Expert",
@@ -363,19 +363,10 @@ export const coreInclusions = [
 ];
 
 function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; index: number; tokenAmount: number }) {
-  const cardRef = useRef<HTMLDivElement>(null);
-  const inView  = useInView(cardRef, { once: true, margin: "-60px" });
-
   const discountPercent = Math.round(((pkg.originalPrice - pkg.price) / pkg.originalPrice) * 100);
 
   return (
-    <motion.div
-      ref={cardRef}
-      initial={{ opacity: 0, y: 30 }}
-      animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.6, delay: (index % 3) * 0.08, ease: [0.22, 1, 0.36, 1] }}
-      className="relative flex flex-col w-full bg-white rounded-3xl overflow-hidden border border-gray-200/90 shadow-md hover:shadow-xl transition-all duration-300"
-    >
+    <div className="relative flex flex-col w-full h-full bg-white rounded-3xl overflow-hidden border border-gray-200/90 shadow-md hover:shadow-xl transition-all duration-300">
       {/* Package Image & Top Overlay Badges */}
       <Link href={`/packages/${pkg.id}`} className="relative h-44 sm:h-52 w-full overflow-hidden bg-gray-100 flex-shrink-0 block group">
         <img
@@ -520,7 +511,7 @@ function PackageCard({ pkg, index, tokenAmount }: { pkg: (typeof packages)[0]; i
           View Full Itinerary & Details
         </Link>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -541,6 +532,18 @@ export default function Packages() {
       if (totalScroll > 0) {
         setScrollProgress((scrollLeft / totalScroll) * 100);
       }
+    }
+  };
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -360, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 360, behavior: "smooth" });
     }
   };
 
@@ -587,29 +590,65 @@ export default function Packages() {
           </div>
         </motion.div>
 
-        {/* Filter Pills */}
-        <div className="flex items-center justify-center gap-2 overflow-x-auto pb-2 mb-8 scrollbar-none">
-          {filterCategories.map((cat) => (
+        {/* Filter Pills & Slide Control Buttons */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8">
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 sm:pb-0 scrollbar-none w-full sm:w-auto justify-start sm:justify-center">
+            {filterCategories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setActiveFilter(cat)}
+                className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 ${
+                  activeFilter === cat
+                    ? "bg-saffron-600 text-white shadow-md scale-105"
+                    : "bg-white text-gray-600 border border-gray-200 hover:border-saffron-300"
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          {/* Carousel Arrow Controls */}
+          <div className="flex items-center gap-2 flex-shrink-0 self-end sm:self-center">
             <button
-              key={cat}
-              onClick={() => setActiveFilter(cat)}
-              className={`px-4 py-2 rounded-full text-xs font-semibold whitespace-nowrap transition-all duration-200 ${
-                activeFilter === cat
-                  ? "bg-saffron-600 text-white shadow-md scale-105"
-                  : "bg-white text-gray-600 border border-gray-200 hover:border-saffron-300"
-              }`}
+              onClick={scrollLeft}
+              aria-label="Previous package"
+              className="w-10 h-10 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-gray-700 hover:bg-saffron-50 hover:border-saffron-300 hover:text-saffron-600 transition-all active:scale-95 cursor-pointer"
             >
-              {cat}
+              <ChevronLeft size={20} />
             </button>
-          ))}
+            <button
+              onClick={scrollRight}
+              aria-label="Next package"
+              className="w-10 h-10 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-gray-700 hover:bg-saffron-50 hover:border-saffron-300 hover:text-saffron-600 transition-all active:scale-95 cursor-pointer"
+            >
+              <ChevronRight size={20} />
+            </button>
+          </div>
         </div>
 
         {/* Cards grid / Mobile swipable carousel */}
-        <div className="w-full max-w-full overflow-hidden">
+        <div className="relative group/carousel w-full max-w-full">
+          {/* Side Floating Nav Buttons for Desktop */}
+          <button
+            onClick={scrollLeft}
+            aria-label="Scroll left"
+            className="hidden lg:flex absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/95 backdrop-blur-md border border-gray-200 shadow-lg items-center justify-center text-gray-800 hover:bg-saffron-600 hover:text-white hover:border-saffron-600 transition-all active:scale-95 cursor-pointer"
+          >
+            <ChevronLeft size={22} />
+          </button>
+          <button
+            onClick={scrollRight}
+            aria-label="Scroll right"
+            className="hidden lg:flex absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/95 backdrop-blur-md border border-gray-200 shadow-lg items-center justify-center text-gray-800 hover:bg-saffron-600 hover:text-white hover:border-saffron-600 transition-all active:scale-95 cursor-pointer"
+          >
+            <ChevronRight size={22} />
+          </button>
+
           <div
             ref={scrollRef}
             onScroll={handleScroll}
-            className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scrollbar-none lg:grid lg:grid-cols-3 lg:gap-6 lg:pb-0"
+            className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 scroll-smooth scrollbar-none lg:grid lg:grid-cols-3 lg:gap-6 lg:pb-0"
           >
             {filteredPackages.map((pkg, i) => (
               <div key={pkg.id} className="snap-start flex-shrink-0 w-[85vw] max-w-[360px] lg:w-full lg:max-w-none">
